@@ -112,13 +112,13 @@ export default function PracticePageWithDomains() {
 
       {question && (
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col justify-start">
+            <span className="mb-2 px-3 py-1 bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold uppercase tracking-wider">
+              {selectedDomain}
+            </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 flex-1">
               {question.title}
             </h2>
-            <span className="ml-4 px-3 py-1 bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold uppercase tracking-wider">
-              {selectedDomain}
-            </span>
           </div>
 
           <p className="text-base leading-relaxed">{question.description}</p>
