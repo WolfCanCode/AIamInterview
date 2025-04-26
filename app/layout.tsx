@@ -25,6 +25,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/app/favicon.ico" type="image/x-icon" />
+        <meta property="og:title" content="Iterview" />
+        <meta
+          property="og:description"
+          content="An AI-powered web application to practice coding interviews across multiple domains."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/app/favicon.ico" />
+        <meta property="og:url" content="https://iterview-ai.vercel.app" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Iterview" />
+        <meta
+          name="twitter:description"
+          content="An AI-powered web application to practice coding interviews across multiple domains."
+        />
+        <meta name="twitter:image" content="/app/favicon.ico" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
