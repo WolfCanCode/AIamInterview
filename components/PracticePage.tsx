@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useTransition } from 'react';
 import { getQuestionAction } from '@/actions/getQuestionAction';
 import { submitAnswerAction } from '@/actions/submitAnswerAction';
-import { domains } from '@/utils/constants/domain';
-import { Question } from '@/types/Question';
 import { Evaluation } from '@/types/Evaluation';
+import { Question } from '@/types/Question';
+import { domains } from '@/utils/constants/domain';
+import { useState, useTransition } from 'react';
 
 export default function PracticePageWithDomains() {
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
@@ -56,7 +56,7 @@ export default function PracticePageWithDomains() {
 
       {!selectedDomain && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-          {domains.map((d, idx) => (
+          {domains.map((d) => (
             <button
               key={d.name}
               onClick={() => handleSelectDomain(d.name)}
