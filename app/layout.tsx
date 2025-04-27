@@ -33,7 +33,10 @@ export default function RootLayout({
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo.png" />
+        <meta
+          property="og:image"
+          content="https://iterview-ai.vercel.app/logo.png"
+        />
         <meta property="og:url" content="https://iterview-ai.vercel.app" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Iterview" />
