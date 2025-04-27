@@ -29,6 +29,7 @@ export async function submitAnswerAction(question: string, answer: string) {
             - Đánh giá tổng thể mức độ hiểu biết, khả năng sáng tạo và sự chính xác của câu trả lời.
             - Chấm điểm khó tính: Nếu trả lời lạc đề, thiếu ý chính hoặc thể hiện không hiểu vấn đề, cho 0 điểm. Không "nương tay" cho những câu trả lời mơ hồ, sai hoặc né tránh.
             - Cần lý giải tại sao cho điểm như vậy.
+            - Nếu trả lời dạng "không biết" "Chịu thua" "Chịu" "Không hiểu" thì điểm chắc chắn là 0 và không đạt yêu cầu.
 
             Thang điểm:
             - "overall_score": Tổng thể, thang 0-10.
@@ -39,7 +40,7 @@ export async function submitAnswerAction(question: string, answer: string) {
             - Không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.
 
             Định dạng đầu ra:
-            - Bắt buộc xuất ra duy nhất một JSON chuẩn, không thêm giải thích, không thêm ký tự thừa:
+            - Bắt buộc xuất ra **duy nhất** một JSON chuẩn, không thêm giải thích, không thêm ký tự thừa:
             {
               "overall_score": number,
               "creative_score": number,
