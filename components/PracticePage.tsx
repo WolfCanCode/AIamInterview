@@ -249,7 +249,7 @@ export default function PracticePageWithDomains() {
       )}
       <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-500 dark:text-gray-400 text-sm flex flex-col items-center gap-2">
         <span>
-          Make by Tommy (Wolf) with love{' '}
+          Made by Tommy (Wolf) with love{' '}
           <span className="inline-block animate-bounce">❤️</span>
         </span>
         <span className="text-xs text-gray-400">
