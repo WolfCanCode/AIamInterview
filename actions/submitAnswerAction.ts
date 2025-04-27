@@ -24,18 +24,25 @@ export async function submitAnswerAction(question: string, answer: string) {
 
             Và câu trả lời của ứng viên:
             "${answer}"
+            
+            Chấm điểm khó tính nhất có thể, lạc đề hay nói không biết thì cho 0 điểm thay vì cho 2 hay 3 điểm.
 
-            Hãy đánh giá và trả lời CHỈ dưới dạng JSON, KHÔNG thêm giải thích:
-            {
-              "correctness_score": number,
-              "clarity_score": number,
-              "time_complexity": "string",
-              "suggestions": "string"
-            }
+            Hai trường overall_score và creative_score trên thang điểm 10.
+            
 
             Yêu cầu:
             - Viết tất cả nội dung, bao gồm phần suggestions, bằng tiếng Việt hoàn toàn.
             - Không sử dụng tiếng Anh hoặc ngôn ngữ khác.
+
+            Output JSON, KHÔNG thêm giải thích:
+            {
+              "overall_score": number,
+              "creative_score": number,
+              "result_text": "string",
+              "suggestions": "string"
+            }
+
+            
           `,
           },
         ],

@@ -23,9 +23,18 @@ export default function PracticePageWithDomains() {
   };
 
   const handleGetQuestion = () => {
+    const getKeyDomain = (name: string): string => {
+      if (!name) return '';
+      return domains.find((d) => d.name === name)?.key || '';
+    };
     if (!selectedDomain) return;
+    console.log(selectedDomain, getKeyDomain(selectedDomain));
+
     startTransition(async () => {
-      const data = await getQuestionAction(selectedDomain, 'Medium');
+      const data = await getQuestionAction(
+        getKeyDomain(selectedDomain),
+        'Medium'
+      );
       setQuestion(data);
       setAnswer('');
       setEvaluation(null);
@@ -44,14 +53,13 @@ export default function PracticePageWithDomains() {
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-6 space-y-8">
       <header className="mb-8 flex flex-col items-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-blue-700 dark:text-blue-400 relative inline-block">
+        <h1
+          onClick={() => (location.href = '/')}
+          className="text-4xl sm:text-5xl font-extrabold text-center text-blue-700 dark:text-blue-400 relative inline-block cursor-pointer"
+        >
           ITerview
           <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-0 group-hover:w-2/3 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow"></span>
         </h1>
-        <p className="mt-2 text-center text-gray-500 dark:text-gray-300 text-base sm:text-lg">
-          Practice coding interviews, get instant feedback, and level up your
-          skills!
-        </p>
       </header>
 
       {!selectedDomain && (
@@ -73,47 +81,58 @@ export default function PracticePageWithDomains() {
       )}
 
       {selectedDomain && (!question || evaluation) && (
-        <button
-          onClick={handleGetQuestion}
-          className="bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 hover:from-green-600 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block"
-          disabled={isPending}
-        >
-          {isPending ? (
-            <>
-              <svg
-                className="animate-spin h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v8H4z"
-                ></path>
-              </svg>
-              <span>Đang tạo câu hỏi...</span>
-            </>
-          ) : evaluation ? (
-            'Câu hỏi tiếp theo'
-          ) : (
-            'Bắt đầu'
-          )}
-        </button>
+        <>
+          <button
+            onClick={() => setSelectedDomain(null)}
+            className="mb-4 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-6 py-2 rounded-lg font-medium shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 block mx-auto"
+            type="button"
+          >
+            ← Quay lại
+          </button>
+          <h2 className="text-center text-2xl">{selectedDomain}</h2>
+
+          <button
+            onClick={handleGetQuestion}
+            className="bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 hover:from-green-600 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block"
+            disabled={isPending}
+          >
+            {isPending ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  ></path>
+                </svg>
+                <span>Đang tạo câu hỏi...</span>
+              </>
+            ) : evaluation ? (
+              'Câu hỏi tiếp theo'
+            ) : (
+              'Bắt đầu'
+            )}
+          </button>
+        </>
       )}
 
       {question && (
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in">
           <div className="flex flex-col justify-start">
-            <span className="mb-2 px-3 py-1 bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold uppercase tracking-wider">
+            <span className="w-fit mb-2 px-3 py-1 bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-semibold uppercase tracking-wider">
               {selectedDomain}
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 flex-1">
@@ -204,19 +223,19 @@ export default function PracticePageWithDomains() {
             <div className="flex-1 bg-white/70 dark:bg-gray-900/70 rounded-xl p-4 flex flex-col items-center shadow">
               <span className="text-3xl">🎯</span>
               <p className="mt-2">
-                <b>Điểm chính xác:</b> {evaluation.correctness_score}/10
+                <b>Điểm tổng:</b> {evaluation.overall_score}/10
               </p>
             </div>
             <div className="flex-1 bg-white/70 dark:bg-gray-900/70 rounded-xl p-4 flex flex-col items-center shadow">
               <span className="text-3xl">💡</span>
               <p className="mt-2">
-                <b>Điểm rõ ràng:</b> {evaluation.clarity_score}/10
+                <b>Điểm sáng tạo:</b> {evaluation.creative_score}/10
               </p>
             </div>
             <div className="flex-1 bg-white/70 dark:bg-gray-900/70 rounded-xl p-4 flex flex-col items-center shadow">
               <span className="text-3xl">⚡</span>
               <p className="mt-2">
-                <b>Hiệu quả:</b> {evaluation.time_complexity}
+                <b>Kết quả:</b> {evaluation.result_text}
               </p>
             </div>
           </div>

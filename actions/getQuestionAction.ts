@@ -21,16 +21,17 @@ export async function getQuestionAction(topic: string, difficulty: string) {
 
             Hãy tạo một câu hỏi luyện tập phỏng vấn mới nhất thuộc lĩnh vực "${topic}" với độ khó "${difficulty}".
 
-            Yêu cầu trả lời CHỈ dưới dạng JSON, không thêm lời giải thích:
+            Yêu cầu:
+            - Viết tất cả nội dung, bằng tiếng Việt hoàn toàn.
+            - Không sử dụng tiếng Anh hoặc ngôn ngữ khác.
+            
+            Output JSON, không thêm lời giải thích:
             {
               "title": "string",
               "description": "string",
               "constraints": ["string"],
             }
 
-            Yêu cầu:
-            - Viết tất cả nội dung, bằng tiếng Việt hoàn toàn.
-            - Không sử dụng tiếng Anh hoặc ngôn ngữ khác.
           `,
           },
         ],

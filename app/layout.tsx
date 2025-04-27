@@ -33,7 +33,7 @@ export default function RootLayout({
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/app/favicon.ico" />
+        <meta property="og:image" content="/app/logo.png" />
         <meta property="og:url" content="https://iterview-ai.vercel.app" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Iterview" />
@@ -42,6 +42,9 @@ export default function RootLayout({
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta name="twitter:image" content="/app/favicon.ico" />
+        <meta property="og:site_name" content="Iterview" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
