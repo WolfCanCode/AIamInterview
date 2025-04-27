@@ -101,8 +101,8 @@ User -> Vercel Edge -> Server Action -> Hugging Face Router -> DeepSeek Model ->
 
 ## 🚀 Future Plans
 
-- [ ] Add more domains (Legal, Finance, Healthcare)
-- [ ] Adaptive difficulty levels
+- [x] Add more domains (Legal, Finance, Healthcare)
+- [x] Adaptive difficulty levels
 - [ ] Ranking and scoring leaderboard
 - [ ] Offline practice mode
 - [ ] Multilingual support.
