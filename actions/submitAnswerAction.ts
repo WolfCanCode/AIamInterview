@@ -12,7 +12,7 @@ export async function submitAnswerAction(question: string, answer: string) {
       body: JSON.stringify({
         model: 'deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct-fast',
         stream: false,
-        max_tokens: 512,
+        max_tokens: 1024,
         messages: [
           {
             role: 'user',
