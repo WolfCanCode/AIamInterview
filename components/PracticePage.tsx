@@ -55,13 +55,22 @@ export default function PracticePageWithDomains() {
     });
   };
 
+  const goBack = () => {
+    startTransition(async () => {
+      setAnswer('');
+      setQuestion(null);
+      setEvaluation(null);
+      setSelectedDomain(null);
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
       <div className="max-w-4xl mx-auto p-4 sm:p-6 space-y-8 bg-gray-900 rounded-3xl shadow-2xl">
         <header className="mb-8 flex flex-col items-center">
           <div className="flex w-full justify-between items-center">
             <h1
-              onClick={() => (location.href = '/')}
+              onClick={goBack}
               className="group text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-3 drop-shadow-lg"
             >
               {/* Animated Logo Icon */}
@@ -143,18 +152,50 @@ export default function PracticePageWithDomains() {
 
         {selectedDomain && (!question || evaluation) && (
           <>
-            <button
-              onClick={() => setSelectedDomain(null)}
-              className="mb-4 bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-medium shadow hover:bg-gray-300 transition-all duration-200 block mx-auto"
-              type="button"
-            >
-              ← Quay lại
-            </button>
-            <h2 className="text-center text-2xl">{selectedDomain}</h2>
+            {/* Modern Animated Domain Banner */}
+            <div className="relative flex flex-col items-center justify-center mb-8 animate-fade-in">
+              <button
+                onClick={() => setSelectedDomain(null)}
+                className="absolute -top-4 -left-4 sm:top-4 sm:left-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-800 via-blue-700 to-cyan-700 text-white shadow-lg hover:scale-110 hover:from-blue-700 hover:to-cyan-600 active:scale-95 transition-all duration-200 border-2 border-blue-900/60 focus:outline-none focus:ring-4 focus:ring-blue-400/40"
+                type="button"
+                aria-label="Quay lại"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-7 h-7"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <div className="w-full max-w-xl mx-auto bg-gradient-to-br from-blue-900/70 to-gray-800/80 rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col items-center gap-3 backdrop-blur-md border border-blue-800/40">
+                <span className="text-5xl sm:text-6xl animate-bounce-slow drop-shadow-lg">
+                  {domains.find((d) => d.name === selectedDomain)?.icon || '❓'}
+                </span>
+                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-300 via-blue-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-md text-center">
+                  {selectedDomain}
+                </span>
+                <span className="text-base sm:text-lg text-blue-100 text-center font-medium mt-1 animate-fade-in-slow">
+                  {domains.find((d) => d.name === selectedDomain)?.description}
+                </span>
+              </div>
+              {/* Progress Indicator */}
+              <div className="mt-4 flex items-center gap-2 text-blue-300 text-sm font-semibold tracking-wide animate-fade-in-slow">
+                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                Ready to start your interview!
+              </div>
+            </div>
 
             <button
               onClick={handleGetQuestion}
-              className="bg-gradient-to-r from-green-500 to-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 hover:from-green-600 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block"
+              className="bg-gradient-to-r from-green-500 to-green-700 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-xl hover:scale-105 hover:from-green-600 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block animate-pulse focus:outline-none focus:ring-4 focus:ring-green-400/40"
               disabled={isPending}
             >
               {isPending ? (
@@ -275,34 +316,70 @@ export default function PracticePageWithDomains() {
         )}
 
         {evaluation && (
-          <div className="bg-gradient-to-br from-green-50 to-green-100 text-gray-900 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-4 animate-fade-in">
-            <h4 className="text-lg font-bold flex items-center gap-2">
-              <span className="text-green-500 text-2xl">✔️</span> Kết quả đánh
-              giá:
-            </h4>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1 bg-white/70 rounded-xl p-4 flex flex-col items-center shadow">
-                <span className="text-3xl">🎯</span>
-                <p className="mt-2">
-                  <b>Điểm tổng:</b> {evaluation.overall_score}/10
-                </p>
+          <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-8 sm:p-12 rounded-3xl shadow-2xl space-y-8 animate-fade-in overflow-hidden border border-gray-700/60">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-green-400 text-3xl">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="inline w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </span>
+              <h4 className="text-2xl font-extrabold text-green-300 tracking-tight">
+                Kết quả đánh giá
+              </h4>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+              {/* Score Badges */}
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-green-400 bg-gray-900 text-green-200 text-4xl font-bold shadow-lg animate-scale-in">
+                  {evaluation.overall_score}
+                </div>
+                <span className="text-green-400 font-semibold">Điểm tổng</span>
               </div>
-              <div className="flex-1 bg-white/70 rounded-xl p-4 flex flex-col items-center shadow">
-                <span className="text-3xl">💡</span>
-                <p className="mt-2">
-                  <b>Điểm sáng tạo:</b> {evaluation.creative_score}/10
-                </p>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-blue-400 bg-gray-900 text-blue-200 text-4xl font-bold shadow-lg animate-scale-in">
+                  {evaluation.creative_score}
+                </div>
+                <span className="text-blue-400 font-semibold">
+                  Điểm sáng tạo
+                </span>
               </div>
-              <div className="flex-1 bg-white/70 rounded-xl p-4 flex flex-col items-center shadow">
-                <span className="text-3xl">⚡</span>
-                <p className="mt-2">
-                  <b>Kết quả:</b> {evaluation.result_text}
-                </p>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-yellow-300 bg-gray-900 text-yellow-200 text-4xl font-bold shadow-lg animate-scale-in">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-8 h-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <span className="inline-block px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-200 font-semibold text-sm mt-1">
+                  {evaluation.result_text}
+                </span>
               </div>
             </div>
-            <div className="mt-4 bg-blue-50 rounded-xl p-4 flex items-center gap-2">
-              <span className="text-2xl">📝</span>
-              <p>
+            {/* Suggestions Inline Card */}
+            <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+              <span className="text-2xl mt-1">📝</span>
+              <p className="text-blue-100 font-medium">
                 <b>Gợi ý:</b> {evaluation.suggestions}
               </p>
             </div>
