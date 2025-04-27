@@ -17,22 +17,23 @@ export async function getQuestionAction(topic: string, difficulty: string) {
           {
             role: 'user',
             content: `
-            Bạn là một chuyên gia phỏng vấn về lĩnh vực "${topic}".
+            Bạn là một chuyên gia phỏng vấn cấp cao trong lĩnh vực "${topic}".
 
-            Hãy tạo một câu hỏi luyện tập phỏng vấn mới nhất thuộc lĩnh vực "${topic}" với độ khó "${difficulty}".
+Nhiệm vụ:
+- Tạo một câu hỏi luyện tập phỏng vấn hoàn toàn mới, thuộc lĩnh vực "${topic}", với độ khó "${difficulty}".
+- Nội dung cần rõ ràng, ngắn gọn, dễ hiểu, phù hợp với ứng viên ở cấp độ tương ứng.
 
-            Yêu cầu:
-            - Viết tất cả nội dung, bằng tiếng Việt hoàn toàn.
-            - Không sử dụng tiếng Anh hoặc ngôn ngữ khác.
-            
-            Output JSON, không thêm lời giải thích:
-            {
-              "title": "string",
-              "description": "string",
-              "constraints": ["string"],
-            }
+Yêu cầu ngôn ngữ:
+- Viết toàn bộ bằng tiếng Việt chuẩn mực, không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.
+- Tránh lỗi chính tả, ngữ pháp.
 
-          `,
+Định dạng đầu ra:
+- Bắt buộc xuất ra **duy nhất** một JSON như sau, không thêm lời giải thích hay ký tự thừa:
+{
+  "title": "string",
+  "description": "string",
+  "constraints": ["string"]
+}`,
           },
         ],
       }),
