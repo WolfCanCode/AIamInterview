@@ -1,53 +1,127 @@
-export const domains = [
+export const domainGroups = [
   {
-    name: 'Software Development (Backend)',
+    group: 'Công nghệ',
     icon: '💻',
-    key: 'Software Engineering Backend',
-    description: 'Xây dựng hệ thống backend và API mạnh mẽ, dễ mở rộng.',
+    domains: [
+      {
+        name: 'Lập trình Backend',
+        icon: '💻',
+        key: 'Backend',
+        description: 'Xây dựng hệ thống backend và API mạnh mẽ, dễ mở rộng.',
+      },
+      {
+        name: 'Lập trình Frontend',
+        icon: '🖥️',
+        key: 'Frontend',
+        description:
+          'Tạo ra trải nghiệm người dùng đẹp mắt, tương tác trên web.',
+      },
+      {
+        name: 'DevOps',
+        icon: '⚙️',
+        key: 'DevOps',
+        description:
+          'Tối ưu hóa quy trình phát triển, triển khai và vận hành hệ thống.',
+      },
+      {
+        name: 'Bảo mật',
+        icon: '🔒',
+        key: 'Security',
+        description: 'Bảo vệ hệ thống và dữ liệu khỏi các mối đe dọa.',
+      },
+      {
+        name: 'Khoa học dữ liệu',
+        icon: '📊',
+        key: 'Data Science',
+        description: 'Phân tích và khai thác dữ liệu để tạo giá trị.',
+      },
+      {
+        name: 'Lập trình di động',
+        icon: '📱',
+        key: 'Mobile',
+        description: 'Phát triển ứng dụng cho thiết bị di động.',
+      },
+      {
+        name: 'Trí tuệ nhân tạo',
+        icon: '🤖',
+        key: 'AI/ML',
+        description: 'Ứng dụng AI và Machine Learning vào thực tiễn.',
+      },
+    ],
   },
   {
-    name: 'Software Development (Frontend)',
-    icon: '🖥️',
-    key: 'Software Engineering Frontend',
-    description: 'Tạo ra trải nghiệm người dùng đẹp mắt, tương tác trên web.',
-  },
-  {
-    name: 'UI/UX Design',
+    group: 'Thiết kế',
     icon: '🎨',
-    key: 'UI/UX Design',
-    description: 'Thiết kế sản phẩm số trực quan, hấp dẫn và dễ sử dụng.',
+    domains: [
+      {
+        name: 'Thiết kế UI/UX',
+        icon: '🎨',
+        key: 'UI/UX',
+        description: 'Thiết kế sản phẩm số trực quan, hấp dẫn và dễ sử dụng.',
+      },
+      {
+        name: 'Thiết kế đồ họa',
+        icon: '🖌️',
+        key: 'Graphic Design',
+        description: 'Sáng tạo hình ảnh, poster, nhận diện thương hiệu.',
+      },
+      {
+        name: 'Thiết kế sản phẩm',
+        icon: '📦',
+        key: 'Product Design',
+        description: 'Thiết kế và phát triển sản phẩm thực tế.',
+      },
+    ],
   },
   {
-    name: 'Kinh doanh',
+    group: 'Kinh doanh & Marketing',
     icon: '📈',
-    key: 'Business Strategy',
-    description:
-      'Thúc đẩy tăng trưởng và đổi mới với chiến lược kinh doanh thông minh.',
+    domains: [
+      {
+        name: 'Chiến lược kinh doanh',
+        icon: '📈',
+        key: 'Business Strategy',
+        description:
+          'Thúc đẩy tăng trưởng và đổi mới với chiến lược kinh doanh thông minh.',
+      },
+      {
+        name: 'Marketing',
+        icon: '📢',
+        key: 'Marketing',
+        description:
+          'Tạo ra các chiến dịch marketing sáng tạo, truyền cảm hứng và kết nối.',
+      },
+      {
+        name: 'Bán hàng',
+        icon: '💼',
+        key: 'Sales',
+        description: 'Kỹ năng bán hàng và phát triển khách hàng.',
+      },
+      {
+        name: 'Nhân sự',
+        icon: '🤝',
+        key: 'Human Resources',
+        description: 'Phát triển con người và xây dựng đội ngũ vững mạnh.',
+      },
+    ],
   },
   {
-    name: 'Marketing',
-    icon: '🎨',
-    key: 'Marketing Campaign',
-    description:
-      'Tạo ra các chiến dịch marketing sáng tạo, truyền cảm hứng và kết nối.',
-  },
-  {
-    name: 'Luật (Pháp lý)',
+    group: 'Pháp lý & Y tế',
     icon: '⚖️',
-    key: 'Legal Analysis',
-    description:
-      'Phân tích, đánh giá các khung pháp lý và tình huống thực tiễn.',
-  },
-  {
-    name: 'Y học',
-    icon: '🧪',
-    key: 'Medical Diagnosis',
-    description: 'Chẩn đoán và giải quyết các vấn đề y khoa phức tạp.',
-  },
-  {
-    name: 'Nhân sự',
-    icon: '🤝',
-    key: 'Human Resources',
-    description: 'Phát triển con người và xây dựng đội ngũ vững mạnh.',
+    domains: [
+      {
+        name: 'Pháp lý',
+        icon: '⚖️',
+        key: 'Legal',
+        description:
+          'Phân tích, đánh giá các khung pháp lý và tình huống thực tiễn.',
+      },
+      {
+        name: 'Y học',
+        icon: '🧪',
+        key: 'Medical',
+        description: 'Chẩn đoán và giải quyết các vấn đề y khoa phức tạp.',
+      },
+    ],
   },
 ];
