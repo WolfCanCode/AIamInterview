@@ -5,7 +5,7 @@ import { submitAnswerAction } from '@/actions/submitAnswerAction';
 import { Evaluation } from '@/types/Evaluation';
 import { Question } from '@/types/Question';
 import { domains } from '@/utils/constants/domain';
-import { useState, useTransition, useEffect } from 'react';
+import { useState, useTransition, useEffect, useRef } from 'react';
 
 export default function PracticePageWithDomains() {
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
@@ -13,11 +13,22 @@ export default function PracticePageWithDomains() {
   const [answer, setAnswer] = useState('');
   const [evaluation, setEvaluation] = useState<Evaluation | null>(null);
   const [isPending, startTransition] = useTransition();
+  const evaluationRef = useRef<HTMLDivElement | null>(null);
 
   // Always enable dark mode on mount
   useEffect(() => {
     document.documentElement.classList.add('dark');
   }, []);
+
+  // Scroll to evaluation when it appears
+  useEffect(() => {
+    if (evaluation && evaluationRef.current) {
+      evaluationRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }, [evaluation]);
 
   const handleSelectDomain = (domain: string) => {
     startTransition(async () => {
@@ -156,7 +167,7 @@ export default function PracticePageWithDomains() {
             <div className="relative flex flex-col items-center justify-center mb-8 animate-fade-in">
               <button
                 onClick={() => setSelectedDomain(null)}
-                className="absolute -top-4 -left-4 sm:top-4 sm:left-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-800 via-blue-700 to-cyan-700 text-white shadow-lg hover:scale-110 hover:from-blue-700 hover:to-cyan-600 active:scale-95 transition-all duration-200 border-2 border-blue-900/60 focus:outline-none focus:ring-4 focus:ring-blue-400/40"
+                className="absolute top-4 left-4 sm:top-4 sm:left-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-800 via-blue-700 to-cyan-700 text-white shadow-lg hover:scale-110 hover:from-blue-700 hover:to-cyan-600 active:scale-95 transition-all duration-200 border-2 border-blue-900/60 focus:outline-none focus:ring-4 focus:ring-blue-400/40"
                 type="button"
                 aria-label="Quay lại"
               >
@@ -316,7 +327,10 @@ export default function PracticePageWithDomains() {
         )}
 
         {evaluation && (
-          <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-8 sm:p-12 rounded-3xl shadow-2xl space-y-8 animate-fade-in overflow-hidden border border-gray-700/60">
+          <div
+            ref={evaluationRef}
+            className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-8 sm:p-12 rounded-3xl shadow-2xl space-y-8 animate-fade-in overflow-hidden border border-gray-700/60"
+          >
             <div className="flex flex-col items-center gap-2">
               <span className="text-green-400 text-3xl">
                 <svg
@@ -372,7 +386,7 @@ export default function PracticePageWithDomains() {
                   />
                 </svg>
               </div>
-              <span className="inline-block px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-200 font-semibold text-sm mt-1">
+              <span className="inline-block px-3 py-1 rounded-xl bg-yellow-900/80 text-yellow-200 font-semibold text-sm mt-1">
                 {evaluation.result_text}
               </span>
             </div>
