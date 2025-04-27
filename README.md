@@ -89,7 +89,7 @@ User -> Vercel Edge -> Server Action -> Hugging Face Router -> DeepSeek Model ->
 
 ## 🔍 Example Screenshot
 
-(Insert screenshot here)
+<img width="902" alt="image" src="https://github.com/user-attachments/assets/70e975d1-b16f-40c1-8ce4-fded8f2b0994" />
 
 ---
 
