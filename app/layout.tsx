@@ -26,14 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/app/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta property="og:title" content="Iterview" />
         <meta
           property="og:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/app/logo.png" />
+        <meta property="og:image" content="/logo.png" />
         <meta property="og:url" content="https://iterview-ai.vercel.app" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Iterview" />
@@ -41,7 +41,7 @@ export default function RootLayout({
           name="twitter:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
-        <meta name="twitter:image" content="/app/favicon.ico" />
+        <meta name="twitter:image" content="/favicon.ico" />
         <meta property="og:site_name" content="Iterview" />
         <meta property="og:locale" content="en_US" />
         <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
