@@ -1,6 +1,6 @@
 export interface Evaluation {
-  correctness_score: number;
-  clarity_score: number;
-  time_complexity: string;
+  overall_score: number;
+  creative_score: number;
+  result_text: string;
   suggestions: string;
 }
