@@ -354,27 +354,27 @@ export default function PracticePageWithDomains() {
                   Điểm sáng tạo
                 </span>
               </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-yellow-300 bg-gray-900 text-yellow-200 text-4xl font-bold shadow-lg animate-scale-in">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <span className="inline-block px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-200 font-semibold text-sm mt-1">
-                  {evaluation.result_text}
-                </span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-yellow-300 bg-gray-900 text-yellow-200 text-4xl font-bold shadow-lg animate-scale-in">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
               </div>
+              <span className="inline-block px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-200 font-semibold text-sm mt-1">
+                {evaluation.result_text}
+              </span>
             </div>
             {/* Suggestions Inline Card */}
             <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
