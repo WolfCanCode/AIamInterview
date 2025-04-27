@@ -7,12 +7,15 @@ import { Question } from '@/types/Question';
 import { domains } from '@/utils/constants/domain';
 import { useState, useTransition, useEffect, useRef } from 'react';
 
+type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
+
 export default function PracticePageWithDomains() {
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
   const [answer, setAnswer] = useState('');
   const [evaluation, setEvaluation] = useState<Evaluation | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [difficulty, setDifficulty] = useState<Difficulty>('Medium');
   const evaluationRef = useRef<HTMLDivElement | null>(null);
 
   // Always enable dark mode on mount
@@ -49,7 +52,7 @@ export default function PracticePageWithDomains() {
     startTransition(async () => {
       const data = await getQuestionAction(
         getKeyDomain(selectedDomain),
-        'Medium'
+        difficulty
       );
       setQuestion(data);
       setAnswer('');
@@ -76,21 +79,21 @@ export default function PracticePageWithDomains() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
-      <div className="max-w-4xl mx-auto p-4 sm:p-6 space-y-8 bg-gray-900 rounded-3xl shadow-2xl">
-        <header className="mb-8 flex flex-col items-center">
-          <div className="flex w-full justify-between items-center">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-gray-800">
+      <div className="w-full max-w-4xl mx-auto flex-1 p-2 sm:p-4 md:p-6 space-y-4 sm:space-y-8 bg-gray-900 rounded-none sm:rounded-3xl shadow-2xl flex flex-col">
+        <header className="mb-4 sm:mb-8 flex flex-col items-center">
+          <div className="flex w-full flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
             <h1
               onClick={goBack}
-              className="group text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-3 drop-shadow-lg"
+              className="group text-2xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-2 sm:gap-3 drop-shadow-lg"
             >
               {/* Animated Logo Icon */}
-              <span className="inline-flex items-center justify-center text-5xl animate-bounce-slow group-hover:animate-spin-slow transition-transform duration-700">
+              <span className="inline-flex items-center justify-center text-3xl sm:text-5xl group-hover:animate-spin-slow transition-transform duration-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
                   fill="currentColor"
-                  className="w-10 h-10 text-blue-300 drop-shadow-lg"
+                  className="w-8 h-8 sm:w-10 sm:h-10 text-blue-300 drop-shadow-lg"
                 >
                   <rect
                     x="4"
@@ -135,39 +138,53 @@ export default function PracticePageWithDomains() {
         </header>
 
         {!selectedDomain && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-            {domains.map((d) => (
-              <button
-                key={d.name}
-                onClick={() => handleSelectDomain(d.name)}
-                className={`domain-card group px-6 py-8 rounded-2xl flex flex-col items-center space-y-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400
-                    bg-gray-900
-                    shadow-md border-2 border-blue-900 relative overflow-hidden
-                    hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 hover:scale-105
-                    hover:bg-gray-800
+          <div className="w-full max-w-3xl mx-auto flex flex-col items-center animate-fade-in">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-center text-blue-400 mb-1 mt-2">
+              Chọn lĩnh vực bạn muốn luyện tập
+            </h2>
+            <p className="text-blue-200 text-center mb-6 text-base sm:text-lg">
+              Hãy chọn một lĩnh vực để bắt đầu luyện tập phỏng vấn!
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 w-full">
+              {domains.map((d) => (
+                <button
+                  key={d.name}
+                  onClick={() => handleSelectDomain(d.name)}
+                  className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400
+                    bg-gradient-to-br from-blue-900/80 via-gray-900/90 to-cyan-900/70
+                    shadow-lg border-2 border-blue-900 relative overflow-hidden
+                    hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-2xl hover:border-cyan-400 hover:scale-105
+                    hover:bg-cyan-900/80
                   `}
-                style={{ boxShadow: '0 2px 16px 0 rgba(56,189,248,0.08)' }}
-              >
-                {/* Ripple effect */}
-                <span className="absolute inset-0 pointer-events-none group-active:animate-ripple bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-2xl"></span>
-                <span className="text-4xl transition-transform duration-300 group-hover:scale-125 group-hover:animate-bounce-slow text-blue-200">
-                  {d.icon}
-                </span>
-                <span className="text-lg font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent group-hover:animate-shimmer">
-                  {d.name}
-                </span>
-              </button>
-            ))}
+                  style={{ boxShadow: '0 2px 16px 0 rgba(56,189,248,0.10)' }}
+                >
+                  {/* Ripple effect */}
+                  <span className="absolute inset-0 pointer-events-none group-active:animate-ripple bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-2xl"></span>
+                  <span className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-125 group-hover:animate-bounce-slow text-blue-200 drop-shadow-lg">
+                    {d.icon}
+                  </span>
+                  <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent group-hover:animate-shimmer">
+                    {d.name}
+                  </span>
+                  <span className="text-xs text-blue-300 mt-1 text-center hidden sm:block">
+                    {d.description}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
         {selectedDomain && (!question || evaluation) && (
           <>
-            {/* Modern Animated Domain Banner */}
-            <div className="relative flex flex-col items-center justify-center mb-8 animate-fade-in">
+            <div className="relative w-full max-w-lg mx-auto bg-gray-900/95 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 animate-fade-in">
+              {/* Back Button */}
               <button
-                onClick={() => setSelectedDomain(null)}
-                className="absolute top-4 left-4 sm:top-4 sm:left-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-800 via-blue-700 to-cyan-700 text-white shadow-lg hover:scale-110 hover:from-blue-700 hover:to-cyan-600 active:scale-95 transition-all duration-200 border-2 border-blue-900/60 focus:outline-none focus:ring-4 focus:ring-blue-400/40"
+                onClick={() => {
+                  setEvaluation(null);
+                  setSelectedDomain(null);
+                }}
+                className="absolute top-4 left-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
                 type="button"
                 aria-label="Quay lại"
               >
@@ -176,7 +193,7 @@ export default function PracticePageWithDomains() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className="w-7 h-7"
+                  className="w-6 h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -186,64 +203,97 @@ export default function PracticePageWithDomains() {
                   />
                 </svg>
               </button>
-              <div className="w-full max-w-xl mx-auto bg-gradient-to-br from-blue-900/70 to-gray-800/80 rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col items-center gap-3 backdrop-blur-md border border-blue-800/40">
-                <span className="text-5xl sm:text-6xl animate-bounce-slow drop-shadow-lg">
-                  {domains.find((d) => d.name === selectedDomain)?.icon || '❓'}
-                </span>
-                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-300 via-blue-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-md text-center">
+              {/* Domain Icon and Info */}
+              <span className="text-6xl mb-2">
+                {domains.find((d) => d.name === selectedDomain)?.icon || '❓'}
+              </span>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-cyan-300 mb-1">
                   {selectedDomain}
-                </span>
-                <span className="text-base sm:text-lg text-blue-100 text-center font-medium mt-1 animate-fade-in-slow">
+                </div>
+                <div className="text-base text-blue-100 font-medium">
                   {domains.find((d) => d.name === selectedDomain)?.description}
-                </span>
+                </div>
               </div>
-              {/* Progress Indicator */}
-              <div className="mt-4 flex items-center gap-2 text-blue-300 text-sm font-semibold tracking-wide animate-fade-in-slow">
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                Ready to start your interview!
+              {/* Prompt */}
+              <div className="mt-2 text-blue-200 text-sm sm:text-base font-semibold text-center">
+                Sẵn sàng chưa? Chọn độ khó và bắt đầu!
               </div>
-            </div>
-
-            <button
-              onClick={handleGetQuestion}
-              className="bg-gradient-to-r from-green-500 to-green-700 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-xl hover:scale-105 hover:from-green-600 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block animate-pulse focus:outline-none focus:ring-4 focus:ring-green-400/40"
-              disabled={isPending}
-            >
-              {isPending ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
+              {/* Difficulty Selection */}
+              <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 w-full mt-2">
+                {(
+                  [
+                    { mode: 'Easy', icon: '🌱' },
+                    { mode: 'Medium', icon: '🚀' },
+                    { mode: 'Hard', icon: '🔥' },
+                    { mode: 'Madness', icon: '💀' },
+                  ] as { mode: Difficulty; icon: string }[]
+                ).map(({ mode, icon }) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => setDifficulty(mode)}
+                    className={`flex items-center gap-1 px-4 py-3 sm:px-5 sm:py-2 rounded-full font-semibold text-base border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 w-full sm:w-auto justify-center
+                      ${
+                        difficulty === mode
+                          ? 'bg-cyan-700 text-white border-cyan-400 shadow-md'
+                          : 'bg-gray-800 text-cyan-200 border-gray-700 hover:bg-cyan-900 hover:text-white'
+                      }
+                    `}
                   >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8v8H4z"
-                    ></path>
-                  </svg>
-                  <span>Đang tạo câu hỏi...</span>
-                </>
-              ) : evaluation ? (
-                'Câu hỏi tiếp theo'
-              ) : (
-                'Bắt đầu'
-              )}
-            </button>
+                    <span className="text-lg">{icon}</span>
+                    <span>{mode}</span>
+                  </button>
+                ))}
+              </div>
+              {/* Start Button */}
+              <button
+                onClick={handleGetQuestion}
+                className="mt-6 w-full min-h-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+                disabled={isPending}
+              >
+                {isPending ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8H4z"
+                      ></path>
+                    </svg>
+                    <span className="ml-2">Đang tạo câu hỏi...</span>
+                  </>
+                ) : evaluation ? (
+                  <>
+                    <span className="text-lg">⏭️</span>
+                    <span>Câu hỏi tiếp theo</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-lg">▶️</span>
+                    <span>Bắt đầu</span>
+                  </>
+                )}
+              </button>
+            </div>
           </>
         )}
 
         {question && (
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in">
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 p-2 sm:p-6 rounded-xl sm:rounded-3xl shadow-2xl space-y-4 sm:space-y-6 animate-fade-in w-full max-w-2xl mx-auto">
             <div className="flex flex-col justify-start">
               <span className="w-fit mb-2 px-3 py-1 bg-gray-800 text-gray-200 rounded-full text-xs font-semibold uppercase tracking-wider">
                 {selectedDomain}
@@ -269,7 +319,7 @@ export default function PracticePageWithDomains() {
         {question && (
           <form
             onSubmit={handleSubmitAnswer}
-            className="space-y-4 animate-fade-in"
+            className="space-y-3 sm:space-y-4 animate-fade-in w-full max-w-2xl mx-auto"
           >
             <div className="relative">
               <textarea
@@ -277,7 +327,7 @@ export default function PracticePageWithDomains() {
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 placeholder=" "
-                className="peer w-full min-h-[120px] bg-gray-800 text-white p-4 pt-8 rounded-lg focus:ring-2 focus:ring-blue-500 resize-none border border-gray-700 placeholder-transparent transition-all duration-200"
+                className="peer w-full min-h-[100px] sm:min-h-[120px] bg-gray-800 text-white p-3 sm:p-4 pt-8 rounded-lg focus:ring-2 focus:ring-blue-500 resize-none border border-gray-700 placeholder-transparent transition-all duration-200 text-base sm:text-lg"
                 maxLength={1000}
                 required
               />
@@ -291,7 +341,7 @@ export default function PracticePageWithDomains() {
             {!evaluation ? (
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-xl font-bold text-lg shadow-lg hover:scale-105 hover:from-blue-700 hover:to-blue-900 transition-all duration-200 flex items-center justify-center space-x-2 mx-auto block"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white w-full px-6 py-3 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:scale-105 hover:from-blue-700 hover:to-blue-900 transition-all duration-200 flex items-center justify-center gap-2 mx-auto block min-h-12"
                 disabled={isPending}
               >
                 {isPending ? (
@@ -326,10 +376,10 @@ export default function PracticePageWithDomains() {
           </form>
         )}
 
-        {evaluation && (
+        {evaluation ? (
           <div
             ref={evaluationRef}
-            className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-8 sm:p-12 rounded-3xl shadow-2xl space-y-8 animate-fade-in overflow-hidden border border-gray-700/60"
+            className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-3 sm:p-8 rounded-xl sm:rounded-3xl shadow-2xl space-y-6 sm:space-y-8 animate-fade-in overflow-hidden border border-gray-700/60 w-full max-w-2xl mx-auto"
           >
             <div className="flex flex-col items-center gap-2">
               <span className="text-green-400 text-3xl">
@@ -398,11 +448,13 @@ export default function PracticePageWithDomains() {
               </p>
             </div>
           </div>
+        ) : (
+          ''
         )}
-        <footer className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm flex flex-col items-center gap-2">
+        <footer className="mt-auto pt-8 text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
           <span>
             Made by Tommy (Wolf) with love{' '}
-            <span className="inline-block animate-bounce">❤️</span>
+            <span className="inline-block">❤️</span>
           </span>
           <span className="text-xs text-gray-400">
             © {new Date().getFullYear()} ITerview. All rights reserved.

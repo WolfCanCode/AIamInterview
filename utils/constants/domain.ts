@@ -3,48 +3,51 @@ export const domains = [
     name: 'Software Development (Backend)',
     icon: '💻',
     key: 'Software Engineering Backend',
-    description: 'Build robust, scalable server-side systems and APIs.',
+    description: 'Xây dựng hệ thống backend và API mạnh mẽ, dễ mở rộng.',
   },
   {
     name: 'Software Development (Frontend)',
     icon: '🖥️',
     key: 'Software Engineering Frontend',
-    description: 'Craft beautiful, interactive user experiences for the web.',
+    description: 'Tạo ra trải nghiệm người dùng đẹp mắt, tương tác trên web.',
   },
   {
     name: 'UI/UX Design',
     icon: '🎨',
     key: 'UI/UX Design',
-    description: 'Design intuitive and delightful digital products.',
+    description: 'Thiết kế sản phẩm số trực quan, hấp dẫn và dễ sử dụng.',
   },
   {
     name: 'Kinh doanh',
     icon: '📈',
     key: 'Business Strategy',
-    description: 'Drive growth and innovation with smart business strategies.',
+    description:
+      'Thúc đẩy tăng trưởng và đổi mới với chiến lược kinh doanh thông minh.',
   },
   {
     name: 'Marketing',
     icon: '🎨',
     key: 'Marketing Campaign',
-    description: 'Create campaigns that connect and inspire.',
+    description:
+      'Tạo ra các chiến dịch marketing sáng tạo, truyền cảm hứng và kết nối.',
   },
   {
     name: 'Luật (Pháp lý)',
     icon: '⚖️',
     key: 'Legal Analysis',
-    description: 'Analyze and interpret legal frameworks and cases.',
+    description:
+      'Phân tích, đánh giá các khung pháp lý và tình huống thực tiễn.',
   },
   {
     name: 'Y học',
     icon: '🧪',
     key: 'Medical Diagnosis',
-    description: 'Diagnose and solve complex medical challenges.',
+    description: 'Chẩn đoán và giải quyết các vấn đề y khoa phức tạp.',
   },
   {
     name: 'Nhân sự',
     icon: '🤝',
     key: 'Human Resources',
-    description: 'Empower people and build strong teams.',
+    description: 'Phát triển con người và xây dựng đội ngũ vững mạnh.',
   },
 ];
