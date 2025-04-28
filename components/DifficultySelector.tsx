@@ -19,48 +19,41 @@ export default function DifficultySelector({
   onStart,
 }: DifficultySelectorProps) {
   return (
-    <div className="relative w-full max-w-lg mx-auto bg-gray-900/95 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 animate-fade-in">
-      {/* Prompt */}
-      <div className="mt-2 text-blue-200 text-sm sm:text-base font-semibold text-center">
+    <div className="w-full max-w-sm mx-auto py-4 animate-fade-in">
+      <div className="text-blue-200 text-xs font-semibold text-center mb-2 ">
         Chọn độ khó:
       </div>
-      {/* Difficulty Selection */}
-      <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 w-full mt-2">
-        {(
-          [
-            { mode: 'Easy', icon: '🌱' },
-            { mode: 'Medium', icon: '🚀' },
-            { mode: 'Hard', icon: '🔥' },
-            { mode: 'Madness', icon: '💀' },
-          ] as { mode: Difficulty; icon: string }[]
-        ).map(({ mode, icon }) => (
+      <div className="flex justify-center gap-2 w-full mb-8">
+        {[
+          { mode: 'Easy', icon: '🌱' },
+          { mode: 'Medium', icon: '🚀' },
+          { mode: 'Hard', icon: '🔥' },
+          { mode: 'Madness', icon: '💀' },
+        ].map(({ mode, icon }) => (
           <button
             key={mode}
-            type="button"
-            onClick={() => setDifficulty(mode)}
-            className={`flex items-center gap-1 px-4 py-3 sm:px-5 sm:py-2 rounded-full font-semibold text-base border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 w-full sm:w-auto justify-center
+            onClick={() => setDifficulty(mode as Difficulty)}
+            className={`flex items-center gap-1 px-3 py-1 rounded-full border font-semibold text-xs transition-all duration-200
               ${
                 difficulty === mode
-                  ? 'bg-cyan-700 text-white border-cyan-400 shadow-md'
-                  : 'bg-gray-800 text-cyan-200 border-gray-700 hover:bg-cyan-900 hover:text-white'
-              }
-            `}
+                  ? 'bg-cyan-600 text-white border-cyan-400 shadow font-bold'
+                  : 'bg-transparent text-cyan-300 border-cyan-700 hover:bg-cyan-900/30'
+              }`}
           >
-            <span className="text-lg">{icon}</span>
+            <span className="text-base">{icon}</span>
             <span>{mode}</span>
           </button>
         ))}
       </div>
-      {/* Start Button */}
       <button
         onClick={onStart}
-        className="mt-6 w-full min-h-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+        className="mt-3 w-full py-4 rounded-xl font-bold text-base bg-cyan-500 text-white hover:bg-cyan-600 transition-all duration-200 flex items-center justify-center gap-2 shadow focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
         disabled={isPending}
       >
         {isPending ? (
           <>
             <svg
-              className="animate-spin h-5 w-5 text-white"
+              className="animate-spin h-4 w-4 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -79,16 +72,16 @@ export default function DifficultySelector({
                 d="M4 12a8 8 0 018-8v8H4z"
               ></path>
             </svg>
-            <span className="ml-2">Đang tạo câu hỏi...</span>
+            <span className="ml-1">Đang tạo...</span>
           </>
         ) : evaluation ? (
           <>
-            <span className="text-lg">⏭️</span>
+            <span className="text-base">⏭️</span>
             <span>Câu hỏi tiếp theo</span>
           </>
         ) : (
           <>
-            <span className="text-lg">▶️</span>
+            <span className="text-base">▶️</span>
             <span>Bắt đầu</span>
           </>
         )}
