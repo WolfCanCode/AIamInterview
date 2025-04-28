@@ -24,7 +24,7 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto py-6 animate-fade-in">
+    <div className="relative w-full max-w-3xl mx-auto pb-6 animate-fade-in">
       <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(60%_0.3_240/0.1)] to-transparent rounded-3xl" />
 
       <div className="relative z-10 flex flex-col items-center">
