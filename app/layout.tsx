@@ -1,10 +1,7 @@
 import '@/app/globals.css';
-import { routing } from '@/i18n/routing';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { hasLocale } from 'next-intl';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { notFound } from 'next/navigation';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
