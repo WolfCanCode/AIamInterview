@@ -1,12 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-
-interface Domain {
-  name: string;
-  icon: string;
-  description: string;
-  children?: string[];
-}
+import { Domain } from '@/utils/types/Domain';
 
 export default function DomainBanner({
   domain,
@@ -43,13 +37,15 @@ export default function DomainBanner({
         </svg>
       </button>
       {/* Domain Icon and Info */}
-      <span className="text-6xl mb-2">{domain.icon}</span>
+      <span className="text-6xl mb-2">
+        <domain.icon />
+      </span>
       <div className="text-center">
         <div className="text-2xl font-bold text-cyan-300 mb-1">
-          {t(domain.name)}
+          {t(domain.name || domain.key)}
         </div>
         <div className="text-base text-blue-100 font-medium">
-          {t(domain.description)}
+          {t(domain.description || '')}
         </div>
         {child && (
           <div className="mt-2 text-sm text-cyan-200">

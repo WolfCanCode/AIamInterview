@@ -19,13 +19,16 @@ export const metadata: Metadata = {
     'An AI-powered web application to practice coding interviews across multiple domains.',
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-  params: { locale: string };
-}>) {
+  params: Promise<{
+    locale: string;
+  }>;
+};
+
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params;
+
   return (
     <html lang={locale}>
       <head>

@@ -3,13 +3,16 @@ import { routing } from '@/i18n/routing';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 
-export default async function pageLayout({
-  children,
-  params: { locale },
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-  params: { locale: string };
-}>) {
+  params: Promise<{
+    locale: string;
+  }>;
+};
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

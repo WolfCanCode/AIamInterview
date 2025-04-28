@@ -1,18 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-
-interface Domain {
-  name: string;
-  icon: string;
-  key: string;
-  description: string;
-  children?: string[];
-}
-interface DomainGroup {
-  group: string;
-  icon: string;
-  domains: Domain[];
-}
+import { Domain, DomainGroup } from '@/utils/types/Domain';
 
 export default function DomainSelector({
   domainGroups,
@@ -24,7 +12,7 @@ export default function DomainSelector({
   const t = useTranslations('');
 
   const handleDomainClick = (domain: Domain) => {
-    handleSelectDomain(domain.name);
+    handleSelectDomain(domain.name || domain.key);
   };
 
   return (
@@ -37,18 +25,18 @@ export default function DomainSelector({
       </p>
       <div className="flex flex-col gap-8 w-full">
         {domainGroups.map((group) => (
-          <div key={group.group} className="w-full">
+          <div key={group.key} className="w-full">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-2xl">
                 <group.icon />
               </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
-                {t(group.group)}
+                {t(group.group || group.key)}
               </span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 w-full">
               {group.domains.map((d) => (
-                <div key={d.name} className="relative">
+                <div key={d.key} className="relative">
                   <button
                     onClick={() => handleDomainClick(d)}
                     className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400
@@ -65,10 +53,10 @@ export default function DomainSelector({
                       <d.icon />
                     </span>
                     <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent group-hover:animate-shimmer">
-                      {t(d.name)}
+                      {t(d.name || d.key)}
                     </span>
                     <span className="text-xs text-blue-300 mt-1 text-center hidden sm:block">
-                      {t(d.description)}
+                      {t(d.description || '')}
                     </span>
                   </button>
                 </div>
