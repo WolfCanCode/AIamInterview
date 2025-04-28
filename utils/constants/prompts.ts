@@ -11,6 +11,7 @@ Task:
 - Create a new practice interview question in the field of "${topic}", with difficulty level "${difficulty}".
 - Content should be clear, concise, understandable, and appropriate for candidates at the corresponding level.
 - The question content should be for oral interviews only, without any practical exercises.
+- Do not send the previous question or the dupplicate question. Always create a new question.
 
 Language requirements:
 - Write everything in standard English.
@@ -65,6 +66,7 @@ Nhiệm vụ:
 - Tạo một câu hỏi luyện tập phỏng vấn hoàn toàn mới, thuộc lĩnh vực "${topic}", với độ khó "${difficulty}".
 - Nội dung cần rõ ràng, ngắn gọn, dễ hiểu, phù hợp với ứng viên ở cấp độ tương ứng.
 - Nội dung câu hỏi là những câu hỏi dành cho phần phỏng vấn miệng trực tiếp, không có bất cứ thực hành nào ở nội dung.
+- Không được gửi câu hỏi đã tạo từ trước, không gửi câu hỏi trùng lặp. Câu hỏi luôn được tạo mới.
 
 Yêu cầu ngôn ngữ:
 - Viết toàn bộ bằng tiếng Việt chuẩn mực, không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.

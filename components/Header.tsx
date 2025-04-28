@@ -12,7 +12,7 @@ export default function Header({
   const t = useTranslations('');
   return (
     <header className="mb-4 sm:mb-8 flex flex-col items-center relative w-full">
-      <div className="flex w-full flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 relative">
+      <div className="flex w-full flex-col justify-between items-center gap-2 sm:gap-0 relative">
         <h1
           onClick={onClickLogo}
           className="group text-2xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-2 sm:gap-3 drop-shadow-lg"
