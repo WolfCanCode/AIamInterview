@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex gap-4 items-center mt-3">
+    <div className="flex gap-4 items-center mt-2.5">
       {LANGUAGES.map((lng) => (
         <button
           key={lng.code}

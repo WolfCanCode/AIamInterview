@@ -71,7 +71,7 @@ export default function Header({
       {onBack && (
         <button
           onClick={onBack}
-          className="absolute top-4 left-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+          className="absolute top-1 left-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
           type="button"
           aria-label={t('back')}
         >
