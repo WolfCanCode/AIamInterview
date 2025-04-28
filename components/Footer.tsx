@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="mt-auto pt-8 text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
         <strong>Build:</strong>{' '}
-        <span className="font-mono text-xs">v1.1 {version}</span>
+        <span className="font-mono text-xs">v1.1 {version || 'local'}</span>
       </span>
       <span>
         <strong>Model:</strong>{' '}
