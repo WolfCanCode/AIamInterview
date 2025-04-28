@@ -36,7 +36,7 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://iterview-ai.vercel.app/logo.png"
+          content="https://iterview-ai.vercel.app/logo.jpg"
         />
         <meta property="og:url" content="https://iterview-ai.vercel.app" />
         <meta name="twitter:card" content="summary" />
