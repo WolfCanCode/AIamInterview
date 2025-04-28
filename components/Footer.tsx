@@ -1,13 +1,13 @@
 import React from 'react';
 
+const BUILD_VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'local';
+
 export default function Footer() {
   return (
     <footer className="mt-auto pt-8 text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
         <strong>Build:</strong>{' '}
-        <span className="font-mono text-xs">
-          v1.1 {process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7)}
-        </span>
+        <span className="font-mono text-xs">v1.1 {BUILD_VERSION}</span>
       </span>
       <span>
         <strong>Model:</strong>{' '}
