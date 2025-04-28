@@ -1,8 +1,17 @@
+import { IconType } from 'react-icons';
+
 // Domain type for local use
-export type Domain = {
-  name: string;
-  icon: string;
+export interface Domain {
   key: string;
-  description: string;
+  name?: string;
+  icon: IconType;
+  description?: string;
   children?: string[];
-};
+}
+
+export interface DomainGroup {
+  key: string;
+  group?: string;
+  icon: IconType;
+  domains: Domain[];
+}

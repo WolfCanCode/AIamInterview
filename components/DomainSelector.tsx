@@ -39,7 +39,9 @@ export default function DomainSelector({
         {domainGroups.map((group) => (
           <div key={group.group} className="w-full">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">{group.icon}</span>
+              <span className="text-2xl">
+                <group.icon />
+              </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
                 {t(group.group)}
               </span>
@@ -60,7 +62,7 @@ export default function DomainSelector({
                     {/* Ripple effect */}
                     <span className="absolute inset-0 pointer-events-none group-active:animate-ripple bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-2xl"></span>
                     <span className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-125 group-hover:animate-bounce-slow text-blue-200 drop-shadow-lg">
-                      {d.icon}
+                      <d.icon />
                     </span>
                     <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent group-hover:animate-shimmer">
                       {t(d.name)}
