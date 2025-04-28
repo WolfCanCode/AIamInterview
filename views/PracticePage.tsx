@@ -95,37 +95,7 @@ export default function PracticePageWithDomains() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden bg-[oklch(8%_0.02_240)]">
-      {/* Animated background gradients */}
-      <div className="fixed inset-0 overflow-hidden">
-        {/* Main rotating gradient */}
-        <div className="absolute inset-0 bg-conic/[in_oklch_longer_hue] from-[oklch(40%_0.3_240)] via-[oklch(25%_0.2_280)] to-[oklch(40%_0.3_240)] animate-gradient-slow opacity-70" />
-
-        {/* Multiple aurora layers for depth */}
-        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] animate-aurora">
-          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(50%_0.3_240/0.15)] to-transparent to-75% blur-3xl" />
-        </div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-[200%] h-[200%] animate-aurora-reverse">
-          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(60%_0.3_280/0.15)] to-transparent to-75% blur-3xl" />
-        </div>
-
-        {/* Floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 animate-float-slow">
-          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(70%_0.3_240/0.1)] to-transparent to-75% blur-2xl" />
-        </div>
-        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 animate-float-slower">
-          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(65%_0.3_280/0.1)] to-transparent to-75% blur-2xl" />
-        </div>
-
-        {/* Subtle moving lines */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,_oklch(70%_0.3_240)_50%,_transparent_100%)] bg-[length:100%_500%] animate-subtle-slide" />
-        </div>
-
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
-      </div>
-
+    <div className="relative min-h-screen flex flex-col overflow-hidden bg-black">
       {/* Main content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 p-3 sm:p-6 space-y-6 sm:space-y-8">
         <div className="relative glass-morphism rounded-3xl shadow-2xl overflow-hidden">
