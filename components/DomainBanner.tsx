@@ -57,7 +57,7 @@ export default function DomainBanner({
 
       {/* Domain Info */}
       <div className="relative z-10 text-center space-y-2">
-        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent">
+        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent truncate max-w-[280px] sm:max-w-full mx-auto">
           {t(domain.name || domain.key)}
         </h2>
         <p className="text-[oklch(85%_0.2_240)] font-medium max-w-lg">
