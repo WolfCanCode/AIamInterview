@@ -24,77 +24,94 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <div className="w-full max-w-sm mx-auto py-4 animate-fade-in">
-      <div className="text-blue-200 text-xs font-semibold text-center mb-2 ">
-        {t('choose_difficulty')}
-      </div>
-      <div className="flex justify-center gap-2 w-full mb-8">
-        {[
-          { mode: 'Easy', icon: '🌱' },
-          { mode: 'Medium', icon: '🚀' },
-          { mode: 'Hard', icon: '🔥' },
-          { mode: 'Madness', icon: '💀' },
-        ].map(({ mode, icon }) => (
-          <button
-            key={mode}
-            onClick={() => setDifficulty(mode as Difficulty)}
-            className={`flex items-center gap-1 px-3 py-1 rounded-full border font-semibold text-xs transition-all duration-200
-              ${
-                difficulty === mode
-                  ? 'bg-cyan-600 text-white border-cyan-400 shadow font-bold'
-                  : 'bg-transparent text-cyan-300 border-cyan-700 hover:bg-cyan-900/30'
-              }`}
-          >
-            <span className="text-base">{icon}</span>
-            <span>{t(`difficulty_${mode.toLowerCase()}`)}</span>
-          </button>
-        ))}
-      </div>
-      <button
-        onClick={onStart}
-        className={`mt-3 w-full py-4 rounded-xl font-bold text-base transition-all duration-200 flex items-center justify-center gap-2 shadow focus:outline-none focus:ring-2 focus:ring-cyan-400/40 ${
-          isStartDisabled
-            ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
-            : 'bg-cyan-500 text-white hover:bg-cyan-600'
-        }`}
-        disabled={isPending || isStartDisabled}
-      >
-        {isPending ? (
-          <>
-            <svg
-              className="animate-spin h-4 w-4 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+    <div className="relative w-full max-w-3xl mx-auto py-6 animate-fade-in">
+      <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(60%_0.3_240/0.1)] to-transparent rounded-3xl" />
+
+      <div className="relative z-10 flex flex-col items-center">
+        <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-3">
+          {t('choose_difficulty')}
+        </div>
+
+        <div className="difficulty-grid mb-6">
+          {[
+            {
+              mode: 'Easy',
+              icon: '🌱',
+              className: 'difficulty-button easy',
+            },
+            {
+              mode: 'Medium',
+              icon: '🚀',
+              className: 'difficulty-button medium',
+            },
+            {
+              mode: 'Hard',
+              icon: '🔥',
+              className: 'difficulty-button hard',
+            },
+            {
+              mode: 'Madness',
+              icon: '💀',
+              className: 'difficulty-button insane',
+            },
+          ].map(({ mode, icon, className }) => (
+            <button
+              key={mode}
+              onClick={() => setDifficulty(mode as Difficulty)}
+              className={`${className} ${difficulty === mode ? 'active' : ''}`}
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v8H4z"
-              ></path>
-            </svg>
-            <span className="ml-1">{t('getting_question')}</span>
-          </>
-        ) : evaluation ? (
-          <>
-            <span className="text-base">⏭️</span>
-            <span>{t('next_question')}</span>
-          </>
-        ) : (
-          <>
-            <span className="text-base">▶️</span>
-            <span>{t('start')}</span>
-          </>
-        )}
-      </button>
+              <div className="flex items-center justify-center gap-1.5">
+                <span className="text-lg">{icon}</span>
+                <span>{t(`difficulty_${mode.toLowerCase()}`)}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <button
+          onClick={onStart}
+          className={`start-button ${isStartDisabled ? 'opacity-50' : ''} mt-4`}
+          disabled={isPending || isStartDisabled}
+        >
+          <div className="flex items-center justify-center gap-3">
+            {isPending ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  />
+                </svg>
+                <span>{t('getting_question')}</span>
+              </>
+            ) : evaluation ? (
+              <>
+                <span className="text-xl">⏭️</span>
+                <span>{t('next_question')}</span>
+              </>
+            ) : (
+              <>
+                <span className="text-xl">▶️</span>
+                <span>{t('start')}</span>
+              </>
+            )}
+          </div>
+        </button>
+      </div>
     </div>
   );
 }

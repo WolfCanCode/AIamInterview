@@ -95,132 +95,156 @@ export default function PracticePageWithDomains() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-gray-800">
-      <div className="w-full max-w-4xl mx-auto flex-1 p-2 px-4 sm:p-4 md:p-6 space-y-4 sm:space-y-8 bg-gray-900 rounded-none sm:rounded-3xl shadow-2xl flex flex-col">
-        <Header
-          onClickLogo={goBack}
-          {...(question ? { onBack: goBack } : {})}
-        />
+    <div className="relative min-h-screen flex flex-col overflow-hidden bg-[oklch(8%_0.02_240)]">
+      {/* Animated background gradients */}
+      <div className="fixed inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-conic/[in_oklch_longer_hue] from-[oklch(40%_0.3_240)] via-[oklch(25%_0.2_280)] to-[oklch(40%_0.3_240)] animate-gradient-slow" />
+        <div className="absolute top-0 -left-1/2 w-[200%] h-[200%] animate-aurora">
+          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(50%_0.3_240/0.2)] to-transparent to-75% blur-3xl" />
+        </div>
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+      </div>
 
-        {!selectedDomain && (
-          <DomainSelector
-            domainGroups={domainGroups}
-            handleSelectDomain={handleSelectDomain}
-          />
-        )}
+      {/* Main content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 p-3 sm:p-6 space-y-6 sm:space-y-8">
+        <div className="relative glass-morphism rounded-3xl shadow-2xl overflow-hidden">
+          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(70%_0.3_240/0.15)] to-[oklch(70%_0.3_280/0.15)]" />
+          <div className="relative p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-[oklch(98%_0_0)]">
+            <Header
+              onClickLogo={goBack}
+              {...(question ? { onBack: goBack } : {})}
+            />
 
-        {/* Show only one skeleton or card at a time */}
-        {isPending && !question ? (
-          <div className="w-full transition-all duration-500">
-            <QuestionCardSkeleton />
-            <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
-              {t('getting_question')}
-            </div>
-          </div>
-        ) : skipPending ? (
-          <div className="w-full transition-all duration-500">
-            <QuestionCardSkeleton />
-            <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
-              {t('getting_another_question')}
-            </div>
-          </div>
-        ) : (
-          question && (
-            <QuestionCard question={question} selectedDomain={selectedDomain} />
-          )
-        )}
+            {!selectedDomain && (
+              <DomainSelector
+                domainGroups={domainGroups}
+                handleSelectDomain={handleSelectDomain}
+              />
+            )}
 
-        {/* Only show selectors when not loading and no question is present */}
-        {selectedDomain && !question && !isPending && (
-          <>
-            {(() => {
-              const domain = getDomainInstanceByName(selectedDomain);
-              const child = selectedDomain.split('-')?.[1];
-              return domain ? (
-                <DomainBanner
-                  domain={domain}
-                  child={child}
-                  onBack={() => {
-                    setEvaluation(null);
-                    setSelectedDomain(null);
-                  }}
-                />
-              ) : null;
-            })()}
-            {(() => {
-              const domain = getDomainInstanceByName(selectedDomain);
-              return domain && domain.children && domain.children.length > 0 ? (
-                <div className="flex flex-wrap gap-2 justify-center mb-2">
-                  {domain.children.map((child) => (
-                    <button
-                      key={child}
-                      type="button"
-                      onClick={() => setSelectedChild(child)}
-                      className={`animate-fade-in px-4 py-2 rounded-full border font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/40
-                        ${
-                          selectedChild === child
-                            ? 'bg-cyan-600 text-white border-cyan-400 shadow-md'
-                            : 'bg-gray-800 text-cyan-200 border-gray-700 hover:bg-cyan-900 hover:text-white'
-                        } animate-bounce-once`}
-                    >
-                      {child}
-                    </button>
-                  ))}
+            {/* Show only one skeleton or card at a time */}
+            {isPending && !question ? (
+              <div className="w-full transition-discrete starting:opacity-0">
+                <QuestionCardSkeleton />
+                <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
+                  {t('getting_question')}
                 </div>
-              ) : null;
-            })()}
-            <DifficultySelector
-              difficulty={difficulty}
-              setDifficulty={setDifficulty}
-              isPending={isPending}
-              evaluation={evaluation}
-              onStart={handleGetQuestion}
-              isStartDisabled={(() => {
-                const domain = getDomainInstanceByName(selectedDomain);
-                return (
-                  domain?.children &&
-                  domain.children.length > 0 &&
-                  !selectedChild
-                );
-              })()}
-            />
-          </>
-        )}
+              </div>
+            ) : skipPending ? (
+              <div className="w-full transition-discrete starting:opacity-0">
+                <QuestionCardSkeleton />
+                <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
+                  {t('getting_another_question')}
+                </div>
+              </div>
+            ) : (
+              question && (
+                <QuestionCard
+                  question={question}
+                  selectedDomain={selectedDomain}
+                />
+              )
+            )}
 
-        {/* Fade out AnswerForm when skipPending */}
-        {question && !skipPending && (
-          <AnswerForm
-            answer={answer}
-            setAnswer={setAnswer}
-            onSubmit={handleSubmitAnswer}
-            isPending={isPending}
-            skipPending={skipPending}
-            evaluation={evaluation}
-            onStop={goBack}
-            onSkip={() => {
-              handleGetQuestion(true);
-            }}
-            className={skipPending ? 'fade-out' : ''}
-          />
-        )}
+            {/* Only show selectors when not loading and no question is present */}
+            {selectedDomain && !question && !isPending && (
+              <>
+                {(() => {
+                  const domain = getDomainInstanceByName(selectedDomain);
+                  const child = selectedDomain.split('-')?.[1];
+                  return domain ? (
+                    <DomainBanner
+                      domain={domain}
+                      child={child}
+                      onBack={() => {
+                        setEvaluation(null);
+                        setSelectedDomain(null);
+                      }}
+                    />
+                  ) : null;
+                })()}
+                {(() => {
+                  const domain = getDomainInstanceByName(selectedDomain);
+                  return domain &&
+                    domain.children &&
+                    domain.children.length > 0 ? (
+                    <div className="space-y-2">
+                      <div className="text-[oklch(85%_0.2_240)] text-sm font-medium text-center">
+                        {t('select_subtopic')}
+                      </div>
+                      <div className="domain-children-grid">
+                        {domain.children.map((child) => (
+                          <button
+                            key={child}
+                            type="button"
+                            onClick={() => setSelectedChild(child)}
+                            className={`domain-child-button ${
+                              selectedChild === child ? 'active' : ''
+                            }`}
+                          >
+                            <span className="relative text-sm font-inherit text-[oklch(98%_0_0)]">
+                              {child}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null;
+                })()}
+                <DifficultySelector
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                  isPending={isPending}
+                  evaluation={evaluation}
+                  onStart={handleGetQuestion}
+                  isStartDisabled={(() => {
+                    const domain = getDomainInstanceByName(selectedDomain);
+                    return (
+                      domain?.children &&
+                      domain.children.length > 0 &&
+                      !selectedChild
+                    );
+                  })()}
+                />
+              </>
+            )}
 
-        {evaluation ? (
-          <>
-            <EvaluationCard
-              evaluation={evaluation}
-              evaluationRef={evaluationRef}
-            />
-            <DifficultySelector
-              difficulty={difficulty}
-              setDifficulty={setDifficulty}
-              isPending={isPending}
-              evaluation={evaluation}
-              onStart={handleGetQuestion}
-            />
-          </>
-        ) : null}
+            {/* Fade out AnswerForm when skipPending */}
+            {question && !skipPending && (
+              <AnswerForm
+                answer={answer}
+                setAnswer={setAnswer}
+                onSubmit={handleSubmitAnswer}
+                isPending={isPending}
+                skipPending={skipPending}
+                evaluation={evaluation}
+                onStop={goBack}
+                onSkip={() => {
+                  handleGetQuestion(true);
+                }}
+                className={skipPending ? 'fade-out' : ''}
+              />
+            )}
 
-        <Footer />
+            {evaluation ? (
+              <>
+                <EvaluationCard
+                  evaluation={evaluation}
+                  evaluationRef={evaluationRef}
+                />
+                <DifficultySelector
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                  isPending={isPending}
+                  evaluation={evaluation}
+                  onStart={handleGetQuestion}
+                />
+              </>
+            ) : null}
+
+            <Footer />
+          </div>
+        </div>
       </div>
     </div>
   );

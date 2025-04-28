@@ -28,85 +28,115 @@ export default function AnswerForm({
   return (
     <form
       onSubmit={onSubmit}
-      className={`space-y-3 sm:space-y-4 animate-fade-in w-full max-w-3xl mx-auto ${
+      className={`relative space-y-4 sm:space-y-6 animate-fade-in w-full max-w-3xl mx-auto ${
         className || ''
       }`}
     >
       <div className="w-full">
         <label
-          className="block text-gray-400 text-sm mb-1"
+          className="block text-blue-300/90 text-sm font-medium mb-2 ml-1"
           htmlFor="answer-textarea"
         >
           {t('enter_answer')}
         </label>
-        <TextareaAutosize
-          id="answer-textarea"
-          minRows={3}
-          maxRows={30}
-          disabled={!!evaluation}
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          className={`w-full bg-gray-800 text-white p-3 pb-16 rounded-lg focus:ring-2 focus:ring-blue-500 resize-none border transition-all duration-200 text-base sm:text-lg shadow-sm focus:shadow-lg ${
-            answer.length > 1000 ? 'border-red-500' : 'border-gray-700'
-          }`}
-          aria-label={t('enter_answer')}
-        />
-        <div className="flex justify-between items-center mt-1 mb-2">
-          {answer.length > 1000 && (
-            <span className="text-xs text-red-500">
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
+          <TextareaAutosize
+            id="answer-textarea"
+            minRows={3}
+            maxRows={30}
+            disabled={!!evaluation}
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 ${
+              answer.length > 1000
+                ? 'border-red-500/50 focus:ring-red-500/50'
+                : 'focus:border-blue-500/50'
+            }`}
+            aria-label={t('enter_answer')}
+            placeholder={t('type_your_answer')}
+          />
+        </div>
+        <div className="flex justify-between items-center mt-2 px-1">
+          {answer.length > 1000 ? (
+            <span className="text-xs text-red-400/90">
               {t('over_char_limit', { count: answer.length - 1000 })}
+            </span>
+          ) : (
+            <span className="text-xs text-blue-400/70">
+              {t('characters_remaining', { count: 1000 - answer.length })}
             </span>
           )}
           <span
             className={`text-xs ${
-              answer.length > 1000 ? 'text-red-500' : 'text-gray-400'
+              answer.length > 1000 ? 'text-red-400/90' : 'text-blue-400/70'
             }`}
           >
             {answer.length}/1000
           </span>
         </div>
       </div>
-      {!evaluation ? (
-        <div className="w-full mt-4 mb-4">
+
+      {!evaluation && (
+        <div className="w-full mt-6 mb-4 space-y-4">
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl font-bold text-lg shadow-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:scale-105 hover:shadow-xl transition-all duration-200"
-            disabled={isPending || skipPending}
+            className="group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+            disabled={isPending || skipPending || answer.length > 1000}
           >
-            <span>📨</span>
-            <span>
-              {isPending || skipPending
-                ? skipPending
-                  ? t('getting_new_question')
-                  : t('grading')
-                : t('submit_answer')}
-            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-[1.1]" />
+            <div className="relative flex items-center justify-center gap-3 text-white">
+              <span className="text-xl">📨</span>
+              <span>
+                {isPending || skipPending
+                  ? skipPending
+                    ? t('getting_new_question')
+                    : t('grading')
+                  : t('submit_answer')}
+              </span>
+            </div>
           </button>
-          <div className="flex justify-center py-2 text-gray-400 text-sm mt-2">
-            {t('or')}
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-700/30" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="px-4 text-sm text-gray-400 bg-gray-900">
+                {t('or')}
+              </span>
+            </div>
           </div>
-          <div className="flex gap-2 mt-2">
+
+          <div className="flex gap-3 mt-3">
             <button
               type="button"
               onClick={onSkip}
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold text-base bg-yellow-400 text-gray-900 hover:bg-yellow-500 hover:scale-105 hover:shadow transition-all duration-200"
+              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-yellow-500/50"
               disabled={isPending || skipPending}
             >
-              <span>⏭️</span>
-              <span>{t('skip')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-transform duration-300 group-hover:scale-[1.1]" />
+              <div className="relative flex items-center justify-center gap-2 text-gray-900">
+                <span>⏭️</span>
+                <span>{t('skip')}</span>
+              </div>
             </button>
+
             <button
               type="button"
               onClick={onStop}
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold text-base bg-red-500 text-white hover:bg-red-600 hover:scale-105 hover:shadow transition-all duration-200"
+              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-red-500/50"
               disabled={isPending || skipPending}
             >
-              <span>🛑</span>
-              <span>{t('give_up')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 transition-transform duration-300 group-hover:scale-[1.1]" />
+              <div className="relative flex items-center justify-center gap-2 text-white">
+                <span>🛑</span>
+                <span>{t('give_up')}</span>
+              </div>
             </button>
           </div>
         </div>
-      ) : null}
+      )}
     </form>
   );
 }
