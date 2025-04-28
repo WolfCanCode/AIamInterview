@@ -10,6 +10,7 @@ interface DifficultySelectorProps {
   isPending: boolean;
   evaluation: Evaluation | null;
   onStart: () => void;
+  isStartDisabled?: boolean;
 }
 
 export default function DifficultySelector({
@@ -18,6 +19,7 @@ export default function DifficultySelector({
   isPending,
   evaluation,
   onStart,
+  isStartDisabled,
 }: DifficultySelectorProps) {
   const t = useTranslations('');
 
@@ -50,8 +52,12 @@ export default function DifficultySelector({
       </div>
       <button
         onClick={onStart}
-        className="mt-3 w-full py-4 rounded-xl font-bold text-base bg-cyan-500 text-white hover:bg-cyan-600 transition-all duration-200 flex items-center justify-center gap-2 shadow focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
-        disabled={isPending}
+        className={`mt-3 w-full py-4 rounded-xl font-bold text-base transition-all duration-200 flex items-center justify-center gap-2 shadow focus:outline-none focus:ring-2 focus:ring-cyan-400/40 ${
+          isStartDisabled
+            ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
+            : 'bg-cyan-500 text-white hover:bg-cyan-600'
+        }`}
+        disabled={isPending || isStartDisabled}
       >
         {isPending ? (
           <>
