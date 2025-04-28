@@ -22,7 +22,7 @@ export default function DifficultySelector({
     <div className="relative w-full max-w-lg mx-auto bg-gray-900/95 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 animate-fade-in">
       {/* Prompt */}
       <div className="mt-2 text-blue-200 text-sm sm:text-base font-semibold text-center">
-        Sẵn sàng chưa? Chọn độ khó và bắt đầu!
+        Chọn độ khó:
       </div>
       {/* Difficulty Selection */}
       <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 w-full mt-2">

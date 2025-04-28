@@ -1,28 +1,31 @@
 'use client';
 
-import { getQuestionAction } from '@/actions/getQuestionAction';
 import { submitAnswerAction } from '@/actions/submitAnswerAction';
 import { Evaluation } from '@/types/Evaluation';
 import { Question } from '@/types/Question';
 import { domainGroups } from '@/utils/constants/domain';
 import { useState, useTransition, useEffect, useRef } from 'react';
-import DomainBanner from './DomainBanner';
-import DifficultySelector from './DifficultySelector';
-import QuestionCard from './QuestionCard';
-import EvaluationCard from './EvaluationCard';
-import AnswerForm from './AnswerForm';
-import DomainSelector from './DomainSelector';
-import Header from './Header';
-import Footer from './Footer';
+import DomainBanner from '../components/DomainBanner';
+import DifficultySelector from '../components/DifficultySelector';
+import QuestionCard from '../components/QuestionCard';
+import EvaluationCard from '../components/EvaluationCard';
+import AnswerForm from '../components/AnswerForm';
+import DomainSelector from '../components/DomainSelector';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
+import { getQuestionAction } from '@/actions/getQuestionAction';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
 export default function PracticePageWithDomains() {
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
+  const [selectedChild, setSelectedChild] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
   const [answer, setAnswer] = useState('');
   const [evaluation, setEvaluation] = useState<Evaluation | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [skipPending, setSkipPending] = useState(false);
   const [difficulty, setDifficulty] = useState<Difficulty>('Medium');
   const evaluationRef = useRef<HTMLDivElement | null>(null);
 
@@ -44,31 +47,24 @@ export default function PracticePageWithDomains() {
   const handleSelectDomain = (domain: string) => {
     startTransition(async () => {
       setSelectedDomain(domain);
+      setSelectedChild(null);
       setAnswer('');
       setEvaluation(null);
     });
   };
 
-  const handleGetQuestion = () => {
-    const getKeyDomain = (name: string): string => {
-      if (!name) return '';
-      for (const group of domainGroups) {
-        const found = group.domains.find((d) => d.name === name);
-        if (found) return found.key;
-      }
-      return '';
-    };
+  const handleGetQuestion = (isSkip = false) => {
     if (!selectedDomain) return;
-    console.log(selectedDomain, getKeyDomain(selectedDomain));
-
+    const topic = selectedChild
+      ? `${selectedDomain} - ${selectedChild}`
+      : selectedDomain;
+    if (isSkip) setSkipPending(true);
     startTransition(async () => {
-      const data = await getQuestionAction(
-        getKeyDomain(selectedDomain),
-        difficulty
-      );
+      const data = await getQuestionAction(topic, difficulty);
       setQuestion(data);
       setAnswer('');
       setEvaluation(null);
+      setSkipPending(false);
     });
   };
 
@@ -93,7 +89,10 @@ export default function PracticePageWithDomains() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-gray-800">
       <div className="w-full max-w-4xl mx-auto flex-1 p-2 px-4 sm:p-4 md:p-6 space-y-4 sm:space-y-8 bg-gray-900 rounded-none sm:rounded-3xl shadow-2xl flex flex-col">
-        <Header onClickLogo={goBack} />
+        <Header
+          onClickLogo={goBack}
+          {...(question ? { onBack: goBack } : {})}
+        />
 
         {!selectedDomain && (
           <DomainSelector
@@ -102,22 +101,42 @@ export default function PracticePageWithDomains() {
           />
         )}
 
-        {selectedDomain && (!question || evaluation) && (
+        {selectedDomain && !question && (
           <>
             {(() => {
-              let domain = null;
-              for (const group of domainGroups) {
-                domain = group.domains.find((d) => d.name === selectedDomain);
-                if (domain) break;
-              }
+              const domain = getDomainInstanceByName(selectedDomain);
+              const child = selectedDomain.split('-')?.[1];
               return domain ? (
                 <DomainBanner
                   domain={domain}
+                  child={child}
                   onBack={() => {
                     setEvaluation(null);
                     setSelectedDomain(null);
                   }}
                 />
+              ) : null;
+            })()}
+            {(() => {
+              const domain = getDomainInstanceByName(selectedDomain);
+              return domain && domain.children && domain.children.length > 0 ? (
+                <div className="flex flex-wrap gap-2 justify-center mb-2">
+                  {domain.children.map((child) => (
+                    <button
+                      key={child}
+                      type="button"
+                      onClick={() => setSelectedChild(child)}
+                      className={`animate-fade-in px-4 py-2 rounded-full border font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/40
+                        ${
+                          selectedChild === child
+                            ? 'bg-cyan-600 text-white border-cyan-400 shadow-md'
+                            : 'bg-gray-800 text-cyan-200 border-gray-700 hover:bg-cyan-900 hover:text-white'
+                        } animate-bounce-once`}
+                    >
+                      {child}
+                    </button>
+                  ))}
+                </div>
               ) : null;
             })()}
             <DifficultySelector
@@ -140,15 +159,29 @@ export default function PracticePageWithDomains() {
             setAnswer={setAnswer}
             onSubmit={handleSubmitAnswer}
             isPending={isPending}
+            skipPending={skipPending}
             evaluation={evaluation}
+            onStop={goBack}
+            onSkip={() => {
+              handleGetQuestion(true);
+            }}
           />
         )}
 
         {evaluation ? (
-          <EvaluationCard
-            evaluation={evaluation}
-            evaluationRef={evaluationRef}
-          />
+          <>
+            <EvaluationCard
+              evaluation={evaluation}
+              evaluationRef={evaluationRef}
+            />
+            <DifficultySelector
+              difficulty={difficulty}
+              setDifficulty={setDifficulty}
+              isPending={isPending}
+              evaluation={evaluation}
+              onStart={handleGetQuestion}
+            />
+          </>
         ) : (
           ''
         )}

@@ -8,6 +8,7 @@ export const domainGroups = [
         icon: '💻',
         key: 'Backend',
         description: 'Xây dựng hệ thống backend và API mạnh mẽ, dễ mở rộng.',
+        children: ['Java', 'C#', 'Kotlin', 'Go', 'Scala'],
       },
       {
         name: 'Lập trình Frontend',
@@ -15,6 +16,7 @@ export const domainGroups = [
         key: 'Frontend',
         description:
           'Tạo ra trải nghiệm người dùng đẹp mắt, tương tác trên web.',
+        children: ['ReactJS', 'AngularJS', 'VueJS', 'SolidJS', 'Fullstack'],
       },
       {
         name: 'DevOps',
@@ -36,10 +38,11 @@ export const domainGroups = [
         description: 'Phân tích và khai thác dữ liệu để tạo giá trị.',
       },
       {
-        name: 'Lập trình di động',
+        name: 'Lập trình điện thoại',
         icon: '📱',
         key: 'Mobile',
-        description: 'Phát triển ứng dụng cho thiết bị di động.',
+        description: 'Phát triển ứng dụng cho điện thoại thông minh.',
+        children: ['Swift', 'Kotlin', 'Objective-C', 'Java', 'Flutter (dart)'],
       },
       {
         name: 'Trí tuệ nhân tạo',
@@ -78,7 +81,7 @@ export const domainGroups = [
     icon: '📈',
     domains: [
       {
-        name: 'Chiến lược kinh doanh',
+        name: 'Chiến lược KD',
         icon: '📈',
         key: 'Business Strategy',
         description:

@@ -4,13 +4,16 @@ interface Domain {
   name: string;
   icon: string;
   description: string;
+  children?: string[];
 }
 
 export default function DomainBanner({
   domain,
+  child,
   onBack,
 }: {
   domain: Domain;
+  child: string;
   onBack: () => void;
 }) {
   return (
@@ -46,6 +49,11 @@ export default function DomainBanner({
         <div className="text-base text-blue-100 font-medium">
           {domain.description}
         </div>
+        {child && (
+          <div className="mt-2 text-sm text-cyan-200">
+            <span className="font-semibold">Ngôn ngữ/Framework:</span> {child}
+          </div>
+        )}
       </div>
     </div>
   );

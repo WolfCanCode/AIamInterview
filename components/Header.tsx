@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function Header({ onClickLogo }: { onClickLogo: () => void }) {
+export default function Header({
+  onClickLogo,
+  onBack,
+}: {
+  onClickLogo: () => void;
+  onBack?: () => void;
+}) {
   return (
     <header className="mb-4 sm:mb-8 flex flex-col items-center">
       <div className="flex w-full flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
@@ -56,6 +62,29 @@ export default function Header({ onClickLogo }: { onClickLogo: () => void }) {
           <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
         </h1>
       </div>
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="absolute top-4 left-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+          type="button"
+          aria-label="Quay lại"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+      )}
     </header>
   );
 }
