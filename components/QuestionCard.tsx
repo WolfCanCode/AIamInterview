@@ -3,8 +3,6 @@ import { Question } from '@/types/Question';
 import { useTranslations } from 'next-intl';
 
 export function QuestionCardSkeleton() {
-  const t = useTranslations('');
-
   return (
     <div className="relative backdrop-blur-xl bg-white/10 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-pulse overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 z-0 mb-0" />
