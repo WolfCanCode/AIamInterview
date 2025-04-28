@@ -175,6 +175,14 @@ export default function PracticePageWithDomains() {
               isPending={isPending}
               evaluation={evaluation}
               onStart={handleGetQuestion}
+              isStartDisabled={(() => {
+                const domain = getDomainInstanceByName(selectedDomain);
+                return (
+                  domain?.children &&
+                  domain.children.length > 0 &&
+                  !selectedChild
+                );
+              })()}
             />
           </>
         )}
