@@ -13,7 +13,7 @@ export default function EvaluationCard({
   return (
     <div
       ref={evaluationRef}
-      className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-3 sm:p-8 rounded-xl sm:rounded-3xl shadow-2xl space-y-6 sm:space-y-8 animate-fade-in overflow-hidden border border-gray-700/60 w-full max-w-2xl mx-auto"
+      className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-3 sm:p-8 rounded-xl sm:rounded-3xl shadow-2xl space-y-6 sm:space-y-8 animate-fade-in overflow-hidden border border-gray-700/60 w-full max-w-3xl mx-auto"
     >
       <div className="flex flex-col items-center gap-2">
         <span className="text-green-400 text-3xl">

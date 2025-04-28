@@ -16,12 +16,13 @@ import Footer from '../components/Footer';
 import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
 import { getQuestionAction } from '@/actions/getQuestionAction';
 import { QuestionCardSkeleton } from '../components/QuestionCard';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
 export default function PracticePageWithDomains() {
   const t = useTranslations('');
+  const locale = useLocale();
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [selectedChild, setSelectedChild] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -63,7 +64,7 @@ export default function PracticePageWithDomains() {
       : selectedDomain;
     if (isSkip) setSkipPending(true);
     startTransition(async () => {
-      const data = await getQuestionAction(topic, difficulty);
+      const data = await getQuestionAction(topic, difficulty, locale);
       setQuestion(data);
       setAnswer('');
       setEvaluation(null);
@@ -75,7 +76,11 @@ export default function PracticePageWithDomains() {
     e.preventDefault();
     startTransition(async () => {
       if (!question) return;
-      const result = await submitAnswerAction(question.description, answer);
+      const result = await submitAnswerAction(
+        question.description,
+        answer,
+        locale
+      );
       setEvaluation(result);
     });
   };

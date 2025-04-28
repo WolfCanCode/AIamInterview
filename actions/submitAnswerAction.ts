@@ -1,8 +1,13 @@
 'use server';
 
 import { retry } from '@/utils/functions/retry';
+import { prompts } from '@/utils/constants/prompts';
 
-export async function submitAnswerAction(question: string, answer: string) {
+export async function submitAnswerAction(
+  question: string,
+  answer: string,
+  locale: string = 'en'
+) {
   return retry(
     async () => {
       const response = await fetch(
@@ -20,39 +25,7 @@ export async function submitAnswerAction(question: string, answer: string) {
             messages: [
               {
                 role: 'user',
-                content: `
-            Bạn là một chuyên gia tuyển dụng kỹ thuật cấp cao, chuyên đánh giá bài phỏng vấn lập trình.
-
-            Thông tin:
-            - Câu hỏi phỏng vấn:
-            "${question}"
-            - Câu trả lời của ứng viên:
-            "${answer}"
-
-            Nhiệm vụ:
-            - Đánh giá tổng thể mức độ hiểu biết, khả năng sáng tạo và sự chính xác của câu trả lời.
-            - Chấm điểm khó tính: Nếu trả lời lạc đề, thiếu ý chính hoặc thể hiện không hiểu vấn đề, cho 0 điểm. Không "nương tay" cho những câu trả lời mơ hồ, sai hoặc né tránh.
-            - Cần lý giải tại sao cho điểm như vậy.
-            - Nếu trả lời dạng "không biết" "Chịu thua" "Chịu" "Không hiểu" hoặc nhập nhưng từ không có nghĩa thì điểm chắc chắn là 0 và không đạt yêu cầu.
-
-            Thang điểm:
-            - "overall_score": Tổng thể, thang 0-10.
-            - "creative_score": Khả năng sáng tạo, sáng kiến, thang 0-10.
-
-            Yêu cầu ngôn ngữ:
-            - Viết tất cả nội dung bằng tiếng Việt chuẩn mực.
-            - Không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.
-
-            Định dạng đầu ra:
-            - Output **Only** JSON below, không thêm câu trả lời thừa:
-            {
-              "overall_score": number,
-              "creative_score": number,
-              "result_text": "string",
-              "suggestions": "string",
-              "perfect_answer":"string"
-            }
-          `,
+                content: prompts[locale].evaluationPrompt(question, answer),
               },
             ],
           }),
@@ -62,7 +35,7 @@ export async function submitAnswerAction(question: string, answer: string) {
       const data = await response.json();
       const raw = data.choices?.[0]?.message?.content ?? '';
 
-      // Clean nếu bị dính code block ```json ... ```
+      // Clean if there are code blocks ```json ... ```
       const cleaned = raw
         .replace(/```json/gi, '')
         .replace(/```/gi, '')

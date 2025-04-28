@@ -1,10 +1,14 @@
 'use server';
 import { retry } from '@/utils/functions/retry';
+import { prompts } from '@/utils/constants/prompts';
 
-export async function getQuestionAction(topic: string, difficulty: string) {
+export async function getQuestionAction(
+  topic: string,
+  difficulty: string,
+  locale: string = 'en'
+) {
   return retry(
     async () => {
-      console.log('topic', topic);
       const response = await fetch(
         'https://router.huggingface.co/novita/v3/openai/chat/completions ',
         {
@@ -20,25 +24,7 @@ export async function getQuestionAction(topic: string, difficulty: string) {
             messages: [
               {
                 role: 'user',
-                content: `
-            Bạn là một chuyên gia phỏng vấn cấp cao trong lĩnh vực "${topic}".
-
-            Nhiệm vụ:
-            - Tạo một câu hỏi luyện tập phỏng vấn hoàn toàn mới, thuộc lĩnh vực "${topic}", với độ khó "${difficulty}".
-            - Nội dung cần rõ ràng, ngắn gọn, dễ hiểu, phù hợp với ứng viên ở cấp độ tương ứng.
-            - Nội dung câu hỏi là những câu hỏi dành cho phần phỏng vấn miệng trực tiếp, không có bất cứ thực hành nào ở nội dung.
-
-            Yêu cầu ngôn ngữ:
-            - Viết toàn bộ bằng tiếng Việt chuẩn mực, không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.
-            - Tránh lỗi chính tả, ngữ pháp.
-
-            Định dạng đầu ra:
-            - Output **Only** JSON below, không thêm câu trả lời thừa:
-            {
-              "title": "string",
-              "description": "string",
-              "constraints": ["string"]
-            }`,
+                content: prompts[locale].questionPrompt(topic, difficulty),
               },
             ],
           }),
@@ -49,7 +35,7 @@ export async function getQuestionAction(topic: string, difficulty: string) {
       console.log(JSON.stringify(data));
       const raw = data.choices?.[0]?.message?.content ?? '';
 
-      // Clean nếu bị dính code block ```json ... ```
+      // Clean if there are code blocks ```json ... ```
       const cleaned = raw
         .replace(/```json/gi, '')
         .replace(/```/gi, '')

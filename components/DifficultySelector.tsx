@@ -6,7 +6,7 @@ type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
 interface DifficultySelectorProps {
   difficulty: Difficulty;
-  setDifficulty: (d: Difficulty) => void;
+  setDifficulty: (difficulty: Difficulty) => void;
   isPending: boolean;
   evaluation: Evaluation | null;
   onStart: () => void;
@@ -20,12 +20,7 @@ export default function DifficultySelector({
   onStart,
 }: DifficultySelectorProps) {
   const t = useTranslations('');
-  const difficultyLabels = {
-    Easy: t('Easy'),
-    Medium: t('Medium'),
-    Hard: t('Hard'),
-    Madness: t('Madness'),
-  };
+
   return (
     <div className="w-full max-w-sm mx-auto py-4 animate-fade-in">
       <div className="text-blue-200 text-xs font-semibold text-center mb-2 ">
@@ -49,7 +44,7 @@ export default function DifficultySelector({
               }`}
           >
             <span className="text-base">{icon}</span>
-            <span>{difficultyLabels[mode as Difficulty]}</span>
+            <span>{t(`difficulty_${mode.toLowerCase()}`)}</span>
           </button>
         ))}
       </div>

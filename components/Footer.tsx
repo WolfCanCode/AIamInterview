@@ -17,10 +17,13 @@ export default function Footer() {
         <strong>{t('model')}</strong>{' '}
         <span className="font-mono text-xs">meta-llama/llama-4-maverick</span>
       </span>
-      <span>
+      <span
+        className="cursor-pointer hover:text-teal-400"
+        onClick={() => window.open('https://www.linkedin.com/in/wolfcancode/')}
+      >
         {t('made_by')} <span className="inline-block">❤️</span>
       </span>
-      <span className="text-xs text-gray-400">
+      <span className="text-xs text-gray-400 cursor-pointer">
         {t.rich('copyright', {
           year: currentYear,
           fallback: `© ${currentYear} ITerview. All rights reserved.`,

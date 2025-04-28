@@ -64,5 +64,9 @@
   "domain_legal": "Legal",
   "domain_legal_desc": "Analyze and evaluate legal frameworks and real-world cases.",
   "domain_medical": "Medical",
-  "domain_medical_desc": "Diagnose and solve complex medical problems."
+  "domain_medical_desc": "Diagnose and solve complex medical problems.",
+  "difficulty_easy": "Easy",
+  "difficulty_medium": "Medium",
+  "difficulty_hard": "Hard",
+  "difficulty_madness": "Madness"
 }

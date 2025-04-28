@@ -64,5 +64,9 @@
   "domain_legal": "Pháp lý",
   "domain_legal_desc": "Phân tích, đánh giá các khung pháp lý và tình huống thực tiễn.",
   "domain_medical": "Y học",
-  "domain_medical_desc": "Chẩn đoán và giải quyết các vấn đề y khoa phức tạp."
+  "domain_medical_desc": "Chẩn đoán và giải quyết các vấn đề y khoa phức tạp.",
+  "difficulty_easy": "Dễ",
+  "difficulty_medium": "Trung bình",
+  "difficulty_hard": "Khó",
+  "difficulty_madness": "Điên rồ"
 }
