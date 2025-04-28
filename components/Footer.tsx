@@ -1,24 +1,30 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 const BUILD_VERSION = process.env.NEXT_PUBLIC_BUILD_SHA?.slice(0, 7) || 'local';
 
 export default function Footer() {
+  const t = useTranslations('');
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="mt-auto pt-8 text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
-        <strong>Build:</strong>{' '}
+        <strong>{t('build')}</strong>{' '}
         <span className="font-mono text-xs">v1.1 {BUILD_VERSION}</span>
       </span>
       <span>
-        <strong>Model:</strong>{' '}
+        <strong>{t('model')}</strong>{' '}
         <span className="font-mono text-xs">meta-llama/llama-4-maverick</span>
       </span>
       <span>
-        Made by Tommy (Wolf) with love <span className="inline-block">❤️</span>
+        {t('made_by')} <span className="inline-block">❤️</span>
       </span>
-
       <span className="text-xs text-gray-400">
-        © {new Date().getFullYear()} ITerview. All rights reserved.
+        {t.rich('copyright', {
+          year: currentYear,
+          fallback: `© ${currentYear} ITerview. All rights reserved.`,
+        })}
       </span>
     </footer>
   );

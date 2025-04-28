@@ -1,5 +1,6 @@
-import PracticePage from '@/views/PracticePage';
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return <PracticePage></PracticePage>;
+export default function Page() {
+  redirect('/en');
+  return null;
 }

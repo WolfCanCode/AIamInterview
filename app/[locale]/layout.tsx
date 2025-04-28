@@ -1,7 +1,10 @@
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import '@/app/globals.css';
 import { Analytics } from '@vercel/analytics/react';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,13 +22,19 @@ export const metadata: Metadata = {
     'An AI-powered web application to practice coding interviews across multiple domains.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta property="og:title" content="Iterview" />
@@ -53,8 +62,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Analytics />
+        <NextIntlClientProvider locale={locale}>
+          {children}
+          <Analytics />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

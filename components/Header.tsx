@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header({
   onClickLogo,
@@ -7,9 +9,10 @@ export default function Header({
   onClickLogo: () => void;
   onBack?: () => void;
 }) {
+  const t = useTranslations('');
   return (
-    <header className="mb-4 sm:mb-8 flex flex-col items-center">
-      <div className="flex w-full flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+    <header className="mb-4 sm:mb-8 flex flex-col items-center relative w-full">
+      <div className="flex w-full flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 relative">
         <h1
           onClick={onClickLogo}
           className="group text-2xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-2 sm:gap-3 drop-shadow-lg"
@@ -56,18 +59,21 @@ export default function Header({
           </span>
           {/* Animated Gradient Text */}
           <span className="bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent animate-shimmer font-extrabold relative drop-shadow-md">
-            ITerview
+            {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}
           <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
         </h1>
+        <div className="absolute right-0 top-0 sm:static sm:ml-auto">
+          <LanguageSwitcher />
+        </div>
       </div>
       {onBack && (
         <button
           onClick={onBack}
           className="absolute top-4 left-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
           type="button"
-          aria-label="Quay lại"
+          aria-label={t('back')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

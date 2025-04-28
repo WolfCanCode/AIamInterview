@@ -16,10 +16,12 @@ import Footer from '../components/Footer';
 import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
 import { getQuestionAction } from '@/actions/getQuestionAction';
 import { QuestionCardSkeleton } from '../components/QuestionCard';
+import { useTranslations } from 'next-intl';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
 export default function PracticePageWithDomains() {
+  const t = useTranslations('');
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [selectedChild, setSelectedChild] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -107,14 +109,14 @@ export default function PracticePageWithDomains() {
           <div className="w-full transition-all duration-500">
             <QuestionCardSkeleton />
             <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
-              Đang lấy câu hỏi, chờ chút nhé...
+              {t('getting_question')}
             </div>
           </div>
         ) : skipPending ? (
           <div className="w-full transition-all duration-500">
             <QuestionCardSkeleton />
             <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
-              Đang lấy câu hỏi khác...
+              {t('getting_another_question')}
             </div>
           </div>
         ) : (
@@ -203,9 +205,8 @@ export default function PracticePageWithDomains() {
               onStart={handleGetQuestion}
             />
           </>
-        ) : (
-          ''
-        )}
+        ) : null}
+
         <Footer />
       </div>
     </div>

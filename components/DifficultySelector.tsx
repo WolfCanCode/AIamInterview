@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
@@ -18,10 +19,17 @@ export default function DifficultySelector({
   evaluation,
   onStart,
 }: DifficultySelectorProps) {
+  const t = useTranslations('');
+  const difficultyLabels = {
+    Easy: t('Easy'),
+    Medium: t('Medium'),
+    Hard: t('Hard'),
+    Madness: t('Madness'),
+  };
   return (
     <div className="w-full max-w-sm mx-auto py-4 animate-fade-in">
       <div className="text-blue-200 text-xs font-semibold text-center mb-2 ">
-        Chọn độ khó:
+        {t('choose_difficulty')}
       </div>
       <div className="flex justify-center gap-2 w-full mb-8">
         {[
@@ -41,7 +49,7 @@ export default function DifficultySelector({
               }`}
           >
             <span className="text-base">{icon}</span>
-            <span>{mode}</span>
+            <span>{difficultyLabels[mode as Difficulty]}</span>
           </button>
         ))}
       </div>
@@ -72,17 +80,17 @@ export default function DifficultySelector({
                 d="M4 12a8 8 0 018-8v8H4z"
               ></path>
             </svg>
-            <span className="ml-1">Đang tạo...</span>
+            <span className="ml-1">{t('getting_question')}</span>
           </>
         ) : evaluation ? (
           <>
             <span className="text-base">⏭️</span>
-            <span>Câu hỏi tiếp theo</span>
+            <span>{t('next_question')}</span>
           </>
         ) : (
           <>
             <span className="text-base">▶️</span>
-            <span>Bắt đầu</span>
+            <span>{t('start')}</span>
           </>
         )}
       </button>

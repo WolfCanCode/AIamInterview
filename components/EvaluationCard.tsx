@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 
 export default function EvaluationCard({
@@ -8,6 +9,7 @@ export default function EvaluationCard({
   evaluation: Evaluation;
   evaluationRef: React.RefObject<HTMLDivElement | null>;
 }) {
+  const t = useTranslations('');
   return (
     <div
       ref={evaluationRef}
@@ -31,7 +33,7 @@ export default function EvaluationCard({
           </svg>
         </span>
         <h4 className="text-2xl font-extrabold text-green-300 tracking-tight">
-          Kết quả đánh giá
+          {t('evaluation_result')}
         </h4>
       </div>
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
@@ -40,13 +42,17 @@ export default function EvaluationCard({
           <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-green-400 bg-gray-900 text-green-200 text-4xl font-bold shadow-lg animate-scale-in">
             {evaluation.overall_score}
           </div>
-          <span className="text-green-400 font-semibold">Điểm tổng</span>
+          <span className="text-green-400 font-semibold">
+            {t('total_score')}
+          </span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-blue-400 bg-gray-900 text-blue-200 text-4xl font-bold shadow-lg animate-scale-in">
             {evaluation.creative_score}
           </div>
-          <span className="text-blue-400 font-semibold">Điểm sáng tạo</span>
+          <span className="text-blue-400 font-semibold">
+            {t('creative_score')}
+          </span>
         </div>
       </div>
       <div className="flex flex-col items-center gap-2">
@@ -74,14 +80,14 @@ export default function EvaluationCard({
       <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
         <span className="text-2xl mt-1">📝</span>
         <p className="text-blue-100 font-medium">
-          <b>Gợi ý:</b> {evaluation.suggestions}
+          <b>{t('suggestion')}</b> {evaluation.suggestions}
         </p>
       </div>
 
       <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
         <span className="text-2xl mt-1">✨</span>
         <p className="text-blue-100 font-medium">
-          <b>Câu trả lời đầy đủ:</b> {evaluation.perfect_answer}
+          <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
         </p>
       </div>
     </div>
