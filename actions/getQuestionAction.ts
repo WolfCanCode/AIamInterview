@@ -26,6 +26,7 @@ export async function getQuestionAction(topic: string, difficulty: string) {
             Nhiệm vụ:
             - Tạo một câu hỏi luyện tập phỏng vấn hoàn toàn mới, thuộc lĩnh vực "${topic}", với độ khó "${difficulty}".
             - Nội dung cần rõ ràng, ngắn gọn, dễ hiểu, phù hợp với ứng viên ở cấp độ tương ứng.
+            - Nội dung câu hỏi là những câu hỏi dành cho phần phỏng vấn miệng trực tiếp, không có bất cứ thực hành nào ở nội dung.
 
             Yêu cầu ngôn ngữ:
             - Viết toàn bộ bằng tiếng Việt chuẩn mực, không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.

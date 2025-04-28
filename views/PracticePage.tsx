@@ -102,7 +102,29 @@ export default function PracticePageWithDomains() {
           />
         )}
 
-        {selectedDomain && !question && (
+        {/* Show only one skeleton or card at a time */}
+        {isPending && !question ? (
+          <div className="w-full transition-all duration-500">
+            <QuestionCardSkeleton />
+            <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
+              Đang lấy câu hỏi, chờ chút nhé...
+            </div>
+          </div>
+        ) : skipPending ? (
+          <div className="w-full transition-all duration-500">
+            <QuestionCardSkeleton />
+            <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
+              Đang lấy câu hỏi khác...
+            </div>
+          </div>
+        ) : (
+          question && (
+            <QuestionCard question={question} selectedDomain={selectedDomain} />
+          )
+        )}
+
+        {/* Only show selectors when not loading and no question is present */}
+        {selectedDomain && !question && !isPending && (
           <>
             {(() => {
               const domain = getDomainInstanceByName(selectedDomain);
@@ -149,25 +171,6 @@ export default function PracticePageWithDomains() {
             />
           </>
         )}
-
-        {/* Show only one card at a time, no overlap */}
-        <div className="w-full transition-all duration-500">
-          {skipPending ? (
-            <>
-              <QuestionCardSkeleton />
-              <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
-                Đang lấy câu hỏi khác...
-              </div>
-            </>
-          ) : (
-            question && (
-              <QuestionCard
-                question={question}
-                selectedDomain={selectedDomain}
-              />
-            )
-          )}
-        </div>
 
         {/* Fade out AnswerForm when skipPending */}
         {question && !skipPending && (
