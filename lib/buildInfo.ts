@@ -1,4 +1,4 @@
 export function getBuildVersion() {
-  const sha = process.env.VERCEL_GIT_COMMIT_SHA || 'local';
+  const sha = process.env.VERCEL_DEPLOYMENT_ID || 'local';
   return sha.slice(0, 7);
 }
