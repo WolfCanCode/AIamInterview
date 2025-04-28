@@ -15,6 +15,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
 import { getQuestionAction } from '@/actions/getQuestionAction';
+import { QuestionCardSkeleton } from '../components/QuestionCard';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -149,11 +150,27 @@ export default function PracticePageWithDomains() {
           </>
         )}
 
-        {question && (
-          <QuestionCard question={question} selectedDomain={selectedDomain} />
-        )}
+        {/* Show only one card at a time, no overlap */}
+        <div className="w-full transition-all duration-500">
+          {skipPending ? (
+            <>
+              <QuestionCardSkeleton />
+              <div className="text-center text-blue-300 mt-4 animate-pulse font-semibold text-base">
+                Đang lấy câu hỏi khác...
+              </div>
+            </>
+          ) : (
+            question && (
+              <QuestionCard
+                question={question}
+                selectedDomain={selectedDomain}
+              />
+            )
+          )}
+        </div>
 
-        {question && (
+        {/* Fade out AnswerForm when skipPending */}
+        {question && !skipPending && (
           <AnswerForm
             answer={answer}
             setAnswer={setAnswer}
@@ -165,6 +182,7 @@ export default function PracticePageWithDomains() {
             onSkip={() => {
               handleGetQuestion(true);
             }}
+            className={skipPending ? 'fade-out' : ''}
           />
         )}
 

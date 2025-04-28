@@ -11,6 +11,7 @@ export default function AnswerForm({
   evaluation,
   onStop,
   onSkip,
+  className,
 }: {
   answer: string;
   setAnswer: (v: string) => void;
@@ -20,11 +21,14 @@ export default function AnswerForm({
   evaluation: Evaluation | null;
   onStop: () => void;
   onSkip: () => void;
+  className?: string;
 }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="space-y-3 sm:space-y-4 animate-fade-in w-full max-w-3xl mx-auto"
+      className={`space-y-3 sm:space-y-4 animate-fade-in w-full max-w-3xl mx-auto ${
+        className || ''
+      }`}
     >
       <div className="w-full">
         <label

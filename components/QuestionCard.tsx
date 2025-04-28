@@ -1,6 +1,25 @@
 import React from 'react';
 import { Question } from '@/types/Question';
 
+export function QuestionCardSkeleton() {
+  return (
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-pulse">
+      <div className="flex flex-col justify-start gap-2">
+        <div className="w-32 h-6 bg-gray-300 dark:bg-gray-700 rounded mb-2" />
+        <div className="w-3/4 h-8 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      </div>
+      <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      <div className="h-4 w-2/3 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      <div className="space-y-2 mt-4">
+        <div className="h-4 w-1/2 bg-gray-300 dark:bg-gray-700 rounded" />
+        <div className="h-4 w-2/3 bg-gray-200 dark:bg-gray-700 rounded" />
+        <div className="h-4 w-1/3 bg-gray-200 dark:bg-gray-700 rounded" />
+      </div>
+    </div>
+  );
+}
+
 export default function QuestionCard({
   question,
   selectedDomain,
