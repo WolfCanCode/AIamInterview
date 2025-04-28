@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BUILD_VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'local';
+const BUILD_VERSION = process.env.NEXT_PUBLIC_BUILD_SHA?.slice(0, 7) || 'local';
 
 export default function Footer() {
   return (
