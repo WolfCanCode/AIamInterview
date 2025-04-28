@@ -77,6 +77,13 @@ export default function EvaluationCard({
           <b>Gợi ý:</b> {evaluation.suggestions}
         </p>
       </div>
+
+      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+        <span className="text-2xl mt-1">✨</span>
+        <p className="text-blue-100 font-medium">
+          <b>Câu trả lời đầy đủ:</b> {evaluation.perfect_answer}
+        </p>
+      </div>
     </div>
   );
 }

@@ -3,4 +3,5 @@ export interface Evaluation {
   creative_score: number;
   result_text: string;
   suggestions: string;
+  perfect_answer: string;
 }

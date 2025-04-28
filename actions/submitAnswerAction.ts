@@ -49,7 +49,8 @@ export async function submitAnswerAction(question: string, answer: string) {
               "overall_score": number,
               "creative_score": number,
               "result_text": "string",
-              "suggestions": "string"
+              "suggestions": "string",
+              "perfect_answer":"string"
             }
           `,
               },
