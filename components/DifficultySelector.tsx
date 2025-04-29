@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
+import FuturisticCard from './FuturisticCard';
+import FuturisticButton from './FuturisticButton';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -13,6 +15,29 @@ interface DifficultySelectorProps {
   isStartDisabled?: boolean;
 }
 
+const difficultyConfig = [
+  {
+    mode: 'Easy',
+    icon: '🌱',
+    glowColor: 'green',
+  },
+  {
+    mode: 'Medium',
+    icon: '🚀',
+    glowColor: 'blue',
+  },
+  {
+    mode: 'Hard',
+    icon: '🔥',
+    glowColor: 'pink',
+  },
+  {
+    mode: 'Madness',
+    icon: '💀',
+    glowColor: 'purple',
+  },
+] as const;
+
 export default function DifficultySelector({
   difficulty,
   setDifficulty,
@@ -24,94 +49,81 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto pb-6 animate-fade-in">
-      <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(60%_0.3_240/0.1)] to-transparent rounded-3xl" />
-
-      <div className="relative z-10 flex flex-col items-center">
-        <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-3">
-          {t('choose_difficulty')}
-        </div>
-
-        <div className="difficulty-grid mb-6">
-          {[
-            {
-              mode: 'Easy',
-              icon: '🌱',
-              className: 'difficulty-button easy',
-            },
-            {
-              mode: 'Medium',
-              icon: '🚀',
-              className: 'difficulty-button medium',
-            },
-            {
-              mode: 'Hard',
-              icon: '🔥',
-              className: 'difficulty-button hard',
-            },
-            {
-              mode: 'Madness',
-              icon: '💀',
-              className: 'difficulty-button insane',
-            },
-          ].map(({ mode, icon, className }) => (
-            <button
-              key={mode}
-              onClick={() => setDifficulty(mode as Difficulty)}
-              className={`${className} ${difficulty === mode ? 'active' : ''}`}
-            >
-              <div className="flex items-center justify-center gap-1.5">
-                <span className="text-lg">{icon}</span>
-                <span>{t(`difficulty_${mode.toLowerCase()}`)}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <button
-          onClick={onStart}
-          className={`start-button ${isStartDisabled ? 'opacity-50' : ''} mt-4`}
-          disabled={isPending || isStartDisabled}
-        >
-          <div className="flex items-center justify-center gap-3">
-            {isPending ? (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8v8H4z"
-                  />
-                </svg>
-                <span>{t('getting_question')}</span>
-              </>
-            ) : evaluation ? (
-              <>
-                <span className="text-xl">⏭️</span>
-                <span>{t('next_question')}</span>
-              </>
-            ) : (
-              <>
-                <span className="text-xl">▶️</span>
-                <span>{t('start')}</span>
-              </>
-            )}
-          </div>
-        </button>
+    <FuturisticCard
+      glowColor="blue"
+      variant="dark"
+      className="w-full max-w-2xl mx-auto"
+      hover
+    >
+      <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
+        {t('choose_difficulty')}
       </div>
-    </div>
+
+      <div className="mb-4 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full px-2">
+        {difficultyConfig.map(({ mode, icon, glowColor }) => (
+          <FuturisticCard
+            key={mode}
+            glowColor={glowColor}
+            variant="dark"
+            className={`
+              transition-all duration-300 cursor-pointer p-2
+              ${difficulty === mode ? 'scale-105 ring-2 ring-cyan-400/50' : ''}
+            `}
+            onClick={() => setDifficulty(mode as Difficulty)}
+            hover
+          >
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-xl">{icon}</span>
+              <span className="text-xs font-medium">
+                {t(`difficulty_${mode.toLowerCase()}`)}
+              </span>
+            </div>
+          </FuturisticCard>
+        ))}
+      </div>
+
+      <div className="flex justify-center pb-4">
+        <FuturisticButton
+          onClick={onStart}
+          disabled={isPending || isStartDisabled}
+          color="cyan"
+          className="min-w-[180px]"
+          icon={
+            isPending ? (
+              <svg
+                className="animate-spin h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8H4z"
+                />
+              </svg>
+            ) : evaluation ? (
+              '⏭️'
+            ) : (
+              '▶️'
+            )
+          }
+        >
+          {isPending
+            ? t('getting_question')
+            : evaluation
+            ? t('next_question')
+            : t('start')}
+        </FuturisticButton>
+      </div>
+    </FuturisticCard>
   );
 }

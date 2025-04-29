@@ -11,19 +11,43 @@ export default function Header({
 }) {
   const t = useTranslations('');
   return (
-    <header className="mb-4 sm:mb-8 flex flex-col items-center relative w-full">
-      <div className="flex w-full flex-col justify-between items-center gap-2 sm:gap-0 relative">
+    <header className="mb-4 sm:mb-8 flex items-center relative w-full">
+      <div className="flex items-center gap-2">
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-800/80 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+            type="button"
+            aria-label={t('back')}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+        )}
+
         <h1
           onClick={onClickLogo}
-          className="group text-2xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-block cursor-pointer select-none flex items-center gap-2 sm:gap-3 drop-shadow-lg"
+          className="group text-xl sm:text-2xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-flex items-center gap-2 cursor-pointer select-none drop-shadow-lg"
         >
           {/* Animated Logo Icon */}
-          <span className="inline-flex items-center justify-center text-3xl sm:text-5xl group-hover:animate-spin-slow transition-transform duration-700">
+          <span className="inline-flex items-center justify-center text-xl sm:text-2xl group-hover:animate-spin-slow transition-transform duration-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
               fill="currentColor"
-              className="w-8 h-8 sm:w-10 sm:h-10 text-blue-300 drop-shadow-lg"
+              className="w-5 h-5 sm:w-6 sm:h-6 text-blue-300 drop-shadow-lg"
             >
               <rect
                 x="4"
@@ -62,35 +86,13 @@ export default function Header({
             {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
+          <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-0.5 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
         </h1>
-        <div className="absolute right-0 top-0 sm:static sm:ml-auto">
-          <LanguageSwitcher />
-        </div>
       </div>
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="absolute top-1 left-1 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
-          type="button"
-          aria-label={t('back')}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-      )}
+
+      <div className="ml-auto">
+        <LanguageSwitcher />
+      </div>
     </header>
   );
 }

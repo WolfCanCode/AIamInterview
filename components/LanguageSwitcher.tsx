@@ -18,20 +18,18 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex gap-4 items-center mt-2.5">
+    <div className="flex gap-2 items-center">
       {LANGUAGES.map((lng) => (
         <button
           key={lng.code}
           onClick={() => handleLanguageChange(lng.code)}
           aria-label={lng.label}
-          className={`transition-all duration-200 focus:outline-none bg-transparent p-0 m-0
-            ${
-              locale === lng.code
-                ? 'drop-shadow-[0_0_6px_rgba(34,211,238,0.7)] scale-110'
-                : 'opacity-80 hover:scale-125 hover:drop-shadow-[0_0_4px_rgba(34,211,238,0.4)]'
-            }
-          `}
-          style={{ fontSize: 28, lineHeight: 1 }}
+          className={`transition-all duration-200 focus:outline-none bg-[#0B1221]/80 backdrop-blur-md border border-cyan-400/20 rounded-full p-1 shadow-md hover:scale-110 hover:shadow-cyan-400/20 focus:ring-2 focus:ring-cyan-400/40 text-lg ${
+            locale === lng.code
+              ? 'drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] scale-110 ring-2 ring-cyan-400/60'
+              : 'opacity-80'
+          }`}
+          style={{ lineHeight: 1 }}
         >
           <span>{lng.flag}</span>
         </button>
