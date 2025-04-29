@@ -54,7 +54,8 @@ Output format:
   "creative_score": number,
   "result_text": "string",
   "suggestions": "string",
-  "perfect_answer": "string"
+  "perfect_answer": "string",
+  "key_point_main_argument":"string"
 }`,
 };
 
@@ -110,7 +111,8 @@ Yêu cầu ngôn ngữ:
   "creative_score": number,
   "result_text": "string",
   "suggestions": "string",
-  "perfect_answer": "string"
+  "perfect_answer": "string",
+  "key_point_main_argument":"string"
 }`,
 };
 
