@@ -55,7 +55,7 @@ Output format:
   "result_text": "string",
   "suggestions": "string",
   "perfect_answer": "string",
-  "key_point_main_argument":"string"
+  "key_points_of_main_argument":"string"
 }`,
 };
 
@@ -112,7 +112,7 @@ Yêu cầu ngôn ngữ:
   "result_text": "string",
   "suggestions": "string",
   "perfect_answer": "string",
-  "key_point_main_argument":"string"
+  "key_points_of_main_argument":"string"
 }`,
 };
 
