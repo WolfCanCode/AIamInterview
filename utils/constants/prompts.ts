@@ -39,6 +39,7 @@ Task:
 - Grade strictly: Give 0 points for off-topic answers, missing main points, or showing lack of understanding. Don't be lenient with vague, incorrect, or evasive answers.
 - Explain why you gave such scores.
 - If the answer is "don't know", "give up", "no idea" or meaningless input, the score must be 0 and marked as not meeting requirements.
+- Key points: Candidate can use these key points as a foundation for their ideas.
 
 Scoring scale:
 - "overall_score": Overall performance, scale 0-10.
@@ -95,6 +96,7 @@ Nhiệm vụ:
 - Chấm điểm khó tính: Nếu trả lời lạc đề, thiếu ý chính hoặc thể hiện không hiểu vấn đề, cho 0 điểm. Không "nương tay" cho những câu trả lời mơ hồ, sai hoặc né tránh.
 - Cần lý giải tại sao cho điểm như vậy.
 - Nếu trả lời dạng "không biết" "Chịu thua" "Chịu" "Không hiểu" hoặc nhập nhưng từ không có nghĩa thì điểm chắc chắn là 0 và không đạt yêu cầu.
+- Key points: những điểm chính mà thí sinh có thể sử dụng làm cơ sở cho ý tưởng của mình.
 
 Thang điểm:
 - "overall_score": Tổng thể, thang 0-10.
