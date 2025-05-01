@@ -45,89 +45,227 @@
   "domain_group_technology": "Technology",
   "domain_group_design": "Design",
   "domain_group_business": "Business & Marketing",
-  "domain_group_legal": "Legal & Medical",
+  "domain_group_legal": "Legal",
   "domain_group_education": "Education & Academia",
   "domain_group_arts": "Arts & Entertainment",
   "domain_group_science": "Science & Research",
-  "domain_backend": "Backend Development",
-  "domain_backend_desc": "Build robust, scalable backend systems and APIs.",
-  "domain_frontend": "Frontend Development",
-  "domain_frontend_desc": "Create beautiful, interactive web user experiences.",
-  "domain_devops": "DevOps",
-  "domain_devops_desc": "Optimize development, deployment, and operations processes.",
-  "domain_security": "Security",
-  "domain_security_desc": "Protect systems and data from threats.",
-  "domain_datascience": "Data Science",
-  "domain_datascience_desc": "Analyze and leverage data to create value.",
-  "domain_mobile": "Mobile Development",
-  "domain_mobile_desc": "Develop applications for smartphones.",
-  "domain_aiml": "AI/ML",
-  "domain_aiml_desc": "Apply AI and Machine Learning in practice.",
-  "domain_game": "Game Development",
-  "domain_game_desc": "Create engaging and immersive gaming experiences.",
-  "domain_cloud": "Cloud Computing",
-  "domain_cloud_desc": "Design and implement scalable cloud infrastructure and services.",
-  "domain_blockchain": "Blockchain",
-  "domain_blockchain_desc": "Develop decentralized applications and blockchain solutions.",
-  "domain_iot": "Internet of Things",
-  "domain_iot_desc": "Build connected devices and IoT applications.",
-  "domain_qa": "Quality Assurance",
-  "domain_qa_desc": "Ensure software quality through testing and automation.",
-  "domain_uiux": "UI/UX Design",
-  "domain_uiux_desc": "Design intuitive, attractive, and user-friendly digital products.",
-  "domain_graphic": "Graphic Design",
-  "domain_graphic_desc": "Create images, posters, and brand identities.",
-  "domain_product": "Product Design",
-  "domain_product_desc": "Design and develop real-world products.",
-  "domain_business_strategy": "Business Strategy",
-  "domain_business_strategy_desc": "Drive growth and innovation with smart business strategies.",
-  "domain_marketing": "Marketing",
-  "domain_marketing_desc": "Create inspiring, connecting marketing campaigns.",
-  "domain_sales": "Sales",
-  "domain_sales_desc": "Sales skills and customer development.",
-  "domain_hr": "Human Resources",
-  "domain_hr_desc": "Develop people and build strong teams.",
-  "domain_legal": "Legal",
-  "domain_legal_desc": "Analyze and evaluate legal frameworks and real-world cases.",
-  "domain_medical": "Medical",
-  "domain_medical_desc": "Diagnose and solve complex medical problems.",
-  "domain_teaching": "Teaching",
-  "domain_teaching_desc": "Develop effective teaching methods and educational strategies.",
-  "domain_curriculum": "Curriculum Development",
-  "domain_curriculum_desc": "Design and implement educational programs and materials.",
-  "domain_visual_arts": "Visual Arts",
-  "domain_visual_arts_desc": "Create compelling visual content across different mediums.",
-  "domain_performing_arts": "Performing Arts",
-  "domain_performing_arts_desc": "Express creativity through performance and entertainment.",
-  "domain_research": "Research",
-  "domain_research_desc": "Conduct scientific research and analyze findings.",
-  "domain_applied_science": "Applied Science",
-  "domain_applied_science_desc": "Apply scientific principles to solve real-world problems.",
+  "domain_group_engineering": "Engineering",
+  "domain_group_hospitality": "Hospitality & Tourism",
+  "domain_group_logistics": "Transportation & Logistics",
+  "domain_group_manufacturing": "Manufacturing & Production",
+  "domain_group_healthcare": "Healthcare & Medical",
+  "domain_group_environmental": "Environmental & Sustainability",
+  "domain_group_agriculture": "Agriculture & Food Science",
+  "domain_group_media": "Media & Communications",
+  "domain_group_psychology": "Psychology & Counseling",
+  "domain_group_architecture": "Architecture & Construction",
+  "domain_group_banking": "Banking & Financial Services",
+  "domain_group_investment": "Investment & Securities",
+  "domain_group_insurance": "Insurance",
+
   "difficulty_easy": "Easy",
   "difficulty_medium": "Medium",
   "difficulty_hard": "Hard",
   "difficulty_madness": "Madness",
-  "type_your_answer": "Type your answer here...",
-  "characters_remaining": "{count} characters remaining",
-  "result_excellent": "Excellent!",
-  "result_great": "Great job!",
-  "result_good": "Good effort!",
-  "result_fair": "Fair attempt",
-  "result_needs_work": "Needs improvement",
-  "domain_group_engineering": "Engineering",
-  "domain_mechanical": "Mechanical Engineering",
-  "domain_mechanical_desc": "Design, manufacture, and analyze mechanical systems and machinery.",
-  "domain_embedded": "Embedded Programming",
-  "domain_embedded_desc": "Develop software for embedded systems, microcontrollers, IoT, and firmware.",
-  "domain_electrical": "Electrical & Electronics",
-  "domain_electrical_desc": "Research, design, and develop electrical systems, electronics, microchips, chip design, and FPGA.",
-  "domain_conservatory_music": "Conservatory Music",
-  "domain_conservatory_music_desc": "Advanced music theory, performance, composition, orchestration, conducting, and vocal studies at the conservatory.",
-  "domain_hvac_piping": "HVAC & Piping Design",
-  "domain_hvac_piping_desc": "Design of heating, ventilation, air conditioning systems, and piping for buildings and industry.",
+
   "skeleton_loading_1": "Synthesizing questions…",
   "skeleton_loading_2": "Calibrating neural circuits…",
   "skeleton_loading_3": "Charging creativity…",
   "skeleton_loading_4": "Fetching futuristic prompts…",
-  "skeleton_loading_5": "Tuning AI brainwaves…"
+  "skeleton_loading_5": "Tuning AI brainwaves…",
+
+  "domain_backend": "Backend Development",
+  "domain_backend_desc": "Build server-side applications and APIs using various technologies.",
+
+  "domain_frontend": "Frontend Development",
+  "domain_frontend_desc": "Create responsive and interactive user interfaces for web applications.",
+
+  "domain_devops": "DevOps Engineering",
+  "domain_devops_desc": "Implement and manage continuous integration and deployment pipelines.",
+
+  "domain_security": "Cybersecurity",
+  "domain_security_desc": "Protect systems and data from security threats and vulnerabilities.",
+
+  "domain_datascience": "Data Science",
+  "domain_datascience_desc": "Apply statistical and machine learning techniques to analyze data.",
+
+  "domain_mobile": "Mobile Development",
+  "domain_mobile_desc": "Build mobile applications for iOS, Android, and cross-platform solutions.",
+
+  "domain_aiml": "Artificial Intelligence & Machine Learning",
+  "domain_aiml_desc": "Develop AI models and implement machine learning solutions.",
+
+  "domain_game": "Game Development",
+  "domain_game_desc": "Create interactive games and gaming experiences across platforms.",
+
+  "domain_cloud": "Cloud Computing",
+  "domain_cloud_desc": "Design, implement, and manage cloud infrastructure and services.",
+
+  "domain_blockchain": "Blockchain Development",
+  "domain_blockchain_desc": "Build decentralized applications and implement blockchain solutions.",
+
+  "domain_embedded": "Embedded Systems",
+  "domain_embedded_desc": "Develop software and hardware for embedded systems and IoT devices.",
+
+  "domain_electrical": "Electrical & Electronics Engineering",
+  "domain_electrical_desc": "Design and develop electrical systems, electronics, microchips, and integrated circuits.",
+
+  "domain_mechanical": "Mechanical Engineering",
+  "domain_mechanical_desc": "Design and analyze mechanical systems, machinery, and manufacturing processes.",
+
+  "domain_hvac_piping": "HVAC & Piping Design",
+  "domain_hvac_piping_desc": "Design heating, ventilation, air conditioning systems, and piping for buildings.",
+
+  "domain_conservatory_music": "Conservatory Music",
+  "domain_conservatory_music_desc": "Advanced music theory, performance, composition, orchestration, conducting, and vocal studies at the conservatory.",
+
+  "domain_finance_accounting": "Finance & Accounting",
+  "domain_finance_accounting_desc": "Manage financial operations, accounting, and investment strategies.",
+
+  "domain_tourism": "Tourism",
+  "domain_tourism_desc": "Plan and manage tourism services and experiences.",
+
+  "domain_hotel_management": "Hotel Management",
+  "domain_hotel_management_desc": "Manage hotel operations and guest services.",
+
+  "domain_restaurant_management": "Restaurant Management",
+  "domain_restaurant_management_desc": "Operate and manage food service establishments.",
+
+  "domain_transportation": "Transportation",
+  "domain_transportation_desc": "Manage transportation and fleet operations.",
+
+  "domain_logistics_management": "Logistics Management",
+  "domain_logistics_management_desc": "Optimize supply chain and logistics operations.",
+
+  "domain_production": "Production Management",
+  "domain_production_desc": "Manage manufacturing and production processes.",
+
+  "domain_skilled_labor": "Skilled Labor",
+  "domain_skilled_labor_desc": "Specialized technical and manual skills in manufacturing.",
+
+  "domain_nursing": "Nursing",
+  "domain_nursing_desc": "Provide patient care and medical support in healthcare settings.",
+
+  "domain_pharmacy": "Pharmacy",
+  "domain_pharmacy_desc": "Manage and dispense medications, provide pharmaceutical care.",
+
+  "domain_healthcare_admin": "Healthcare Administration",
+  "domain_healthcare_admin_desc": "Manage healthcare facilities and medical operations.",
+
+  "domain_environmental_management": "Environmental Management",
+  "domain_environmental_management_desc": "Manage and protect environmental resources and ecosystems.",
+
+  "domain_renewable_energy": "Renewable Energy",
+  "domain_renewable_energy_desc": "Develop and implement sustainable energy solutions.",
+
+  "domain_agribusiness": "Agribusiness",
+  "domain_agribusiness_desc": "Manage agricultural business operations and food production.",
+
+  "domain_food_science": "Food Science",
+  "domain_food_science_desc": "Study and improve food products and processes.",
+
+  "domain_journalism": "Journalism",
+  "domain_journalism_desc": "Report and analyze news across various media platforms.",
+
+  "domain_public_relations": "Public Relations",
+  "domain_public_relations_desc": "Manage communications and public image for organizations.",
+
+  "domain_clinical_psychology": "Clinical Psychology",
+  "domain_clinical_psychology_desc": "Assess and treat mental, emotional, and behavioral disorders.",
+
+  "domain_organizational_psychology": "Organizational Psychology",
+  "domain_organizational_psychology_desc": "Apply psychological principles to workplace settings.",
+
+  "domain_architectural_design": "Architectural Design",
+  "domain_architectural_design_desc": "Design buildings and spaces that are functional and sustainable.",
+
+  "domain_construction_management": "Construction Management",
+  "domain_construction_management_desc": "Plan and oversee construction projects and operations.",
+
+  "domain_retail_banking": "Retail Banking",
+  "domain_retail_banking_desc": "Provide banking services to individual consumers and small businesses.",
+
+  "domain_investment_banking": "Investment Banking",
+  "domain_investment_banking_desc": "Facilitate large financial transactions and provide strategic advisory services.",
+
+  "domain_wealth_management": "Wealth Management",
+  "domain_wealth_management_desc": "Manage and grow client assets through personalized investment strategies.",
+
+  "domain_risk_compliance": "Risk & Compliance",
+  "domain_risk_compliance_desc": "Ensure regulatory compliance and manage financial risks in banking operations.",
+
+  "domain_securities_trading": "Securities Trading",
+  "domain_securities_trading_desc": "Execute and analyze trades in various financial markets including stocks, bonds, and derivatives.",
+
+  "domain_portfolio_management": "Portfolio Management",
+  "domain_portfolio_management_desc": "Develop and implement investment strategies to achieve client portfolio objectives.",
+
+  "domain_alternative_investments": "Alternative Investments",
+  "domain_alternative_investments_desc": "Manage non-traditional investments including private equity, hedge funds, and real estate.",
+
+  "domain_market_analysis": "Market Analysis",
+  "domain_market_analysis_desc": "Analyze financial markets using fundamental, technical, and quantitative methods.",
+
+  "domain_life_health_insurance": "Life & Health Insurance",
+  "domain_life_health_insurance_desc": "Provide and manage life and health insurance products and services.",
+
+  "domain_property_casualty": "Property & Casualty Insurance",
+  "domain_property_casualty_desc": "Handle property, auto, and liability insurance coverage.",
+
+  "domain_insurance_underwriting": "Insurance Underwriting",
+  "domain_insurance_underwriting_desc": "Evaluate risks and determine policy terms and pricing.",
+
+  "domain_claims_management": "Claims Management",
+  "domain_claims_management_desc": "Process and manage insurance claims from filing to settlement.",
+
+  "domain_uiux": "UI/UX Design",
+  "domain_uiux_desc": "Design user interfaces and user experiences for digital applications.",
+
+  "domain_graphic": "Graphic Design",
+  "domain_graphic_desc": "Create visual designs, graphics, and visual content.",
+
+  "domain_product": "Product Management",
+  "domain_product_desc": "Develop and manage product strategy, roadmap, and features.",
+
+  "domain_business_strategy": "Business Strategy",
+  "domain_business_strategy_desc": "Develop and implement business strategies and growth plans.",
+
+  "domain_marketing": "Marketing",
+  "domain_marketing_desc": "Develop and implement marketing strategies and advertising campaigns.",
+
+  "domain_hr": "Human Resources",
+  "domain_hr_desc": "Manage human resources, recruitment, and employee development.",
+
+  "domain_legal": "Legal",
+  "domain_legal_desc": "Provide legal counsel and handle corporate legal matters.",
+
+  "domain_medical": "Medical",
+  "domain_medical_desc": "Diagnose, treat, and provide healthcare to patients.",
+
+  "domain_teaching": "Teaching",
+  "domain_teaching_desc": "Design and deliver effective educational programs.",
+
+  "domain_curriculum": "Curriculum Development",
+  "domain_curriculum_desc": "Design and develop educational curricula and learning materials.",
+
+  "domain_visual_arts": "Visual Arts",
+  "domain_visual_arts_desc": "Create and develop visual artworks and artistic expressions.",
+
+  "domain_performing_arts": "Performing Arts",
+  "domain_performing_arts_desc": "Create and perform theatrical and stage artworks.",
+
+  "domain_research": "Research",
+  "domain_research_desc": "Conduct scientific research and develop new knowledge.",
+
+  "domain_applied_science": "Applied Science",
+  "domain_applied_science_desc": "Apply scientific principles to solve practical problems.",
+
+  "domain_sales": "Sales",
+  "domain_sales_desc": "Develop and implement sales strategies and customer management.",
+
+  "domain_iot": "Internet of Things (IoT)",
+  "domain_iot_desc": "Develop and deploy smart device connectivity solutions.",
+
+  "domain_qa": "Quality Assurance",
+  "domain_qa_desc": "Test and ensure quality of software and products."
 }
