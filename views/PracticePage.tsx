@@ -116,14 +116,14 @@ export default function PracticePageWithDomains() {
 
             {/* Show only one skeleton or card at a time */}
             {isPending && !question ? (
-              <div className="w-full transition-discrete starting:opacity-0">
+              <div className="w-full flex flex-1 min-h-[70vh] items-center justify-center flex-col transition-discrete starting:opacity-0">
                 <QuestionCardSkeleton />
                 <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
                   {t('getting_question')}
                 </div>
               </div>
             ) : skipPending ? (
-              <div className="w-full transition-discrete starting:opacity-0">
+              <div className="w-full flex flex-1 min-h-[70vh] items-center justify-center flex-col transition-discrete starting:opacity-0">
                 <QuestionCardSkeleton />
                 <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
                   {t('getting_another_question')}
