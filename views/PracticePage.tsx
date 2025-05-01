@@ -44,7 +44,7 @@ export default function PracticePageWithDomains() {
     if (evaluation && evaluationRef.current) {
       evaluationRef.current.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: 'start',
       });
     }
   }, [evaluation]);
