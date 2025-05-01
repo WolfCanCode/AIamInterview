@@ -18,7 +18,7 @@ export default function DomainSelector({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col items-center animate-fade-in">
+    <div className="w-full max-w-5xl flex flex-col items-center animate-fade-in">
       <h2 className="text-2xl sm:text-3xl font-extrabold text-center text-blue-400 mb-1 mt-2">
         {t('select_domain')}
       </h2>

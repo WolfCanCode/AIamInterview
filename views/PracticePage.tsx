@@ -97,12 +97,10 @@ export default function PracticePageWithDomains() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden bg-black">
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 p-3 sm:p-6 space-y-6 sm:space-y-8">
-        <div className="relative glass-morphism rounded-3xl shadow-2xl overflow-hidden">
-          <div className="absolute inset-0 bg-radial-[at_center] from-[oklch(70%_0.3_240/0.15)] to-[oklch(70%_0.3_280/0.15)]" />
-          <div className="relative p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-[oklch(98%_0_0)]">
+    <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d]">
+      <div className="flex-1 flex flex-col items-center justify-center p-3 sm:p-6">
+        <div className="relative z-10 w-full max-w-5xl space-y-6 sm:space-y-8">
+          <div className="relative p-2 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
             <Header
               onClickLogo={goBack}
               {...(question ? { onBack: goBack } : {})}
@@ -127,7 +125,7 @@ export default function PracticePageWithDomains() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.98, y: 24 }}
                       transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                      className="w-full min-h-[50vh] pt-2"
+                      className="w-full min-h-[70vh] pt-2"
                       style={{ overflow: 'visible' }}
                     >
                       <QuestionCardSkeleton />
