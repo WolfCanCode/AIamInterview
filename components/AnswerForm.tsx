@@ -31,7 +31,7 @@ export default function AnswerForm({
   return (
     <form
       onSubmit={onSubmit}
-      className={`relative space-y-4 sm:space-y-6 animate-fade-in w-full max-w-3xl mx-auto ${
+      className={`relative space-y-4 sm:space-y-6 animate-fade-in w-full max-w-5xl mx-auto ${
         className || ''
       }`}
     >

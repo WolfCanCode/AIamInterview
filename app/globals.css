@@ -355,7 +355,7 @@
 }
 
 .start-button {
-  @apply w-full max-w-3xl mx-auto px-8 py-4 rounded-xl font-bold text-base;
+  @apply w-full max-w-5xl mx-auto px-8 py-4 rounded-xl font-bold text-base;
   background: linear-gradient(to right, 
     oklch(60% 0.3 240),
     oklch(60% 0.3 280)
@@ -378,7 +378,7 @@
 }
 
 .domain-children-grid {
-  @apply max-w-3xl;
+  @apply max-w-5xl;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem;
