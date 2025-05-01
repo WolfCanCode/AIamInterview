@@ -9,7 +9,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto py-8 text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
+    <footer className="mt-auto py-8 safe-area-pb text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
         <strong>{t('build')}</strong>{' '}
         <span className="font-mono text-xs">v1.1 {BUILD_VERSION}</span>

@@ -30,7 +30,10 @@ export default function AddToHomeScreenPrompt() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] bg-black/80 text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-2 backdrop-blur-md">
+    <div
+      className="fixed safe-area-pb left-1/2 -translate-x-1/2 z-[9999] bg-black/80 text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-2 backdrop-blur-md"
+      style={{ bottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}
+    >
       <span className="text-lg">🌟</span>
       <span>
         Để trải nghiệm tốt nhất, hãy <b>thêm ứng dụng vào màn hình chính</b>.

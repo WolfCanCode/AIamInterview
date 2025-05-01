@@ -4,12 +4,20 @@
 :root {
   background-color: #0a0f1a;
   color-scheme: dark;
+  
+  /* Safe area insets */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
 }
 
 html {
   background-color: #0a0f1a;
   min-height: 100%;
   overscroll-behavior-y: none;
+  /* Add padding for safe areas */
+  padding: var(--safe-area-inset-top) var(--safe-area-inset-right) var(--safe-area-inset-bottom) var(--safe-area-inset-left);
 }
 
 body {
@@ -51,7 +59,7 @@ body {
 /* Ensure proper touch targets */
 @media (max-width: 768px) {
   button {
-    min-height: 44px;
+    min-height: 32px;
     touch-action: manipulation;
   }
 }
@@ -123,7 +131,8 @@ button {
   }
 
   .animate-aurora {
-    animation: aurora 12s ease-in-out infinite alternate;
+    animation: aurora 8s ease-in-out infinite;
+    will-change: opacity, filter;
   }
 
   .animate-fade-in {
@@ -204,13 +213,33 @@ button {
 }
 
 @keyframes aurora {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-40px) scale(1.1); }
+  0% {
+    opacity: 0.5;
+    filter: blur(30px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(40px);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(30px);
+  }
 }
 
 @keyframes aurora2 {
-  0%, 100% { transform: translateX(0) scale(1); }
-  50% { transform: translateX(-30px) scale(1.05); }
+  0% {
+    opacity: 0.3;
+    filter: blur(24px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(32px);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(24px);
+  }
 }
 
 @keyframes fadeIn {
@@ -546,5 +575,48 @@ button {
 }
 
 .animate-aurora2 {
-  animation: aurora2 14s ease-in-out infinite alternate;
+  animation: aurora2 12s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) {
+  .animate-aurora,
+  .animate-aurora2 {
+    /* Reduce animation complexity on mobile */
+    animation-timing-function: linear;
+    /* Use static blur on iOS for better performance */
+    filter: blur(30px);
+    animation-name: none;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Optimize the aurora blobs themselves */
+  .aurora-blob {
+    background-image: linear-gradient(var(--gradient-angle), var(--gradient-stops));
+    opacity: 0.6;
+    transform: none !important;
+  }
+}
+
+/* Safe area utilities */
+.safe-area-pt {
+  padding-top: var(--safe-area-inset-top);
+}
+
+.safe-area-pb {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+.safe-area-pl {
+  padding-left: var(--safe-area-inset-left);
+}
+
+.safe-area-pr {
+  padding-right: var(--safe-area-inset-right);
+}
+
+.min-h-screen-safe {
+  min-height: calc(100vh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
 }

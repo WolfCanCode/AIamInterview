@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
           aria-label={lng.label}
           className={`transition-all duration-200 focus:outline-none bg-[#0B1221]/80 backdrop-blur-md border border-cyan-400/20 rounded-full p-1 shadow-md hover:scale-110 hover:shadow-cyan-400/20 focus:ring-2 focus:ring-cyan-400/40 text-lg ${
             locale === lng.code
-              ? 'drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] scale-110 ring-2 ring-cyan-400/60'
+              ? 'drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] scale-100 ring-2 ring-cyan-400/60'
               : 'opacity-80'
           }`}
           style={{ lineHeight: 1 }}

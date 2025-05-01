@@ -104,7 +104,7 @@ export default function PracticePageWithDomains() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-[#0a0f1a]">
+    <div className="min-h-screen-safe w-full flex flex-col bg-[#0a0f1a] safe-area-pt">
       {/* Background gradient overlay */}
       <div className="fixed inset-0 bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d] pointer-events-none" />
 
@@ -115,7 +115,7 @@ export default function PracticePageWithDomains() {
       </div>
 
       {/* Main content wrapper */}
-      <div className="relative z-10 w-full flex flex-col items-center min-h-screen overflow-x-hidden">
+      <div className="relative z-10 w-full flex flex-col items-center min-h-screen-safe overflow-x-hidden">
         <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
           <div className="relative p-2 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
             <Header
