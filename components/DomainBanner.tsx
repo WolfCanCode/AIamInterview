@@ -14,7 +14,7 @@ export default function DomainBanner({
 }) {
   const t = useTranslations('');
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-[oklch(20%_0.1_240/0.8)] border border-cyan-400/20 shadow-md relative">
+    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
       {/* Back Button */}
       <FuturisticButton
         onClick={onBack}
