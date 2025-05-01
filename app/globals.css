@@ -2,7 +2,7 @@
 
 @layer theme {
   :root {
-    --background: oklch(100% 0 0);
+    --background: oklch(0% 0 0);
     --foreground: oklch(0% 0 0);
     --spacing: 0.25rem;
     --primary: oklch(65% 0.3 240);
@@ -26,7 +26,7 @@
 
   .dark {
     --background: oklch(10% 0 240);
-    --foreground: oklch(98% 0 0);
+    --foreground: oklch(10% 0 240);
     --primary: oklch(70% 0.3 240);
     --primary-foreground: oklch(98% 0 0);
     --card: oklch(15% 0.05 240 / 0.8);
