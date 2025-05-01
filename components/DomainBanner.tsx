@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Domain } from '@/utils/types/Domain';
-import FuturisticCard from './FuturisticCard';
 import FuturisticButton from './FuturisticButton';
 
 export default function DomainBanner({
@@ -15,7 +14,7 @@ export default function DomainBanner({
 }) {
   const t = useTranslations('');
   return (
-    <FuturisticCard glowColor="cyan" hover className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto rounded-3xl p-6 sm:p-8 bg-[oklch(20%_0.1_240/0.8)] border border-cyan-400/20 shadow-md relative">
       {/* Back Button */}
       <FuturisticButton
         onClick={onBack}
@@ -56,7 +55,7 @@ export default function DomainBanner({
             {t(domain.description || '')}
           </p>
           {child && (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[oklch(30%_0.1_240)] border border-[oklch(70%_0.2_240/0.3)] backdrop-blur-md mt-3">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[oklch(30%_0.1_240)] border border-[oklch(70%_0.2_240/0.3)] mt-3">
               <span className="text-[oklch(85%_0.2_240)] font-semibold">
                 {t('language_framework')}
               </span>
@@ -65,6 +64,6 @@ export default function DomainBanner({
           )}
         </div>
       </div>
-    </FuturisticCard>
+    </div>
   );
 }

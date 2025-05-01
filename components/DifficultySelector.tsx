@@ -51,12 +51,7 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <FuturisticCard
-      glowColor="blue"
-      variant="dark"
-      className="w-full max-w-3xl mx-auto"
-      hover
-    >
+    <div className="w-full max-w-3xl mx-auto rounded-3xl p-6 sm:p-8 bg-[oklch(20%_0.1_240/0.8)] border border-cyan-400/20 shadow-md">
       <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
         {t('choose_difficulty')}
       </div>
@@ -67,10 +62,10 @@ export default function DifficultySelector({
             key={mode}
             glowColor={glowColor}
             variant="dark"
-            className={`
-              transition-all duration-300 cursor-pointer p-2
-              ${difficulty === mode ? 'scale-105 ring-2 ring-cyan-400/50' : ''}
-            `}
+            className={
+              `transition-all duration-300 cursor-pointer p-2 ` +
+              (difficulty === mode ? 'scale-105 ring-2 ring-cyan-400/50' : '')
+            }
             onClick={() => setDifficulty(mode as Difficulty)}
             hover
           >
@@ -126,6 +121,6 @@ export default function DifficultySelector({
             : t('start')}
         </FuturisticButton>
       </div>
-    </FuturisticCard>
+    </div>
   );
 }

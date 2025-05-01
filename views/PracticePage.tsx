@@ -126,7 +126,7 @@ export default function PracticePageWithDomains() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.98, y: 24 }}
                       transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                      className="w-full min-h-[70vh] pt-2"
+                      className="w-full min-h-[50vh] pt-2"
                       style={{ overflow: 'visible' }}
                     >
                       <QuestionCardSkeleton />
