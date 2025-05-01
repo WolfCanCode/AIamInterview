@@ -3,6 +3,12 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';
+
+const AddToHomeScreenPrompt = dynamic(
+  () => import('@/components/AddToHomeScreenPrompt'),
+  { ssr: false }
+);
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -101,6 +107,7 @@ export default async function RootLayout({ children, params }: Props) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <AddToHomeScreenPrompt />
         <Analytics />
         <Script
           id="register-sw"
