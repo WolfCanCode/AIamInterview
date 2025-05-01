@@ -51,7 +51,10 @@ export default function DomainSelector({
                   >
                     {/* Ripple effect */}
                     <span className="absolute inset-0 pointer-events-none group-active:animate-ripple bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-2xl"></span>
-                    <span className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-125 group-hover:animate-bounce-slow text-cyan-200 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
+                    <span
+                      className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-125 group-hover:animate-bounce-slow text-cyan-200 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]"
+                      style={{ contain: 'paint', willChange: 'transform' }}
+                    >
                       <d.icon />
                     </span>
                     <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent group-hover:animate-shimmer truncate max-w-[120px] sm:max-w-full">
