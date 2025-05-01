@@ -4,6 +4,7 @@ import { Evaluation } from '@/types/Evaluation';
 import TextareaAutosize from 'react-textarea-autosize';
 import { FiSend } from 'react-icons/fi';
 import { MdSkipNext, MdStop } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 export default function AnswerForm({
   answer,
@@ -43,21 +44,27 @@ export default function AnswerForm({
         </label>
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
-          <TextareaAutosize
-            id="answer-textarea"
-            minRows={3}
-            maxRows={30}
-            disabled={!!evaluation}
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 ${
-              answer.length > 1000
-                ? 'border-red-500/50 focus:ring-red-500/50'
-                : 'focus:border-blue-500/50'
-            }`}
-            aria-label={t('enter_answer')}
-            placeholder={t('type_your_answer')}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <TextareaAutosize
+              id="answer-textarea"
+              minRows={3}
+              maxRows={30}
+              disabled={!!evaluation}
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 ${
+                answer.length > 1000
+                  ? 'border-red-500/50 focus:ring-red-500/50'
+                  : 'focus:border-blue-500/50'
+              }`}
+              aria-label={t('enter_answer')}
+              placeholder={t('type_your_answer')}
+            />
+          </motion.div>
         </div>
         <div className="flex justify-between items-center mt-2 px-1">
           {answer.length > 1000 ? (
