@@ -52,7 +52,7 @@
   }
 
   .animate-aurora {
-    animation: aurora 20s linear infinite;
+    animation: aurora 12s ease-in-out infinite alternate;
   }
 
   .animate-fade-in {
@@ -133,9 +133,13 @@
 }
 
 @keyframes aurora {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.5); }
-  100% { transform: rotate(360deg) scale(1); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.1); }
+}
+
+@keyframes aurora2 {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(-30px) scale(1.05); }
 }
 
 @keyframes fadeIn {
@@ -468,4 +472,8 @@
 }
 .animate-skeleton-type {
   animation: skeleton-type 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.animate-aurora2 {
+  animation: aurora2 14s ease-in-out infinite alternate;
 }

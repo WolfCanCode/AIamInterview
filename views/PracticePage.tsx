@@ -98,6 +98,11 @@ export default function PracticePageWithDomains() {
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d]">
+      {/* Aurora animated blobs background */}
+      <div className="fixed inset-0 z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-32 left-32 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-purple-500/30 rounded-full blur-3xl animate-aurora" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-blue-700/30 via-cyan-400/20 to-purple-700/30 rounded-full blur-2xl animate-aurora2" />
+      </div>
       <div className="flex-1 flex flex-col items-center justify-center p-3 sm:p-6">
         <div className="relative z-10 w-full max-w-5xl space-y-6 sm:space-y-8">
           <div className="relative p-2 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">

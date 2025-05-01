@@ -82,7 +82,7 @@ export default function FuturisticCard({
   return (
     <div
       className={`
-        relative rounded-3xl p-6 sm:p-8 
+        relative rounded-3xl p-6 
         backdrop-blur-xl 
         ${variants[variant]}
         ${!noBorder ? `border ${theme.border}` : ''} 

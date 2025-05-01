@@ -86,7 +86,7 @@ export default function Header({
             {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-0.5 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
+          <span className="absolute left-1/2 translate-x-1/2 bottom-0 h-0.5 w-0 group-hover:w-4/5 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full transition-all duration-700 animate-border-grow shadow-lg"></span>
         </h1>
       </div>
 
