@@ -1,7 +1,6 @@
 import '@/app/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Script from 'next/script';
 import ClientLayout from '@/components/ClientLayout';
 
 const geistSans = Geist({
@@ -32,6 +31,13 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: 'ITerview',
+    startupImage: [
+      {
+        url: '/icons/splash-screen.png',
+        media:
+          '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)',
+      },
+    ],
   },
   other: {
     'mobile-web-app-capable': 'yes',
@@ -39,6 +45,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'msapplication-TileColor': '#0a0f1a',
     'msapplication-tap-highlight': 'no',
+    'apple-mobile-web-app-title': 'ITerview',
   },
 };
 
@@ -95,27 +102,81 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#0a0f1a" />
         <meta name="msapplication-tap-highlight" content="no" />
+        <style>{`
+          /* Custom iOS install prompt styling */
+          #ios-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 16px 24px;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            z-index: 9999;
+            width: 90%;
+            max-width: 320px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease-out;
+          }
+
+          #ios-prompt .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+          }
+
+          #ios-prompt .message {
+            margin-bottom: 12px;
+            line-height: 1.4;
+          }
+
+          #ios-prompt .steps {
+            font-size: 13px;
+            opacity: 0.9;
+          }
+
+          @keyframes slideUp {
+            from {
+              transform: translate(-50%, 100%);
+              opacity: 0;
+            }
+            to {
+              transform: translate(-50%, 0);
+              opacity: 1;
+            }
+          }
+        `}</style>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClientLayout>{children}</ClientLayout>
-        <Script
-          id="register-sw"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').then(
-                    function(registration) {
-                      console.log('ServiceWorker registration successful');
-                    },
-                    function(err) {
-                      console.log('ServiceWorker registration failed: ', err);
-                    }
-                  );
-                });
+              // Show custom prompt for iOS devices
+              if (
+                navigator.standalone === false &&
+                navigator.userAgent.match(/iPhone|iPad|iPod/) &&
+                !sessionStorage.getItem('installPromptShown')
+              ) {
+                setTimeout(() => {
+                  const prompt = document.createElement('div');
+                  prompt.id = 'ios-prompt';
+                  prompt.innerHTML = '<div class="icon">⭐️</div><div class="message">Install ITerview for the best experience</div><div class="steps">Tap Share → Add to Home Screen</div>';
+                  document.body.appendChild(prompt);
+                  
+                  // Hide prompt after 10 seconds
+                  setTimeout(() => {
+                    prompt.style.display = 'none';
+                  }, 10000);
+                  
+                  // Don't show again in this session
+                  sessionStorage.setItem('installPromptShown', 'true');
+                }, 2000);
               }
             `,
           }}
