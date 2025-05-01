@@ -87,7 +87,7 @@ export default function AnswerForm({
       </div>
 
       {!evaluation && (
-        <div className="w-full mt-6 mb-4 space-y-4">
+        <div className="px-2 w-full mt-6 mb-4 space-y-4">
           <button
             type="submit"
             className="group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg overflow-hidden transition-all duration-300 transform bg-gradient-to-r from-cyan-500/70 to-blue-700/70 border border-cyan-400/40 text-white drop-shadow-[0_0_16px_rgba(34,211,238,0.4)] focus:outline-none focus:ring-2 focus:ring-cyan-400/60 hover:scale-105 hover:shadow-cyan-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
