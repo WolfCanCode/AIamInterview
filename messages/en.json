@@ -498,5 +498,152 @@
   "domain_electrical_child_circuit": "Integrated Circuits",
   "domain_electrical_child_fpga": "FPGA",
   "domain_electrical_child_chip": "Chip Design",
-  "domain_electrical_child_digital": "Digital Electronics"
+  "domain_electrical_child_digital": "Digital Electronics",
+
+  "domain_production_child_planning": "Production Planning",
+  "domain_production_child_quality": "Quality Control",
+  "domain_production_child_optimization": "Process Optimization",
+  "domain_production_child_operations": "Manufacturing Operations",
+
+  "domain_skilled_labor_child_assembly": "Assembly",
+  "domain_skilled_labor_child_operation": "Machine Operation",
+  "domain_skilled_labor_child_maintenance": "Maintenance",
+  "domain_skilled_labor_child_craftsmanship": "Craftsmanship",
+
+  "domain_nursing_child_clinical": "Clinical Nursing",
+  "domain_nursing_child_emergency": "Emergency Care",
+  "domain_nursing_child_patient": "Patient Care",
+  "domain_nursing_child_procedures": "Medical Procedures",
+
+  "domain_pharmacy_child_pharmacology": "Pharmacology",
+  "domain_pharmacy_child_interactions": "Drug Interactions",
+  "domain_pharmacy_child_care": "Pharmaceutical Care",
+  "domain_pharmacy_child_clinical": "Clinical Pharmacy",
+
+  "domain_healthcare_admin_child_hospital": "Hospital Management",
+  "domain_healthcare_admin_child_policy": "Healthcare Policy",
+  "domain_healthcare_admin_child_records": "Medical Records",
+  "domain_healthcare_admin_child_operations": "Healthcare Operations",
+
+  "domain_environmental_management_child_impact": "Environmental Impact Assessment",
+  "domain_environmental_management_child_waste": "Waste Management",
+  "domain_environmental_management_child_conservation": "Conservation",
+  "domain_environmental_management_child_sustainability": "Sustainability",
+
+  "domain_renewable_energy_child_solar": "Solar Energy",
+  "domain_renewable_energy_child_wind": "Wind Power",
+  "domain_renewable_energy_child_hydro": "Hydroelectric",
+  "domain_renewable_energy_child_storage": "Energy Storage",
+
+  "domain_agribusiness_child_management": "Farm Management",
+  "domain_agribusiness_child_economics": "Agricultural Economics",
+  "domain_agribusiness_child_supply": "Supply Chain",
+  "domain_agribusiness_child_production": "Food Production",
+
+  "domain_food_science_child_processing": "Food Processing",
+  "domain_food_science_child_safety": "Food Safety",
+  "domain_food_science_child_development": "Product Development",
+  "domain_food_science_child_quality": "Quality Control",
+
+  "domain_journalism_child_news": "News Writing",
+  "domain_journalism_child_investigative": "Investigative Journalism",
+  "domain_journalism_child_digital": "Digital Media",
+  "domain_journalism_child_broadcasting": "Broadcasting",
+
+  "domain_public_relations_child_media": "Media Relations",
+  "domain_public_relations_child_crisis": "Crisis Communication",
+  "domain_public_relations_child_corporate": "Corporate Communications",
+  "domain_public_relations_child_public": "Public Affairs",
+
+  "domain_clinical_psychology_child_assessment": "Psychological Assessment",
+  "domain_clinical_psychology_child_therapy": "Therapy",
+  "domain_clinical_psychology_child_mental_health": "Mental Health",
+  "domain_clinical_psychology_child_behavioral": "Behavioral Analysis",
+
+  "domain_organizational_psychology_child_workplace": "Workplace Behavior",
+  "domain_organizational_psychology_child_employee": "Employee Assessment",
+  "domain_organizational_psychology_child_team": "Team Dynamics",
+  "domain_organizational_psychology_child_leadership": "Leadership Development",
+
+  "domain_architectural_design_child_building": "Building Design",
+  "domain_architectural_design_child_cad": "CAD",
+  "domain_architectural_design_child_sustainable": "Sustainable Architecture",
+  "domain_architectural_design_child_urban": "Urban Planning",
+
+  "domain_construction_management_child_project": "Project Management",
+  "domain_construction_management_child_planning": "Construction Planning",
+  "domain_construction_management_child_cost": "Cost Estimation",
+  "domain_construction_management_child_supervision": "Site Supervision",
+
+  "domain_retail_banking_child_personal": "Personal Banking",
+  "domain_retail_banking_child_credit": "Credit Cards",
+  "domain_retail_banking_child_mortgage": "Mortgages",
+  "domain_retail_banking_child_consumer": "Consumer Lending",
+  "domain_retail_banking_child_digital": "Digital Banking",
+
+  "domain_investment_banking_child_corporate": "Corporate Finance",
+  "domain_investment_banking_child_mergers": "Mergers & Acquisitions",
+  "domain_investment_banking_child_capital": "Capital Markets",
+  "domain_investment_banking_child_securities": "Securities Trading",
+  "domain_investment_banking_child_advisory": "Financial Advisory",
+
+  "domain_wealth_management_child_portfolio": "Portfolio Management",
+  "domain_wealth_management_child_estate": "Estate Planning",
+  "domain_wealth_management_child_private": "Private Banking",
+  "domain_wealth_management_child_asset": "Asset Management",
+  "domain_wealth_management_child_investment": "Investment Strategy",
+
+  "domain_risk_compliance_child_assessment": "Risk Assessment",
+  "domain_risk_compliance_child_compliance": "Regulatory Compliance",
+  "domain_risk_compliance_child_anti": "Anti-Money Laundering",
+  "domain_risk_compliance_child_credit": "Credit Risk",
+  "domain_risk_compliance_child_market": "Market Risk",
+
+  "domain_securities_trading_child_equity": "Equity Trading",
+  "domain_securities_trading_child_fixed": "Fixed Income",
+  "domain_securities_trading_child_derivatives": "Derivatives",
+  "domain_securities_trading_child_forex": "Forex Trading",
+  "domain_securities_trading_child_technical": "Technical Analysis",
+
+  "domain_portfolio_management_child_allocation": "Asset Allocation",
+  "domain_portfolio_management_child_risk": "Risk Management",
+  "domain_portfolio_management_child_analysis": "Performance Analysis",
+  "domain_portfolio_management_child_strategy": "Investment Strategy",
+  "domain_portfolio_management_child_management": "Fund Management",
+
+  "domain_alternative_investments_child_private": "Private Equity",
+  "domain_alternative_investments_child_hedge": "Hedge Funds",
+  "domain_alternative_investments_child_real": "Real Estate Investment",
+  "domain_alternative_investments_child_venture": "Venture Capital",
+  "domain_alternative_investments_child_cryptocurrency": "Cryptocurrency",
+
+  "domain_market_analysis_child_fundamental": "Fundamental Analysis",
+  "domain_market_analysis_child_research": "Market Research",
+  "domain_market_analysis_child_economic": "Economic Analysis",
+  "domain_market_analysis_child_quantitative": "Quantitative Analysis",
+  "domain_market_analysis_child_esg": "ESG Investment",
+
+  "domain_life_health_insurance_child_life": "Life Insurance",
+  "domain_life_health_insurance_child_health": "Health Insurance",
+  "domain_life_health_insurance_child_medical": "Medical Claims",
+  "domain_life_health_insurance_child_group": "Group Insurance",
+  "domain_life_health_insurance_child_planning": "Insurance Planning",
+
+  "domain_property_casualty_child_property": "Property Insurance",
+  "domain_property_casualty_child_auto": "Auto Insurance",
+  "domain_property_casualty_child_liability": "Liability Coverage",
+  "domain_property_casualty_child_commercial": "Commercial Insurance",
+  "domain_property_casualty_child_risk": "Risk Assessment",
+
+  "domain_insurance_underwriting_child_risk": "Risk Evaluation",
+  "domain_insurance_underwriting_child_pricing": "Policy Pricing",
+  "domain_insurance_underwriting_child_claims": "Claims Analysis",
+  "domain_insurance_underwriting_child_actuarial": "Actuarial Science",
+  "domain_insurance_underwriting_child_guidelines": "Underwriting Guidelines",
+
+  "domain_claims_management_child_processing": "Claims Processing",
+  "domain_claims_management_child_investigation": "Investigation",
+  "domain_claims_management_child_settlement": "Settlement",
+  "domain_claims_management_child_fraud": "Fraud Detection",
+  "domain_claims_management_child_customer": "Customer Service"
 }
