@@ -54,6 +54,22 @@ export default async function RootLayout({ children, params }: Props) {
         <meta property="og:site_name" content="Iterview" />
         <meta property="og:locale" content="en_US" />
         <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
+        {/* iOS Safari notch and bottom bar translucency */}
+        <meta
+          name="theme-color"
+          content="#0B1221"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta
+          name="theme-color"
+          content="#f9fafb"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

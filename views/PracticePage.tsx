@@ -50,12 +50,17 @@ export default function PracticePageWithDomains() {
   }, [evaluation]);
 
   const handleSelectDomain = (domain: string) => {
+    // Smooth scroll to top after selecting a domain
+
     startTransition(async () => {
       setSelectedDomain(domain);
       setSelectedChild(null);
       setAnswer('');
       setEvaluation(null);
     });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleGetQuestion = (isSkip = false) => {
