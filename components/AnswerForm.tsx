@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 import TextareaAutosize from 'react-textarea-autosize';
+import { FiSend } from 'react-icons/fi';
+import { MdSkipNext, MdStop } from 'react-icons/md';
 
 export default function AnswerForm({
   answer,
@@ -87,7 +89,7 @@ export default function AnswerForm({
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-[1.1]" />
             <div className="relative flex items-center justify-center gap-3 text-white">
               <span className="text-xl drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
-                📨
+                <FiSend />
               </span>
               <span>
                 {isPending || skipPending
@@ -118,7 +120,7 @@ export default function AnswerForm({
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-transform duration-300 group-hover:scale-[1.1]" />
               <div className="relative flex items-center justify-center gap-2 text-gray-900">
                 <span className="drop-shadow-[0_0_6px_rgba(250,204,21,0.7)]">
-                  ⏭️
+                  <MdSkipNext />
                 </span>
                 <span>{t('skip')}</span>
               </div>
@@ -133,7 +135,7 @@ export default function AnswerForm({
               <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 transition-transform duration-300 group-hover:scale-[1.1]" />
               <div className="relative flex items-center justify-center gap-2 text-white">
                 <span className="drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">
-                  🛑
+                  <MdStop />
                 </span>
                 <span>{t('give_up')}</span>
               </div>

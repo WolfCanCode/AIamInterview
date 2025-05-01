@@ -3,6 +3,8 @@ import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 import FuturisticCard from './FuturisticCard';
 import FuturisticButton from './FuturisticButton';
+import { FaSeedling, FaRocket, FaFire, FaSkull, FaPlay } from 'react-icons/fa';
+import { MdSkipNext } from 'react-icons/md';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -18,22 +20,22 @@ interface DifficultySelectorProps {
 const difficultyConfig = [
   {
     mode: 'Easy',
-    icon: '🌱',
+    icon: <FaSeedling className="text-green-400" />,
     glowColor: 'green',
   },
   {
     mode: 'Medium',
-    icon: '🚀',
+    icon: <FaRocket className="text-blue-400" />,
     glowColor: 'blue',
   },
   {
     mode: 'Hard',
-    icon: '🔥',
+    icon: <FaFire className="text-pink-400" />,
     glowColor: 'pink',
   },
   {
     mode: 'Madness',
-    icon: '💀',
+    icon: <FaSkull className="text-purple-400" />,
     glowColor: 'purple',
   },
 ] as const;
@@ -111,9 +113,9 @@ export default function DifficultySelector({
                 />
               </svg>
             ) : evaluation ? (
-              '⏭️'
+              <MdSkipNext />
             ) : (
-              '▶️'
+              <FaPlay />
             )
           }
         >

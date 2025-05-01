@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
+import { FiEdit3 } from 'react-icons/fi';
+import { BsCheckCircleFill } from 'react-icons/bs';
+import { FaRegStar } from 'react-icons/fa';
 
 export default function EvaluationCard({
   evaluation,
@@ -78,19 +81,25 @@ export default function EvaluationCard({
       </div>
       {/* Suggestions Inline Card */}
       <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1">📝</span>
+        <span className="text-2xl mt-1 text-blue-300">
+          <FiEdit3 />
+        </span>
         <p className="text-blue-100 font-medium">
           <b>{t('suggestion')}</b> {evaluation.suggestions}
         </p>
       </div>
-      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-red-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1">🟢</span>
+      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+        <span className="text-2xl mt-1 text-green-400">
+          <BsCheckCircleFill />
+        </span>
         <p className="text-blue-100 font-medium">
           <b>{t('key_point')}</b> {evaluation.key_points_of_main_argument}
         </p>
       </div>
-      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1">✨</span>
+      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+        <span className="text-2xl mt-1 text-yellow-300">
+          <FaRegStar />
+        </span>
         <p className="text-blue-100 font-medium">
           <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
         </p>

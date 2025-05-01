@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { FaHeart } from 'react-icons/fa';
 
 const BUILD_VERSION = process.env.NEXT_PUBLIC_BUILD_SHA?.slice(0, 7) || 'local';
 
@@ -21,7 +22,7 @@ export default function Footer() {
         className="cursor-pointer hover:text-teal-400"
         onClick={() => window.open('https://www.linkedin.com/in/wolfcancode/')}
       >
-        {t('made_by')} <span className="inline-block">❤️</span>
+        {t('made_by')} <FaHeart className="inline-block text-red-500" />
       </span>
       <span className="text-xs text-gray-400 cursor-pointer">
         {t.rich('copyright', {
