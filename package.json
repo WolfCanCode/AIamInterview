@@ -11,6 +11,8 @@
     "generate-pwa-assets": "node scripts/generate-pwa-assets.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@types/react-icons": "^3.0.0",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.9.4",

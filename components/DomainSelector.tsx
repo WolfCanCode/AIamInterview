@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Domain, DomainGroup } from '@/utils/types/Domain';
+import BlinkingCursor from './BlinkingCursor';
 
 export default function DomainSelector({
   domainGroups,
@@ -19,10 +20,11 @@ export default function DomainSelector({
 
   return (
     <div className="w-full max-w-5xl flex flex-col items-center animate-fade-in">
-      <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent max-w-full mx-auto">
+      <h2 className="text-2xl sm:text-5xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent max-w-full mx-auto">
         {t('select_domain')}
+        <BlinkingCursor />
       </h2>
-      <p className="text-blue-200 text-center mb-6 mt-1 text-xs sm:text-lg">
+      <p className="text-blue-200 text-center mb-6 mt-1 text-xs sm:text-xl">
         {t('explore_domain')}
       </p>
       <div className="flex flex-col gap-8 w-full">
