@@ -215,7 +215,7 @@ export default function PracticePageWithDomains() {
                             tabIndex={0}
                           >
                             <span className="relative text-sm font-inherit bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
-                              {child}
+                              {t(child)}
                             </span>
                             {/* Glow effect */}
                             {selectedChild === child && (
