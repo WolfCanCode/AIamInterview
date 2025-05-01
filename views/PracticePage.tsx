@@ -114,17 +114,8 @@ export default function PracticePageWithDomains() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-blue-700/30 via-cyan-400/20 to-purple-700/30 rounded-full blur-2xl animate-aurora2" />
       </div>
 
-      {/* Main content wrapper with scroll optimization */}
-      <div
-        className="relative z-10 w-full flex flex-col items-center min-h-screen overflow-x-hidden"
-        style={{
-          contain: 'paint layout',
-          willChange: 'transform',
-          backfaceVisibility: 'hidden',
-          transform: 'translateZ(0)',
-          isolation: 'isolate',
-        }}
-      >
+      {/* Main content wrapper */}
+      <div className="relative z-10 w-full flex flex-col items-center min-h-screen overflow-x-hidden">
         <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
           <div className="relative p-2 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
             <Header
