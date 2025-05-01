@@ -421,5 +421,82 @@
   "domain_embedded_child_arm": "ARM",
   "domain_embedded_child_rtos": "RTOS",
   "domain_embedded_child_iot": "IoT",
-  "domain_embedded_child_firmware": "Firmware"
+  "domain_embedded_child_firmware": "Firmware",
+
+  "domain_hvac_piping_child_hvac": "HVAC",
+  "domain_hvac_piping_child_piping": "Piping",
+  "domain_hvac_piping_child_ductwork": "Ductwork",
+  "domain_hvac_piping_child_revit": "Revit MEP",
+  "domain_hvac_piping_child_chiller": "Chiller",
+  "domain_hvac_piping_child_pump": "Pump",
+  "domain_hvac_piping_child_fire": "Fire Protection",
+  "domain_hvac_piping_child_plumbing": "Plumbing",
+
+  "domain_tourism_child_planning": "Tour Planning",
+  "domain_tourism_child_management": "Tourism Management",
+  "domain_tourism_child_services": "Travel Services",
+  "domain_tourism_child_marketing": "Destination Marketing",
+
+  "domain_hotel_child_operations": "Hotel Operations",
+  "domain_hotel_child_front": "Front Office",
+  "domain_hotel_child_housekeeping": "Housekeeping",
+  "domain_hotel_child_food": "Food & Beverage",
+  "domain_hotel_child_revenue": "Revenue Management",
+
+  "domain_restaurant_child_operations": "Restaurant Operations",
+  "domain_restaurant_child_kitchen": "Kitchen Management",
+  "domain_restaurant_child_menu": "Menu Planning",
+  "domain_restaurant_child_safety": "Food Safety",
+  "domain_restaurant_child_service": "Customer Service",
+
+  "domain_transportation_child_fleet": "Fleet Management",
+  "domain_transportation_child_route": "Route Optimization",
+  "domain_transportation_child_planning": "Transportation Planning",
+  "domain_transportation_child_shipping": "Shipping Operations",
+
+  "domain_logistics_child_supply": "Supply Chain Management",
+  "domain_logistics_child_warehouse": "Warehouse Operations",
+  "domain_logistics_child_inventory": "Inventory Management",
+  "domain_logistics_child_distribution": "Distribution Planning",
+
+  "domain_marketing_child_digital": "Digital Marketing",
+  "domain_marketing_child_content": "Content Marketing",
+  "domain_marketing_child_social": "Social Media",
+  "domain_marketing_child_brand": "Brand Strategy",
+  "domain_marketing_child_research": "Market Research",
+
+  "domain_sales_child_b2b": "B2B Sales",
+  "domain_sales_child_b2c": "B2C Sales",
+  "domain_sales_child_strategy": "Sales Strategy",
+  "domain_sales_child_account": "Account Management",
+  "domain_sales_child_lead": "Lead Generation",
+
+  "domain_finance_accounting_child_analysis": "Financial Analysis",
+  "domain_finance_accounting_child_accounting": "Accounting",
+  "domain_finance_accounting_child_investment": "Investment",
+  "domain_finance_accounting_child_risk": "Risk Management",
+  "domain_finance_accounting_child_tax": "Tax Planning",
+
+  "domain_research_child_methods": "Research Methods",
+  "domain_research_child_analysis": "Data Analysis",
+  "domain_research_child_writing": "Scientific Writing",
+  "domain_research_child_lab": "Lab Techniques",
+
+  "domain_applied_science_child_physics": "Physics",
+  "domain_applied_science_child_chemistry": "Chemistry",
+  "domain_applied_science_child_biology": "Biology",
+  "domain_applied_science_child_environmental": "Environmental Science",
+
+  "domain_mechanical_child_cad": "CAD",
+  "domain_mechanical_child_solidworks": "SolidWorks",
+  "domain_mechanical_child_thermodynamics": "Thermodynamics",
+  "domain_mechanical_child_materials": "Materials",
+  "domain_mechanical_child_manufacturing": "Manufacturing",
+
+  "domain_electrical_child_industrial": "Industrial Electricity",
+  "domain_electrical_child_power": "Power Electronics",
+  "domain_electrical_child_circuit": "Integrated Circuits",
+  "domain_electrical_child_fpga": "FPGA",
+  "domain_electrical_child_chip": "Chip Design",
+  "domain_electrical_child_digital": "Digital Electronics"
 }
