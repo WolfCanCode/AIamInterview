@@ -17,6 +17,7 @@ import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByNa
 import { getQuestionAction } from '@/actions/getQuestionAction';
 import { QuestionCardSkeleton } from '../components/QuestionCard';
 import { useTranslations, useLocale } from 'next-intl';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -114,31 +115,50 @@ export default function PracticePageWithDomains() {
               />
             )}
 
-            {/* Show only one skeleton or card at a time */}
-            {isPending && !question ? (
-              <div className="w-full flex flex-1 min-h-[70vh] items-center justify-center flex-col transition-discrete starting:opacity-0">
-                <QuestionCardSkeleton />
-                <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
-                  {t('getting_question')}
-                </div>
+            {/* Only animate and center the card when showing skeleton or question */}
+            {(isPending && !question) || question || skipPending ? (
+              <div className="w-full flex flex-col items-center py-2">
+                <AnimatePresence mode="wait">
+                  {(isPending && !question) || skipPending ? (
+                    <motion.div
+                      key="skeleton"
+                      initial={{ opacity: 0, scale: 0.98, y: 24 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.98, y: 24 }}
+                      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                      className="w-full min-h-[70vh] pt-2"
+                      style={{ overflow: 'visible' }}
+                    >
+                      <QuestionCardSkeleton />
+                      <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
+                        {skipPending
+                          ? t('getting_another_question')
+                          : t('getting_question')}
+                      </div>
+                    </motion.div>
+                  ) : (
+                    question && (
+                      <motion.div
+                        key="question"
+                        initial={{ opacity: 0, scale: 0.98, y: 24 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.98, y: 24 }}
+                        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                        className="w-full"
+                        style={{ overflow: 'visible' }}
+                      >
+                        <QuestionCard
+                          question={question}
+                          selectedDomain={selectedDomain}
+                        />
+                      </motion.div>
+                    )
+                  )}
+                </AnimatePresence>
               </div>
-            ) : skipPending ? (
-              <div className="w-full flex flex-1 min-h-[70vh] items-center justify-center flex-col transition-discrete starting:opacity-0">
-                <QuestionCardSkeleton />
-                <div className="text-center text-[oklch(85%_0.3_240)] mt-4 animate-pulse font-medium">
-                  {t('getting_another_question')}
-                </div>
-              </div>
-            ) : (
-              question && (
-                <QuestionCard
-                  question={question}
-                  selectedDomain={selectedDomain}
-                />
-              )
-            )}
+            ) : null}
 
-            {/* Only show selectors when not loading and no question is present */}
+            {/* Show selectors/banners in normal flow when not loading/question */}
             {selectedDomain && !question && !isPending && (
               <>
                 {(() => {

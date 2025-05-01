@@ -54,7 +54,7 @@ export default function DifficultySelector({
     <FuturisticCard
       glowColor="blue"
       variant="dark"
-      className="w-full max-w-2xl mx-auto"
+      className="w-full max-w-3xl mx-auto"
       hover
     >
       <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
