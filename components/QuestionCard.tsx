@@ -4,35 +4,8 @@ import { useTranslations } from 'next-intl';
 import { FaRobot } from 'react-icons/fa';
 
 export function QuestionCardSkeleton() {
-  const t = useTranslations('');
-  // Fun loading messages (localized)
-  const messages = [
-    t('skeleton_loading_1'),
-    t('skeleton_loading_2'),
-    t('skeleton_loading_3'),
-    t('skeleton_loading_4'),
-    t('skeleton_loading_5'),
-  ];
-  const [msgIdx, setMsgIdx] = useState(0);
-  const [fade, setFade] = useState(true);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // Cycle messages
-  useEffect(() => {
-    const timeout = setTimeout(() => setFade(false), 1800);
-    const interval = setInterval(() => {
-      setFade(true);
-      setTimeout(() => {
-        setMsgIdx((i) => (i + 1) % messages.length);
-        setFade(false);
-      }, 200);
-    }, 2200);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
-  }, []);
 
   // Card tilt effect (desktop only)
   useEffect(() => {
@@ -75,11 +48,36 @@ export function QuestionCardSkeleton() {
     "
     >
       <div className="relative z-10 flex flex-col gap-4 w-4/5">
-        <div className="h-5 w-2/3 bg-cyan-900/40 rounded-full mb-2 animate-pulse" />
-        <div className="h-4 w-full bg-cyan-900/30 rounded-full mb-2 animate-pulse" />
-        <div className="h-4 w-5/6 bg-cyan-900/30 rounded-full mb-2 animate-pulse" />
-        <div className="h-4 w-3/4 bg-cyan-900/20 rounded-full mb-2 animate-pulse" />
-        <div className="h-4 w-1/2 bg-cyan-900/20 rounded-full mb-2 animate-pulse" />
+        <div className="h-5 w-2/3 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/30 to-blue-500/30">
+          <div
+            className="h-full bg-gradient-to-r from-cyan-300 to-blue-400 animate-skeleton-type"
+            style={{ animationDelay: '0s' }}
+          />
+        </div>
+        <div className="h-4 w-full rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/20 to-blue-500/20">
+          <div
+            className="h-full bg-gradient-to-r from-cyan-200 to-blue-300 animate-skeleton-type"
+            style={{ animationDelay: '0.15s' }}
+          />
+        </div>
+        <div className="h-4 w-5/6 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/20 to-blue-500/20">
+          <div
+            className="h-full bg-gradient-to-r from-cyan-200 to-blue-300 animate-skeleton-type"
+            style={{ animationDelay: '0.3s' }}
+          />
+        </div>
+        <div className="h-4 w-3/4 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/10 to-blue-500/10">
+          <div
+            className="h-full bg-gradient-to-r from-cyan-100 to-blue-200 animate-skeleton-type"
+            style={{ animationDelay: '0.45s' }}
+          />
+        </div>
+        <div className="h-4 w-1/2 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/10 to-blue-500/10">
+          <div
+            className="h-full bg-gradient-to-r from-cyan-100 to-blue-200 animate-skeleton-type"
+            style={{ animationDelay: '0.6s' }}
+          />
+        </div>
       </div>
       {/* Fun robot icon */}
       <span
@@ -88,15 +86,6 @@ export function QuestionCardSkeleton() {
       >
         <FaRobot className="inline-block" />
       </span>
-      {/* Fun loading text */}
-      <div
-        className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-cyan-300 text-base font-medium transition-opacity duration-300 ${
-          fade ? 'opacity-100' : 'opacity-0'
-        }`}
-        aria-live="polite"
-      >
-        {messages[msgIdx]}
-      </div>
     </div>
   );
 }

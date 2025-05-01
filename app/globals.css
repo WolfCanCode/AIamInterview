@@ -460,3 +460,12 @@
 .animate-robot-wave {
   animation: robot-wave 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes skeleton-type {
+  0% { width: 0; opacity: 0.5; }
+  10% { opacity: 1; }
+  100% { width: 100%; opacity: 1; }
+}
+.animate-skeleton-type {
+  animation: skeleton-type 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
