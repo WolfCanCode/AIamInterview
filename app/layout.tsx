@@ -1,5 +1,5 @@
 import '@/app/globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import ClientLayout from '@/components/ClientLayout';
@@ -14,23 +14,24 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+export const viewport: Viewport = {
+  themeColor: '#0a0f1a',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
   title: 'ITerview',
   description:
     'An AI-powered web application to practice coding interviews across multiple domains.',
   manifest: '/manifest.json',
-  themeColor: '#0a0f1a',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: 'ITerview',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: 'cover',
   },
   other: {
     'mobile-web-app-capable': 'yes',
@@ -43,9 +44,7 @@ export const metadata: Metadata = {
 
 interface Props {
   children: React.ReactNode;
-  params: {
-    locale: string;
-  };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function RootLayout({ children, params }: Props) {
