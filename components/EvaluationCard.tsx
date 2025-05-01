@@ -93,7 +93,14 @@ export default function EvaluationCard({
           <BsCheckCircleFill />
         </span>
         <p className="text-blue-100 font-medium">
-          <b>{t('key_point')}</b> {evaluation.key_points_of_main_argument}
+          <b>{t('key_point')}</b>
+          <ul className="list-decimal list-inside">
+            {evaluation.key_points_of_main_argument.map((keyPoint, index) => (
+              <li key={index} className="text-blue-100">
+                {keyPoint}
+              </li>
+            ))}
+          </ul>
         </p>
       </div>
       <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">

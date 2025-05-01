@@ -1,14 +1,8 @@
 import '@/app/globals.css';
-import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
-import dynamic from 'next/dynamic';
-
-const AddToHomeScreenPrompt = dynamic(
-  () => import('@/components/AddToHomeScreenPrompt'),
-  { ssr: false }
-);
+import ClientLayout from '@/components/ClientLayout';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -21,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Iterview',
+  title: 'ITerview',
   description:
     'An AI-powered web application to practice coding interviews across multiple domains.',
   manifest: '/manifest.json',
@@ -29,7 +23,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Iterview',
+    title: 'ITerview',
   },
   viewport: {
     width: 'device-width',
@@ -47,12 +41,12 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-  params: Promise<{
+  params: {
     locale: string;
-  }>;
-};
+  };
+}
 
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -62,7 +56,7 @@ export default async function RootLayout({ children, params }: Props) {
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <meta property="og:title" content="Iterview" />
+        <meta property="og:title" content="ITerview" />
         <meta
           property="og:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
@@ -74,13 +68,13 @@ export default async function RootLayout({ children, params }: Props) {
         />
         <meta property="og:url" content="https://iterview-ai.vercel.app" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Iterview" />
+        <meta name="twitter:title" content="ITerview" />
         <meta
           name="twitter:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta property="og:site_name" content="Iterview" />
+        <meta property="og:site_name" content="ITerview" />
         <meta property="og:locale" content="en_US" />
         <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
         {/* iOS Safari notch and bottom bar translucency */}
@@ -106,9 +100,7 @@ export default async function RootLayout({ children, params }: Props) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <AddToHomeScreenPrompt />
-        <Analytics />
+        <ClientLayout>{children}</ClientLayout>
         <Script
           id="register-sw"
           strategy="afterInteractive"
