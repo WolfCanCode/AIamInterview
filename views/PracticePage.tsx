@@ -60,6 +60,8 @@ export default function PracticePageWithDomains() {
 
   const handleGetQuestion = (isSkip = false) => {
     if (!selectedDomain) return;
+    scrollTo(0, 0);
+    setEvaluation(null);
     const topic = selectedChild
       ? `${selectedDomain} - ${selectedChild}`
       : selectedDomain;
@@ -68,7 +70,6 @@ export default function PracticePageWithDomains() {
       const data = await getQuestionAction(topic, difficulty, locale);
       setQuestion(data);
       setAnswer('');
-      setEvaluation(null);
       setSkipPending(false);
     });
   };
