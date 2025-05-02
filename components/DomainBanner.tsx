@@ -14,11 +14,11 @@ export default function DomainBanner({
 }) {
   const t = useTranslations('');
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
+    <div className="relative w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
       {/* Back Button */}
       <FuturisticButton
         onClick={onBack}
-        className="absolute top-4 left-4 !w-10 !h-10 !p-0 flex items-center justify-center"
+        className="absolute top-4 left-4 z-50 !w-10 !h-10 !p-0 flex items-center justify-center"
         aria-label={t('back')}
       >
         <svg
