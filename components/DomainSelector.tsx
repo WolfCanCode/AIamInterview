@@ -47,7 +47,7 @@ export default function DomainSelector({
                       selectedDomain === d.name
                         ? 'ring-2 ring-cyan-400/60 scale-105 border-cyan-400 shadow-cyan-400/20'
                         : ''
-                    } h-[116px] flex flex-col justify-center items-center`}
+                    } h-[116px] sm:h-auto flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}
                     tabIndex={0}
                     style={{ touchAction: 'manipulation' }}
