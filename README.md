@@ -1,7 +1,7 @@
 # ITerview (Interview Trainer AI)
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Vercel](https://vercelbadge.vercel.app/api/tommy-les-projects-571efea9/iterview)](https://vercel.com/tommy-les-projects-571efea9/iterview)
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/iterview-ai)
 
 An AI-powered web application to practice coding interviews across a wide range of domains, with instant feedback and adaptive difficulty.
 
