@@ -10,7 +10,7 @@ import EvaluationCard from '@/components/EvaluationCard';
 import TextareaAutosize from 'react-textarea-autosize';
 import { EvaluationResult } from '@/types/Evaluation';
 import FuturisticButton from '@/components/FuturisticButton';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaClock, FaCode } from 'react-icons/fa';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 const MockInterviewPage = () => {
@@ -116,27 +116,70 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-4">Mock Interview</h1>
-      <div className="mb-4">
-        <span className="font-semibold">Domain:</span> {t(domain || '')}
-        {child && <span> &mdash; {t(child || '')}</span>}
-        <br />
-        <span className="font-semibold">Difficulty:</span>{' '}
-        {t(`difficulty_${difficulty?.toLowerCase() || ''}`)}
-      </div>
-      <div className="flex items-center justify-between mb-6">
-        <span className="text-lg font-medium">Time Left:</span>
-        <span
-          className={`font-mono text-xl ${
-            timeLeft <= 60 ? 'text-red-500' : ''
-          }`}
-        >
-          {formatTime(timeLeft)}
-        </span>
+    <div className="container mx-auto py-8 max-w-2xl px-4 sm:px-0">
+      <div className="w-full max-w-2xl mx-auto mb-6 px-2">
+        <div className="rounded-2xl bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60 shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
+          <div className="w-full sm:w-auto">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <span className="text-xl sm:text-2xl text-cyan-400">
+                <FaCode />
+              </span>
+              <h1 className="text-lg sm:text-2xl font-bold text-white">
+                {t('mock_interview')}
+              </h1>
+            </div>
+            <div className="flex flex-wrap gap-1 sm:gap-2 items-center mb-1">
+              <span className="font-semibold text-gray-200 text-sm sm:text-base">
+                {t('domain')}:
+              </span>
+              <span className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-cyan-700/40 text-cyan-200 font-medium text-sm sm:text-base">
+                {t(domain || '')}
+              </span>
+              {child && (
+                <>
+                  <span className="text-cyan-400 font-bold">—</span>
+                  <span className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-purple-700/40 text-purple-200 font-medium text-sm sm:text-base">
+                    {t(child || '')}
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="flex gap-1 sm:gap-2 items-center mb-1">
+              <span className="font-semibold text-gray-200 text-sm sm:text-base">
+                {t('difficulty')}:
+              </span>
+              <span
+                className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-medium text-sm sm:text-base ${
+                  (difficulty || '').toLowerCase() === 'easy'
+                    ? 'bg-green-700/40 text-green-200'
+                    : (difficulty || '').toLowerCase() === 'medium'
+                    ? 'bg-yellow-700/40 text-yellow-200'
+                    : (difficulty || '').toLowerCase() === 'hard'
+                    ? 'bg-red-700/40 text-red-200'
+                    : 'bg-purple-700/40 text-purple-200'
+                }`}
+              >
+                {t(`difficulty_${(difficulty || 'easy').toLowerCase()}`)}
+              </span>
+            </div>
+          </div>
+          <div className="hidden sm:flex flex-col items-center w-full sm:w-auto mt-4 sm:mt-0">
+            <span className="text-base sm:text-lg font-medium text-gray-200 flex items-center gap-2">
+              <FaClock className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+              {t('time_left') || 'Time Left'}:
+            </span>
+            <span
+              className={`font-mono text-2xl sm:text-3xl mt-1 ${
+                timeLeft <= 60 ? 'text-red-400' : 'text-cyan-300'
+              }`}
+            >
+              {formatTime(timeLeft)}
+            </span>
+          </div>
+        </div>
       </div>
       {loading ? (
-        <div className="flex flex-col items-center justify-center min-h-[400px]">
+        <div className="flex flex-col items-center justify-center min-h-[400px] mt-20">
           <QuestionCardSkeleton />
           <div className="text-center text-cyan-400 mt-6 animate-pulse font-semibold">
             {t('getting_question')}
@@ -236,15 +279,17 @@ const MockInterviewPage = () => {
                 )}
             </div>
           ))}
-          <FuturisticButton
-            type="submit"
-            color="cyan"
-            icon={<FaPlay />}
-            disabled={submitted}
-            className="mt-8"
-          >
-            {t('submit_answer')}
-          </FuturisticButton>
+          <div className="hidden sm:block">
+            <FuturisticButton
+              type="submit"
+              color="cyan"
+              icon={<FaPlay />}
+              disabled={submitted}
+              className="mt-8"
+            >
+              {t('submit_answer')}
+            </FuturisticButton>
+          </div>
         </form>
       )}
       {submitted && evaluating && (
@@ -308,6 +353,37 @@ const MockInterviewPage = () => {
           />
         </div>
       )}
+      {/* Fixed bottom bar for mobile: timer + submit button */}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!submitted) handleSubmit();
+        }}
+        className="sm:hidden"
+        style={{ margin: 0 }}
+      >
+        <div className="fixed bottom-0 left-0 w-full z-50 bg-gradient-to-r from-blue-900/90 via-cyan-900/90 to-blue-800/90 border-t border-cyan-400/20 flex items-center justify-between px-4 py-3 gap-4 backdrop-blur-xl shadow-2xl">
+          <div className="flex items-center gap-2">
+            <FaClock className="w-5 h-5 text-cyan-400" />
+            <span
+              className={`font-mono text-lg ${
+                timeLeft <= 60 ? 'text-red-400' : 'text-cyan-200'
+              }`}
+            >
+              {formatTime(timeLeft)}
+            </span>
+          </div>
+          <FuturisticButton
+            type="submit"
+            color="cyan"
+            icon={<FaPlay />}
+            disabled={submitted}
+            className="!mt-0 min-w-[120px]"
+          >
+            {t('submit_answer')}
+          </FuturisticButton>
+        </div>
+      </form>
     </div>
   );
 };

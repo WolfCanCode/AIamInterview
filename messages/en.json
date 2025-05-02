@@ -652,5 +652,8 @@
   "meta_description": "Ace your next interview with AI! Practice real-world interview questions, get instant feedback, and boost your skills across all domains—tech, business, healthcare, law, and more.",
   "mock_interview": "Mock Interview",
   "start_mock_interview": "Start Mock Interview",
-  "question": "Question"
+  "question": "Question",
+  "domain": "Domain",
+  "difficulty": "Difficulty",
+  "time_left": "Time Left"
 }
