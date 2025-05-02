@@ -142,7 +142,7 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 max-w-2xl px-4 sm:px-0">
+    <div className="container mx-auto py-8 max-w-2xl ">
       <div className="w-full max-w-2xl mx-auto mb-6 px-2 relative">
         {/* Back button */}
         <button
