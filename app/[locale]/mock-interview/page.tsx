@@ -1,27 +1,17 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, createRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { getMockInterviewQuestionsAction } from '@/actions/getMockInterviewQuestionsAction';
 import { submitMockInterviewAction } from '@/actions/submitMockInterviewAction';
-
+import QuestionCard, { QuestionCardSkeleton } from '@/components/QuestionCard';
+import FuturisticCard from '@/components/FuturisticCard';
+import EvaluationCard from '@/components/EvaluationCard';
+import TextareaAutosize from 'react-textarea-autosize';
+import { EvaluationResult } from '@/types/Evaluation';
+import FuturisticButton from '@/components/FuturisticButton';
+import { FaPlay } from 'react-icons/fa';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
-
-type EvaluationResult = {
-  overall_score: number;
-  title: string;
-  overall_suggestions: string;
-  results: {
-    question: string;
-    answer: string;
-    overall_score: number;
-    creative_score: number;
-    result_text: string;
-    suggestions: string;
-    perfect_answer: string;
-    key_points_of_main_argument: string[];
-  }[];
-};
 
 const MockInterviewPage = () => {
   const t = useTranslations('');
@@ -146,8 +136,11 @@ const MockInterviewPage = () => {
         </span>
       </div>
       {loading ? (
-        <div className="text-center py-12 text-cyan-500 animate-pulse font-semibold">
-          Generating questions for your mock interview...
+        <div className="flex flex-col items-center justify-center min-h-[400px]">
+          <QuestionCardSkeleton />
+          <div className="text-center text-cyan-400 mt-6 animate-pulse font-semibold">
+            {t('getting_question')}
+          </div>
         </div>
       ) : (
         <form
@@ -157,83 +150,162 @@ const MockInterviewPage = () => {
           }}
         >
           {questions.map((q, idx) => (
-            <div key={idx} className="mb-6">
-              <label className="block font-semibold mb-2">
-                {idx + 1}. {q.title}
-              </label>
-              <div className="text-gray-700 mb-2 text-sm">{q.description}</div>
-              <textarea
-                className="w-full border rounded p-2 min-h-[60px]"
-                value={answers[idx]}
-                onChange={(e) => handleAnswerChange(idx, e.target.value)}
-                disabled={submitted}
-                required
+            <div key={idx} className="mb-10">
+              {idx > 0 && (
+                <div className="flex items-center my-10">
+                  <div className="flex-1 h-px bg-gradient-to-r from-blue-500/30 via-cyan-400/30 to-transparent" />
+                  <span className="mx-4 px-4 py-1 rounded-full bg-blue-900/60 text-cyan-300 font-bold text-lg shadow-lg border border-cyan-400/30">
+                    {t('question')} {idx + 1}
+                  </span>
+                  <div className="flex-1 h-px bg-gradient-to-l from-blue-500/30 via-cyan-400/30 to-transparent" />
+                </div>
+              )}
+              {idx === 0 && (
+                <div className="flex items-center my-10 justify-center">
+                  <span className="px-4 py-1 rounded-full bg-blue-900/60 text-cyan-300 font-bold text-lg shadow-lg border border-cyan-400/30">
+                    {t('question')} {idx + 1}
+                  </span>
+                </div>
+              )}
+              <QuestionCard
+                question={{
+                  ...q,
+                  constraints: null,
+                  input_format: '',
+                  output_format: '',
+                }}
+                selectedDomain={null}
               />
+              <div className="mt-6">
+                <TextareaAutosize
+                  id={`answer-textarea-${idx}`}
+                  minRows={3}
+                  maxRows={30}
+                  disabled={submitted}
+                  value={answers[idx]}
+                  onChange={(e) => handleAnswerChange(idx, e.target.value)}
+                  className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 focus:border-blue-500/50`}
+                  aria-label={t('enter_answer')}
+                  placeholder={t('type_your_answer')}
+                />
+              </div>
+              {/* Compact evaluation for each question */}
               {submitted &&
                 evaluation &&
                 evaluation.results &&
                 evaluation.results[idx] &&
                 !evaluating && (
-                  <div className="mt-2 p-3 bg-green-50 border border-green-200 rounded text-sm">
-                    <div>
-                      <span className="font-semibold">Score:</span>{' '}
-                      {evaluation.results[idx].overall_score} / 10
+                  <FuturisticCard
+                    className="mt-4"
+                    glowColor={
+                      evaluation.results[idx].overall_score >= 7
+                        ? 'green'
+                        : evaluation.results[idx].overall_score >= 4
+                        ? 'yellow'
+                        : 'red'
+                    }
+                  >
+                    <div className="flex flex-wrap gap-4 items-center mb-2">
+                      <span className="text-lg font-bold text-green-400">
+                        {t('score')}: {evaluation.results[idx].overall_score}/10
+                      </span>
+                      <span className="text-lg font-bold text-blue-400">
+                        {t('creative_score')}:{' '}
+                        {evaluation.results[idx].creative_score}/10
+                      </span>
                     </div>
-                    <div>
-                      <span className="font-semibold">Creativity:</span>{' '}
-                      {evaluation.results[idx].creative_score} / 10
-                    </div>
-                    <div>
-                      <span className="font-semibold">Feedback:</span>{' '}
+                    <div className="mb-1">
+                      <b>{t('evaluation_result')}:</b>{' '}
                       {evaluation.results[idx].result_text}
                     </div>
-                    <div>
-                      <span className="font-semibold">Suggestions:</span>{' '}
+                    <div className="mb-1">
+                      <b>{t('suggestion')}</b>{' '}
                       {evaluation.results[idx].suggestions}
                     </div>
-                    <div>
-                      <span className="font-semibold">Perfect Answer:</span>{' '}
-                      {evaluation.results[idx].perfect_answer}
-                    </div>
-                    <div>
-                      <span className="font-semibold">Key Points:</span>{' '}
+                    <div className="mb-1">
+                      <b>{t('key_point')}</b>{' '}
                       {evaluation.results[
                         idx
                       ].key_points_of_main_argument?.join(', ')}
                     </div>
-                  </div>
+                    <div className="mb-1">
+                      <b>{t('perfect_answer')}</b>{' '}
+                      {evaluation.results[idx].perfect_answer}
+                    </div>
+                  </FuturisticCard>
                 )}
             </div>
           ))}
-          <button
+          <FuturisticButton
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded disabled:opacity-50"
+            color="cyan"
+            icon={<FaPlay />}
             disabled={submitted}
+            className="mt-8"
           >
-            Submit Answers
-          </button>
+            {t('submit_answer')}
+          </FuturisticButton>
         </form>
       )}
       {submitted && evaluating && (
-        <div className="mt-8 p-4 bg-blue-100 border border-blue-300 rounded text-center animate-pulse">
-          <h2 className="font-bold text-lg mb-2 text-blue-700">
-            Evaluating your answers...
-          </h2>
-          <p>Please wait while we review your responses.</p>
+        <div className="mt-12 flex flex-col items-center justify-center gap-6 animate-fade-in">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-6xl text-cyan-400 animate-spin-slow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 48 48"
+                className="w-16 h-16"
+              >
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="20"
+                  stroke="#22d3ee"
+                  strokeWidth="4"
+                  opacity="0.2"
+                />
+                <path
+                  d="M24 4a20 20 0 0120 20"
+                  stroke="#22d3ee"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <circle cx="24" cy="24" r="8" fill="#22d3ee" opacity="0.2" />
+                <circle cx="24" cy="24" r="4" fill="#22d3ee" />
+              </svg>
+            </span>
+            <h2 className="font-bold text-2xl mb-2 text-cyan-300 animate-pulse">
+              {t('grading')}
+            </h2>
+            <div className="w-64 h-3 bg-cyan-900/40 rounded-full overflow-hidden mt-2">
+              <div
+                className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 animate-progress-bar"
+                style={{ width: '80%' }}
+              />
+            </div>
+            <p className="mt-4 text-cyan-200 text-lg animate-fade-in-slow">
+              {t('please_wait')}
+              <br />
+              {t('skeleton_loading_2')}
+            </p>
+          </div>
         </div>
       )}
       {submitted && evaluation && !evaluating && (
-        <div className="mt-8 p-4 bg-green-50 border border-green-300 rounded">
-          <h2 className="font-bold text-lg mb-2 text-green-700">Results</h2>
-          <div className="mb-4">
-            <span className="font-semibold">Overall Score:</span>{' '}
-            {evaluation.overall_score}
-            <br />
-            <span className="font-semibold">Title:</span> {evaluation.title}
-            <br />
-            <span className="font-semibold">Suggestions:</span>{' '}
-            {evaluation.overall_suggestions}
-          </div>
+        <div className="mt-8">
+          <EvaluationCard
+            evaluation={{
+              overall_score: evaluation.overall_score,
+              creative_score: null,
+              result_text: evaluation.overall_result_text,
+              suggestions: evaluation.overall_suggestions,
+              key_points_of_main_argument: null,
+              perfect_answer: null,
+              title_level_text: evaluation.title_level_text,
+            }}
+            evaluationRef={createRef()}
+          />
         </div>
       )}
     </div>

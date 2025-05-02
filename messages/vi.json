@@ -591,5 +591,6 @@
   "meta_title": "AI am Interview",
   "meta_description": "Chinh phục phỏng vấn với AI! Luyện tập các câu hỏi thực tế, nhận phản hồi tức thì, nâng cao kỹ năng ở mọi lĩnh vực—công nghệ, kinh doanh, y tế, luật và nhiều hơn nữa.",
   "mock_interview": "Phỏng vấn thử",
-  "start_mock_interview": "Bắt đầu phỏng vấn thử"
+  "start_mock_interview": "Bắt đầu phỏng vấn thử",
+  "question": "Câu hỏi"
 }

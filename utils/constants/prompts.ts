@@ -110,7 +110,9 @@ Output format:
   ],
   "overall_score": number,
   "title": "string",
-  "overall_suggestions": "string"
+  "overall_suggestions": "string",
+  "overall_result_text": "string",
+  "title_level_text": "string"
 }`,
 
   batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `
@@ -240,7 +242,9 @@ Nhiệm vụ:
   ],
   "overall_score": number,
   "title": "string",
-  "overall_suggestions": "string"
+  "overall_suggestions": "string",
+  "overall_result_text": "string",
+  "title_level_text": "string"
 }`,
 
   batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `

@@ -104,12 +104,16 @@ export default function QuestionCard({
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75 mb-0" />
 
       <div className="relative z-10 flex flex-col justify-start">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
-            {t(selectedDomain || '')}
-          </span>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-transparent" />
-        </div>
+        {selectedDomain ? (
+          <div className="flex items-center gap-3 mb-4">
+            <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
+              {t(selectedDomain || '')}
+            </span>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-transparent" />
+          </div>
+        ) : (
+          ''
+        )}
 
         <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent flex-1 transition-colors duration-300 group-hover:from-blue-300 group-hover:to-purple-300">
           {question.title}
@@ -121,17 +125,24 @@ export default function QuestionCard({
       </p>
 
       <div className="relative z-10 space-y-3">
-        <h3 className="font-semibold text-lg text-blue-300/90">
-          {t('interview_requirements')}
-        </h3>
-        <ul className="space-y-2">
-          {question.constraints.map((c: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-gray-300/90">
-              <span className="text-blue-400/90 mt-1">•</span>
-              <span>{c}</span>
-            </li>
-          ))}
-        </ul>
+        {question.constraints && (
+          <>
+            <h3 className="font-semibold text-lg text-blue-300/90">
+              {t('interview_requirements')}
+            </h3>
+            <ul className="space-y-2">
+              {question.constraints?.map((c: string, idx: number) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2 text-gray-300/90"
+                >
+                  <span className="text-blue-400/90 mt-1">•</span>
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     </div>
   );
