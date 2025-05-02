@@ -657,5 +657,6 @@
   "difficulty": "Difficulty",
   "time_left": "Time Left",
   "please_wait": "Please wait...",
-  "title_level_text": "Result:"
+  "title_level_text": "Result:",
+  "new": "New"
 }

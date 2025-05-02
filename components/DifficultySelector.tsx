@@ -146,10 +146,13 @@ export default function DifficultySelector({
             <FuturisticButton
               disabled
               color="purple"
-              className="min-w-[180px]"
+              className="min-w-[180px] relative"
               icon={<FaUserGraduate />}
             >
               {mockInterviewButtonProps.label}
+              <span className="absolute top-1 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
+                {t('new')}
+              </span>
             </FuturisticButton>
           ) : (
             <Link
@@ -158,10 +161,13 @@ export default function DifficultySelector({
             >
               <FuturisticButton
                 color="purple"
-                className="min-w-[180px]"
+                className="min-w-[180px] relative"
                 icon={<FaUserGraduate />}
               >
                 {mockInterviewButtonProps.label}
+                <span className="absolute top-1 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
+                  {t('new')}
+                </span>
               </FuturisticButton>
             </Link>
           ))}
