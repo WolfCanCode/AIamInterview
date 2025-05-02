@@ -5,7 +5,7 @@ export interface Evaluation {
   suggestions: string | null;
   perfect_answer: string | null;
   key_points_of_main_argument: string[] | null;
-  title_level_text: string | null;
+  title_ranking_text: string | null;
 }
 
 export type EvaluationResult = {
@@ -13,7 +13,7 @@ export type EvaluationResult = {
   title: string;
   overall_suggestions: string;
   overall_result_text: string;
-  title_level_text: string;
+  title_ranking_text: string;
   results: {
     question: string;
     answer: string;

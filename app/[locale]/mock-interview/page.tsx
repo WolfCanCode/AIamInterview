@@ -1,17 +1,40 @@
 'use client';
-import React, { useEffect, useState, useRef, createRef } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
 import { getMockInterviewQuestionsAction } from '@/actions/getMockInterviewQuestionsAction';
 import { submitMockInterviewAction } from '@/actions/submitMockInterviewAction';
-import QuestionCard, { QuestionCardSkeleton } from '@/components/QuestionCard';
-import FuturisticCard from '@/components/FuturisticCard';
 import EvaluationCard from '@/components/EvaluationCard';
-import TextareaAutosize from 'react-textarea-autosize';
-import { EvaluationResult } from '@/types/Evaluation';
 import FuturisticButton from '@/components/FuturisticButton';
-import { FaPlay, FaClock, FaCode } from 'react-icons/fa';
+import FuturisticCard from '@/components/FuturisticCard';
+import QuestionCard, { QuestionCardSkeleton } from '@/components/QuestionCard';
+import { EvaluationResult } from '@/types/Evaluation';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { createRef, useEffect, useRef, useState } from 'react';
+import { FaArrowLeft, FaClock, FaCode, FaPlay } from 'react-icons/fa';
+import { FaPen } from 'react-icons/fa6';
+import TextareaAutosize from 'react-textarea-autosize';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
+
+function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
+  const messages = [
+    t('please_wait'),
+    t('skeleton_loading_2'),
+    t('skeleton_loading_3'),
+    t('skeleton_loading_4'),
+  ];
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(
+      () => setIdx((i) => (i + 1) % messages.length),
+      2000
+    );
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <p className="text-sm mt-0 text-cyan-100 min-h-[28px] transition-all duration-500 animate-fade-in-slow text-center">
+      {messages[idx]}
+    </p>
+  );
+}
 
 const MockInterviewPage = () => {
   const t = useTranslations('');
@@ -21,6 +44,7 @@ const MockInterviewPage = () => {
   const child = searchParams.get('child');
   const difficulty = searchParams.get('difficulty');
   const locale = useLocale();
+  const router = useRouter();
 
   const [questions, setQuestions] = useState<
     { title: string; description: string; constraints: string[] }[]
@@ -86,6 +110,7 @@ const MockInterviewPage = () => {
 
   const handleSubmit = async () => {
     setSubmitted(true);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     if (timerRef.current) clearInterval(timerRef.current);
     setEvaluating(true);
     try {
@@ -97,6 +122,7 @@ const MockInterviewPage = () => {
         child,
         difficulty
       );
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setEvaluation(evalResult);
     } catch {
       setEvaluation(null);
@@ -117,7 +143,17 @@ const MockInterviewPage = () => {
 
   return (
     <div className="container mx-auto py-8 max-w-2xl px-4 sm:px-0">
-      <div className="w-full max-w-2xl mx-auto mb-6 px-2">
+      <div className="w-full max-w-2xl mx-auto mb-6 px-2 relative">
+        {/* Back button */}
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="absolute -top-5 left-3 w-10 h-10 flex items-center justify-center rounded-full bg-cyan-700/70 backdrop-blur-xl shadow-xl border-2 border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/90 hover:text-white active:scale-95 transition-all duration-200 z-30 animate-float"
+          style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)' }}
+          aria-label={t('back') || 'Back'}
+        >
+          <FaArrowLeft className="text-2xl" />
+        </button>
         <div className="rounded-2xl bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60 shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
           <div className="w-full sm:w-auto">
             <div className="flex items-center gap-2 sm:gap-3 mb-2">
@@ -128,7 +164,7 @@ const MockInterviewPage = () => {
                 {t('mock_interview')}
               </h1>
             </div>
-            <div className="flex flex-wrap gap-1 sm:gap-2 items-center mb-1">
+            <div className="flex flex-wrap gap-1 sm:gap-2 items-center mb-2">
               <span className="font-semibold text-gray-200 text-sm sm:text-base">
                 {t('domain')}:
               </span>
@@ -166,7 +202,9 @@ const MockInterviewPage = () => {
           <div className="hidden sm:flex flex-col items-center w-full sm:w-auto mt-4 sm:mt-0">
             <span className="text-base sm:text-lg font-medium text-gray-200 flex items-center gap-2">
               <FaClock className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
-              {t('time_left') || 'Time Left'}:
+              <span className="whitespace-nowrap">
+                {t('time_left') || 'Time Left'}
+              </span>
             </span>
             <span
               className={`font-mono text-2xl sm:text-3xl mt-1 ${
@@ -293,47 +331,25 @@ const MockInterviewPage = () => {
         </form>
       )}
       {submitted && evaluating && (
-        <div className="mt-12 flex flex-col items-center justify-center gap-6 animate-fade-in">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-6xl text-cyan-400 animate-spin-slow">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 48 48"
-                className="w-16 h-16"
-              >
-                <circle
-                  cx="24"
-                  cy="24"
-                  r="20"
-                  stroke="#22d3ee"
-                  strokeWidth="4"
-                  opacity="0.2"
-                />
-                <path
-                  d="M24 4a20 20 0 0120 20"
-                  stroke="#22d3ee"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <circle cx="24" cy="24" r="8" fill="#22d3ee" opacity="0.2" />
-                <circle cx="24" cy="24" r="4" fill="#22d3ee" />
-              </svg>
+        <div className="mt-16 flex flex-col items-center justify-center gap-8 animate-fade-in relative">
+          {/* Aurora background */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-purple-500/30 animate-aurora" />
+          </div>
+          {/* Glassy card */}
+          <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 backdrop-blur-2xl border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
+            {/* Animated robot/AI icon */}
+            <span className="text-4xl text-cyan-300 drop-shadow-lg animate-robot-wave mb-4">
+              <FaPen />
             </span>
-            <h2 className="font-bold text-2xl mb-2 text-cyan-300 animate-pulse">
-              {t('grading')}
-            </h2>
-            <div className="w-64 h-3 bg-cyan-900/40 rounded-full overflow-hidden mt-2">
-              <div
-                className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 animate-progress-bar"
-                style={{ width: '80%' }}
-              />
+
+            {/* Rotating/fading messages */}
+            <div className="flex flex-col items-center gap-2">
+              <h2 className="font-bold text-2xl text-cyan-200 animate-pulse">
+                {t('grading')}
+              </h2>
+              <AnimatedGradingMessage t={t} />
             </div>
-            <p className="mt-4 text-cyan-200 text-lg animate-fade-in-slow">
-              {t('please_wait')}
-              <br />
-              {t('skeleton_loading_2')}
-            </p>
           </div>
         </div>
       )}
@@ -344,15 +360,16 @@ const MockInterviewPage = () => {
               overall_score: evaluation.overall_score,
               creative_score: null,
               result_text: evaluation.overall_result_text,
-              suggestions: evaluation.overall_suggestions,
+              suggestions: null,
               key_points_of_main_argument: null,
               perfect_answer: null,
-              title_level_text: evaluation.title_level_text,
+              title_ranking_text: evaluation.title_ranking_text,
             }}
             evaluationRef={createRef()}
           />
         </div>
       )}
+      <div className="h-20 sm:h-0" />
       {/* Fixed bottom bar for mobile: timer + submit button */}
       <form
         onSubmit={(e) => {

@@ -121,13 +121,13 @@ export default function EvaluationCard({
           </p>
         </div>
       )}
-      {evaluation.title_level_text && (
+      {evaluation.title_ranking_text && (
         <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
           <span className="text-2xl mt-1 text-yellow-300">
             <FaRegStar />
           </span>
           <p className="text-blue-100 font-medium">
-            <b>{t('title_level_text')}</b> {evaluation.title_level_text}
+            <b>{t('title_level_text')}</b> {evaluation.title_ranking_text}
           </p>
         </div>
       )}

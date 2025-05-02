@@ -112,7 +112,7 @@ Output format:
   "title": "string",
   "overall_suggestions": "string",
   "overall_result_text": "string",
-  "title_level_text": "string"
+  "title_ranking_text": "string"
 }`,
 
   batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `
@@ -244,7 +244,7 @@ Nhiệm vụ:
   "title": "string",
   "overall_suggestions": "string",
   "overall_result_text": "string",
-  "title_level_text": "string"
+  "title_ranking_text": "string"
 }`,
 
   batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `

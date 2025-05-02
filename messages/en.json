@@ -655,5 +655,7 @@
   "question": "Question",
   "domain": "Domain",
   "difficulty": "Difficulty",
-  "time_left": "Time Left"
+  "time_left": "Time Left",
+  "please_wait": "Please wait...",
+  "title_level_text": "Result:"
 }

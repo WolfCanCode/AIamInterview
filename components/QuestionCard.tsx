@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Question } from '@/types/Question';
 import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
 import { FaRobot } from 'react-icons/fa';
 
 export function QuestionCardSkeleton() {

@@ -98,7 +98,7 @@ export default function DifficultySelector({
 
       <div
         className={`flex justify-center pb-4${
-          showMockInterviewButton ? ' flex-row gap-4' : ''
+          showMockInterviewButton ? ' flex-col sm:flex-row gap-0 sm:gap-4' : ''
         }`}
       >
         <FuturisticButton
