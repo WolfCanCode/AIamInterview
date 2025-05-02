@@ -29,6 +29,7 @@ export async function submitMockInterviewAction(
             model: 'meta-llama/llama-4-maverick-17b-128e-instruct-fp8',
             stream: false,
             max_tokens: 4096,
+            temperature: 1.0,
             messages: [
               {
                 role: 'user',
