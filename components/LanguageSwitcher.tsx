@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
+import ReactCountryFlag from 'react-country-flag';
 
 const LANGUAGES = [
-  { code: 'en', flag: '🇬🇧', label: 'English' },
-  { code: 'vi', flag: '🇻🇳', label: 'Tiếng Việt' },
+  { code: 'en', country: 'GB', label: 'English' },
+  { code: 'vi', country: 'VN', label: 'Tiếng Việt' },
 ] as const;
 
 export default function LanguageSwitcher() {
@@ -31,7 +32,18 @@ export default function LanguageSwitcher() {
           }`}
           style={{ lineHeight: 1 }}
         >
-          <span>{lng.flag}</span>
+          <ReactCountryFlag
+            countryCode={lng.country}
+            svg
+            style={{
+              width: '1.5em',
+              height: '1.5em',
+              borderRadius: '50%',
+              boxShadow: locale === lng.code ? '0 0 8px #22d3ee' : undefined,
+              verticalAlign: 'middle',
+            }}
+            title={lng.label}
+          />
         </button>
       ))}
     </div>
