@@ -49,14 +49,18 @@ export default function EvaluationCard({
             {t('total_score')}
           </span>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-blue-400 bg-gray-900 text-blue-200 text-4xl font-bold shadow-lg animate-scale-in">
-            {evaluation.creative_score}
+        {evaluation.creative_score ? (
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-blue-400 bg-gray-900 text-blue-200 text-4xl font-bold shadow-lg animate-scale-in">
+              {evaluation.creative_score}
+            </div>
+            <span className="text-blue-400 font-semibold">
+              {t('creative_score')}
+            </span>
           </div>
-          <span className="text-blue-400 font-semibold">
-            {t('creative_score')}
-          </span>
-        </div>
+        ) : (
+          ''
+        )}
       </div>
       <div className="flex flex-col items-center gap-2">
         <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-yellow-300 bg-gray-900 text-yellow-200 text-4xl font-bold shadow-lg animate-scale-in">
@@ -80,37 +84,53 @@ export default function EvaluationCard({
         </span>
       </div>
       {/* Suggestions Inline Card */}
-      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1 text-blue-300">
-          <FiEdit3 />
-        </span>
-        <p className="text-blue-100 font-medium">
-          <b>{t('suggestion')}</b> {evaluation.suggestions}
-        </p>
-      </div>
-      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1 text-green-400">
-          <BsCheckCircleFill />
-        </span>
-        <p className="text-blue-100 font-medium">
-          <b>{t('key_point')}</b>
-          <ul className="list-decimal list-inside">
-            {evaluation.key_points_of_main_argument.map((keyPoint, index) => (
-              <li key={index} className="text-blue-100">
-                {keyPoint}
-              </li>
-            ))}
-          </ul>
-        </p>
-      </div>
-      <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-        <span className="text-2xl mt-1 text-yellow-300">
-          <FaRegStar />
-        </span>
-        <p className="text-blue-100 font-medium">
-          <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
-        </p>
-      </div>
+      {evaluation.suggestions && (
+        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+          <span className="text-2xl mt-1 text-blue-300">
+            <FiEdit3 />
+          </span>
+          <p className="text-blue-100 font-medium">
+            <b>{t('suggestion')}</b> {evaluation.suggestions}
+          </p>
+        </div>
+      )}
+      {evaluation.key_points_of_main_argument && (
+        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+          <span className="text-2xl mt-1 text-green-400">
+            <BsCheckCircleFill />
+          </span>
+          <p className="text-blue-100 font-medium">
+            <b>{t('key_point')}</b>
+            <ul className="list-decimal list-inside">
+              {evaluation.key_points_of_main_argument.map((keyPoint, index) => (
+                <li key={index} className="text-blue-100">
+                  {keyPoint}
+                </li>
+              ))}
+            </ul>
+          </p>
+        </div>
+      )}
+      {evaluation.perfect_answer && (
+        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+          <span className="text-2xl mt-1 text-yellow-300">
+            <FaRegStar />
+          </span>
+          <p className="text-blue-100 font-medium">
+            <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
+          </p>
+        </div>
+      )}
+      {evaluation.title_ranking_text && (
+        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+          <span className="text-2xl mt-1 text-yellow-300">
+            <FaRegStar />
+          </span>
+          <p className="text-blue-100 font-medium">
+            <b>{t('title_level_text')}</b> {evaluation.title_ranking_text}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

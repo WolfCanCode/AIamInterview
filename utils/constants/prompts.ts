@@ -1,6 +1,18 @@
 interface Prompts {
   questionPrompt: (topic: string, difficulty: string) => string;
   evaluationPrompt: (question: string, answer: string) => string;
+  batchEvaluationPrompt: (
+    qas: { question: string; answer: string }[],
+    domain: string | null,
+    child: string | null,
+    difficulty: string | null
+  ) => string;
+  batchQuestionPrompt: (
+    domain: string | null,
+    child: string | null,
+    difficulty: string | null,
+    numQuestions: number
+  ) => string;
 }
 
 const enPrompts: Prompts = {
@@ -58,6 +70,80 @@ Output format:
   "perfect_answer": "string",
   "key_points_of_main_argument":["string"]
 }`,
+
+  batchEvaluationPrompt: (qas, domain, child, difficulty) => `
+You are a senior recruiter specializing in evaluating mock interviews in the domain of ${
+    domain || 'General'
+  }.
+
+Domain: ${domain || 'General'}
+${child ? `Subdomain: ${child}\n` : ''}Difficulty: ${difficulty || 'Medium'}
+
+Information:
+- Interview questions and candidate's answers:
+${qas
+  .map(
+    (qa, i) => `${i + 1}. Q: "${qa.question}"
+   A: "${qa.answer}"`
+  )
+  .join('\n')}
+
+Task:
+- For each answer, evaluate and score as in the single evaluation prompt.
+- At the end, provide an overall score (0-10), a title for the candidate, and suggestions for improvement.
+
+Output format:
+- Output **Only** JSON below, no additional responses:
+{
+  "results": [
+    {
+      "question": "string",
+      "answer": "string",
+      "overall_score": number,
+      "creative_score": number,
+      "result_text": "string",
+      "suggestions": "string",
+      "perfect_answer": "string",
+      "key_points_of_main_argument": ["string"]
+    },
+    ...
+  ],
+  "overall_score": number,
+  "title": "string",
+  "overall_suggestions": "string",
+  "overall_result_text": "string",
+  "title_ranking_text": "string"
+}`,
+
+  batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `
+You are a senior interviewer specializing in the domain of ${
+    domain || 'General'
+  }${child ? `, subdomain: ${child}` : ''}.
+
+Task:
+- Generate ${numQuestions} unique, challenging, and realistic mock interview questions for the domain "${
+    domain || 'General'
+  }"${child ? ` (subdomain: ${child})` : ''}, with difficulty level "${
+    difficulty || 'Medium'
+  }".
+- Each question should be clear, concise, and appropriate for oral interviews (no practical exercises).
+- Avoid duplicates or previously generated questions.
+
+Language requirements:
+- Write everything in standard English.
+- Avoid grammatical errors.
+
+Output format:
+- Output **Only** the JSON array below, no additional responses:
+[
+  {
+    "title": "string",
+    "description": "string",
+    "constraints": ["string"]
+  },
+  ...
+]
+`,
 };
 
 const viPrompts: Prompts = {
@@ -116,6 +202,80 @@ Yêu cầu ngôn ngữ:
   "perfect_answer": "string",
   "key_points_of_main_argument":["string"]
 }`,
+
+  batchEvaluationPrompt: (qas, domain, child, difficulty) => `
+Bạn là một chuyên gia tuyển dụng cấp cao, chuyên đánh giá các buổi phỏng vấn thử trong lĩnh vực ${
+    domain || 'Chung'
+  }.
+
+Lĩnh vực: ${domain || 'Chung'}
+${child ? `Chủ đề con: ${child}\n` : ''}Độ khó: ${difficulty || 'Trung bình'}
+
+Thông tin:
+- Danh sách câu hỏi phỏng vấn và câu trả lời của ứng viên:
+${qas
+  .map(
+    (qa, i) => `${i + 1}. Q: "${qa.question}"
+   A: "${qa.answer}"`
+  )
+  .join('\n')}
+
+Nhiệm vụ:
+- Với mỗi câu trả lời, hãy đánh giá và chấm điểm như trong prompt đánh giá từng câu.
+- Cuối cùng, hãy đưa ra tổng điểm (0-10), một danh hiệu cho ứng viên, và gợi ý cải thiện tổng thể.
+
+Định dạng đầu ra:
+- Output **Only** JSON below, không thêm câu trả lời thừa:
+{
+  "results": [
+    {
+      "question": "string",
+      "answer": "string",
+      "overall_score": number,
+      "creative_score": number,
+      "result_text": "string",
+      "suggestions": "string",
+      "perfect_answer": "string",
+      "key_points_of_main_argument": ["string"]
+    },
+    ...
+  ],
+  "overall_score": number,
+  "title": "string",
+  "overall_suggestions": "string",
+  "overall_result_text": "string",
+  "title_ranking_text": "string"
+}`,
+
+  batchQuestionPrompt: (domain, child, difficulty, numQuestions) => `
+Bạn là một chuyên gia phỏng vấn cấp cao trong lĩnh vực ${domain || 'Chung'}${
+    child ? `, chủ đề con: ${child}` : ''
+  }.
+
+Nhiệm vụ:
+- Tạo ra ${numQuestions} câu hỏi phỏng vấn thử độc đáo, thách thức và thực tế cho lĩnh vực "${
+    domain || 'Chung'
+  }"${child ? ` (chủ đề con: ${child})` : ''}, với độ khó "${
+    difficulty || 'Trung bình'
+  }".
+- Mỗi câu hỏi cần rõ ràng, ngắn gọn, phù hợp cho phỏng vấn miệng (không có bài tập thực hành).
+- Không được trùng lặp hoặc lặp lại các câu hỏi đã tạo trước đó.
+
+Yêu cầu ngôn ngữ:
+- Viết toàn bộ bằng tiếng Việt chuẩn mực, không sử dụng tiếng Anh hay bất kỳ ngôn ngữ khác.
+- Tránh lỗi chính tả, ngữ pháp.
+
+Định dạng đầu ra:
+- Output **Only** mảng JSON dưới đây, không thêm câu trả lời thừa:
+[
+  {
+    "title": "string",
+    "description": "string",
+    "constraints": ["string"]
+  },
+  ...
+]
+`,
 };
 
 export const prompts: Record<string, Prompts> = {
