@@ -4,7 +4,14 @@ import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 import FuturisticCard from './FuturisticCard';
 import FuturisticButton from './FuturisticButton';
-import { FaSeedling, FaRocket, FaFire, FaSkull, FaPlay } from 'react-icons/fa';
+import {
+  FaSeedling,
+  FaRocket,
+  FaFire,
+  FaSkull,
+  FaPlay,
+  FaUserGraduate,
+} from 'react-icons/fa';
 import { MdSkipNext } from 'react-icons/md';
 import type { LinkProps } from 'next/link';
 
@@ -136,20 +143,26 @@ export default function DifficultySelector({
         </FuturisticButton>
         {showMockInterviewButton &&
           (mockInterviewButtonProps?.disabled ? (
-            <FuturisticButton disabled color="cyan" className="min-w-[180px]">
+            <FuturisticButton
+              disabled
+              color="purple"
+              className="min-w-[180px]"
+              icon={<FaUserGraduate />}
+            >
               {mockInterviewButtonProps.label}
             </FuturisticButton>
           ) : (
             <Link
               href={mockInterviewButtonProps.href ?? '/'}
-              passHref
-              legacyBehavior
+              style={{ width: '100%' }}
             >
-              <a style={{ width: '100%' }}>
-                <FuturisticButton color="cyan" className="min-w-[180px]">
-                  {mockInterviewButtonProps.label}
-                </FuturisticButton>
-              </a>
+              <FuturisticButton
+                color="purple"
+                className="min-w-[180px]"
+                icon={<FaUserGraduate />}
+              >
+                {mockInterviewButtonProps.label}
+              </FuturisticButton>
             </Link>
           ))}
       </div>

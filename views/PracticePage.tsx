@@ -1,24 +1,22 @@
 'use client';
 
+import { getQuestionAction } from '@/actions/getQuestionAction';
 import { submitAnswerAction } from '@/actions/submitAnswerAction';
 import { Evaluation } from '@/types/Evaluation';
 import { Question } from '@/types/Question';
 import { domainGroups } from '@/utils/constants/domain';
-import { useState, useTransition, useEffect, useRef } from 'react';
-import DomainBanner from '../components/DomainBanner';
-import DifficultySelector from '../components/DifficultySelector';
-import QuestionCard from '../components/QuestionCard';
-import EvaluationCard from '../components/EvaluationCard';
-import AnswerForm from '../components/AnswerForm';
-import DomainSelector from '../components/DomainSelector';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
-import { getQuestionAction } from '@/actions/getQuestionAction';
-import { QuestionCardSkeleton } from '../components/QuestionCard';
-import { useTranslations, useLocale } from 'next-intl';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { useEffect, useRef, useState, useTransition } from 'react';
+import AnswerForm from '../components/AnswerForm';
+import DifficultySelector from '../components/DifficultySelector';
+import DomainBanner from '../components/DomainBanner';
+import DomainSelector from '../components/DomainSelector';
+import EvaluationCard from '../components/EvaluationCard';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import QuestionCard, { QuestionCardSkeleton } from '../components/QuestionCard';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 

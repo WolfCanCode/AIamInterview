@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { getMockInterviewQuestionsAction } from '@/actions/getMockInterviewQuestionsAction';
 import { submitMockInterviewAction } from '@/actions/submitMockInterviewAction';
 
@@ -24,6 +24,8 @@ type EvaluationResult = {
 };
 
 const MockInterviewPage = () => {
+  const t = useTranslations('');
+
   const searchParams = useSearchParams();
   const domain = searchParams.get('domain');
   const child = searchParams.get('child');
@@ -127,10 +129,11 @@ const MockInterviewPage = () => {
     <div className="container mx-auto py-8 max-w-2xl">
       <h1 className="text-2xl font-bold mb-4">Mock Interview</h1>
       <div className="mb-4">
-        <span className="font-semibold">Domain:</span> {domain}
-        {child && <span> &mdash; {child}</span>}
+        <span className="font-semibold">Domain:</span> {t(domain || '')}
+        {child && <span> &mdash; {t(child || '')}</span>}
         <br />
-        <span className="font-semibold">Difficulty:</span> {difficulty}
+        <span className="font-semibold">Difficulty:</span>{' '}
+        {t(`difficulty_${difficulty?.toLowerCase() || ''}`)}
       </div>
       <div className="flex items-center justify-between mb-6">
         <span className="text-lg font-medium">Time Left:</span>
