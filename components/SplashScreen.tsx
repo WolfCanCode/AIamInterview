@@ -1,6 +1,3 @@
-import React from 'react';
-import Image from 'next/image';
-
 export default function SplashScreen({ visible }: { visible: boolean }) {
   return (
     <div
@@ -15,7 +12,7 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
             fill="currentColor"
-            className="w-20 h-20 text-blue-300 drop-shadow-lg"
+            className="h-10 w-10 sm:w-20 sm:h-20 text-blue-300 drop-shadow-lg"
           >
             <rect
               x="4"
@@ -48,13 +45,9 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
               className="fill-blue-400 animate-pulse"
             />
           </svg>
-          <span className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg animate-pulse">
+          <span className="text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg animate-pulse">
             AI am Interview
           </span>
-        </div>
-        <div className="w-12 h-12 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
-        <div className="text-cyan-200 text-lg font-medium animate-fade-in-slow">
-          Ace your next interview with AI
         </div>
       </div>
     </div>
