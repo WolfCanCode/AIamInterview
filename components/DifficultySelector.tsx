@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 import FuturisticCard from './FuturisticCard';
 import FuturisticButton from './FuturisticButton';
 import { FaSeedling, FaRocket, FaFire, FaSkull, FaPlay } from 'react-icons/fa';
 import { MdSkipNext } from 'react-icons/md';
+import type { LinkProps } from 'next/link';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -15,6 +17,12 @@ interface DifficultySelectorProps {
   evaluation: Evaluation | null;
   onStart: () => void;
   isStartDisabled?: boolean;
+  showMockInterviewButton?: boolean;
+  mockInterviewButtonProps?: {
+    disabled?: boolean;
+    href?: LinkProps['href'];
+    label?: string;
+  };
 }
 
 const difficultyConfig = [
@@ -47,6 +55,8 @@ export default function DifficultySelector({
   evaluation,
   onStart,
   isStartDisabled,
+  showMockInterviewButton = false,
+  mockInterviewButtonProps = {},
 }: DifficultySelectorProps) {
   const t = useTranslations('');
 
@@ -79,7 +89,11 @@ export default function DifficultySelector({
         ))}
       </div>
 
-      <div className="flex justify-center pb-4">
+      <div
+        className={`flex justify-center pb-4${
+          showMockInterviewButton ? ' flex-row gap-4' : ''
+        }`}
+      >
         <FuturisticButton
           onClick={onStart}
           disabled={isPending || isStartDisabled}
@@ -120,6 +134,24 @@ export default function DifficultySelector({
             ? t('next_question')
             : t('start')}
         </FuturisticButton>
+        {showMockInterviewButton &&
+          (mockInterviewButtonProps?.disabled ? (
+            <FuturisticButton disabled color="cyan" className="min-w-[180px]">
+              {mockInterviewButtonProps.label}
+            </FuturisticButton>
+          ) : (
+            <Link
+              href={mockInterviewButtonProps.href ?? '/'}
+              passHref
+              legacyBehavior
+            >
+              <a style={{ width: '100%' }}>
+                <FuturisticButton color="cyan" className="min-w-[180px]">
+                  {mockInterviewButtonProps.label}
+                </FuturisticButton>
+              </a>
+            </Link>
+          ))}
       </div>
     </div>
   );

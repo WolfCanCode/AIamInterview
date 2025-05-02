@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import Link from 'next/link';
 
 export default function Header({
   onClickLogo,

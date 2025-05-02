@@ -18,6 +18,7 @@ import { getQuestionAction } from '@/actions/getQuestionAction';
 import { QuestionCardSkeleton } from '../components/QuestionCard';
 import { useTranslations, useLocale } from 'next-intl';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -227,6 +228,7 @@ export default function PracticePageWithDomains() {
                     </div>
                   ) : null;
                 })()}
+                {/* Grouped DifficultySelector and Start Mock Interview Button */}
                 <DifficultySelector
                   difficulty={difficulty}
                   setDifficulty={setDifficulty}
@@ -241,6 +243,26 @@ export default function PracticePageWithDomains() {
                       !selectedChild
                     );
                   })()}
+                  showMockInterviewButton
+                  mockInterviewButtonProps={{
+                    disabled: (() => {
+                      const domain = getDomainInstanceByName(selectedDomain);
+                      return (
+                        domain?.children &&
+                        domain.children.length > 0 &&
+                        !selectedChild
+                      );
+                    })(),
+                    href: {
+                      pathname: `/${locale}/mock-interview`,
+                      query: {
+                        domain: selectedDomain,
+                        ...(selectedChild ? { child: selectedChild } : {}),
+                        difficulty,
+                      },
+                    },
+                    label: t('start_mock_interview'),
+                  }}
                 />
               </>
             )}
