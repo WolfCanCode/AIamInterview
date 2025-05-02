@@ -647,5 +647,7 @@
   "domain_claims_management_child_fraud": "Fraud Detection",
   "domain_claims_management_child_customer": "Customer Service",
 
-  "type_your_answer": "Type your answer here..."
+  "type_your_answer": "Type your answer here...",
+  "meta_title": "AI am Interview",
+  "meta_description": "Ace your next interview with AI! Practice real-world interview questions, get instant feedback, and boost your skills across all domains—tech, business, healthcare, law, and more."
 }
