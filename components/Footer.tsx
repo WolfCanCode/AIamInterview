@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="mt-auto py-8 safe-area-pb text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
         <strong>{t('build')}</strong>{' '}
-        <span className="font-mono text-xs">v1.2.1 {BUILD_VERSION}</span>
+        <span className="font-mono text-xs">v1.3 {BUILD_VERSION}</span>
       </span>
       <span>
         <strong>{t('model')}</strong>{' '}
