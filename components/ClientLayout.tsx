@@ -17,10 +17,10 @@ export default function ClientLayout({
   }, []);
 
   return (
-    <>
+    <div className="px-2 sm:px-0 relative">
       <SplashScreen visible={showSplash} />
       {children}
       <Analytics />
-    </>
+    </div>
   );
 }

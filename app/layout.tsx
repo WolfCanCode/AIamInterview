@@ -192,7 +192,7 @@ export default async function RootLayout({ children, params }: Props) {
                   // Hide prompt after 10 seconds
                   setTimeout(() => {
                     prompt.style.display = 'none';
-                  }, 10000);
+                  }, 3000);
                   
                   // Don't show again in this session
                   sessionStorage.setItem('installPromptShown', 'true');
