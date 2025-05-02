@@ -645,5 +645,7 @@
   "domain_claims_management_child_investigation": "Investigation",
   "domain_claims_management_child_settlement": "Settlement",
   "domain_claims_management_child_fraud": "Fraud Detection",
-  "domain_claims_management_child_customer": "Customer Service"
+  "domain_claims_management_child_customer": "Customer Service",
+
+  "type_your_answer": "Type your answer here..."
 }
