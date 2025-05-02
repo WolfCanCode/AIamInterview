@@ -27,7 +27,7 @@ export default function Footer() {
       <span className="text-xs text-gray-400 cursor-pointer">
         {t.rich('copyright', {
           year: currentYear,
-          fallback: `© ${currentYear} ITerview. All rights reserved.`,
+          fallback: `© ${currentYear} AI am Interview. All rights reserved.`,
         })}
       </span>
     </footer>

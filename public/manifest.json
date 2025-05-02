@@ -1,6 +1,6 @@
 {
-  "name": "ITerview",
-  "short_name": "ITerview",
+  "name": "AI am Interview",
+  "short_name": "AI am Interview",
   "description": "An AI-powered web application to practice coding interviews across multiple domains.",
   "start_url": "/",
   "display": "standalone",

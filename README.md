@@ -1,4 +1,4 @@
-# ITerview (Interview Trainer AI)
+# AI am Interview (Interview Trainer AI)
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/iterview-ai)
@@ -165,5 +165,5 @@ Made with ❤️ by [Tommy (wolfcancode)](https://www.linkedin.com/in/wolfcancod
 
 ---
 
-> © 2024 ITerview. All rights reserved.
+> © 2025 AI am Interview. All rights reserved.
 

@@ -23,14 +23,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'ITerview',
+  title: 'AI am Interview',
   description:
     'An AI-powered web application to practice coding interviews across multiple domains.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'ITerview',
+    title: 'AI am Interview',
     startupImage: [
       {
         url: '/icons/splash-screen.png',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'msapplication-TileColor': '#0a0f1a',
     'msapplication-tap-highlight': 'no',
-    'apple-mobile-web-app-title': 'ITerview',
+    'apple-mobile-web-app-title': 'AI am Interview',
   },
 };
 
@@ -62,7 +62,7 @@ export default async function RootLayout({ children, params }: Props) {
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <meta property="og:title" content="ITerview" />
+        <meta property="og:title" content="AI am Interview" />
         <meta
           property="og:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
@@ -70,17 +70,17 @@ export default async function RootLayout({ children, params }: Props) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://iterview-ai.vercel.app/logo.jpg"
+          content="https://aiminterview.vercel.app/logo.jpg"
         />
-        <meta property="og:url" content="https://iterview-ai.vercel.app" />
+        <meta property="og:url" content="https://aiminterview.vercel.app" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="ITerview" />
+        <meta name="twitter:title" content="AI am Interview" />
         <meta
           name="twitter:description"
           content="An AI-powered web application to practice coding interviews across multiple domains."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta property="og:site_name" content="ITerview" />
+        <meta property="og:site_name" content="AI am Interview" />
         <meta property="og:locale" content="en_US" />
         <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
         {/* iOS Safari notch and bottom bar translucency */}
@@ -166,7 +166,7 @@ export default async function RootLayout({ children, params }: Props) {
                 setTimeout(() => {
                   const prompt = document.createElement('div');
                   prompt.id = 'ios-prompt';
-                  prompt.innerHTML = '<div class="icon">⭐️</div><div class="message">Install ITerview for the best experience</div><div class="steps">Tap Share → Add to Home Screen</div>';
+                  prompt.innerHTML = '<div class="icon">⭐️</div><div class="message">Install AII for the best experience</div><div class="steps">Tap Share → Add to Home Screen</div>';
                   document.body.appendChild(prompt);
                   
                   // Hide prompt after 10 seconds

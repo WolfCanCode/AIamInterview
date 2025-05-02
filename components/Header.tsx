@@ -82,7 +82,7 @@ export default function Header({
             </svg>
           </span>
           {/* Animated Gradient Text */}
-          <span className="bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent animate-shimmer font-extrabold relative drop-shadow-md">
+          <span className="text-2xl bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent animate-shimmer font-extrabold relative drop-shadow-md">
             {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}
