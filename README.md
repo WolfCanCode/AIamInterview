@@ -159,7 +159,7 @@ Made with ❤️ by [Tommy (wolfcancode)](https://www.linkedin.com/in/wolfcancod
 - [x] Adaptive difficulty levels
 - [ ] Ranking and scoring leaderboard
 - [ ] Offline practice mode
-- [ ] Multilingual support
+- [x] Multilingual support
 - [ ] More question types (system design, behavioral, etc.)
 - [ ] Community question sharing
 
