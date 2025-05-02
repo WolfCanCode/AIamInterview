@@ -40,14 +40,14 @@ export default function DomainSelector({
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 w-full">
               {group.domains.map((d) => (
-                <div key={d.key} className="relative">
+                <div key={d.key} className="relative ">
                   <button
                     onClick={() => handleDomainClick(d)}
-                    className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 bg-gradient-to-br from-cyan-900/70 via-gray-900/80 to-blue-900/70 shadow-lg border-2 border-cyan-900 relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
+                    className={` group w-full px-4 py-6  sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 bg-gradient-to-br from-cyan-900/70 via-gray-900/80 to-blue-900/70 shadow-lg border-2 border-cyan-900 relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
                       selectedDomain === d.name
                         ? 'ring-2 ring-cyan-400/60 scale-105 border-cyan-400 shadow-cyan-400/20'
                         : ''
-                    }`}
+                    } h-[116px] flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}
                     tabIndex={0}
                     style={{ touchAction: 'manipulation' }}
@@ -60,7 +60,7 @@ export default function DomainSelector({
                     >
                       <d.icon />
                     </span>
-                    <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent group-hover:animate-shimmer truncate max-w-[120px] sm:max-w-full">
+                    <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent group-hover:animate-shimmer  max-w-[120px] sm:max-w-full">
                       {t(d.name || d.key)}
                     </span>
                     <span className="text-xs text-cyan-300 mt-1 text-center hidden sm:block">
