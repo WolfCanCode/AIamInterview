@@ -79,8 +79,10 @@ export default function FuturisticButton({
     >
       <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.1]" />
       <div className="relative flex items-center justify-center gap-3">
-        {icon && <span className={`text-xl ${c.icon}`}>{icon}</span>}
-        <span>{children}</span>
+        {icon && (
+          <span className={`text-md sm:text-2xl ${c.icon}`}>{icon}</span>
+        )}
+        <span className="text-sm sm:text-base">{children}</span>
       </div>
     </button>
   );

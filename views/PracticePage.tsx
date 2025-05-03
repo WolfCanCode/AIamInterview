@@ -116,7 +116,7 @@ export default function PracticePageWithDomains() {
       {/* Main content wrapper */}
       <div className="relative z-10 w-full flex flex-col items-center min-h-screen-safe overflow-x-hidden">
         <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
-          <div className="relative p-2 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
+          <div className="relative p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
             <Header
               onClickLogo={goBack}
               {...(question ? { onBack: goBack } : {})}

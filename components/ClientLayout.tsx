@@ -17,7 +17,7 @@ export default function ClientLayout({
   }, []);
 
   return (
-    <div className="px-2 sm:px-0 relative">
+    <div className="relative">
       <SplashScreen visible={showSplash} />
       {children}
       <Analytics />

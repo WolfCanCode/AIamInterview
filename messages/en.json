@@ -658,5 +658,7 @@
   "time_left": "Time Left",
   "please_wait": "Please wait...",
   "title_level_text": "Result:",
-  "new": "New"
+  "new": "New",
+  "start_interview": "Start Interview",
+  "retake_interview": "Retake Interview"
 }

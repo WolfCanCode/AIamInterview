@@ -150,7 +150,7 @@ export default function DifficultySelector({
               icon={<FaUserGraduate />}
             >
               {mockInterviewButtonProps.label}
-              <span className="absolute top-1 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
+              <span className="absolute top-0 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
                 {t('new')}
               </span>
             </FuturisticButton>
