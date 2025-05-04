@@ -5,6 +5,7 @@ import FuturisticButton from '../FuturisticButton';
 import { FaDownload } from 'react-icons/fa';
 import { formatEvaluationForDownload } from '@/utils/functions/formatEvaluationForDownload';
 import { downloadTextFile } from '@/utils/browserUtils';
+import { generateMockInterviewFilename } from '@/utils/functions/filenameUtils';
 
 interface MockInterviewEvaluationProps {
   evaluation: EvaluationResult;
@@ -12,9 +13,6 @@ interface MockInterviewEvaluationProps {
   child?: string | null;
   difficulty?: string | null;
 }
-
-const sanitizeFilename = (input: string) =>
-  input.replace(/[^a-zA-Z0-9-_]/g, '_');
 
 const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   evaluation,
@@ -25,17 +23,11 @@ const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   const evaluationRef = useRef(null);
   const handleDownload = () => {
     const content = formatEvaluationForDownload(evaluation);
-    let filename = 'mock-interview-result';
-    if (domain) {
-      filename += `-${sanitizeFilename(domain)}`;
-    }
-    if (child) {
-      filename += `-${sanitizeFilename(child)}`;
-    }
-    if (difficulty) {
-      filename += `-${sanitizeFilename(difficulty)}`;
-    }
-    filename += `-${new Date().toISOString().split('T')[0]}.txt`;
+    const filename = generateMockInterviewFilename({
+      domain,
+      child,
+      difficulty,
+    });
     downloadTextFile(content, filename);
   };
 
