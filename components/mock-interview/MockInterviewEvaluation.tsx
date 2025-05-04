@@ -13,6 +13,9 @@ interface MockInterviewEvaluationProps {
   difficulty?: string | null;
 }
 
+const sanitizeFilename = (input: string) =>
+  input.replace(/[^a-zA-Z0-9-_]/g, '_');
+
 const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   evaluation,
   domain,
@@ -23,9 +26,15 @@ const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   const handleDownload = () => {
     const content = formatEvaluationForDownload(evaluation);
     let filename = 'mock-interview-result';
-    if (domain) filename += `-${domain}`;
-    if (child) filename += `-${child}`;
-    if (difficulty) filename += `-${difficulty}`;
+    if (domain) {
+      filename += `-${sanitizeFilename(domain)}`;
+    }
+    if (child) {
+      filename += `-${sanitizeFilename(child)}`;
+    }
+    if (difficulty) {
+      filename += `-${sanitizeFilename(difficulty)}`;
+    }
     filename += `-${new Date().toISOString().split('T')[0]}.txt`;
     downloadTextFile(content, filename);
   };
