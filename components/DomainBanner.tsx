@@ -5,7 +5,6 @@ import BackButton from './BackButton';
 
 export default function DomainBanner({
   domain,
-  child,
   onBack,
 }: {
   domain: Domain;
@@ -39,14 +38,6 @@ export default function DomainBanner({
           <p className="text-[oklch(85%_0.2_240)] font-medium max-w-lg">
             {t(domain.description || '')}
           </p>
-          {child && (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[oklch(30%_0.1_240)] border border-[oklch(70%_0.2_240/0.3)] mt-3">
-              <span className="text-[oklch(85%_0.2_240)] font-semibold">
-                {t('language_framework')}
-              </span>
-              <span className="text-[oklch(85%_0.3_240)]">{child}</span>
-            </div>
-          )}
         </div>
       </div>
     </div>

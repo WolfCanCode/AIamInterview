@@ -17,12 +17,14 @@ import EvaluationCard from '../components/EvaluationCard';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import QuestionCard, { QuestionCardSkeleton } from '../components/QuestionCard';
+import { useRouter } from 'next/navigation';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
 export default function PracticePageWithDomains() {
   const t = useTranslations('');
   const locale = useLocale();
+  const router = useRouter();
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [selectedChild, setSelectedChild] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -49,19 +51,7 @@ export default function PracticePageWithDomains() {
   }, [evaluation]);
 
   const handleSelectDomain = (domain: string) => {
-    // Smooth scroll to top after selecting a domain
-
-    startTransition(async () => {
-      setSelectedDomain(domain);
-      setSelectedChild(null);
-      setAnswer('');
-      setEvaluation(null);
-    });
-    setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 100);
+    router.push(`/${locale}/domain/${domain}`);
   };
 
   const handleGetQuestion = (isSkip = false) => {
@@ -126,7 +116,6 @@ export default function PracticePageWithDomains() {
               <DomainSelector
                 domainGroups={domainGroups}
                 handleSelectDomain={handleSelectDomain}
-                selectedDomain={selectedDomain || undefined}
               />
             )}
 
@@ -252,7 +241,7 @@ export default function PracticePageWithDomains() {
                       );
                     })(),
                     href: {
-                      pathname: `/${locale}/mock-interview`,
+                      pathname: `/${locale}/domain/${selectedDomain}/mock-interview`,
                       query: {
                         domain: selectedDomain,
                         ...(selectedChild ? { child: selectedChild } : {}),

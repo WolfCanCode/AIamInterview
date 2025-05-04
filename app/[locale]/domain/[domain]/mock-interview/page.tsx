@@ -16,6 +16,7 @@ import MockInterviewConfirm from '@/components/mock-interview/MockInterviewConfi
 import { useMockInterviewQuestions } from '@/utils/hooks/useMockInterviewQuestions';
 import { useMockInterviewTimer } from '@/utils/hooks/useMockInterviewTimer';
 import Footer from '@/components/Footer';
+import { useRouter } from 'next/navigation';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
@@ -42,6 +43,7 @@ function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
 
 const MockInterviewPage = () => {
   const t = useTranslations('');
+  const router = useRouter();
 
   const searchParams = useSearchParams();
   const domain = searchParams.get('domain');
@@ -126,7 +128,7 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 max-w-2xl px-4">
+    <>
       {!confirmed ? (
         <MockInterviewConfirm
           t={t}
@@ -135,6 +137,7 @@ const MockInterviewPage = () => {
           child={child}
           difficulty={difficulty}
           timeLeft={timeLeft}
+          onBack={() => router.push(`/${locale}/domain/${domain}`)}
         />
       ) : (
         <div className="w-full max-w-2xl mx-auto mb-6 relative">
@@ -145,6 +148,7 @@ const MockInterviewPage = () => {
             difficulty={difficulty}
             timeLeft={timeLeft}
             showBackButton={true}
+            onBack={() => router.push(`/${locale}/domain/${domain}`)}
           />
         </div>
       )}
@@ -234,7 +238,6 @@ const MockInterviewPage = () => {
       )}
       {showFooter && (
         <>
-          <div className="h-20 sm:h-0" />
           <MockInterviewFooter
             timeLeft={timeLeft}
             submitted={submitted}
@@ -248,7 +251,8 @@ const MockInterviewPage = () => {
         </>
       )}
       <Footer />
-    </div>
+      <div className="h-30 sm:h-0" />
+    </>
   );
 };
 

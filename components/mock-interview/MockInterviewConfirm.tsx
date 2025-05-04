@@ -10,6 +10,7 @@ interface MockInterviewConfirmProps {
   child: string | null;
   difficulty: string | null;
   timeLeft: number;
+  onBack?: () => void;
 }
 
 const MockInterviewConfirm: React.FC<MockInterviewConfirmProps> = ({
@@ -19,6 +20,7 @@ const MockInterviewConfirm: React.FC<MockInterviewConfirmProps> = ({
   child,
   difficulty,
   timeLeft,
+  onBack,
 }) => (
   <div className="flex flex-col items-center justify-center">
     <MockInterviewHeader
@@ -28,6 +30,7 @@ const MockInterviewConfirm: React.FC<MockInterviewConfirmProps> = ({
       difficulty={difficulty}
       timeLeft={timeLeft}
       showBackButton={true}
+      onBack={onBack}
     />
     <FuturisticButton
       onClick={onStart}
