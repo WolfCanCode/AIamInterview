@@ -179,7 +179,7 @@ const MockInterviewPage = () => {
             onBack={() => router.push(`/${locale}/domain/${domain}`)}
           />
         ) : (
-          <div className="w-full max-w-2xl mx-auto mb-6 relative">
+          <div className="w-full max-w-2xl sm:max-w-5xl mx-auto mb-6 relative">
             <MockInterviewHeader
               t={t}
               domain={domain}
