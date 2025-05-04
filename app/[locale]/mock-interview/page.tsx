@@ -9,7 +9,13 @@ import { EvaluationResult } from '@/types/Evaluation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createRef, useEffect, useRef, useState } from 'react';
-import { FaArrowLeft, FaClock, FaCode, FaPlay, FaRedo } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaClock,
+  FaPlay,
+  FaRedo,
+  FaPaperPlane,
+} from 'react-icons/fa';
 import { FaPen } from 'react-icons/fa6';
 import TextareaAutosize from 'react-textarea-autosize';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
@@ -76,6 +82,7 @@ const MockInterviewPage = () => {
         setQuestions(qs);
         setAnswers(Array(qs.length).fill(''));
         setShowFooter(true);
+        setTimeLeft(TOTAL_TIME); // Reset timer only after questions are fetched
       } catch {
         setQuestions([]);
         setAnswers([]);
@@ -87,7 +94,8 @@ const MockInterviewPage = () => {
 
   // Timer logic
   useEffect(() => {
-    if (submitted || loading) return;
+    console.log(submitted, loading, questions.length);
+    if (submitted || loading || !questions.length) return;
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
@@ -102,7 +110,7 @@ const MockInterviewPage = () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [submitted, loading]);
+  }, [submitted, loading, questions.length]);
 
   const handleAnswerChange = (idx: number, value: string) => {
     if (submitted) return;
@@ -156,21 +164,19 @@ const MockInterviewPage = () => {
     <div className="container mx-auto py-8 max-w-2xl px-4">
       {!confirmed ? (
         <div className="flex flex-col items-center justify-center">
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="absolute top-5 left-1 w-10 h-10 flex items-center justify-center rounded-full bg-cyan-700/70 backdrop-blur-xl shadow-xl border-2 border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/90 hover:text-white active:scale-95 transition-all duration-200 z-30 animate-float"
-            style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)' }}
-            aria-label={t('back') || 'Back'}
-          >
-            <FaArrowLeft className="text-2xl" />
-          </button>
           <div className="w-full rounded-2xl bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60 shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
             <div className="w-full sm:w-auto">
               <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                <span className="text-xl sm:text-2xl text-cyan-400">
-                  <FaCode />
-                </span>
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className=" top-5 left-1 w-10 h-10 flex items-center justify-center rounded-full bg-cyan-700/70 backdrop-blur-xl shadow-xl border-2 border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/90 hover:text-white active:scale-95 transition-all duration-200 z-30 "
+                  style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)' }}
+                  aria-label={t('back') || 'Back'}
+                >
+                  <FaArrowLeft className="text-2xl" />
+                </button>
+
                 <h1 className="text-lg sm:text-2xl font-bold text-white">
                   {t('mock_interview')}
                 </h1>
@@ -238,21 +244,19 @@ const MockInterviewPage = () => {
       ) : (
         <div className="w-full max-w-2xl mx-auto mb-6 relative">
           {/* Back button */}
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="absolute -top-5 left-1 w-10 h-10 flex items-center justify-center rounded-full bg-cyan-700/70 backdrop-blur-xl shadow-xl border-2 border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/90 hover:text-white active:scale-95 transition-all duration-200 z-30 animate-float"
-            style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)' }}
-            aria-label={t('back') || 'Back'}
-          >
-            <FaArrowLeft className="text-2xl" />
-          </button>
+
           <div className="rounded-2xl bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60 shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
             <div className="w-full sm:w-auto">
               <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                <span className="text-xl sm:text-2xl text-cyan-400">
-                  <FaCode />
-                </span>
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-700/70 backdrop-blur-xl shadow-xl border-2 border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/90 hover:text-white active:scale-95 transition-all duration-200 z-30 "
+                  style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)' }}
+                  aria-label={t('back') || 'Back'}
+                >
+                  <FaArrowLeft className="text-2xl" />
+                </button>
                 <h1 className="text-lg sm:text-2xl font-bold text-white">
                   {t('mock_interview')}
                 </h1>
@@ -411,17 +415,19 @@ const MockInterviewPage = () => {
                 )}
             </div>
           ))}
-          <div className="hidden sm:block">
-            <FuturisticButton
-              type="submit"
-              color="cyan"
-              icon={<FaPlay />}
-              disabled={submitted}
-              className="mt-8"
-            >
-              {t('submit_answer')}
-            </FuturisticButton>
-          </div>
+          {questions.length > 0 && (
+            <div className="hidden sm:block">
+              <FuturisticButton
+                type="submit"
+                color="cyan"
+                icon={<FaPaperPlane />}
+                disabled={submitted}
+                className="!mt-0 min-w-[120px]"
+              >
+                {t('submit_answer')}
+              </FuturisticButton>
+            </div>
+          )}
         </form>
       )}
       {submitted && evaluating && (
@@ -588,9 +594,8 @@ const MockInterviewPage = () => {
               <FuturisticButton
                 type="submit"
                 color="cyan"
-                icon={<FaPlay />}
+                icon={<FaPaperPlane />}
                 disabled={submitted}
-                className="!mt-0 min-w-[120px]"
               >
                 {t('submit_answer')}
               </FuturisticButton>
