@@ -15,6 +15,7 @@ import MockInterviewLoading from '@/components/mock-interview/MockInterviewLoadi
 import MockInterviewConfirm from '@/components/mock-interview/MockInterviewConfirm';
 import { useMockInterviewQuestions } from '@/utils/hooks/useMockInterviewQuestions';
 import { useMockInterviewTimer } from '@/utils/hooks/useMockInterviewTimer';
+import Footer from '@/components/Footer';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
@@ -246,6 +247,7 @@ const MockInterviewPage = () => {
           />
         </>
       )}
+      <Footer />
     </div>
   );
 };
