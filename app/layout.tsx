@@ -198,6 +198,10 @@ export default async function RootLayout({ children, params }: Props) {
                   sessionStorage.setItem('installPromptShown', 'true');
                 }, 2000);
               }
+              // Disable right-click context menu
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
             `,
           }}
         />

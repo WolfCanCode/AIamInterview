@@ -166,7 +166,7 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <>
+    <div className="animate-fade-in">
       {!confirmed ? (
         <MockInterviewConfirm
           t={t}
@@ -288,7 +288,7 @@ const MockInterviewPage = () => {
           />
         </>
       )}
-    </>
+    </div>
   );
 };
 

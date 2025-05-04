@@ -631,3 +631,11 @@ button {
   pointer-events: none;
   animation: fire-flicker 1.2s infinite;
 }
+
+/* Prevent text selection on the entire page */
+body, html, * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  -moz-user-select: none !important;
+}

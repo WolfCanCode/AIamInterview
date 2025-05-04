@@ -86,8 +86,8 @@ export default function SingleQuestionPage({
 
   return (
     <>
-      <BackButton onClick={handleBack} className="mb-4" />
-      <div className="mb-6">
+      <BackButton onClick={handleBack} className="mb-4 animate-fade-in" />
+      <div className="mb-6 animate-fade-in">
         {isPending && !question ? (
           <div className="w-full min-h-[70vh] pt-2">
             <QuestionCardSkeleton />
