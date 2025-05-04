@@ -4,21 +4,29 @@ import { EvaluationResult } from '@/types/Evaluation';
 import FuturisticButton from '../FuturisticButton';
 import { FaDownload } from 'react-icons/fa';
 import { formatEvaluationForDownload } from '@/utils/functions/formatEvaluationForDownload';
-import { downloadTextFile } from '@/utils/functions/downloadTextFile';
+import { downloadTextFile } from '@/utils/browserUtils';
 
 interface MockInterviewEvaluationProps {
   evaluation: EvaluationResult;
+  domain?: string | null;
+  child?: string | null;
+  difficulty?: string | null;
 }
 
 const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   evaluation,
+  domain,
+  child,
+  difficulty,
 }) => {
   const evaluationRef = useRef(null);
   const handleDownload = () => {
     const content = formatEvaluationForDownload(evaluation);
-    const filename = `mock-interview-result-${
-      new Date().toISOString().split('T')[0]
-    }.txt`;
+    let filename = 'mock-interview-result';
+    if (domain) filename += `-${domain}`;
+    if (child) filename += `-${child}`;
+    if (difficulty) filename += `-${difficulty}`;
+    filename += `-${new Date().toISOString().split('T')[0]}.txt`;
     downloadTextFile(content, filename);
   };
 
