@@ -6,7 +6,7 @@ export default function Header({
   onClickLogo,
   onBack,
 }: {
-  onClickLogo: () => void;
+  onClickLogo?: () => void;
   onBack?: () => void;
 }) {
   const t = useTranslations('');

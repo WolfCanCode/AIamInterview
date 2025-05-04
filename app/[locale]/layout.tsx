@@ -1,4 +1,5 @@
 import '@/app/globals.css';
+import Footer from '@/components/Footer';
 import { routing } from '@/i18n/routing';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -18,6 +19,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale}>
+      {children}
+      <Footer />
+      <div className="h-30 sm:h-0" />
+    </NextIntlClientProvider>
   );
 }

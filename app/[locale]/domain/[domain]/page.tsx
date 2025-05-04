@@ -1,14 +1,11 @@
 'use client';
 
-import React from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
-import DomainBanner from '@/components/DomainBanner';
 import DifficultySelector from '@/components/DifficultySelector';
-import Footer from '@/components/Footer';
+import DomainBanner from '@/components/DomainBanner';
+import { getDomainInstanceByName } from '@/utils/functions/getDomainInstanceByName';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
 
@@ -111,7 +108,6 @@ export default function DomainDetailPage({
           }}
         />
       </div>
-      <Footer />
     </>
   );
 }

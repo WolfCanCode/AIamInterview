@@ -37,6 +37,7 @@
   "try_again": "Try again",
   "no_answer_yet": "No answer submitted yet",
   "character_count": "{count} characters",
+  "characters_remaining": "{count} characters remaining",
   "max_length": "Maximum length",
   "copied": "Copied to clipboard!",
   "copy_error": "Failed to copy",

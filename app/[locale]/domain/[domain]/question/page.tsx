@@ -1,17 +1,16 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useTranslations, useLocale } from 'next-intl';
-import React, { useEffect, useRef, useState, useTransition } from 'react';
 import { getQuestionAction } from '@/actions/getQuestionAction';
 import { submitAnswerAction } from '@/actions/submitAnswerAction';
-import { Question } from '@/types/Question';
-import { Evaluation } from '@/types/Evaluation';
-import QuestionCard, { QuestionCardSkeleton } from '@/components/QuestionCard';
 import AnswerForm from '@/components/AnswerForm';
-import EvaluationCard from '@/components/EvaluationCard';
-import Footer from '@/components/Footer';
 import BackButton from '@/components/BackButton';
+import EvaluationCard from '@/components/EvaluationCard';
+import QuestionCard, { QuestionCardSkeleton } from '@/components/QuestionCard';
+import { Evaluation } from '@/types/Evaluation';
+import { Question } from '@/types/Question';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect, useRef, useState, useTransition } from 'react';
 
 export default function SingleQuestionPage({
   params,
@@ -56,6 +55,7 @@ export default function SingleQuestionPage({
     if (!domain) return;
     setEvaluation(null);
     setSkipPending(isSkip);
+    if (isSkip) setQuestion(null);
     startTransition(async () => {
       const topic = child ? `${domain} - ${child}` : domain;
       const data = await getQuestionAction(topic, difficulty, locale);
@@ -121,7 +121,6 @@ export default function SingleQuestionPage({
           />
         </div>
       ) : null}
-      <Footer />
     </>
   );
 }

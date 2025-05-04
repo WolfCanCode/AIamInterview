@@ -45,7 +45,7 @@ An AI-powered web application to practice coding interviews across a wide range 
 - **Hugging Face Router API** (model: `deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct-fast`)
 - **Vercel Edge Functions**
 - **TypeScript**
-- **i18n** (next-intl, planned multilingual)
+- **next-intl** (i18n, planned multilingual)
 
 ---
 
@@ -74,9 +74,9 @@ cd interview-trainer
 2. **Install dependencies:**
 
 ```bash
-yarn install
-# or
 npm install
+# or
+yarn install
 ```
 
 3. **Setup environment variables:**
@@ -90,9 +90,9 @@ NEXT_PUBLIC_HUGGINGFACE_TOKEN=your_huggingface_api_token_here
 4. **Run locally:**
 
 ```bash
-yarn dev
-# or`
 npm run dev
+# or
+yarn dev
 ```
 
 5. **Deploy:**
@@ -166,4 +166,3 @@ Made with ❤️ by [Tommy (wolfcancode)](https://www.linkedin.com/in/wolfcancod
 ---
 
 > © 2025 AI am Interview. All rights reserved.
-

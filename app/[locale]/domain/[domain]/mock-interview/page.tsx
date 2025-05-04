@@ -1,22 +1,21 @@
 'use client';
 import { submitMockInterviewAction } from '@/actions/submitMockInterviewAction';
-import { EvaluationResult } from '@/types/Evaluation';
-import { useLocale, useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { FaRedo, FaPaperPlane } from 'react-icons/fa';
-import { FaPen } from 'react-icons/fa6';
-import MockInterviewHeader from '@/components/mock-interview/MockInterviewHeader';
-import MockInterviewFooter from '@/components/mock-interview/MockInterviewFooter';
-import MockInterviewQuestion from '@/components/mock-interview/MockInterviewQuestion';
-import MockInterviewEvaluation from '@/components/mock-interview/MockInterviewEvaluation';
 import FuturisticButton from '@/components/FuturisticButton';
-import MockInterviewLoading from '@/components/mock-interview/MockInterviewLoading';
 import MockInterviewConfirm from '@/components/mock-interview/MockInterviewConfirm';
+import MockInterviewEvaluation from '@/components/mock-interview/MockInterviewEvaluation';
+import MockInterviewFooter from '@/components/mock-interview/MockInterviewFooter';
+import MockInterviewHeader from '@/components/mock-interview/MockInterviewHeader';
+import MockInterviewLoading from '@/components/mock-interview/MockInterviewLoading';
+import MockInterviewQuestion from '@/components/mock-interview/MockInterviewQuestion';
+import { EvaluationResult } from '@/types/Evaluation';
 import { useMockInterviewQuestions } from '@/utils/hooks/useMockInterviewQuestions';
 import { useMockInterviewTimer } from '@/utils/hooks/useMockInterviewTimer';
-import Footer from '@/components/Footer';
-import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { FaPaperPlane, FaRedo } from 'react-icons/fa';
+import { FaPen } from 'react-icons/fa6';
+import { toast } from 'sonner';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
@@ -69,6 +68,38 @@ const MockInterviewPage = () => {
     setShowFooter(false);
     setSubmitted(true);
     setEvaluating(true);
+    const retry = async () => {
+      setEvaluating(true);
+      try {
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth',
+          });
+        }, 100);
+        const evalResult = await submitMockInterviewAction(
+          questions.map((q) => q.description),
+          answers,
+          locale,
+          domain,
+          child,
+          difficulty
+        );
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setEvaluation(evalResult);
+        toast.dismiss();
+      } catch {
+        setEvaluation(null);
+        toast.error('Failed to submit answers.', {
+          action: {
+            label: 'Retry',
+            onClick: retry,
+          },
+        });
+      } finally {
+        setEvaluating(false);
+      }
+    };
     try {
       setTimeout(() => {
         window.scrollTo({
@@ -88,6 +119,13 @@ const MockInterviewPage = () => {
       setEvaluation(evalResult);
     } catch {
       setEvaluation(null);
+      toast.error('Failed to submit answers.', {
+        action: {
+          label: 'Retry',
+          onClick: retry,
+        },
+      });
+      setShowFooter(true);
     } finally {
       setEvaluating(false);
     }
@@ -250,8 +288,6 @@ const MockInterviewPage = () => {
           />
         </>
       )}
-      <Footer />
-      <div className="h-30 sm:h-0" />
     </>
   );
 };

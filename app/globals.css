@@ -125,11 +125,6 @@ button {
 }
 
 @layer utilities {
-  .animate-gradient-slow {
-    animation: gradient 8s linear infinite;
-    background-size: 200% 200%;
-  }
-
   .animate-aurora {
     animation: aurora 8s ease-in-out infinite;
     will-change: opacity, filter;
@@ -137,10 +132,6 @@ button {
 
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  .animate-fade-out {
-    animation: fadeOut 0.5s ease-out forwards;
   }
 
   .animate-scale-in {
