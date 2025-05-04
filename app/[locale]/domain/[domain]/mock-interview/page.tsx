@@ -166,129 +166,129 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <div className="animate-fade-in">
-      {!confirmed ? (
-        <MockInterviewConfirm
-          t={t}
-          onStart={() => setConfirmed(true)}
-          domain={domain}
-          child={child}
-          difficulty={difficulty}
-          timeLeft={timeLeft}
-          onBack={() => router.push(`/${locale}/domain/${domain}`)}
-        />
-      ) : (
-        <div className="w-full max-w-2xl mx-auto mb-6 relative">
-          <MockInterviewHeader
+    <>
+      <div className="animate-fade-in">
+        {!confirmed ? (
+          <MockInterviewConfirm
             t={t}
+            onStart={() => setConfirmed(true)}
             domain={domain}
             child={child}
             difficulty={difficulty}
             timeLeft={timeLeft}
-            showBackButton={true}
             onBack={() => router.push(`/${locale}/domain/${domain}`)}
           />
-        </div>
-      )}
-      {loading ? (
-        <MockInterviewLoading t={t} />
-      ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (!submitted) handleSubmit();
-          }}
-        >
-          {questions.map((q, idx) => (
-            <MockInterviewQuestion
-              key={idx}
-              question={q}
-              idx={idx}
-              answer={answers[idx]}
-              onAnswerChange={handleAnswerChange}
-              submitted={submitted}
-              evaluation={evaluation}
-              evaluating={evaluating}
+        ) : (
+          <div className="w-full max-w-2xl mx-auto mb-6 relative">
+            <MockInterviewHeader
               t={t}
+              domain={domain}
+              child={child}
+              difficulty={difficulty}
+              timeLeft={timeLeft}
+              showBackButton={true}
+              onBack={() => router.push(`/${locale}/domain/${domain}`)}
             />
-          ))}
-          {questions.length > 0 && (
-            <div className="hidden sm:block">
-              <FuturisticButton
-                type="submit"
-                color="cyan"
-                icon={<FaPaperPlane />}
-                disabled={submitted}
-                className="!mt-0 min-w-[120px]"
-              >
-                {t('submit_answer')}
-              </FuturisticButton>
-            </div>
-          )}
-        </form>
-      )}
-      {submitted && evaluating && (
-        <div className="mt-16 flex flex-col items-center justify-center gap-8 animate-fade-in relative">
-          {/* Aurora background */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-purple-500/30 animate-aurora" />
           </div>
-          {/* Glassy card */}
-          <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 backdrop-blur-2xl border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
-            {/* Animated robot/AI icon */}
-            <span className="text-4xl text-cyan-300 drop-shadow-lg animate-robot-wave mb-4">
-              <FaPen />
-            </span>
-
-            {/* Rotating/fading messages */}
-            <div className="flex flex-col items-center gap-2">
-              <h2 className="font-bold text-2xl text-cyan-200 animate-pulse">
-                {t('grading')}
-              </h2>
-              <AnimatedGradingMessage t={t} />
-            </div>
-          </div>
-        </div>
-      )}
-      {submitted && evaluation && !evaluating && (
-        <div className="mt-8 flex flex-col items-center gap-4">
-          <MockInterviewEvaluation evaluation={evaluation} />
-          <FuturisticButton
-            color="pink"
-            className="mt-4"
-            icon={<FaRedo />}
-            onClick={async () => {
-              setEvaluation(null);
-              setSubmitted(false);
-              setTimeLeft(TOTAL_TIME);
-              setShowFooter(false);
-              setAnswers([]);
-              const newQuestions = await retakeQuestions(questions);
-              setAnswers(Array(newQuestions.length).fill(''));
-              setShowFooter(true);
-              setTimeLeft(TOTAL_TIME);
-              startTimer();
-            }}
-          >
-            {t('retake_interview')}
-          </FuturisticButton>
-        </div>
-      )}
-      {showFooter && (
-        <>
-          <MockInterviewFooter
-            timeLeft={timeLeft}
-            submitted={submitted}
+        )}
+        {loading ? (
+          <MockInterviewLoading t={t} />
+        ) : (
+          <form
             onSubmit={(e) => {
               e.preventDefault();
               if (!submitted) handleSubmit();
             }}
-            t={t}
-            TOTAL_TIME={TOTAL_TIME}
-          />
-        </>
+          >
+            {questions.map((q, idx) => (
+              <MockInterviewQuestion
+                key={idx}
+                question={q}
+                idx={idx}
+                answer={answers[idx]}
+                onAnswerChange={handleAnswerChange}
+                submitted={submitted}
+                evaluation={evaluation}
+                evaluating={evaluating}
+                t={t}
+              />
+            ))}
+            {questions.length > 0 && (
+              <div className="hidden sm:block">
+                <FuturisticButton
+                  type="submit"
+                  color="cyan"
+                  icon={<FaPaperPlane />}
+                  disabled={submitted}
+                  className="!mt-0 min-w-[120px]"
+                >
+                  {t('submit_answer')}
+                </FuturisticButton>
+              </div>
+            )}
+          </form>
+        )}
+        {submitted && evaluating && (
+          <div className="mt-16 flex flex-col items-center justify-center gap-8 animate-fade-in relative">
+            {/* Aurora background */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-purple-500/30 animate-aurora" />
+            </div>
+            {/* Glassy card */}
+            <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 backdrop-blur-2xl border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
+              {/* Animated robot/AI icon */}
+              <span className="text-4xl text-cyan-300 drop-shadow-lg animate-robot-wave mb-4">
+                <FaPen />
+              </span>
+
+              {/* Rotating/fading messages */}
+              <div className="flex flex-col items-center gap-2">
+                <h2 className="font-bold text-2xl text-cyan-200 animate-pulse">
+                  {t('grading')}
+                </h2>
+                <AnimatedGradingMessage t={t} />
+              </div>
+            </div>
+          </div>
+        )}
+        {submitted && evaluation && !evaluating && (
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <MockInterviewEvaluation evaluation={evaluation} />
+            <FuturisticButton
+              color="pink"
+              className="mt-4"
+              icon={<FaRedo />}
+              onClick={async () => {
+                setEvaluation(null);
+                setSubmitted(false);
+                setTimeLeft(TOTAL_TIME);
+                setShowFooter(false);
+                setAnswers([]);
+                const newQuestions = await retakeQuestions(questions);
+                setAnswers(Array(newQuestions.length).fill(''));
+                setShowFooter(true);
+                setTimeLeft(TOTAL_TIME);
+                startTimer();
+              }}
+            >
+              {t('retake_interview')}
+            </FuturisticButton>
+          </div>
+        )}
+      </div>
+      {showFooter && (
+        <MockInterviewFooter
+          timeLeft={timeLeft}
+          submitted={submitted}
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!submitted) handleSubmit();
+          }}
+          t={t}
+          TOTAL_TIME={TOTAL_TIME}
+        />
       )}
-    </div>
+    </>
   );
 };
 
