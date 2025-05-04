@@ -3,6 +3,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import SplashScreen from './SplashScreen';
 import { useEffect, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function ClientLayout({
   children,
@@ -21,6 +22,7 @@ export default function ClientLayout({
       <SplashScreen visible={showSplash} />
       {children}
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
