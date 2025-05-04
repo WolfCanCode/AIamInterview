@@ -253,7 +253,12 @@ const MockInterviewPage = () => {
         )}
         {submitted && evaluation && !evaluating && (
           <div className="mt-8 flex flex-col items-center gap-4">
-            <MockInterviewEvaluation evaluation={evaluation} />
+            <MockInterviewEvaluation
+              evaluation={evaluation}
+              domain={domain}
+              child={child}
+              difficulty={difficulty}
+            />
             <FuturisticButton
               color="pink"
               className="mt-4"
