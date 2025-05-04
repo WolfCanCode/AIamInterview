@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import BackButton from './BackButton';
 
 export default function Header({
   onClickLogo,
@@ -13,27 +14,11 @@ export default function Header({
     <header className="mb-4 sm:mb-8 flex items-center relative w-full">
       <div className="flex items-center gap-2">
         {onBack && (
-          <button
+          <BackButton
             onClick={onBack}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-800/80 text-cyan-300 hover:bg-cyan-900 hover:text-white transition-all duration-200 border border-cyan-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
-            type="button"
-            aria-label={t('back')}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+            ariaLabel={t('back')}
+            className="w-8 h-8"
+          />
         )}
 
         <h1

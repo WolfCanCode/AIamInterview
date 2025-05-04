@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Domain } from '@/utils/types/Domain';
-import FuturisticButton from './FuturisticButton';
+import BackButton from './BackButton';
 
 export default function DomainBanner({
   domain,
@@ -16,26 +16,11 @@ export default function DomainBanner({
   return (
     <div className="relative w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
       {/* Back Button */}
-      <FuturisticButton
+      <BackButton
         onClick={onBack}
-        className="absolute top-4 left-4 z-50 !w-10 !h-10 !p-0 flex items-center justify-center"
-        aria-label={t('back')}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-6 h-6 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-      </FuturisticButton>
+        ariaLabel={t('back')}
+        className="absolute top-4 left-4 z-50"
+      />
 
       {/* Domain Icon */}
       <div className="relative flex flex-col items-center gap-4 sm:gap-6 pt-0 pb-4">
