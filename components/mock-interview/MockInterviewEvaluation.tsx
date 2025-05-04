@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { useRef } from 'react';
 import EvaluationCard from '../EvaluationCard';
 import { EvaluationResult } from '@/types/Evaluation';
 import FuturisticButton from '../FuturisticButton';
@@ -36,6 +36,7 @@ function formatEvaluationForDownload(evaluation: EvaluationResult) {
 const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
   evaluation,
 }) => {
+  const evaluationRef = useRef(null);
   const handleDownload = () => {
     const content = formatEvaluationForDownload(evaluation);
     const blob = new Blob([content], { type: 'text/plain' });
@@ -63,7 +64,7 @@ const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
           perfect_answer: null,
           title_ranking_text: evaluation.title_ranking_text,
         }}
-        evaluationRef={createRef()}
+        evaluationRef={evaluationRef}
       />
       <FuturisticButton
         color="cyan"
