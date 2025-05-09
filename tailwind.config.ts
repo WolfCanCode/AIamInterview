@@ -13,6 +13,9 @@ const config: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        'futuristic-bg': '#0a0f1a',
+        'futuristic-accent': '#00ffe7',
+        'futuristic-purple': '#7f00ff',
       },
       animation: {
         'gradient-slow': 'gradient 15s linear infinite',
@@ -52,6 +55,8 @@ const config: Config = {
           'conic-gradient(var(--tw-gradient-stops))',
         'radial-[at_center]':
           'radial-gradient(circle at center, var(--tw-gradient-stops))',
+        'gradient-futuristic': 'linear-gradient(90deg, #00ffe7, #7f00ff)',
+        'gradient-futuristic-dark': 'linear-gradient(90deg, #00ffe7, #7f00ff)',
       },
       backdropFilter: {
         none: 'none',

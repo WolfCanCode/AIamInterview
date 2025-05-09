@@ -12,17 +12,13 @@
   --safe-area-inset-right: env(safe-area-inset-right, 0px);
 }
 
-html {
+html, body {
   background-color: #0a0f1a;
+  color-scheme: dark;
   min-height: 100%;
   overscroll-behavior-y: none;
   /* Add padding for safe areas */
   padding: var(--safe-area-inset-top) var(--safe-area-inset-right) var(--safe-area-inset-bottom) var(--safe-area-inset-left);
-}
-
-body {
-  background-color: #0a0f1a;
-  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -169,13 +165,12 @@ button {
   }
 
   .gradient-text {
-    background: linear-gradient(to right, 
-      oklch(80% 0.3 240),
-      oklch(80% 0.3 280)
-    );
+    color: #fff;
+    background: linear-gradient(to right, oklch(80% 0.3 240), oklch(80% 0.3 280));
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 
   .gradient-border {
@@ -195,6 +190,22 @@ button {
         linear-gradient(#fff 0 0);
       mask-composite: exclude;
     }
+  }
+
+  .bg-gradient-futuristic {
+    background-color: #0a0f1a;
+  }
+
+  [class*='bg-gradient-to-'] {
+    background-color: #0a0f1a;
+  }
+
+  .start-button, .domain-child-button, .glass-button, .difficulty-button, .lang-pill {
+    background-color: #0a0f1a;
+  }
+
+  .aurora-blob {
+    background-color: #0a0f1a;
   }
 }
 
@@ -638,4 +649,18 @@ body, html, * {
   -webkit-user-select: none !important;
   -ms-user-select: none !important;
   -moz-user-select: none !important;
+}
+
+/* Extra safety for Android Chrome dark mode */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #0a0f1a !important;
+    color-scheme: dark;
+  }
+  .gradient-text {
+    color: #fff;
+  }
+  [class*='bg-gradient-to-'] {
+    background-color: #0a0f1a !important;
+  }
 }

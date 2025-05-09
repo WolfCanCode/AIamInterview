@@ -52,7 +52,7 @@ const QuestionCardComponent = ({
       className="group relative bg-white/10 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 w-full max-w-5xl mx-auto overflow-hidden"
       style={reduceMotion ? { transition: 'none' } : {}}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 z-0 mb-0" />
+      <div className="absolute inset-0 bg-futuristic-bg bg-gradient-futuristic z-0 mb-0" />
       <div className="relative z-10 flex flex-col justify-start">
         {selectedDomain ? (
           <div className="flex items-center gap-3 mb-4">
@@ -64,7 +64,7 @@ const QuestionCardComponent = ({
         ) : (
           ''
         )}
-        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent flex-1">
+        <h2 className="text-2xl sm:text-3xl font-bold gradient-text flex-1">
           {question.title}
         </h2>
       </div>

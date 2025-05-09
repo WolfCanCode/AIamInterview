@@ -86,7 +86,7 @@ export default function DifficultySelector({
           >
             <div className="flex flex-col items-center gap-1">
               <span className="text-xl">{icon}</span>
-              <span className="text-xs font-medium">
+              <span className="text-sm font-medium">
                 {t(`difficulty_${mode.toLowerCase()}`)}
               </span>
             </div>

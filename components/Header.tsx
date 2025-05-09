@@ -23,7 +23,7 @@ export default function Header({
 
         <h1
           onClick={onClickLogo}
-          className="group text-xl sm:text-2xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent relative inline-flex items-center gap-2 cursor-pointer select-none drop-shadow-lg"
+          className="group text-xl sm:text-2xl font-extrabold text-center bg-futuristic-bg relative inline-flex items-center gap-2 cursor-pointer select-none drop-shadow-lg"
         >
           {/* Animated Logo Icon */}
           <span className="inline-flex items-center justify-center text-xl sm:text-2xl group-hover:animate-spin-slow transition-transform duration-700">
@@ -66,7 +66,7 @@ export default function Header({
             </svg>
           </span>
           {/* Animated Gradient Text */}
-          <span className="text-2xl bg-gradient-to-r from-blue-400 via-blue-600 to-cyan-400 bg-clip-text text-transparent animate-shimmer font-extrabold relative drop-shadow-md">
+          <span className="text-2xl gradient-text animate-shimmer font-extrabold relative drop-shadow-md">
             {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}

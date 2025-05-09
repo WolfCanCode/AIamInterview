@@ -44,7 +44,7 @@ export default function AnswerForm({
           {t('enter_answer')}
         </label>
         <div className="relative group">
-          <div className="absolute inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
+          <div className="absolute inset-1 bg-gradient-futuristic rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,15 +91,15 @@ export default function AnswerForm({
         <div className="px-2 w-full mt-6 mb-4 space-y-4">
           <button
             type="submit"
-            className="group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg overflow-hidden transition-all duration-300 transform bg-gradient-to-r from-cyan-500/70 to-blue-700/70 border border-cyan-400/40 text-white drop-shadow-[0_0_16px_rgba(34,211,238,0.4)] focus:outline-none focus:ring-2 focus:ring-cyan-400/60 hover:scale-105 hover:shadow-cyan-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg overflow-hidden transition-all duration-300 transform bg-futuristic-bg bg-gradient-futuristic border border-cyan-400/40 text-white drop-shadow-[0_0_16px_rgba(34,211,238,0.4)] focus:outline-none focus:ring-2 focus:ring-cyan-400/60 hover:scale-105 hover:shadow-cyan-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isPending || skipPending || answer.length > 1000}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-[1.1]" />
+            <div className="absolute inset-0 bg-gradient-futuristic transition-transform duration-300 group-hover:scale-[1.1]" />
             <div className="relative flex items-center justify-center gap-3 text-white">
               <span className="text-xl drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
                 <SendIcon />
               </span>
-              <span>
+              <span className="text-base sm:text-lg font-semibold gradient-text">
                 {isPending || skipPending
                   ? skipPending
                     ? t('getting_new_question')
@@ -122,7 +122,7 @@ export default function AnswerForm({
             <button
               type="button"
               onClick={onSkip}
-              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden transition-all duration-300 transform bg-gradient-to-r from-yellow-400/80 to-yellow-500/80 border border-yellow-400/40 text-gray-900 drop-shadow-[0_0_8px_rgba(250,204,21,0.4)] focus:outline-none focus:ring-2 focus:ring-yellow-400/60 hover:scale-105 hover:shadow-yellow-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden transition-all duration-300 transform bg-futuristic-bg bg-gradient-to-r from-yellow-400/80 to-yellow-500/80 border border-yellow-400/40 text-gray-900 drop-shadow-[0_0_8px_rgba(250,204,21,0.4)] focus:outline-none focus:ring-2 focus:ring-yellow-400/60 hover:scale-105 hover:shadow-yellow-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending || skipPending}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-transform duration-300 group-hover:scale-[1.1]" />
@@ -137,7 +137,7 @@ export default function AnswerForm({
             <button
               type="button"
               onClick={onStop}
-              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden transition-all duration-300 transform bg-gradient-to-r from-red-500/80 to-red-600/80 border border-red-400/40 text-white drop-shadow-[0_0_8px_rgba(239,68,68,0.4)] focus:outline-none focus:ring-2 focus:ring-red-400/60 hover:scale-105 hover:shadow-red-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative flex-1 px-6 py-3 rounded-xl font-semibold text-base shadow-lg overflow-hidden transition-all duration-300 transform bg-futuristic-bg bg-gradient-to-r from-red-500/80 to-red-600/80 border border-red-400/40 text-white drop-shadow-[0_0_8px_rgba(239,68,68,0.4)] focus:outline-none focus:ring-2 focus:ring-red-400/60 hover:scale-105 hover:shadow-red-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending || skipPending}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 transition-transform duration-300 group-hover:scale-[1.1]" />
