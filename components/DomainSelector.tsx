@@ -45,7 +45,7 @@ export default function DomainSelector({
                     onClick={() => handleDomainClick(d)}
                     className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 bg-gradient-futuristic shadow-lg border-2 border-cyan-900 relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
                       selectedDomain === d.name
-                        ? 'ring-2 ring-cyan-400/60 scale-105 border-cyan-400 shadow-cyan-400/20'
+                        ? 'ring-2 ring-cyan-400/80 scale-105 border-cyan-400 shadow-cyan-400/40 bg-[#18223a]'
                         : ''
                     } h-[116px] sm:h-auto flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}
