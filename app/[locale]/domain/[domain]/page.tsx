@@ -59,7 +59,7 @@ export default function DomainDetailPage({
                 key={child}
                 type="button"
                 onClick={() => setSelectedChild(child)}
-                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 backdrop-blur bg-gradient-to-br from-cyan-900/70 via-gray-900/80 to-blue-900/70 shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
+                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 backdrop-blur bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d] shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
                   selectedChild === child
                     ? 'scale-105 border-cyan-400 ring-2 ring-cyan-400/60 shadow-cyan-400/20'
                     : ''
