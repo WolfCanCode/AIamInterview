@@ -8,6 +8,7 @@ html {
   overscroll-behavior-y: none;
   /* Add padding for safe areas */
   padding: var(--safe-area-inset-top) var(--safe-area-inset-right) var(--safe-area-inset-bottom) var(--safe-area-inset-left);
+  color-scheme: only light;
 }
 
 body {
