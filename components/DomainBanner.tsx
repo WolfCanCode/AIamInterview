@@ -25,9 +25,17 @@ export default function DomainBanner({
       <div className="relative flex flex-col items-center gap-4 sm:gap-6 pt-0 pb-4">
         <div className="relative">
           <div className="absolute inset-0 animate-pulse-slow blur-xl opacity-50">
-            <domain.icon className="text-6xl text-[oklch(70%_0.3_240)]" />
+            <domain.icon
+              width={72}
+              height={72}
+              className="text-[oklch(70%_0.3_240)]"
+            />
           </div>
-          <domain.icon className="text-6xl relative z-10 text-[oklch(85%_0.3_240)] transform group-hover:scale-110 transition-transform duration-500" />
+          <domain.icon
+            width={72}
+            height={72}
+            className="relative z-10 text-[oklch(85%_0.3_240)] transform group-hover:scale-110 transition-transform duration-500"
+          />
         </div>
 
         {/* Domain Info */}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import FacebookIcon from './icons/FacebookIcon';
+import GithubIcon from './icons/GithubIcon';
+import LinkedinIcon from './icons/LinkedinIcon';
 
 const BUILD_VERSION = process.env.NEXT_PUBLIC_BUILD_SHA?.slice(0, 7) || 'local';
 
@@ -26,7 +28,7 @@ export default function Footer() {
           aria-label="Facebook"
           className="hover:text-cyan-400 transition-colors text-2xl"
         >
-          <FaFacebook />
+          <FacebookIcon />
         </a>
         <a
           href="https://github.com/WolfCanCode"
@@ -35,7 +37,7 @@ export default function Footer() {
           aria-label="GitHub"
           className="hover:text-cyan-400 transition-colors text-2xl"
         >
-          <FaGithub />
+          <GithubIcon />
         </a>
         <a
           href="https://www.linkedin.com/in/wolfcancode/"
@@ -44,7 +46,7 @@ export default function Footer() {
           aria-label="LinkedIn"
           className="hover:text-cyan-400 transition-colors text-2xl"
         >
-          <FaLinkedin />
+          <LinkedinIcon />
         </a>
       </div>
       <span className="text-xs text-gray-400 cursor-pointer">

@@ -13,10 +13,11 @@ import { useMockInterviewTimer } from '@/utils/hooks/useMockInterviewTimer';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FaPaperPlane, FaRedo } from 'react-icons/fa';
-import { FaPen } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import React from 'react';
+import PenIcon from '@/components/icons/PenIcon';
+import RedoIcon from '@/components/icons/RedoIcon';
+import PaperPlaneIcon from '@/components/icons/PaperPlaneIcon';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 const AnimatedGradingMessage = React.memo(function AnimatedGradingMessage({
@@ -223,7 +224,7 @@ const MockInterviewPage = () => {
                 <FuturisticButton
                   type="submit"
                   color="cyan"
-                  icon={<FaPaperPlane />}
+                  icon={<PaperPlaneIcon width={20} height={20} />}
                   disabled={submitted}
                   className="!mt-0 min-w-[120px]"
                 >
@@ -242,8 +243,8 @@ const MockInterviewPage = () => {
             {/* Glassy card */}
             <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 backdrop-blur-2xl border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
               {/* Animated robot/AI icon */}
-              <span className="text-4xl text-cyan-300 drop-shadow-lg animate-robot-wave mb-4">
-                <FaPen />
+              <span className="text-4xl text-cyan-300 drop-shadow-lg mb-4">
+                <PenIcon width={32} height={32} />
               </span>
 
               {/* Rotating/fading messages */}
@@ -267,7 +268,7 @@ const MockInterviewPage = () => {
             <FuturisticButton
               color="pink"
               className="mt-4"
-              icon={<FaRedo />}
+              icon={<RedoIcon width={32} height={32} />}
               onClick={async () => {
                 setEvaluation(null);
                 setSubmitted(false);

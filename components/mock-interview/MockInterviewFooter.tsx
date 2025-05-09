@@ -1,4 +1,5 @@
-import { FaClock, FaPaperPlane } from 'react-icons/fa';
+import ClockIcon from '../icons/ClockIcon';
+import PaperPlaneIcon from '../icons/PaperPlaneIcon';
 import FuturisticButton from '../FuturisticButton';
 import React from 'react';
 
@@ -64,7 +65,7 @@ const MockInterviewFooter: React.FC<MockInterviewFooterProps> = ({
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <FaClock className="w-5 h-5 text-cyan-400" />
+        <ClockIcon className="w-5 h-5 text-cyan-400" />
         <span
           className={`font-mono text-lg ${
             timeLeft <= 60 ? 'text-red-400' : 'text-cyan-200'
@@ -78,7 +79,7 @@ const MockInterviewFooter: React.FC<MockInterviewFooterProps> = ({
       <FuturisticButton
         type="submit"
         color="cyan"
-        icon={<FaPaperPlane />}
+        icon={<PaperPlaneIcon />}
         disabled={submitted}
         className="!mt-0 min-w-[120px]"
       >

@@ -4,15 +4,13 @@ import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
 import FuturisticCard from './FuturisticCard';
 import FuturisticButton from './FuturisticButton';
-import {
-  FaSeedling,
-  FaRocket,
-  FaFire,
-  FaSkull,
-  FaPlay,
-  FaUserGraduate,
-} from 'react-icons/fa';
-import { MdSkipNext } from 'react-icons/md';
+import EasyIcon from './icons/EasyIcon';
+import MediumIcon from './icons/MediumIcon';
+import HardIcon from './icons/HardIcon';
+import MadnessIcon from './icons/MadnessIcon';
+import SkipNextIcon from './icons/SkipNextIcon';
+import StartIcon from './icons/StartIcon';
+import StartMockInterviewIcon from './icons/StartMockInterviewIcon';
 import type { LinkProps } from 'next/link';
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Madness';
@@ -35,22 +33,22 @@ interface DifficultySelectorProps {
 const difficultyConfig = [
   {
     mode: 'Easy',
-    icon: <FaSeedling className="text-green-400" />,
+    icon: <EasyIcon width={32} height={32} />,
     glowColor: 'green',
   },
   {
     mode: 'Medium',
-    icon: <FaRocket className="text-blue-400" />,
+    icon: <MediumIcon width={32} height={32} />,
     glowColor: 'blue',
   },
   {
     mode: 'Hard',
-    icon: <FaFire className="text-pink-400" />,
+    icon: <HardIcon width={32} height={32} />,
     glowColor: 'pink',
   },
   {
     mode: 'Madness',
-    icon: <FaSkull className="text-purple-400" />,
+    icon: <MadnessIcon width={32} height={32} />,
     glowColor: 'purple',
   },
 ] as const;
@@ -129,9 +127,9 @@ export default function DifficultySelector({
                 />
               </svg>
             ) : evaluation ? (
-              <MdSkipNext />
+              <SkipNextIcon />
             ) : (
-              <FaPlay />
+              <StartIcon width={24} height={24} />
             )
           }
         >
@@ -147,7 +145,7 @@ export default function DifficultySelector({
               disabled
               color="purple"
               className="min-w-[180px] relative"
-              icon={<FaUserGraduate />}
+              icon={<StartMockInterviewIcon width={24} height={24} />}
             >
               {mockInterviewButtonProps.label}
               <span className="absolute top-0 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
@@ -162,7 +160,7 @@ export default function DifficultySelector({
               <FuturisticButton
                 color="purple"
                 className="min-w-[180px] relative"
-                icon={<FaUserGraduate />}
+                icon={<StartMockInterviewIcon width={24} height={24} />}
               >
                 {mockInterviewButtonProps.label}
                 <span className="absolute top-0 -right-2 bg-pink-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10">
