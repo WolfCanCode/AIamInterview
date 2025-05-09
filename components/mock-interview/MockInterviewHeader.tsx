@@ -32,7 +32,7 @@ const MockInterviewHeader: React.FC<MockInterviewHeaderProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="w-full rounded-2xl bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60 shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
+    <div className="w-full rounded-2xl bg-[#101624] shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6">
       <div className="w-full sm:w-auto">
         <div className="flex items-center gap-2 sm:gap-3 mb-2">
           {showBackButton && (

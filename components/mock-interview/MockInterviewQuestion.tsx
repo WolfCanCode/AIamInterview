@@ -28,11 +28,11 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
   <div className="mb-10">
     {idx > 0 && (
       <div className="flex items-center my-10">
-        <div className="flex-1 h-px bg-gradient-to-r from-blue-500/30 via-cyan-400/30 to-transparent" />
+        <div className="flex-1 h-px bg-cyan-400/30" />
         <span className="mx-4 px-4 py-1 rounded-full bg-blue-900/60 text-cyan-300 font-bold text-lg shadow-lg border border-cyan-400/30">
           {t('question')} {idx + 1}
         </span>
-        <div className="flex-1 h-px bg-gradient-to-l from-blue-500/30 via-cyan-400/30 to-transparent" />
+        <div className="flex-1 h-px bg-cyan-400/30" />
       </div>
     )}
     {idx === 0 && (

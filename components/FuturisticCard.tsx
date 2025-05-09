@@ -98,16 +98,7 @@ export default function FuturisticCard({
       {...props}
     >
       {/* Animated gradient background */}
-      <div
-        className={`
-          absolute inset-0 
-          bg-gradient-to-br ${theme.gradient} 
-          pointer-events-none 
-          animate-pulse 
-          blur-2xl 
-          opacity-40
-        `}
-      />
+      <div className="absolute inset-0 bg-[#101624] pointer-events-none animate-pulse blur-2xl opacity-40" />
 
       {/* Content with proper z-index */}
       <div className="relative z-10">{children}</div>

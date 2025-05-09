@@ -13,7 +13,7 @@ export default function DomainBanner({
 }) {
   const t = useTranslations('');
   return (
-    <div className="animate-fade-in relative w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-futuristic-bg bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
+    <div className="animate-fade-in relative w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-[#101624] border border-gray-500/20 z-0 transition-opacity duration-500 group-hover:opacity-75">
       {/* Back Button */}
       <BackButton
         onClick={onBack}

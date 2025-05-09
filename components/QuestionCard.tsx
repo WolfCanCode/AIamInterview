@@ -22,7 +22,7 @@ export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
         className="absolute top-4 right-4 text-cyan-300 text-3xl drop-shadow-lg"
         aria-label="Loading robot"
       >
-        <RobotIcon width={32} height={32} />
+        <RobotIcon width={48} height={48} />
       </span>
     </div>
   );
@@ -54,10 +54,10 @@ const QuestionCardComponent = ({
       <div className="relative z-10 flex flex-col justify-start">
         {selectedDomain ? (
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
+            <span className="px-4 py-1.5 bg-blue-900/60 backdrop-blur-md border border-white/10 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
               {t(selectedDomain || '')}
             </span>
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-transparent" />
+            <div className="h-[1px] flex-1 bg-cyan-400/30" />
           </div>
         ) : (
           ''

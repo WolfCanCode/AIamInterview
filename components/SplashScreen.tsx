@@ -1,7 +1,7 @@
 export default function SplashScreen({ visible }: { visible: boolean }) {
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-futuristic-bg bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d] transition-opacity duration-700 pointer-events-none ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#101624] transition-opacity duration-700 pointer-events-none ${
         visible ? 'opacity-100' : 'opacity-0'
       }`}
       aria-hidden={!visible}

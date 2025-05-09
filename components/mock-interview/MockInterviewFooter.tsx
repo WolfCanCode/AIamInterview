@@ -19,7 +19,7 @@ const MockInterviewFooter: React.FC<MockInterviewFooterProps> = ({
   TOTAL_TIME,
 }) => (
   <form onSubmit={onSubmit} className="sm:hidden" style={{ margin: 0 }}>
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-gradient-to-r from-blue-900/90 via-cyan-900/90 to-blue-800/90 border-t border-cyan-400/20 flex items-center justify-between px-4 pb-6 pt-4 gap-4 backdrop-blur-xl shadow-2xl">
+    <div className="fixed bottom-0 left-0 w-full z-50 bg-[#101624] border-t border-cyan-400/20 flex items-center justify-between px-4 pb-6 pt-4 gap-4 backdrop-blur-xl shadow-2xl">
       <div
         style={{
           position: 'absolute',

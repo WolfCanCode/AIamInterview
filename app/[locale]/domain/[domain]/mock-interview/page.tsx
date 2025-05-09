@@ -238,7 +238,7 @@ const MockInterviewPage = () => {
           <div className="mt-16 flex flex-col items-center justify-center gap-8 animate-fade-in relative">
             {/* Aurora background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-purple-500/30 animate-aurora" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full blur-3xl bg-[#18223a] opacity-60 animate-pulse-skeleton" />
             </div>
             {/* Glassy card */}
             <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 backdrop-blur-2xl border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
