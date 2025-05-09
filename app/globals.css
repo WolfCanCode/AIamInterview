@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
 /* Basic dark mode and scroll behavior */
-:root {
-  background-color: #0a0f1a;
-  color-scheme: dark;
-  
-  /* Safe area insets */
-  --safe-area-inset-top: env(safe-area-inset-top, 0px);
-  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-  --safe-area-inset-left: env(safe-area-inset-left, 0px);
-  --safe-area-inset-right: env(safe-area-inset-right, 0px);
-}
 
 html {
   background-color: #0a0f1a;
@@ -77,51 +67,6 @@ button {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
-}
-
-@layer theme {
-  :root {
-    --background: oklch(0% 0 0);
-    --foreground: oklch(0% 0 0);
-    --spacing: 0.25rem;
-    --primary: oklch(65% 0.3 240);
-    --primary-foreground: oklch(98% 0 0);
-    --card: oklch(15% 0.05 240 / 0.1);
-    --card-foreground: oklch(95% 0 0);
-    
-    /* Language button colors */
-    --lang-active: oklch(65% 0.25 250);
-    --lang-inactive: oklch(55% 0.2 250);
-    --lang-hover: oklch(70% 0.28 265);
-    --lang-bg: oklch(65% 0.25 265);
-    --lang-shadow: oklch(65% 0.3 265);
-    
-    /* Difficulty level colors */
-    --diff-easy: oklch(55% 0.32 150);
-    --diff-medium: oklch(60% 0.28 250);
-    --diff-hard: oklch(55% 0.35 30);
-    --diff-insane: oklch(60% 0.35 320);
-  }
-
-  .dark {
-    --background: oklch(10% 0 240);
-    --foreground: oklch(10% 0 240);
-    --primary: oklch(70% 0.3 240);
-    --primary-foreground: oklch(98% 0 0);
-    --card: oklch(15% 0.05 240 / 0.8);
-    --card-foreground: oklch(95% 0 0);
-    
-    /* Language button colors */
-    --lang-active: oklch(65% 0.25 250);
-    --lang-inactive: oklch(55% 0.2 250);
-    --lang-hover: oklch(70% 0.28 265);
-    
-    /* Difficulty level colors */
-    --diff-easy: oklch(55% 0.32 150);
-    --diff-medium: oklch(60% 0.28 250);
-    --diff-hard: oklch(55% 0.35 30);
-    --diff-insane: oklch(60% 0.35 320);
-  }
 }
 
 @layer utilities {
