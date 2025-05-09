@@ -100,7 +100,7 @@ export default function QuestionCard({
   const t = useTranslations('');
 
   return (
-    <div className="group relative backdrop-blur-xl bg-white/10 border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in w-full max-w-5xl mx-auto overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:scale-[1.02]">
+    <div className="card group relative p-6 sm:p-8 shadow-2xl space-y-6 animate-fade-in w-full max-w-5xl mx-auto overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:scale-[1.02]">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 z-0 transition-opacity duration-500 group-hover:opacity-75 mb-0" />
 
       <div className="relative z-10 flex flex-col justify-start">
@@ -115,12 +115,12 @@ export default function QuestionCard({
           ''
         )}
 
-        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent flex-1 transition-colors duration-300 group-hover:from-blue-300 group-hover:to-purple-300">
+        <h2 className="text-main text-2xl sm:text-3xl font-bold flex-1 transition-colors duration-300 group-hover:from-blue-300 group-hover:to-purple-300">
           {question.title}
         </h2>
       </div>
 
-      <p className="relative z-10 text-base sm:text-lg leading-relaxed text-gray-300/90">
+      <p className="text-main relative z-10 text-base sm:text-lg leading-relaxed">
         {question.description}
       </p>
 

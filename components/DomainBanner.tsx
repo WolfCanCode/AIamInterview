@@ -13,7 +13,7 @@ export default function DomainBanner({
 }) {
   const t = useTranslations('');
   return (
-    <div className="animate-fade-in relative w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br border border-gray-500/20 from-blue-500/10 to-cyan-500/10 z-0 transition-opacity duration-500 group-hover:opacity-75">
+    <div className="card animate-fade-in relative w-full max-w-5xl mx-auto p-6 sm:p-8 z-0 transition-opacity duration-500 group-hover:opacity-75">
       {/* Back Button */}
       <BackButton
         onClick={onBack}
@@ -32,10 +32,10 @@ export default function DomainBanner({
 
         {/* Domain Info */}
         <div className="text-center space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent truncate max-w-[280px] sm:max-w-full mx-auto">
+          <h2 className="text-main text-2xl sm:text-3xl font-bold truncate max-w-[280px] sm:max-w-full mx-auto">
             {t(domain.name || domain.key)}
           </h2>
-          <p className="text-[oklch(85%_0.2_240)] font-medium max-w-lg">
+          <p className="text-main font-medium max-w-lg">
             {t(domain.description || '')}
           </p>
         </div>

@@ -68,8 +68,8 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 border border-gray-500/20 from-blue-500/10 to-cyan-500/10 z-0 transition-opacity duration-500 shadow-md">
-      <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
+    <div className="card w-full max-w-5xl mx-auto p-6 sm:p-8 shadow-md">
+      <div className="text-main text-sm font-medium mb-4 text-center">
         {t('choose_difficulty')}
       </div>
 

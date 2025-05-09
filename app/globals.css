@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: #0a0f1a;
+  background: #181f2a;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -529,4 +529,30 @@ body, html, * {
   -webkit-user-select: none !important;
   -ms-user-select: none !important;
   -moz-user-select: none !important;
+}
+
+.card {
+  background: #232b3b;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.25);
+  border: 1px solid #2d3748;
+}
+
+.text-main {
+  color: #fff;
+}
+.text-secondary {
+  color: #b0b8c1;
+}
+
+.button {
+  background: linear-gradient(90deg, #67e8f9, #818cf8);
+  color: #fff;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 16px 0 rgba(103,232,249,0.25);
+  transition: filter 0.2s;
+}
+.button:hover {
+  filter: brightness(1.1);
 }
