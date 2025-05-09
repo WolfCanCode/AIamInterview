@@ -1,8 +1,7 @@
 import { Question } from '@/types/Question';
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaRobot } from 'react-icons/fa';
-import React from 'react';
 
 // Remove all animation, shimmer, tilt, and floating effects for performance
 export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
