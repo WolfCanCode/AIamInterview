@@ -12,11 +12,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef, useState, useTransition } from 'react';
 
-export default function SingleQuestionPage({
+const SingleQuestionPageComponent = ({
   params,
 }: {
   params: Promise<{ domain: string }>;
-}) {
+}) => {
   const { domain } = React.use(params);
   const t = useTranslations('');
   const locale = useLocale();
@@ -123,4 +123,6 @@ export default function SingleQuestionPage({
       ) : null}
     </>
   );
-}
+};
+
+export default React.memo(SingleQuestionPageComponent);

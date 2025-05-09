@@ -17,13 +17,18 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  // Static background for performance
+  // (If you want to keep a little color, use a simple gradient div)
   return (
     <NextIntlClientProvider locale={locale}>
-      {/* Aurora animated blobs background */}
-      <div className="fixed inset-0 z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 left-32 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-purple-500/30 rounded-full blur-3xl animate-aurora" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-blue-700/30 via-cyan-400/20 to-purple-700/30 rounded-full blur-2xl animate-aurora2" />
-      </div>
+      {/* Static, non-blurred, non-animated background for performance */}
+      <div
+        className="fixed inset-0 z-10 overflow-hidden pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(135deg, rgba(34,211,238,0.10) 0%, rgba(139,92,246,0.10) 100%)',
+        }}
+      />
       {children}
     </NextIntlClientProvider>
   );

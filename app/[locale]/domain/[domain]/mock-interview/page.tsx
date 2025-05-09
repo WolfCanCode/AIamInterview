@@ -16,9 +16,14 @@ import { useEffect, useState } from 'react';
 import { FaPaperPlane, FaRedo } from 'react-icons/fa';
 import { FaPen } from 'react-icons/fa6';
 import { toast } from 'sonner';
+import React from 'react';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
-function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
+const AnimatedGradingMessage = React.memo(function AnimatedGradingMessage({
+  t,
+}: {
+  t: (key: string) => string;
+}) {
   const messages = [
     t('please_wait'),
     t('skeleton_loading_2'),
@@ -38,7 +43,7 @@ function AnimatedGradingMessage({ t }: { t: (key: string) => string }) {
       {messages[idx]}
     </p>
   );
-}
+});
 
 const MockInterviewPage = () => {
   const t = useTranslations('');
@@ -297,4 +302,4 @@ const MockInterviewPage = () => {
   );
 };
 
-export default MockInterviewPage;
+export default React.memo(MockInterviewPage);
