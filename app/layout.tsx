@@ -122,6 +122,7 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#0a0f1a" />
         <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="color-scheme" content="only light" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
