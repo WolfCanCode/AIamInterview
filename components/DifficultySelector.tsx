@@ -68,7 +68,7 @@ export default function DifficultySelector({
   const t = useTranslations('');
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8  border border-gray-500/20 from-blue-500/10 to-cyan-500/10 dark:from-blue-900/20 dark:to-cyan-900/20 z-0 transition-opacity duration-500 shadow-md">
+    <div className="w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-8 border border-gray-500/20 from-blue-500/10 to-cyan-500/10 z-0 transition-opacity duration-500 shadow-md">
       <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
         {t('choose_difficulty')}
       </div>
@@ -80,15 +80,15 @@ export default function DifficultySelector({
             glowColor={glowColor}
             variant="dark"
             className={
-              `transition-all duration-300 cursor-pointer p-2 ` +
+              `transition-all duration-300 cursor-pointer p-2 text-white ` +
               (difficulty === mode ? 'scale-105 ring-2 ring-cyan-400/50' : '')
             }
             onClick={() => setDifficulty(mode as Difficulty)}
             hover
           >
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-xl">{icon}</span>
-              <span className="text-xs font-medium">
+            <div className="flex flex-col items-center gap-1 text-white">
+              <span className="text-xl text-white">{icon}</span>
+              <span className="text-xs font-medium text-white">
                 {t(`difficulty_${mode.toLowerCase()}`)}
               </span>
             </div>

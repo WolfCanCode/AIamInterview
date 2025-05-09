@@ -85,26 +85,23 @@ button {
 
   .glass-morphism {
     backdrop-filter: blur(16px);
-    background: color-mix(in oklch, var(--card) 98%, transparent);
-    border: 1px solid color-mix(in oklch, var(--card-foreground) 15%, transparent);
+    background: rgba(13, 23, 41, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .glass-button {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    background: color-mix(in oklch, var(--primary) 95%, transparent);
-    color: var(--primary-foreground);
+    background: linear-gradient(90deg, #67e8f9 95%, transparent);
+    color: #fff;
   }
 
   .glass-button::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, 
-      color-mix(in oklch, var(--primary-foreground) 20%, transparent),
-      transparent
-    );
+    background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -114,10 +111,7 @@ button {
   }
 
   .gradient-text {
-    background: linear-gradient(to right, 
-      oklch(80% 0.3 240),
-      oklch(80% 0.3 280)
-    );
+    background: linear-gradient(to right, #67e8f9, #818cf8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -125,21 +119,16 @@ button {
 
   .gradient-border {
     position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right,
-        oklch(75% 0.3 240 / 0.3),
-        oklch(75% 0.3 280 / 0.3)
-      );
-      border-radius: inherit;
-      padding: 1px;
-      mask: 
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-    }
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #67e8f9 30%, #818cf8 30%);
+    border-radius: inherit;
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
   }
 }
 
@@ -322,13 +311,13 @@ button {
 }
 
 .difficulty-button.active {
-  border: 3px solid var(--primary) !important;
+  border: 3px solid #67e8f9 !important;
   transform: scale(1.05);
 }
 
 .difficulty-button.easy {
-  background: color-mix(in oklch, var(--diff-easy) 95%, transparent);
-  box-shadow: 0 0 25px color-mix(in oklch, var(--diff-easy) 40%, transparent);
+  background: #4ade80;
+  box-shadow: 0 0 25px #4ade80;
   &:hover {
     background: color-mix(in oklch, var(--diff-easy) 98%, transparent);
     box-shadow: 0 0 35px color-mix(in oklch, var(--diff-easy) 60%, transparent);
@@ -344,8 +333,8 @@ button {
 }
 
 .difficulty-button.medium {
-  background: color-mix(in oklch, var(--diff-medium) 95%, transparent);
-  box-shadow: 0 0 25px color-mix(in oklch, var(--diff-medium) 40%, transparent);
+  background: #38bdf8;
+  box-shadow: 0 0 25px #38bdf8;
   &:hover {
     background: color-mix(in oklch, var(--diff-medium) 98%, transparent);
     box-shadow: 0 0 35px color-mix(in oklch, var(--diff-medium) 60%, transparent);
@@ -361,8 +350,8 @@ button {
 }
 
 .difficulty-button.hard {
-  background: color-mix(in oklch, var(--diff-hard) 95%, transparent);
-  box-shadow: 0 0 25px color-mix(in oklch, var(--diff-hard) 40%, transparent);
+  background: #f472b6;
+  box-shadow: 0 0 25px #f472b6;
   &:hover {
     background: color-mix(in oklch, var(--diff-hard) 98%, transparent);
     box-shadow: 0 0 35px color-mix(in oklch, var(--diff-hard) 60%, transparent);
@@ -378,8 +367,8 @@ button {
 }
 
 .difficulty-button.insane {
-  background: color-mix(in oklch, var(--diff-insane) 95%, transparent);
-  box-shadow: 0 0 25px color-mix(in oklch, var(--diff-insane) 40%, transparent);
+  background: #a78bfa;
+  box-shadow: 0 0 25px #a78bfa;
   &:hover {
     background: color-mix(in oklch, var(--diff-insane) 98%, transparent);
     box-shadow: 0 0 35px color-mix(in oklch, var(--diff-insane) 60%, transparent);
@@ -395,26 +384,29 @@ button {
 }
 
 .start-button {
-  @apply w-full max-w-5xl mx-auto px-8 py-4 rounded-xl font-bold text-base;
-  background: linear-gradient(to right, 
-    oklch(60% 0.3 240),
-    oklch(60% 0.3 280)
-  );
-  color: oklch(98% 0 0);
-  box-shadow: 0 0 30px color-mix(in oklch, var(--primary) 40%, transparent);
-  border: 1px solid color-mix(in oklch, var(--primary) 60%, transparent);
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1rem;
+  background: linear-gradient(to right, #67e8f9, #818cf8);
+  color: #fff;
+  box-shadow: 0 0 30px #67e8f9;
+  border: 1px solid #67e8f9;
   transition: all 0.3s ease;
 }
 
 .start-button:hover:not(:disabled) {
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 0 40px color-mix(in oklch, var(--primary) 60%, transparent);
+  box-shadow: 0 0 40px #67e8f9;
 }
 
 .start-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: oklch(30% 0.1 240);
+  background: #334155;
 }
 
 .domain-children-grid {

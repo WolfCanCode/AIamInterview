@@ -63,7 +63,7 @@ const glowMap = {
 };
 
 const variants = {
-  default: 'bg-white/5 dark:bg-gray-900/20',
+  default: 'bg-[#0B1221]/90',
   dark: 'bg-[#0B1221]/90',
 };
 

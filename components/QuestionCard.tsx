@@ -100,13 +100,13 @@ export default function QuestionCard({
   const t = useTranslations('');
 
   return (
-    <div className="group relative backdrop-blur-xl bg-white/10 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in w-full max-w-5xl mx-auto overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:scale-[1.02]">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 z-0 transition-opacity duration-500 group-hover:opacity-75 mb-0" />
+    <div className="group relative backdrop-blur-xl bg-white/10 border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 animate-fade-in w-full max-w-5xl mx-auto overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:scale-[1.02]">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 z-0 transition-opacity duration-500 group-hover:opacity-75 mb-0" />
 
       <div className="relative z-10 flex flex-col justify-start">
         {selectedDomain ? (
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
+            <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md border border-white/10 text-blue-100 rounded-full text-sm font-medium tracking-wider shadow-lg">
               {t(selectedDomain || '')}
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-transparent" />

@@ -7,13 +7,8 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './views/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-      },
       animation: {
         'gradient-slow': 'gradient 15s linear infinite',
         aurora: 'aurora 20s linear infinite',
@@ -56,13 +51,6 @@ const config: Config = {
       backdropFilter: {
         none: 'none',
         blur: 'blur(8px)',
-      },
-      transitionDuration: {
-        '400': '400ms',
-      },
-      scale: {
-        '102': '1.02',
-        '105': '1.05',
       },
     },
   },
