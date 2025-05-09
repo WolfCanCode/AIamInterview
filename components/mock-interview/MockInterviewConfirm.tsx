@@ -1,7 +1,7 @@
 import React from 'react';
 import MockInterviewHeader from './MockInterviewHeader';
 import FuturisticButton from '../FuturisticButton';
-import { FaPlay } from 'react-icons/fa';
+import PlayIcon from '../icons/PlayIcon';
 
 interface MockInterviewConfirmProps {
   t: (key: string) => string;
@@ -36,7 +36,7 @@ const MockInterviewConfirm: React.FC<MockInterviewConfirmProps> = ({
       onClick={onStart}
       color="cyan"
       className="text-lg px-8 py-4"
-      icon={<FaPlay />}
+      icon={<PlayIcon />}
     >
       {t('start_interview')}
     </FuturisticButton>

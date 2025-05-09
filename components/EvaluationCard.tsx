@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Evaluation } from '@/types/Evaluation';
-import { FiEdit3 } from 'react-icons/fi';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { FaRegStar } from 'react-icons/fa';
+import EditIcon from './icons/EditIcon';
+import CheckCircleFillIcon from './icons/CheckCircleFillIcon';
+import StarIcon from './icons/StarIcon';
 
 export default function EvaluationCard({
   evaluation,
@@ -87,7 +87,7 @@ export default function EvaluationCard({
       {evaluation.suggestions && (
         <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
           <span className="text-2xl mt-1 text-blue-300">
-            <FiEdit3 />
+            <EditIcon />
           </span>
           <p className="text-blue-100 font-medium">
             <b>{t('suggestion')}</b> {evaluation.suggestions}
@@ -97,7 +97,7 @@ export default function EvaluationCard({
       {evaluation.key_points_of_main_argument && (
         <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-green-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
           <span className="text-2xl mt-1 text-green-400">
-            <BsCheckCircleFill />
+            <CheckCircleFillIcon />
           </span>
           <p className="text-blue-100 font-medium">
             <b>{t('key_point')}</b>
@@ -114,7 +114,7 @@ export default function EvaluationCard({
       {evaluation.perfect_answer && (
         <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
           <span className="text-2xl mt-1 text-yellow-300">
-            <FaRegStar />
+            <StarIcon />
           </span>
           <p className="text-blue-100 font-medium">
             <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
@@ -124,7 +124,7 @@ export default function EvaluationCard({
       {evaluation.title_ranking_text && (
         <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-yellow-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
           <span className="text-2xl mt-1 text-yellow-300">
-            <FaRegStar />
+            <StarIcon />
           </span>
           <p className="text-blue-100 font-medium">
             <b>{t('title_level_text')}</b> {evaluation.title_ranking_text}

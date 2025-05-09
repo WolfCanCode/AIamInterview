@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import EvaluationCard from '../EvaluationCard';
 import { EvaluationResult } from '@/types/Evaluation';
 import FuturisticButton from '../FuturisticButton';
-import { FaDownload } from 'react-icons/fa';
+import DownloadIcon from '../icons/DownloadIcon';
 import { formatEvaluationForDownload } from '@/utils/functions/formatEvaluationForDownload';
 import { downloadTextFile } from '@/utils/browserUtils';
 import { generateMockInterviewFilename } from '@/utils/functions/filenameUtils';
@@ -48,7 +48,7 @@ const MockInterviewEvaluation: React.FC<MockInterviewEvaluationProps> = ({
       <FuturisticButton
         color="cyan"
         className="mt-6"
-        icon={<FaDownload />}
+        icon={<DownloadIcon width={32} height={32} />}
         onClick={handleDownload}
         type="button"
       >

@@ -1,64 +1,47 @@
 import { DomainGroup } from '@/utils/types/Domain';
-import {
-  FaServer,
-  FaDesktop,
-  FaGears,
-  FaShieldHalved,
-  FaChartLine,
-  FaMobileScreen,
-  FaRobot,
-  FaGamepad,
-  FaCloud,
-  FaLink,
-  FaMicrochip,
-  FaBug,
-  FaGraduationCap,
-  FaMasksTheater,
-  FaMicroscope,
-  FaPaintbrush,
-  FaPalette,
-  FaScaleBalanced,
-  FaBullhorn,
-  FaHandshake,
-  FaPeopleGroup,
-  FaUserDoctor,
-  FaHotel,
-  FaPlane,
-  FaUtensils,
-  FaTruck,
-  FaBox,
-  FaIndustry,
-  FaScrewdriverWrench,
-  FaHospital,
-  FaLeaf,
-  FaSeedling,
-  FaNewspaper,
-  FaBrain,
-  FaBuilding,
-  FaMoneyBillTrendUp,
-  FaCreditCard,
-  FaVault,
-  FaChartPie,
-  FaCoins,
-  FaArrowTrendUp,
-  FaShieldHeart,
-  FaCarSide,
-  FaHouseChimney,
-  FaCalculator,
-  FaLaptopCode,
-  FaObjectGroup,
-} from 'react-icons/fa6';
+import BackendIcon from '@/components/icons/BackendIcon';
+import FrontendIcon from '@/components/icons/FrontendIcon';
+import DevopsIcon from '@/components/icons/DevopsIcon';
+import SecurityIcon from '@/components/icons/SecurityIcon';
+import DataScienceIcon from '@/components/icons/DataScienceIcon';
+import MobileIcon from '@/components/icons/MobileIcon';
+import AiIcon from '@/components/icons/AiIcon';
+import GameIcon from '@/components/icons/GameIcon';
+import CloudIcon from '@/components/icons/CloudIcon';
+import BlockchainIcon from '@/components/icons/BlockchainIcon';
+import IotIcon from '@/components/icons/IotIcon';
+import QaIcon from '@/components/icons/QaIcon';
+import EmbeddedIcon from '@/components/icons/EmbeddedIcon';
+import DesignIcon from '@/components/icons/DesignIcon';
+import BusinessIcon from '@/components/icons/BusinessIcon';
+import LegalIcon from '@/components/icons/LegalIcon';
+import EducationIcon from '@/components/icons/EducationIcon';
+import ArtsIcon from '@/components/icons/ArtsIcon';
+import ScienceIcon from '@/components/icons/ScienceIcon';
+import EngineeringIcon from '@/components/icons/EngineeringIcon';
+import HospitalityIcon from '@/components/icons/HospitalityIcon';
+import LogisticsIcon from '@/components/icons/LogisticsIcon';
+import ManufacturingIcon from '@/components/icons/ManufacturingIcon';
+import HealthcareIcon from '@/components/icons/HealthcareIcon';
+import EnvironmentalIcon from '@/components/icons/EnvironmentalIcon';
+import AgricultureIcon from '@/components/icons/AgricultureIcon';
+import MediaIcon from '@/components/icons/MediaIcon';
+import PsychologyIcon from '@/components/icons/PsychologyIcon';
+import ArchitectureIcon from '@/components/icons/ArchitectureIcon';
+import BankingIcon from '@/components/icons/BankingIcon';
+import InvestmentIcon from '@/components/icons/InvestmentIcon';
+import InsuranceIcon from '@/components/icons/InsuranceIcon';
 
 export const domainGroups: DomainGroup[] = [
   {
     key: 'technology',
     group: 'domain_group_technology',
-    icon: FaGears,
+    icon: BackendIcon,
     domains: [
       {
         key: 'backend',
         name: 'domain_backend',
-        icon: FaServer,
+        icon: BackendIcon,
         description: 'domain_backend_desc',
         children: [
           'domain_backend_child_nodejs',
@@ -73,7 +56,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'frontend',
         name: 'domain_frontend',
-        icon: FaDesktop,
+        icon: FrontendIcon,
         description: 'domain_frontend_desc',
         children: [
           'domain_frontend_child_react',
@@ -88,7 +71,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'devops',
         name: 'domain_devops',
-        icon: FaGears,
+        icon: DevopsIcon,
         description: 'domain_devops_desc',
         children: [
           'domain_devops_child_docker',
@@ -103,7 +86,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'security',
         name: 'domain_security',
-        icon: FaShieldHalved,
+        icon: SecurityIcon,
         description: 'domain_security_desc',
         children: [
           'domain_security_child_pentesting',
@@ -115,7 +98,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'datascience',
         name: 'domain_datascience',
-        icon: FaChartLine,
+        icon: DataScienceIcon,
         description: 'domain_datascience_desc',
         children: [
           'domain_datascience_child_python',
@@ -128,7 +111,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'mobile',
         name: 'domain_mobile',
-        icon: FaMobileScreen,
+        icon: MobileIcon,
         description: 'domain_mobile_desc',
         children: [
           'domain_mobile_child_ios',
@@ -142,7 +125,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'aiml',
         name: 'domain_aiml',
-        icon: FaRobot,
+        icon: AiIcon,
         description: 'domain_aiml_desc',
         children: [
           'domain_aiml_child_machinelearning',
@@ -154,7 +137,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'game',
         name: 'domain_game',
-        icon: FaGamepad,
+        icon: GameIcon,
         description: 'domain_game_desc',
         children: [
           'domain_game_child_unity',
@@ -166,7 +149,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'cloud',
         name: 'domain_cloud',
-        icon: FaCloud,
+        icon: CloudIcon,
         description: 'domain_cloud_desc',
         children: [
           'domain_cloud_child_aws',
@@ -179,7 +162,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'blockchain',
         name: 'domain_blockchain',
-        icon: FaLink,
+        icon: BlockchainIcon,
         description: 'domain_blockchain_desc',
         children: [
           'domain_blockchain_child_smartcontracts',
@@ -191,7 +174,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'iot',
         name: 'domain_iot',
-        icon: FaMicrochip,
+        icon: IotIcon,
         description: 'domain_iot_desc',
         children: [
           'domain_iot_child_embedded',
@@ -203,7 +186,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'qa',
         name: 'domain_qa',
-        icon: FaBug,
+        icon: QaIcon,
         description: 'domain_qa_desc',
         children: [
           'domain_qa_child_automation',
@@ -215,7 +198,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'embedded',
         name: 'domain_embedded',
-        icon: FaMicrochip,
+        icon: EmbeddedIcon,
         description: 'domain_embedded_desc',
         children: [
           'domain_embedded_child_c',
@@ -231,12 +214,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'design',
     group: 'domain_group_design',
-    icon: FaPalette,
+    icon: DesignIcon,
     domains: [
       {
         key: 'uiux',
         name: 'domain_uiux',
-        icon: FaLaptopCode,
+        icon: DesignIcon,
         description: 'domain_uiux_desc',
         children: [
           'domain_uiux_child_uxresearch',
@@ -250,7 +233,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'graphic',
         name: 'domain_graphic',
-        icon: FaPaintbrush,
+        icon: DesignIcon,
         description: 'domain_graphic_desc',
         children: [
           'domain_graphic_child_brand',
@@ -264,7 +247,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'product',
         name: 'domain_product',
-        icon: FaObjectGroup,
+        icon: DesignIcon,
         description: 'domain_product_desc',
         children: [
           'domain_product_child_strategy',
@@ -280,12 +263,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'business',
     group: 'domain_group_business',
-    icon: FaChartLine,
+    icon: BusinessIcon,
     domains: [
       {
         key: 'business_strategy',
         name: 'domain_business_strategy',
-        icon: FaChartLine,
+        icon: BusinessIcon,
         description: 'domain_business_strategy_desc',
         children: [
           'domain_business_strategy_child_planning',
@@ -298,7 +281,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'marketing',
         name: 'domain_marketing',
-        icon: FaBullhorn,
+        icon: BusinessIcon,
         description: 'domain_marketing_desc',
         children: [
           'domain_marketing_child_digital',
@@ -311,7 +294,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'sales',
         name: 'domain_sales',
-        icon: FaHandshake,
+        icon: BusinessIcon,
         description: 'domain_sales_desc',
         children: [
           'domain_sales_child_b2b',
@@ -324,7 +307,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'finance_accounting',
         name: 'domain_finance_accounting',
-        icon: FaChartLine,
+        icon: BusinessIcon,
         description: 'domain_finance_accounting_desc',
         children: [
           'domain_finance_accounting_child_analysis',
@@ -337,7 +320,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'hr',
         name: 'domain_hr',
-        icon: FaPeopleGroup,
+        icon: BusinessIcon,
         description: 'domain_hr_desc',
         children: [
           'domain_hr_child_acquisition',
@@ -352,12 +335,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'legal',
     group: 'domain_group_legal',
-    icon: FaScaleBalanced,
+    icon: LegalIcon,
     domains: [
       {
         key: 'legal',
         name: 'domain_legal',
-        icon: FaScaleBalanced,
+        icon: LegalIcon,
         description: 'domain_legal_desc',
         children: [
           'domain_legal_child_corporate',
@@ -372,12 +355,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'education',
     group: 'domain_group_education',
-    icon: FaGraduationCap,
+    icon: EducationIcon,
     domains: [
       {
         key: 'teaching',
         name: 'domain_teaching',
-        icon: FaGraduationCap,
+        icon: EducationIcon,
         description: 'domain_teaching_desc',
         children: [
           'domain_teaching_child_k12',
@@ -391,7 +374,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'curriculum',
         name: 'domain_curriculum',
-        icon: FaGraduationCap,
+        icon: EducationIcon,
         description: 'domain_curriculum_desc',
         children: [
           'domain_curriculum_child_development',
@@ -407,12 +390,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'arts',
     group: 'domain_group_arts',
-    icon: FaMasksTheater,
+    icon: ArtsIcon,
     domains: [
       {
         key: 'visual_arts',
         name: 'domain_visual_arts',
-        icon: FaPaintbrush,
+        icon: ArtsIcon,
         description: 'domain_visual_arts_desc',
         children: [
           'domain_visual_arts_child_digital',
@@ -426,7 +409,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'performing_arts',
         name: 'domain_performing_arts',
-        icon: FaMasksTheater,
+        icon: ArtsIcon,
         description: 'domain_performing_arts_desc',
         children: [
           'domain_performing_arts_child_music',
@@ -440,7 +423,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'conservatory_music',
         name: 'domain_conservatory_music',
-        icon: FaMasksTheater,
+        icon: ArtsIcon,
         description: 'domain_conservatory_music_desc',
         children: [
           'domain_conservatory_music_child_theory',
@@ -456,12 +439,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'science',
     group: 'domain_group_science',
-    icon: FaMicroscope,
+    icon: ScienceIcon,
     domains: [
       {
         key: 'research',
         name: 'domain_research',
-        icon: FaMicroscope,
+        icon: ScienceIcon,
         description: 'domain_research_desc',
         children: [
           'domain_research_child_methods',
@@ -473,7 +456,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'applied_science',
         name: 'domain_applied_science',
-        icon: FaMicroscope,
+        icon: ScienceIcon,
         description: 'domain_applied_science_desc',
         children: [
           'domain_applied_science_child_physics',
@@ -487,12 +470,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'engineering',
     group: 'domain_group_engineering',
-    icon: FaGears,
+    icon: EngineeringIcon,
     domains: [
       {
         key: 'mechanical',
         name: 'domain_mechanical',
-        icon: FaGears,
+        icon: EngineeringIcon,
         description: 'domain_mechanical_desc',
         children: [
           'domain_mechanical_child_cad',
@@ -505,7 +488,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'electrical',
         name: 'domain_electrical',
-        icon: FaMicrochip,
+        icon: EngineeringIcon,
         description: 'domain_electrical_desc',
         children: [
           'domain_electrical_child_industrial',
@@ -519,7 +502,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'embedded',
         name: 'domain_embedded',
-        icon: FaMicrochip,
+        icon: EngineeringIcon,
         description: 'domain_embedded_desc',
         children: [
           'domain_embedded_child_c',
@@ -533,7 +516,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'hvac_piping',
         name: 'domain_hvac_piping',
-        icon: FaGears,
+        icon: EngineeringIcon,
         description: 'domain_hvac_piping_desc',
         children: [
           'domain_hvac_piping_child_hvac',
@@ -551,12 +534,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'hospitality',
     group: 'domain_group_hospitality',
-    icon: FaHotel,
+    icon: HospitalityIcon,
     domains: [
       {
         key: 'tourism',
         name: 'domain_tourism',
-        icon: FaPlane,
+        icon: HospitalityIcon,
         description: 'domain_tourism_desc',
         children: [
           'domain_tourism_child_planning',
@@ -568,7 +551,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'hotel_management',
         name: 'domain_hotel_management',
-        icon: FaHotel,
+        icon: HospitalityIcon,
         description: 'domain_hotel_management_desc',
         children: [
           'domain_hotel_child_operations',
@@ -581,7 +564,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'restaurant_management',
         name: 'domain_restaurant_management',
-        icon: FaUtensils,
+        icon: HospitalityIcon,
         description: 'domain_restaurant_management_desc',
         children: [
           'domain_restaurant_child_operations',
@@ -596,12 +579,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'logistics',
     group: 'domain_group_logistics',
-    icon: FaTruck,
+    icon: LogisticsIcon,
     domains: [
       {
         key: 'transportation',
         name: 'domain_transportation',
-        icon: FaTruck,
+        icon: LogisticsIcon,
         description: 'domain_transportation_desc',
         children: [
           'domain_transportation_child_fleet',
@@ -613,7 +596,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'logistics_management',
         name: 'domain_logistics_management',
-        icon: FaBox,
+        icon: LogisticsIcon,
         description: 'domain_logistics_management_desc',
         children: [
           'domain_logistics_child_supply',
@@ -627,12 +610,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'manufacturing',
     group: 'domain_group_manufacturing',
-    icon: FaIndustry,
+    icon: ManufacturingIcon,
     domains: [
       {
         key: 'production',
         name: 'domain_production',
-        icon: FaIndustry,
+        icon: ManufacturingIcon,
         description: 'domain_production_desc',
         children: [
           'domain_production_child_planning',
@@ -644,7 +627,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'skilled_labor',
         name: 'domain_skilled_labor',
-        icon: FaScrewdriverWrench,
+        icon: ManufacturingIcon,
         description: 'domain_skilled_labor_desc',
         children: [
           'domain_skilled_labor_child_assembly',
@@ -658,12 +641,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'healthcare',
     group: 'domain_group_healthcare',
-    icon: FaHospital,
+    icon: HealthcareIcon,
     domains: [
       {
         key: 'nursing',
         name: 'domain_nursing',
-        icon: FaUserDoctor,
+        icon: HealthcareIcon,
         description: 'domain_nursing_desc',
         children: [
           'domain_nursing_child_clinical',
@@ -675,7 +658,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'pharmacy',
         name: 'domain_pharmacy',
-        icon: FaHospital,
+        icon: HealthcareIcon,
         description: 'domain_pharmacy_desc',
         children: [
           'domain_pharmacy_child_pharmacology',
@@ -687,7 +670,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'healthcare_admin',
         name: 'domain_healthcare_admin',
-        icon: FaHospital,
+        icon: HealthcareIcon,
         description: 'domain_healthcare_admin_desc',
         children: [
           'domain_healthcare_admin_child_hospital',
@@ -701,12 +684,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'environmental',
     group: 'domain_group_environmental',
-    icon: FaLeaf,
+    icon: EnvironmentalIcon,
     domains: [
       {
         key: 'environmental_management',
         name: 'domain_environmental_management',
-        icon: FaLeaf,
+        icon: EnvironmentalIcon,
         description: 'domain_environmental_management_desc',
         children: [
           'domain_environmental_management_child_impact',
@@ -718,7 +701,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'renewable_energy',
         name: 'domain_renewable_energy',
-        icon: FaLeaf,
+        icon: EnvironmentalIcon,
         description: 'domain_renewable_energy_desc',
         children: [
           'domain_renewable_energy_child_solar',
@@ -732,12 +715,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'agriculture',
     group: 'domain_group_agriculture',
-    icon: FaSeedling,
+    icon: AgricultureIcon,
     domains: [
       {
         key: 'agribusiness',
         name: 'domain_agribusiness',
-        icon: FaSeedling,
+        icon: AgricultureIcon,
         description: 'domain_agribusiness_desc',
         children: [
           'domain_agribusiness_child_management',
@@ -749,7 +732,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'food_science',
         name: 'domain_food_science',
-        icon: FaSeedling,
+        icon: AgricultureIcon,
         description: 'domain_food_science_desc',
         children: [
           'domain_food_science_child_processing',
@@ -763,12 +746,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'media',
     group: 'domain_group_media',
-    icon: FaNewspaper,
+    icon: MediaIcon,
     domains: [
       {
         key: 'journalism',
         name: 'domain_journalism',
-        icon: FaNewspaper,
+        icon: MediaIcon,
         description: 'domain_journalism_desc',
         children: [
           'domain_journalism_child_news',
@@ -780,7 +763,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'public_relations',
         name: 'domain_public_relations',
-        icon: FaNewspaper,
+        icon: MediaIcon,
         description: 'domain_public_relations_desc',
         children: [
           'domain_public_relations_child_media',
@@ -794,12 +777,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'psychology',
     group: 'domain_group_psychology',
-    icon: FaBrain,
+    icon: PsychologyIcon,
     domains: [
       {
         key: 'clinical_psychology',
         name: 'domain_clinical_psychology',
-        icon: FaBrain,
+        icon: PsychologyIcon,
         description: 'domain_clinical_psychology_desc',
         children: [
           'domain_clinical_psychology_child_assessment',
@@ -811,7 +794,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'organizational_psychology',
         name: 'domain_organizational_psychology',
-        icon: FaBrain,
+        icon: PsychologyIcon,
         description: 'domain_organizational_psychology_desc',
         children: [
           'domain_organizational_psychology_child_workplace',
@@ -825,12 +808,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'architecture',
     group: 'domain_group_architecture',
-    icon: FaBuilding,
+    icon: ArchitectureIcon,
     domains: [
       {
         key: 'architectural_design',
         name: 'domain_architectural_design',
-        icon: FaBuilding,
+        icon: ArchitectureIcon,
         description: 'domain_architectural_design_desc',
         children: [
           'domain_architectural_design_child_building',
@@ -842,7 +825,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'construction_management',
         name: 'domain_construction_management',
-        icon: FaBuilding,
+        icon: BankingIcon,
         description: 'domain_construction_management_desc',
         children: [
           'domain_construction_management_child_project',
@@ -856,12 +839,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'banking',
     group: 'domain_group_banking',
-    icon: FaMoneyBillTrendUp,
+    icon: BankingIcon,
     domains: [
       {
         key: 'retail_banking',
         name: 'domain_retail_banking',
-        icon: FaCreditCard,
+        icon: BankingIcon,
         description: 'domain_retail_banking_desc',
         children: [
           'domain_retail_banking_child_personal',
@@ -874,7 +857,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'investment_banking',
         name: 'domain_investment_banking',
-        icon: FaChartPie,
+        icon: BankingIcon,
         description: 'domain_investment_banking_desc',
         children: [
           'domain_investment_banking_child_corporate',
@@ -887,7 +870,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'wealth_management',
         name: 'domain_wealth_management',
-        icon: FaVault,
+        icon: BankingIcon,
         description: 'domain_wealth_management_desc',
         children: [
           'domain_wealth_management_child_portfolio',
@@ -900,7 +883,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'risk_compliance',
         name: 'domain_risk_compliance',
-        icon: FaShieldHalved,
+        icon: BankingIcon,
         description: 'domain_risk_compliance_desc',
         children: [
           'domain_risk_compliance_child_assessment',
@@ -915,12 +898,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'investment',
     group: 'domain_group_investment',
-    icon: FaChartLine,
+    icon: InvestmentIcon,
     domains: [
       {
         key: 'securities_trading',
         name: 'domain_securities_trading',
-        icon: FaArrowTrendUp,
+        icon: InvestmentIcon,
         description: 'domain_securities_trading_desc',
         children: [
           'domain_securities_trading_child_equity',
@@ -933,7 +916,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'portfolio_management',
         name: 'domain_portfolio_management',
-        icon: FaChartPie,
+        icon: InvestmentIcon,
         description: 'domain_portfolio_management_desc',
         children: [
           'domain_portfolio_management_child_allocation',
@@ -946,7 +929,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'alternative_investments',
         name: 'domain_alternative_investments',
-        icon: FaCoins,
+        icon: InvestmentIcon,
         description: 'domain_alternative_investments_desc',
         children: [
           'domain_alternative_investments_child_private',
@@ -959,7 +942,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'market_analysis',
         name: 'domain_market_analysis',
-        icon: FaChartLine,
+        icon: InvestmentIcon,
         description: 'domain_market_analysis_desc',
         children: [
           'domain_market_analysis_child_fundamental',
@@ -974,12 +957,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'insurance',
     group: 'domain_group_insurance',
-    icon: FaShieldHeart,
+    icon: InsuranceIcon,
     domains: [
       {
         key: 'life_health_insurance',
         name: 'domain_life_health_insurance',
-        icon: FaShieldHeart,
+        icon: InsuranceIcon,
         description: 'domain_life_health_insurance_desc',
         children: [
           'domain_life_health_insurance_child_life',
@@ -992,7 +975,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'property_casualty',
         name: 'domain_property_casualty',
-        icon: FaHouseChimney,
+        icon: InsuranceIcon,
         description: 'domain_property_casualty_desc',
         children: [
           'domain_property_casualty_child_property',
@@ -1005,7 +988,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'insurance_underwriting',
         name: 'domain_insurance_underwriting',
-        icon: FaCalculator,
+        icon: InsuranceIcon,
         description: 'domain_insurance_underwriting_desc',
         children: [
           'domain_insurance_underwriting_child_risk',
@@ -1018,7 +1001,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'claims_management',
         name: 'domain_claims_management',
-        icon: FaCarSide,
+        icon: InsuranceIcon,
         description: 'domain_claims_management_desc',
         children: [
           'domain_claims_management_child_processing',

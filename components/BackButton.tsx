@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
+import ArrowLeftIcon from './icons/ArrowLeftIcon';
 
 interface BackButtonProps {
   onClick?: () => void;
@@ -21,7 +21,7 @@ const BackButton: React.FC<BackButtonProps> = ({
     style={{ boxShadow: '0 4px 24px 0 rgba(34,211,238,0.15)', ...style }}
     aria-label={ariaLabel}
   >
-    <FaArrowLeft className="text-2xl" />
+    <ArrowLeftIcon width={24} height={24} />
   </button>
 );
 

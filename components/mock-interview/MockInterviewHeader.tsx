@@ -1,4 +1,4 @@
-import { FaClock } from 'react-icons/fa';
+import ClockIcon from '../icons/ClockIcon';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import BackButton from '../BackButton';
@@ -82,7 +82,7 @@ const MockInterviewHeader: React.FC<MockInterviewHeaderProps> = ({
       </div>
       <div className="hidden sm:flex flex-col items-center w-full sm:w-auto mt-4 sm:mt-0">
         <span className="text-base sm:text-lg font-medium text-gray-200 flex items-center gap-2">
-          <FaClock className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+          <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
           <span className="whitespace-nowrap">
             {t('time_left') || 'Time Left'}
           </span>

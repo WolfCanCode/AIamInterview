@@ -1,7 +1,7 @@
 import { Question } from '@/types/Question';
 import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
-import { FaRobot } from 'react-icons/fa';
+import RobotIcon from './icons/RobotIcon';
 
 // Remove all animation, shimmer, tilt, and floating effects for performance
 export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
@@ -24,7 +24,7 @@ export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
         className="absolute top-4 right-4 text-cyan-300 text-3xl drop-shadow-lg"
         aria-label="Loading robot"
       >
-        <FaRobot className="inline-block" />
+        <RobotIcon width={32} height={32} />
       </span>
     </div>
   );
