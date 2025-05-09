@@ -45,7 +45,7 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
               className="fill-blue-400 animate-pulse"
             />
           </svg>
-          <span className="text-3xl sm:text-5xl font-extrabold gradient-text drop-shadow-lg animate-pulse">
+          <span className="text-3xl sm:text-5xl font-extrabold text-cyan-300 drop-shadow-lg animate-pulse">
             AI am Interview
           </span>
         </div>

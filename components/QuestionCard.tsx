@@ -7,17 +7,15 @@ import RobotIcon from './icons/RobotIcon';
 export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
   return (
     <div
-      className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] mx-auto rounded-3xl overflow-hidden flex flex-col items-center justify-center
-      bg-gradient-to-br from-blue-900/60 via-cyan-900/60 to-blue-800/60
-      border-2 border-cyan-400/30 shadow-[0_0_40px_0_rgba(34,211,238,0.15)]"
+      className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] mx-auto rounded-3xl overflow-hidden flex flex-col items-center justify-center bg-[#101624] border-2 border-cyan-400/30 shadow-[0_0_40px_0_rgba(34,211,238,0.15)]"
       style={{ transition: 'none' }}
     >
       <div className="relative z-10 flex flex-col gap-4 w-4/5">
-        <div className="h-5 w-2/3 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/30 to-blue-500/30" />
-        <div className="h-4 w-full rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/20 to-blue-500/20" />
-        <div className="h-4 w-5/6 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/20 to-blue-500/20" />
-        <div className="h-4 w-3/4 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/10 to-blue-500/10" />
-        <div className="h-4 w-1/2 rounded-full mb-2 overflow-hidden bg-gradient-to-r from-cyan-400/10 to-blue-500/10" />
+        <div className="h-5 w-2/3 rounded-full mb-2 overflow-hidden bg-[#18223a] animate-pulse-skeleton" />
+        <div className="h-4 w-full rounded-full mb-2 overflow-hidden bg-[#18223a] animate-pulse-skeleton" />
+        <div className="h-4 w-5/6 rounded-full mb-2 overflow-hidden bg-[#18223a] animate-pulse-skeleton" />
+        <div className="h-4 w-3/4 rounded-full mb-2 overflow-hidden bg-[#18223a] animate-pulse-skeleton" />
+        <div className="h-4 w-1/2 rounded-full mb-2 overflow-hidden bg-[#18223a] animate-pulse-skeleton" />
       </div>
       {/* Static robot icon, no animation */}
       <span
@@ -64,7 +62,7 @@ const QuestionCardComponent = ({
         ) : (
           ''
         )}
-        <h2 className="text-2xl sm:text-3xl font-bold gradient-text flex-1">
+        <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 flex-1">
           {question.title}
         </h2>
       </div>

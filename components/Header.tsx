@@ -31,7 +31,7 @@ export default function Header({
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
               fill="currentColor"
-              className="w-5 h-5 sm:w-6 sm:h-6 text-blue-300 drop-shadow-lg"
+              className="w-10 h-10 sm:w-14 sm:h-14 text-blue-300 drop-shadow-lg"
             >
               <rect
                 x="4"
@@ -66,7 +66,7 @@ export default function Header({
             </svg>
           </span>
           {/* Animated Gradient Text */}
-          <span className="text-2xl gradient-text animate-shimmer font-extrabold relative drop-shadow-md">
+          <span className="text-2xl text-cyan-300 animate-shimmer font-extrabold relative drop-shadow-md">
             {t('app_title')}
           </span>
           {/* Enhanced Underline Animation */}

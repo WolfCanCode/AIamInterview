@@ -20,7 +20,7 @@ export default function DomainSelector({
 
   return (
     <div className="w-full max-w-5xl flex flex-col items-center animate-fade-in">
-      <h2 className="text-2xl sm:text-5xl font-bold gradient-text max-w-full mx-auto">
+      <h2 className="text-2xl sm:text-5xl font-bold text-cyan-300 max-w-full mx-auto">
         {t('select_domain')}
         <BlinkingCursor />
       </h2>
@@ -32,7 +32,7 @@ export default function DomainSelector({
           <div key={group.key} className="w-full">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-2xl">
-                <group.icon width={48} height={48} />
+                <group.icon width={32} height={32} />
               </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
                 {t(group.group || group.key)}
@@ -62,7 +62,7 @@ export default function DomainSelector({
                     >
                       <d.icon />
                     </span>
-                    <span className="text-base sm:text-lg font-semibold gradient-text group-hover:animate-shimmer max-w-[120px] sm:max-w-full relative z-10">
+                    <span className="text-base sm:text-lg font-semibold text-cyan-300 group-hover:animate-shimmer max-w-[120px] sm:max-w-full relative z-10">
                       {t(d.name || d.key)}
                     </span>
                     <span className="text-xs text-cyan-300 mt-1 text-center hidden sm:block relative z-10">

@@ -664,3 +664,11 @@ body, html, * {
     background-color: #0a0f1a !important;
   }
 }
+
+@keyframes pulse-skeleton {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.animate-pulse-skeleton {
+  animation: pulse-skeleton 1.2s ease-in-out infinite;
+}

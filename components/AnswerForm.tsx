@@ -99,7 +99,7 @@ export default function AnswerForm({
               <span className="text-xl drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
                 <SendIcon />
               </span>
-              <span className="text-base sm:text-lg font-semibold gradient-text">
+              <span className="text-base sm:text-lg font-semibold text-cyan-300">
                 {isPending || skipPending
                   ? skipPending
                     ? t('getting_new_question')

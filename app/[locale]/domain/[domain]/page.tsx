@@ -67,7 +67,7 @@ export default function DomainDetailPage({
                 aria-pressed={selectedChild === child}
                 tabIndex={0}
               >
-                <span className="relative text-sm font-inherit gradient-text font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
+                <span className="relative text-sm font-inherit text-cyan-300 font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
                   {t(child)}
                 </span>
                 {selectedChild === child && (
