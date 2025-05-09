@@ -20,18 +20,18 @@ export default function DomainSelector({
 
   return (
     <div className="w-full max-w-5xl flex flex-col items-center animate-fade-in">
-      <h2 className="text-2xl sm:text-5xl font-bold bg-gradient-to-r from-[oklch(85%_0.3_240)] to-[oklch(85%_0.3_280)] bg-clip-text text-transparent max-w-full mx-auto">
+      <h2 className="text-main text-2xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent max-w-full mx-auto">
         {t('select_domain')}
         <BlinkingCursor />
       </h2>
-      <p className="text-blue-200 text-center mb-6 mt-1 text-xs sm:text-xl">
+      <p className="text-main text-center mb-6 mt-1 text-xs sm:text-xl">
         {t('explore_domain')}
       </p>
       <div className="flex flex-col gap-8 w-full">
         {domainGroups.map((group) => (
           <div key={group.key} className="w-full">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">
+              <span className="text-2xl text-main">
                 <group.icon />
               </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
@@ -43,7 +43,7 @@ export default function DomainSelector({
                 <div key={d.key} className="relative ">
                   <button
                     onClick={() => handleDomainClick(d)}
-                    className={` group w-full px-4 py-6  sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d] shadow-lg border-2 border-cyan-900 relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
+                    className={`card group w-full px-4 py-6 sm:px-6 sm:py-8 flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 border border-white text-main relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
                       selectedDomain === d.name
                         ? 'ring-2 ring-cyan-400/60 scale-105 border-cyan-400 shadow-cyan-400/20'
                         : ''
@@ -60,10 +60,10 @@ export default function DomainSelector({
                     >
                       <d.icon />
                     </span>
-                    <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent group-hover:animate-shimmer  max-w-[120px] sm:max-w-full">
+                    <span className="text-main text-base sm:text-lg font-semibold group-hover:animate-shimmer max-w-[120px] sm:max-w-full">
                       {t(d.name || d.key)}
                     </span>
-                    <span className="text-xs text-cyan-300 mt-1 text-center hidden sm:block">
+                    <span className="text-secondary text-xs mt-1 text-center hidden sm:block">
                       {t(d.description || '')}
                     </span>
                   </button>

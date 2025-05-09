@@ -9,14 +9,18 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto py-8 safe-area-pb text-center text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
+    <footer className="mt-auto py-8 safe-area-pb text-center text-main text-xs sm:text-sm flex flex-col items-center gap-2 w-full">
       <span>
-        <strong>{t('build')}</strong>{' '}
-        <span className="font-mono text-xs">v1.5 {BUILD_VERSION}</span>
+        <strong className="text-main">{t('build')}</strong>{' '}
+        <span className="font-mono text-xs text-main">
+          v1.5 {BUILD_VERSION}
+        </span>
       </span>
       <span>
-        <strong>{t('model')}</strong>{' '}
-        <span className="font-mono text-xs">meta-llama/llama-4-maverick</span>
+        <strong className="text-main">{t('model')}</strong>{' '}
+        <span className="font-mono text-xs text-main">
+          meta-llama/llama-4-maverick
+        </span>
       </span>
       <div className="flex gap-4 mb-2">
         <a
@@ -24,7 +28,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
-          className="hover:text-cyan-400 transition-colors text-2xl"
+          className="hover:text-cyan-400 transition-colors text-2xl text-main"
         >
           <FaFacebook />
         </a>
@@ -33,7 +37,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="hover:text-cyan-400 transition-colors text-2xl"
+          className="hover:text-cyan-400 transition-colors text-2xl text-main"
         >
           <FaGithub />
         </a>
@@ -42,12 +46,12 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="hover:text-cyan-400 transition-colors text-2xl"
+          className="hover:text-cyan-400 transition-colors text-2xl text-main"
         >
           <FaLinkedin />
         </a>
       </div>
-      <span className="text-xs text-gray-400 cursor-pointer">
+      <span className="text-xs text-main cursor-pointer">
         {t.rich('copyright', {
           year: currentYear,
           fallback: `© ${currentYear} AI am Interview. All rights reserved.`,

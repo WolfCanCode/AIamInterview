@@ -50,7 +50,7 @@ export default function DomainDetailPage({
       {/* Child Domain Selector */}
       {hasChildren && (
         <div className="mb-4">
-          <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mt-4 text-center animate-fade-in">
+          <div className="text-main text-sm font-medium mt-4 text-center animate-fade-in">
             {t('select_subtopic')}
           </div>
           <div className="domain-children-grid animate-fade-in">
@@ -59,7 +59,7 @@ export default function DomainDetailPage({
                 key={child}
                 type="button"
                 onClick={() => setSelectedChild(child)}
-                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 backdrop-blur bg-gradient-to-br from-[#0a0f1a] via-[#101624] to-[#05070d] shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
+                className={`card relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border border-white backdrop-blur text-main hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
                   selectedChild === child
                     ? 'scale-105 border-cyan-400 ring-2 ring-cyan-400/60 shadow-cyan-400/20'
                     : ''
@@ -67,7 +67,7 @@ export default function DomainDetailPage({
                 aria-pressed={selectedChild === child}
                 tabIndex={0}
               >
-                <span className="relative text-sm font-inherit bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
+                <span className="relative text-main text-sm font-inherit font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
                   {t(child)}
                 </span>
                 {selectedChild === child && (
