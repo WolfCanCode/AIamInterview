@@ -482,53 +482,6 @@ button {
   padding: 0.5rem;
 }
 
-.domain-child-button {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  background: color-mix(in oklch, var(--primary) 15%, transparent);
-  backdrop-filter: blur(8px);
-  border: 3px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  font-weight: 900;
-}
-
-.domain-child-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    oklch(75% 0.3 240 / 0.2),
-    oklch(75% 0.3 280 / 0.2)
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.domain-child-button:hover::before {
-  opacity: 1;
-}
-
-.domain-child-button.active {
-  background: color-mix(in oklch, var(--primary) 30%, transparent);
-  border: 3px solid var(--primary);
-  box-shadow: 
-    0 0 20px color-mix(in oklch, var(--primary) 20%, transparent),
-    inset 0 0 12px color-mix(in oklch, var(--primary) 10%, transparent);
-  transform: scale(1.05);
-}
-
-.domain-child-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px -4px color-mix(in oklch, var(--primary) 15%, transparent);
-}
-
-.domain-child-button.active:hover {
-  transform: scale(1.05);
-}
-
 @keyframes robot-wave {
   0%,
   100% {
