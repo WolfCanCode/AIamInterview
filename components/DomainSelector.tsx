@@ -47,7 +47,7 @@ export default function DomainSelector({
                       selectedDomain === d.name
                         ? 'ring-2 ring-gray-300/80 scale-105 border-gray-300 shadow-gray-300/40 bg-[#23272e]'
                         : ''
-                    } h-[116px] sm:h-auto flex flex-col justify-center items-center`}
+                    } h-[200px] sm:h-auto flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}
                     tabIndex={0}
                     style={{ touchAction: 'manipulation' }}
@@ -56,13 +56,10 @@ export default function DomainSelector({
                     <div className="absolute inset-0 bg-black/20 rounded-2xl z-0 pointer-events-none" />
                     {/* Ripple effect - simplified for mobile */}
                     <span className="absolute inset-0 pointer-events-none bg-gradient-futuristic rounded-2xl opacity-0 group-active:opacity-100 transition-opacity duration-200"></span>
-                    <span
-                      className="text-3xl sm:text-4xl transition-transform duration-200 text-cyan-200 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)] relative z-10"
-                      style={{ contain: 'strict' }}
-                    >
-                      <d.icon />
+                    <span className="text-3xl sm:text-5xl mb-2 transition-transform duration-200 text-cyan-200 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)] relative z-10 flex items-center justify-center">
+                      <d.icon width={48} height={48} />
                     </span>
-                    <span className="text-base sm:text-lg font-semibold text-cyan-300 group-hover:animate-shimmer max-w-[120px] sm:max-w-full relative z-10">
+                    <span className="text-base sm:text-lg font-semibold text-cyan-300 group-hover:animate-shimmer max-w-[120px] sm:max-w-full relative z-10 text-center">
                       {t(d.name || d.key)}
                     </span>
                     <span className="text-xs text-cyan-300 mt-1 text-center hidden sm:block relative z-10">
