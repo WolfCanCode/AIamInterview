@@ -38,7 +38,7 @@ export default function AnswerForm({
     >
       <div className="w-full">
         <label
-          className="block text-blue-300/90 text-sm font-medium mb-2 ml-1"
+          className="block text-gray-300 text-sm font-medium mb-2 ml-1"
           htmlFor="answer-textarea"
         >
           {t('enter_answer')}
@@ -57,10 +57,10 @@ export default function AnswerForm({
               disabled={!!evaluation}
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 ${
+              className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-gray-300/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-gray-300/20 ${
                 answer.length > 1000
                   ? 'border-red-500/50 focus:ring-red-500/50'
-                  : 'focus:border-blue-500/50'
+                  : 'focus:border-gray-300/50'
               }`}
               aria-label={t('enter_answer')}
               placeholder={t('type_your_answer')}
@@ -73,13 +73,13 @@ export default function AnswerForm({
               {t('over_char_limit', { count: answer.length - 1000 })}
             </span>
           ) : (
-            <span className="text-xs text-blue-400/70">
+            <span className="text-xs text-gray-400/70">
               {t('characters_remaining', { count: 1000 - answer.length })}
             </span>
           )}
           <span
             className={`text-xs ${
-              answer.length > 1000 ? 'text-red-400/90' : 'text-blue-400/70'
+              answer.length > 1000 ? 'text-red-400/90' : 'text-gray-400/70'
             }`}
           >
             {answer.length}/1000

@@ -12,7 +12,7 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
             fill="currentColor"
-            className="h-10 w-10 sm:w-20 sm:h-20 text-blue-300 drop-shadow-lg"
+            className="h-10 w-10 sm:w-20 sm:h-20 text-gray-300 drop-shadow-lg"
           >
             <rect
               x="4"
@@ -20,7 +20,7 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
               width="24"
               height="14"
               rx="3"
-              className="fill-blue-800"
+              className="fill-gray-800"
             />
             <rect
               x="7"
@@ -36,13 +36,13 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
               width="28"
               height="3"
               rx="1.5"
-              className="fill-blue-900"
+              className="fill-gray-800"
             />
             <circle
               cx="16"
               cy="15"
               r="2"
-              className="fill-blue-400 animate-pulse"
+              className="fill-gray-400 animate-pulse"
             />
           </svg>
           <span className="text-3xl sm:text-5xl font-extrabold text-cyan-300 drop-shadow-lg animate-pulse">

@@ -24,7 +24,7 @@ export default function DomainSelector({
         {t('select_domain')}
         <BlinkingCursor />
       </h2>
-      <p className="text-blue-200 text-center mb-6 mt-1 text-xs sm:text-xl">
+      <p className="text-gray-300 text-center mb-6 mt-1 text-xs sm:text-xl">
         {t('explore_domain')}
       </p>
       <div className="flex flex-col gap-8 w-full">
@@ -32,7 +32,7 @@ export default function DomainSelector({
           <div key={group.key} className="w-full">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-2xl">
-                <group.icon width={32} height={32} />
+                <group.icon width={32} height={32} className="text-gray-300" />
               </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
                 {t(group.group || group.key)}
@@ -43,9 +43,9 @@ export default function DomainSelector({
                 <div key={d.key} className="relative ">
                   <button
                     onClick={() => handleDomainClick(d)}
-                    className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/70 bg-gradient-futuristic shadow-lg border-2 border-cyan-900 relative overflow-hidden hover:shadow-2xl hover:border-cyan-400 backdrop-blur-sm ${
+                    className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300/70 bg-gradient-futuristic shadow-lg border-2 border-gray-900 relative overflow-hidden hover:shadow-2xl hover:border-gray-300 backdrop-blur-sm ${
                       selectedDomain === d.name
-                        ? 'ring-2 ring-cyan-400/80 scale-105 border-cyan-400 shadow-cyan-400/40 bg-[#18223a]'
+                        ? 'ring-2 ring-gray-300/80 scale-105 border-gray-300 shadow-gray-300/40 bg-[#23272e]'
                         : ''
                     } h-[116px] sm:h-auto flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}

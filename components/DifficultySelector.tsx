@@ -79,7 +79,7 @@ export default function DifficultySelector({
             variant="dark"
             className={`transition-all duration-300 cursor-pointer p-2 ${
               difficulty === mode
-                ? 'scale-105 border-cyan-400 shadow-cyan-400/40 bg-[#18223a] ring-2 ring-cyan-400/80'
+                ? 'scale-105 border-gray-300 shadow-gray-300/40 bg-[#23272e] ring-2 ring-gray-300/80'
                 : ''
             }`}
             onClick={() => setDifficulty(mode as Difficulty)}

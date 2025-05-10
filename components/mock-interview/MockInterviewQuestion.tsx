@@ -29,7 +29,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
     {idx > 0 && (
       <div className="flex items-center my-10">
         <div className="flex-1 h-px bg-cyan-400/30" />
-        <span className="mx-4 px-4 py-1 rounded-full bg-blue-900/60 text-cyan-300 font-bold text-lg shadow-lg border border-cyan-400/30">
+        <span className="mx-4 px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30">
           {t('question')} {idx + 1}
         </span>
         <div className="flex-1 h-px bg-cyan-400/30" />
@@ -37,7 +37,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
     )}
     {idx === 0 && (
       <div className="flex items-center my-10 justify-center">
-        <span className="px-4 py-1 rounded-full bg-blue-900/60 text-cyan-300 font-bold text-lg shadow-lg border border-cyan-400/30">
+        <span className="px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30">
           {t('question')} {idx + 1}
         </span>
       </div>
@@ -84,7 +84,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
             <span className="text-lg font-bold text-green-400">
               {t('score')}: {evaluation.results[idx].overall_score}/10
             </span>
-            <span className="text-lg font-bold text-blue-400">
+            <span className="text-lg font-bold text-gray-300">
               {t('creative_score')}: {evaluation.results[idx].creative_score}/10
             </span>
           </div>

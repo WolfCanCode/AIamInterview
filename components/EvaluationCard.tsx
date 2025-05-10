@@ -51,10 +51,10 @@ export default function EvaluationCard({
         </div>
         {evaluation.creative_score ? (
           <div className="flex flex-col items-center gap-2">
-            <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-blue-400 bg-gray-900 text-blue-200 text-4xl font-bold shadow-lg animate-scale-in">
+            <div className="w-20 h-20 flex items-center justify-center rounded-full border-4 border-gray-300 bg-[#23272e] text-gray-300 text-4xl font-bold shadow-lg animate-scale-in">
               {evaluation.creative_score}
             </div>
-            <span className="text-blue-400 font-semibold">
+            <span className="text-gray-300 font-semibold">
               {t('creative_score')}
             </span>
           </div>
@@ -85,11 +85,11 @@ export default function EvaluationCard({
       </div>
       {/* Suggestions Inline Card */}
       {evaluation.suggestions && (
-        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-blue-400 rounded-xl p-5 shadow-inner animate-fade-in-slow">
-          <span className="text-2xl mt-1 text-blue-300">
+        <div className="flex items-start gap-3 bg-gray-800/80 border-l-4 border-gray-300 rounded-xl p-5 shadow-inner animate-fade-in-slow">
+          <span className="text-2xl mt-1 text-gray-300">
             <EditIcon />
           </span>
-          <p className="text-blue-100 font-medium">
+          <p className="text-gray-300 font-medium">
             <b>{t('suggestion')}</b> {evaluation.suggestions}
           </p>
         </div>
@@ -99,16 +99,16 @@ export default function EvaluationCard({
           <span className="text-2xl mt-1 text-green-400">
             <CheckCircleFillIcon />
           </span>
-          <p className="text-blue-100 font-medium">
+          <div className="text-gray-300 font-medium">
             <b>{t('key_point')}</b>
             <ul className="list-decimal list-inside">
               {evaluation.key_points_of_main_argument.map((keyPoint, index) => (
-                <li key={index} className="text-blue-100">
+                <li key={index} className="text-gray-300">
                   {keyPoint}
                 </li>
               ))}
             </ul>
-          </p>
+          </div>
         </div>
       )}
       {evaluation.perfect_answer && (
@@ -116,7 +116,7 @@ export default function EvaluationCard({
           <span className="text-2xl mt-1 text-yellow-300">
             <StarIcon />
           </span>
-          <p className="text-blue-100 font-medium">
+          <p className="text-gray-300 font-medium">
             <b>{t('perfect_answer')}</b> {evaluation.perfect_answer}
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function EvaluationCard({
           <span className="text-2xl mt-1 text-yellow-300">
             <StarIcon />
           </span>
-          <p className="text-blue-100 font-medium">
+          <p className="text-gray-300 font-medium">
             <b>{t('title_level_text')}</b> {evaluation.title_ranking_text}
           </p>
         </div>
