@@ -31,6 +31,7 @@ import ArchitectureIcon from '@/components/icons/ArchitectureIcon';
 import BankingIcon from '@/components/icons/BankingIcon';
 import InvestmentIcon from '@/components/icons/InvestmentIcon';
 import InsuranceIcon from '@/components/icons/InsuranceIcon';
+import ManagementIcon from '@/components/icons/ManagementIcon';
 
 export const domainGroups: DomainGroup[] = [
   {
@@ -207,6 +208,73 @@ export const domainGroups: DomainGroup[] = [
           'domain_embedded_child_rtos',
           'domain_embedded_child_iot',
           'domain_embedded_child_firmware',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'management',
+    group: 'domain_group_management',
+    icon: ManagementIcon,
+    domains: [
+      {
+        key: 'product_owner',
+        name: 'domain_product_owner',
+        icon: ManagementIcon,
+        description: 'domain_product_owner_desc',
+        children: [
+          'domain_product_owner_child_responsibilities',
+          'domain_product_owner_child_backlog',
+          'domain_product_owner_child_stakeholder',
+          'domain_product_owner_child_value',
+        ],
+      },
+      {
+        key: 'scrum_master',
+        name: 'domain_scrum_master',
+        icon: ManagementIcon,
+        description: 'domain_scrum_master_desc',
+        children: [
+          'domain_scrum_master_child_responsibilities',
+          'domain_scrum_master_child_ceremonies',
+          'domain_scrum_master_child_impediments',
+          'domain_scrum_master_child_coaching',
+        ],
+      },
+      {
+        key: 'project_manager',
+        name: 'domain_project_manager',
+        icon: ManagementIcon,
+        description: 'domain_project_manager_desc',
+        children: [
+          'domain_project_manager_child_planning',
+          'domain_project_manager_child_execution',
+          'domain_project_manager_child_risk',
+          'domain_project_manager_child_communication',
+        ],
+      },
+      {
+        key: 'agile_coach',
+        name: 'domain_agile_coach',
+        icon: ManagementIcon,
+        description: 'domain_agile_coach_desc',
+        children: [
+          'domain_agile_coach_child_transformation',
+          'domain_agile_coach_child_mentoring',
+          'domain_agile_coach_child_training',
+          'domain_agile_coach_child_metrics',
+        ],
+      },
+      {
+        key: 'engineering_manager',
+        name: 'domain_engineering_manager',
+        icon: ManagementIcon,
+        description: 'domain_engineering_manager_desc',
+        children: [
+          'domain_engineering_manager_child_leadership',
+          'domain_engineering_manager_child_delivery',
+          'domain_engineering_manager_child_growth',
+          'domain_engineering_manager_child_process',
         ],
       },
     ],
