@@ -1,6 +1,9 @@
 'use client';
 import { submitMockInterviewAction } from '@/actions/submitMockInterviewAction';
 import FuturisticButton from '@/components/FuturisticButton';
+import PenIcon from '@/components/icons/PenIcon';
+import RedoIcon from '@/components/icons/RedoIcon';
+import SendIcon from '@/components/icons/SendIcon';
 import MockInterviewConfirm from '@/components/mock-interview/MockInterviewConfirm';
 import MockInterviewEvaluation from '@/components/mock-interview/MockInterviewEvaluation';
 import MockInterviewFooter from '@/components/mock-interview/MockInterviewFooter';
@@ -12,12 +15,8 @@ import { useMockInterviewQuestions } from '@/utils/hooks/useMockInterviewQuestio
 import { useMockInterviewTimer } from '@/utils/hooks/useMockInterviewTimer';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import React from 'react';
-import PenIcon from '@/components/icons/PenIcon';
-import RedoIcon from '@/components/icons/RedoIcon';
-import PaperPlaneIcon from '@/components/icons/PaperPlaneIcon';
 const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 const AnimatedGradingMessage = React.memo(function AnimatedGradingMessage({
@@ -224,7 +223,7 @@ const MockInterviewPage = () => {
                 <FuturisticButton
                   type="submit"
                   color="cyan"
-                  icon={<PaperPlaneIcon width={20} height={20} />}
+                  icon={<SendIcon width={20} height={20} />}
                   disabled={submitted}
                   className="!mt-0 min-w-[120px]"
                 >

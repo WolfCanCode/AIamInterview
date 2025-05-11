@@ -1,7 +1,7 @@
-import ClockIcon from '../icons/ClockIcon';
-import PaperPlaneIcon from '../icons/PaperPlaneIcon';
-import FuturisticButton from '../FuturisticButton';
 import React from 'react';
+import FuturisticButton from '../FuturisticButton';
+import ClockIcon from '../icons/ClockIcon';
+import SendIcon from '../icons/SendIcon';
 
 interface MockInterviewFooterProps {
   timeLeft: number;
@@ -79,7 +79,7 @@ const MockInterviewFooter: React.FC<MockInterviewFooterProps> = ({
       <FuturisticButton
         type="submit"
         color="cyan"
-        icon={<PaperPlaneIcon />}
+        icon={<SendIcon />}
         disabled={submitted}
         className="!mt-0 min-w-[120px]"
       >
