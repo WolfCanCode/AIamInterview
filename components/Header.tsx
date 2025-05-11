@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
 import BackButton from './BackButton';
+import LogoIcon from './icons/LogoIcon';
 
 export default function Header({
   onClickLogo,
@@ -27,43 +28,7 @@ export default function Header({
         >
           {/* Animated Logo Icon */}
           <span className="inline-flex items-center justify-center text-xl sm:text-2xl group-hover:animate-spin-slow transition-transform duration-700">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              fill="currentColor"
-              className="w-10 h-10 sm:w-14 sm:h-14 text-blue-300 drop-shadow-lg"
-            >
-              <rect
-                x="4"
-                y="8"
-                width="24"
-                height="14"
-                rx="3"
-                className="fill-cyan-300"
-              />
-              <rect
-                x="7"
-                y="11"
-                width="18"
-                height="8"
-                rx="2"
-                className="fill-cyan-900"
-              />
-              <rect
-                x="2"
-                y="24"
-                width="28"
-                height="3"
-                rx="1.5"
-                className="fill-cyan-300"
-              />
-              <circle
-                cx="16"
-                cy="15"
-                r="2"
-                className="fill-cyan-300 animate-pulse"
-              />
-            </svg>
+            <LogoIcon className="w-10 h-10 sm:w-14 sm:h-14 drop-shadow-lg" />
           </span>
           {/* Animated Gradient Text */}
           {/* <span className="text-2xl text-cyan-300 animate-shimmer font-extrabold relative drop-shadow-md">

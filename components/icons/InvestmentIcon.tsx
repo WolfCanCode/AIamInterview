@@ -16,15 +16,23 @@ const InvestmentIcon = ({
   >
     <rect
       x="8"
-      y="20"
+      y="10"
       width="16"
-      height="4"
-      rx="2"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <path d="M10 20L16 14L20 18L24 12" stroke="#06b6d4" strokeWidth="1.5" />
-    <path d="M24 12V16" stroke="#06b6d4" strokeWidth="1.2" />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <path
+      d="M12 18l4-4 4 4"
+      stroke="#06b6d4"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+    />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
+    <rect x="12" y="18" width="8" height="2" rx="1" fill="#fff" />
   </svg>
 );
 

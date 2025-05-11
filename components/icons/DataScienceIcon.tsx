@@ -16,32 +16,23 @@ const DataScienceIcon = ({
   >
     <rect
       x="6"
-      y="20"
-      width="4"
-      height="6"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <rect
-      x="14"
-      y="14"
-      width="4"
-      height="12"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <rect
-      x="22"
-      y="10"
-      width="4"
+      y="8"
+      width="20"
       height="16"
-      rx="2"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <path d="M6 26H26" stroke="#06b6d4" strokeWidth="1.5" />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="12" cy="18" r="2" fill="#a78bfa" />
+    <circle cx="20" cy="14" r="2" fill="#fff" />
+    <path
+      d="M12 18L16 14L20 14"
+      stroke="#fff"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+    />
   </svg>
 );
 

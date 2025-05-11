@@ -15,27 +15,19 @@ const InsuranceIcon = ({
     {...props}
   >
     <rect
-      x="6"
+      x="8"
       y="10"
-      width="20"
-      height="14"
-      rx="6"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      fill="none"
+      strokeWidth="2"
     />
-    <path
-      d="M16 18c2.5 0 4.5-2 4.5-4.5S18.5 9 16 9s-4.5 2-4.5 4.5S13.5 18 16 18z"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M12 22c0-2.2 2.7-3.5 4-3.5s4 1.3 4 3.5"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-      fill="none"
-    />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <path d="M12 16c0-2 2-4 4-4s4 2 4 4-2 4-4 4-4-2-4-4z" fill="#06b6d4" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#fff" />
+    <rect x="12" y="18" width="8" height="2" rx="1" fill="#fff" />
   </svg>
 );
 

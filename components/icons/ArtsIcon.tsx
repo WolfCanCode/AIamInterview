@@ -14,18 +14,20 @@ const ArtsIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <ellipse
-      cx="18"
-      cy="16"
-      rx="10"
-      ry="7"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <circle cx="12" cy="16" r="1.2" fill="#06b6d4" />
-    <circle cx="16" cy="13" r="1.2" fill="#06b6d4" />
-    <circle cx="20" cy="16" r="1.2" fill="#06b6d4" />
-    <circle cx="16" cy="19" r="1.2" fill="#06b6d4" />
+    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
+    <circle cx="14" cy="16" r="1" fill="#fff" />
+    <circle cx="18" cy="16" r="1" fill="#fff" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
   </svg>
 );
 

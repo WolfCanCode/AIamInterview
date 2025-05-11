@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const MobileIcon = ({
+const UIDesignIcon = ({
   width = 32,
   height = 32,
   ...props
@@ -15,19 +15,19 @@ const MobileIcon = ({
     {...props}
   >
     <rect
-      x="8"
-      y="6"
-      width="16"
-      height="20"
+      x="6"
+      y="8"
+      width="20"
+      height="16"
       rx="4"
       fill="#101624"
       stroke="#06b6d4"
       strokeWidth="2"
     />
-    <rect x="12" y="10" width="8" height="12" rx="2" fill="#06b6d4" />
-    <circle cx="16" cy="22" r="1.5" fill="#a78bfa" />
-    <rect x="14" y="8" width="4" height="2" rx="1" fill="#fff" />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="16" cy="16" r="2" fill="#a78bfa" />
+    <path d="M16 12v8" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 
-export default MobileIcon;
+export default UIDesignIcon;

@@ -14,12 +14,19 @@ const CloudIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <path
-      d="M10 22C7.79 22 6 20.21 6 18C6 15.79 7.79 14 10 14C10.29 14 10.57 14.03 10.84 14.08C11.94 11.67 14.28 10 17 10C20.31 10 23 12.69 23 16C23 16.13 22.99 16.26 22.98 16.39C24.16 16.7 25 17.74 25 19C25 20.66 23.66 22 22 22H10Z"
+    <rect
+      x="6"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      fill="none"
+      strokeWidth="2"
     />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
+    <ellipse cx="20" cy="16" rx="2" ry="1" fill="#fff" />
   </svg>
 );
 

@@ -14,14 +14,20 @@ const EducationIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <path
-      d="M6 14L16 9L26 14L16 19L6 14Z"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      fill="none"
+      strokeWidth="2"
     />
-    <path d="M16 19V24" stroke="#06b6d4" strokeWidth="1.5" />
-    <circle cx="16" cy="24" r="1.5" fill="#06b6d4" />
+    <rect x="12" y="14" width="8" height="2" rx="1" fill="#06b6d4" />
+    <rect x="12" y="18" width="8" height="2" rx="1" fill="#a78bfa" />
+    <path d="M16 12l4 2-4 2-4-2 4-2z" fill="#fff" />
+    <rect x="14" y="20" width="4" height="2" rx="1" fill="#fff" />
   </svg>
 );
 

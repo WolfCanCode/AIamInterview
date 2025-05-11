@@ -19,31 +19,14 @@ const BackendIcon = ({
       y="8"
       width="20"
       height="16"
-      rx="3"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <rect
-      x="10"
-      y="12"
-      width="12"
-      height="2"
-      rx="1"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-    />
-    <rect
-      x="10"
-      y="16"
-      width="12"
-      height="2"
-      rx="1"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-    />
-    <circle cx="10.5" cy="22.5" r="1" fill="#06b6d4" />
-    <circle cx="16" cy="22.5" r="1" fill="#06b6d4" />
-    <circle cx="21.5" cy="22.5" r="1" fill="#06b6d4" />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="16" cy="16" r="2" fill="#a78bfa" />
+    <path d="M12 20h8" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 

@@ -14,13 +14,19 @@ const EnvironmentalIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <ellipse cx="16" cy="20" rx="8" ry="6" stroke="#06b6d4" strokeWidth="2.2" />
-    <path
-      d="M16 26C16 18 24 14 24 14C24 14 20 10 16 10C12 10 8 14 8 14C8 14 16 18 16 26Z"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
-      fill="none"
+      strokeWidth="2"
     />
+    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
+    <path d="M16 14c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4z" fill="#06b6d4" />
+    <path d="M16 16v4" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 

@@ -14,14 +14,20 @@ const DevopsIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <path
-      d="M10 16C10 13.79 11.79 12 14 12C15.38 12 16.59 12.81 17.17 14H18.83C19.41 12.81 20.62 12 22 12C24.21 12 26 13.79 26 16C26 18.21 24.21 20 22 20C20.62 20 19.41 19.19 18.83 18H17.17C16.59 19.19 15.38 20 14 20C11.79 20 10 18.21 10 16Z"
+    <rect
+      x="6"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      fill="none"
+      strokeWidth="2"
     />
-    <circle cx="14" cy="16" r="2" stroke="#06b6d4" strokeWidth="1.5" />
-    <circle cx="22" cy="16" r="2" stroke="#06b6d4" strokeWidth="1.5" />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="12" cy="16" r="2" fill="#a78bfa" />
+    <circle cx="20" cy="16" r="2" fill="#fff" />
+    <path d="M14 20h4" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 

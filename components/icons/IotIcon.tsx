@@ -14,13 +14,20 @@ const IotIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <circle cx="16" cy="16" r="10" stroke="#06b6d4" strokeWidth="2.2" />
-    <circle cx="16" cy="8" r="1.5" fill="#06b6d4" />
-    <circle cx="24" cy="16" r="1.5" fill="#06b6d4" />
-    <circle cx="16" cy="24" r="1.5" fill="#06b6d4" />
-    <circle cx="8" cy="16" r="1.5" fill="#06b6d4" />
-    <path d="M16 8V24" stroke="#06b6d4" strokeWidth="1.2" />
-    <path d="M8 16H24" stroke="#06b6d4" strokeWidth="1.2" />
+    <rect
+      x="6"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
+      stroke="#06b6d4"
+      strokeWidth="2"
+    />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="16" cy="16" r="2" fill="#a78bfa" />
+    <path d="M16 10v-2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
+    <path d="M14 8h4" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 

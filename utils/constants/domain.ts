@@ -12,7 +12,6 @@ import BlockchainIcon from '@/components/icons/BlockchainIcon';
 import IotIcon from '@/components/icons/IotIcon';
 import QaIcon from '@/components/icons/QaIcon';
 import EmbeddedIcon from '@/components/icons/EmbeddedIcon';
-import DesignIcon from '@/components/icons/DesignIcon';
 import BusinessIcon from '@/components/icons/BusinessIcon';
 import LegalIcon from '@/components/icons/LegalIcon';
 import EducationIcon from '@/components/icons/EducationIcon';
@@ -37,8 +36,11 @@ import ScrumMasterIcon from '@/components/icons/ScrumMasterIcon';
 import ProjectManagerIcon from '@/components/icons/ProjectManagerIcon';
 import AgileCoachIcon from '@/components/icons/AgileCoachIcon';
 import EngineeringManagerIcon from '@/components/icons/EngineeringManagerIcon';
+import GraphicDesignIcon from '@/components/icons/GraphicDesignIcon';
+import ProductDesignIcon from '@/components/icons/ProductDesignIcon';
+import UIDesignIcon from '@/components/icons/UIDesignIcon';
 
-export const domainGroups: DomainGroup[] = [
+export const domainGroupsNoSorted: DomainGroup[] = [
   {
     key: 'technology',
     group: 'domain_group_technology',
@@ -287,12 +289,12 @@ export const domainGroups: DomainGroup[] = [
   {
     key: 'design',
     group: 'domain_group_design',
-    icon: DesignIcon,
+    icon: UIDesignIcon,
     domains: [
       {
         key: 'uiux',
         name: 'domain_uiux',
-        icon: DesignIcon,
+        icon: UIDesignIcon,
         description: 'domain_uiux_desc',
         children: [
           'domain_uiux_child_uxresearch',
@@ -306,7 +308,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'graphic',
         name: 'domain_graphic',
-        icon: DesignIcon,
+        icon: GraphicDesignIcon,
         description: 'domain_graphic_desc',
         children: [
           'domain_graphic_child_brand',
@@ -320,7 +322,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'product',
         name: 'domain_product',
-        icon: DesignIcon,
+        icon: ProductDesignIcon,
         description: 'domain_product_desc',
         children: [
           'domain_product_child_strategy',
@@ -1087,3 +1089,7 @@ export const domainGroups: DomainGroup[] = [
     ],
   },
 ];
+
+export const domainGroups: DomainGroup[] = [...domainGroupsNoSorted].sort(
+  (a, b) => a.key.localeCompare(b.key)
+);

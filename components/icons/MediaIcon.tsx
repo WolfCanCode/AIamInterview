@@ -14,15 +14,19 @@ const MediaIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <circle cx="16" cy="16" r="10" stroke="#06b6d4" strokeWidth="2.2" />
-    <polygon
-      points="14,12 22,16 14,20"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
-      fill="none"
+      strokeWidth="2"
     />
-    <path d="M8 16C8 12 12 8 16 8" stroke="#06b6d4" strokeWidth="1.2" />
-    <path d="M8 16C8 20 12 24 16 24" stroke="#06b6d4" strokeWidth="1.2" />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <polygon points="18,16 14,14 14,18" fill="#fff" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
   </svg>
 );
 

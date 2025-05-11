@@ -16,24 +16,23 @@ const BankingIcon = ({
   >
     <rect
       x="8"
-      y="14"
-      width="16"
-      height="8"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <rect
-      x="12"
       y="10"
-      width="8"
-      height="4"
-      rx="1.5"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="2"
     />
-    <path d="M10 18H22" stroke="#06b6d4" strokeWidth="1.2" />
-    <circle cx="12" cy="20" r="1.2" fill="#06b6d4" />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <rect x="12" y="18" width="8" height="2" rx="1" fill="#06b6d4" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#fff" />
+    <path
+      d="M12 16h8"
+      stroke="#06b6d4"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+    />
   </svg>
 );
 

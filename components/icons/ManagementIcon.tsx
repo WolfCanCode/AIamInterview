@@ -14,11 +14,20 @@ const ManagementIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <circle cx="16" cy="10" r="4" fill="#06b6d4" />
-    <ellipse cx="16" cy="22" rx="10" ry="6" fill="#a78bfa" />
-    <circle cx="7" cy="20" r="3" fill="#7c3aed" />
-    <circle cx="25" cy="20" r="3" fill="#7c3aed" />
-    <rect x="13" y="14" width="6" height="4" rx="2" fill="#06b6d4" />
+    <rect
+      x="6"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
+      stroke="#06b6d4"
+      strokeWidth="2"
+    />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <circle cx="16" cy="16" r="2" fill="#a78bfa" />
+    <path d="M16 12l2 4h-4l2-4z" fill="#fff" />
+    <rect x="14" y="18" width="4" height="2" rx="1" fill="#fff" />
   </svg>
 );
 

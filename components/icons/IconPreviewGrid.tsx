@@ -12,7 +12,6 @@ import BlockchainIcon from './BlockchainIcon';
 import IotIcon from './IotIcon';
 import QaIcon from './QaIcon';
 import EmbeddedIcon from './EmbeddedIcon';
-import DesignIcon from './DesignIcon';
 import BusinessIcon from './BusinessIcon';
 import LegalIcon from './LegalIcon';
 import EducationIcon from './EducationIcon';
@@ -32,6 +31,16 @@ import EasyIcon from './EasyIcon';
 import MediumIcon from './MediumIcon';
 import HardIcon from './HardIcon';
 import MadnessIcon from './MadnessIcon';
+import UIDesignIcon from './UIDesignIcon';
+import GraphicDesignIcon from './GraphicDesignIcon';
+import ProductDesignIcon from './ProductDesignIcon';
+import ProductOwnerIcon from './ProductOwnerIcon';
+import ScrumMasterIcon from './ScrumMasterIcon';
+import ProjectManagerIcon from './ProjectManagerIcon';
+import AgileCoachIcon from './AgileCoachIcon';
+import EngineeringManagerIcon from './EngineeringManagerIcon';
+import ManagementIcon from './ManagementIcon';
+
 const icons = [
   { name: 'Backend', Icon: BackendIcon },
   { name: 'Frontend', Icon: FrontendIcon },
@@ -46,7 +55,15 @@ const icons = [
   { name: 'Iot', Icon: IotIcon },
   { name: 'Qa', Icon: QaIcon },
   { name: 'Embedded', Icon: EmbeddedIcon },
-  { name: 'Design', Icon: DesignIcon },
+  { name: 'UI/UX Design', Icon: UIDesignIcon },
+  { name: 'Graphic Design', Icon: GraphicDesignIcon },
+  { name: 'Product Design', Icon: ProductDesignIcon },
+  { name: 'Management', Icon: ManagementIcon },
+  { name: 'Product Owner', Icon: ProductOwnerIcon },
+  { name: 'Scrum Master', Icon: ScrumMasterIcon },
+  { name: 'Project Manager', Icon: ProjectManagerIcon },
+  { name: 'Agile Coach', Icon: AgileCoachIcon },
+  { name: 'Engineering Manager', Icon: EngineeringManagerIcon },
   { name: 'Business', Icon: BusinessIcon },
   { name: 'Legal', Icon: LegalIcon },
   { name: 'Education', Icon: EducationIcon },

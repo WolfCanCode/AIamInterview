@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const SecurityIcon = ({
+const GraphicDesignIcon = ({
   width = 32,
   height = 32,
   ...props
@@ -14,20 +14,21 @@ const SecurityIcon = ({
     aria-hidden="true"
     {...props}
   >
+    <ellipse cx="16" cy="18" rx="10" ry="7" fill="#06b6d4" />
+    <circle cx="11" cy="18" r="2" fill="#a78bfa" />
+    <circle cx="16" cy="22" r="1.5" fill="#fff" />
+    <circle cx="21" cy="18" r="2" fill="#0e7490" />
     <rect
-      x="6"
+      x="14"
       y="8"
-      width="20"
-      height="16"
-      rx="4"
+      width="4"
+      height="8"
+      rx="2"
       fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2"
+      strokeWidth="1.2"
     />
-    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
-    <circle cx="16" cy="16" r="2" fill="#a78bfa" />
-    <path d="M16 20v-4" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 
-export default SecurityIcon;
+export default GraphicDesignIcon;

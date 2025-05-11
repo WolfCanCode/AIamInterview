@@ -18,34 +18,15 @@ const FrontendIcon = ({
       x="6"
       y="8"
       width="20"
-      height="14"
-      rx="3"
+      height="16"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <rect
-      x="10"
-      y="20"
-      width="12"
-      height="2"
-      rx="1"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-    />
-    <path
-      d="M13 14L11 16L13 18"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M19 14L21 16L19 18"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <rect x="12" y="16" width="8" height="2" rx="1" fill="#a78bfa" />
+    <circle cx="16" cy="20" r="2" fill="#fff" />
   </svg>
 );
 

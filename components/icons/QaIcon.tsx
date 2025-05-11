@@ -14,20 +14,25 @@ const QaIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <circle cx="15" cy="15" r="7" stroke="#06b6d4" strokeWidth="2.2" />
-    <path
-      d="M20 20L25 25"
+    <rect
+      x="6"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      strokeLinecap="round"
+      strokeWidth="2"
     />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
     <path
-      d="M12.5 15L14.5 17L18 13.5"
-      stroke="#06b6d4"
+      d="M14 16l2 2 4-4"
+      stroke="#a78bfa"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
+    <circle cx="16" cy="20" r="2" fill="#fff" />
   </svg>
 );
 

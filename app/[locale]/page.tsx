@@ -16,9 +16,9 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen-safe w-full flex flex-col bg-[#0a0f1a] safe-area-pt">
+    <div className="min-h-screen-safe w-full flex flex-col safe-area-pt">
       {/* Background gradient overlay */}
-      <div className="fixed inset-0 bg-[#101624] pointer-events-none" />
+      <div className="fixed inset-0 pointer-events-none" />
 
       {/* Main content wrapper */}
       <div className="relative z-10 w-full flex flex-col items-center min-h-screen-safe overflow-x-hidden">

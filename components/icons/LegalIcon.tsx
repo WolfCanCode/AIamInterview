@@ -14,19 +14,25 @@ const LegalIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <path d="M16 8V24" stroke="#06b6d4" strokeWidth="2.2" />
-    <path d="M10 12H22" stroke="#06b6d4" strokeWidth="2.2" />
-    <path
-      d="M12 12C12 14 10 16 10 16C10 16 8 14 8 12"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="2"
     />
+    <rect x="14" y="14" width="4" height="2" rx="1" fill="#a78bfa" />
+    <rect x="12" y="18" width="8" height="2" rx="1" fill="#fff" />
+    <path d="M16 12v2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
     <path
-      d="M24 12C24 14 22 16 22 16C22 16 20 14 20 12"
+      d="M13 16h6"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="1.2"
+      strokeLinecap="round"
     />
-    <circle cx="16" cy="24" r="2" stroke="#06b6d4" strokeWidth="1.5" />
   </svg>
 );
 

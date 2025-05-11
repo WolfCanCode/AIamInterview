@@ -32,7 +32,7 @@ export default function DomainSelector({
           <div key={group.key} className="w-full">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-2xl">
-                <group.icon width={32} height={32} className="text-gray-300" />
+                <group.icon width={56} height={56} className="text-gray-300" />
               </span>
               <span className="text-lg sm:text-xl font-bold text-cyan-300">
                 {t(group.group || group.key)}
@@ -57,7 +57,7 @@ export default function DomainSelector({
                     {/* Ripple effect - simplified for mobile */}
                     <span className="absolute inset-0 pointer-events-none bg-gradient-futuristic rounded-2xl opacity-0 group-active:opacity-100 transition-opacity duration-200"></span>
                     <span className="text-3xl sm:text-5xl mb-2 transition-transform duration-200 text-cyan-200 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)] relative z-10 flex items-center justify-center">
-                      <d.icon width={48} height={48} />
+                      <d.icon width={64} height={64} />
                     </span>
                     <span className="text-base sm:text-lg font-semibold text-cyan-300 group-hover:animate-shimmer max-w-[120px] sm:max-w-full relative z-10 text-center">
                       {t(d.name || d.key)}

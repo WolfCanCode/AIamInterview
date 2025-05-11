@@ -16,33 +16,18 @@ const BlockchainIcon = ({
   >
     <rect
       x="6"
-      y="14"
-      width="8"
-      height="8"
-      rx="2"
+      y="8"
+      width="20"
+      height="16"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <rect
-      x="18"
-      y="10"
-      width="8"
-      height="8"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <rect
-      x="14"
-      y="20"
-      width="8"
-      height="8"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <path d="M14 18L18 14" stroke="#06b6d4" strokeWidth="1.5" />
-    <path d="M18 18L22 22" stroke="#06b6d4" strokeWidth="1.5" />
+    <rect x="10" y="12" width="12" height="8" rx="2" fill="#06b6d4" />
+    <rect x="14" y="16" width="4" height="4" rx="1" fill="#a78bfa" />
+    <rect x="10" y="12" width="4" height="4" rx="1" fill="#fff" />
+    <rect x="18" y="12" width="4" height="4" rx="1" fill="#fff" />
   </svg>
 );
 

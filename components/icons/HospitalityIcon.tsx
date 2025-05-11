@@ -16,24 +16,18 @@ const HospitalityIcon = ({
   >
     <rect
       x="8"
-      y="16"
+      y="10"
       width="16"
-      height="8"
-      rx="3"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <rect
-      x="12"
-      y="12"
-      width="8"
-      height="4"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="1.5"
-    />
-    <path d="M16 8V12" stroke="#06b6d4" strokeWidth="1.5" />
-    <circle cx="16" cy="8" r="1.2" fill="#06b6d4" />
+    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
+    <rect x="14" y="14" width="4" height="2" rx="1" fill="#06b6d4" />
+    <circle cx="16" cy="12" r="1" fill="#fff" />
+    <rect x="14" y="20" width="4" height="2" rx="1" fill="#fff" />
   </svg>
 );
 

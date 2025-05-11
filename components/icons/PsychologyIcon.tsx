@@ -14,20 +14,25 @@ const PsychologyIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <ellipse
-      cx="16"
-      cy="16"
-      rx="8"
-      ry="10"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
+    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
+    <circle cx="16" cy="14" r="2" fill="#fff" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
     <path
-      d="M12 16C12 14 14 12 16 12C18 12 20 14 20 16C20 18 18 20 16 20C14 20 12 18 12 16Z"
+      d="M16 16v2"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="1.2"
+      strokeLinecap="round"
     />
-    <path d="M16 6V26" stroke="#06b6d4" strokeWidth="1.2" />
   </svg>
 );
 

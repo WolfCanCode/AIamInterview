@@ -16,16 +16,18 @@ const ManufacturingIcon = ({
   >
     <rect
       x="8"
-      y="16"
+      y="10"
       width="16"
-      height="8"
-      rx="2"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
+      strokeWidth="2"
     />
-    <path d="M8 20L16 14L24 20" stroke="#06b6d4" strokeWidth="1.5" />
-    <circle cx="12" cy="24" r="1.2" fill="#06b6d4" />
-    <circle cx="20" cy="24" r="1.2" fill="#06b6d4" />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <rect x="12" y="18" width="2" height="2" rx="0.5" fill="#fff" />
+    <rect x="18" y="18" width="2" height="2" rx="0.5" fill="#fff" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
   </svg>
 );
 

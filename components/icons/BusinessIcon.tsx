@@ -15,26 +15,19 @@ const BusinessIcon = ({
     {...props}
   >
     <rect
-      x="8"
-      y="14"
-      width="16"
-      height="10"
-      rx="2"
-      stroke="#06b6d4"
-      strokeWidth="2.2"
-    />
-    <rect
-      x="12"
+      x="6"
       y="10"
-      width="8"
-      height="4"
-      rx="1.5"
+      width="20"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="2"
     />
-    <path d="M12 18V22" stroke="#06b6d4" strokeWidth="1.5" />
-    <path d="M16 16V22" stroke="#06b6d4" strokeWidth="1.5" />
-    <path d="M20 20V22" stroke="#06b6d4" strokeWidth="1.5" />
+    <rect x="10" y="14" width="2" height="4" rx="1" fill="#a78bfa" />
+    <rect x="14" y="12" width="2" height="6" rx="1" fill="#06b6d4" />
+    <rect x="18" y="16" width="2" height="2" rx="1" fill="#fff" />
+    <rect x="12" y="8" width="8" height="4" rx="2" fill="#06b6d4" />
   </svg>
 );
 

@@ -14,14 +14,26 @@ const EngineeringIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <circle cx="16" cy="16" r="7" stroke="#06b6d4" strokeWidth="2.2" />
-    <path
-      d="M16 9V7M16 25V23M23 16H25M7 16H9M20.12 20.12L21.54 21.54M10.46 10.46L11.88 11.88M20.12 11.88L21.54 10.46M10.46 21.54L11.88 20.12"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="1.5"
+      strokeWidth="2"
+    />
+    <circle cx="16" cy="16" r="3" fill="#a78bfa" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
+    <path
+      d="M13 18l2-2 2 2"
+      stroke="#fff"
+      strokeWidth="1.2"
       strokeLinecap="round"
     />
-    <circle cx="16" cy="16" r="2" stroke="#06b6d4" strokeWidth="1.2" />
+    <path d="M16 13v-2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
+    <path d="M16 19v2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 

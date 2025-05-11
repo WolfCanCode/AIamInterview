@@ -14,14 +14,20 @@ const HealthcareIcon = ({
     aria-hidden="true"
     {...props}
   >
-    <path
-      d="M16 26C16 26 6 19 6 13.5C6 10.46 8.46 8 11.5 8C13.24 8 14.91 8.99 16 10.28C17.09 8.99 18.76 8 20.5 8C23.54 8 26 10.46 26 13.5C26 19 16 26 16 26Z"
+    <rect
+      x="8"
+      y="10"
+      width="16"
+      height="12"
+      rx="4"
+      fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2.2"
-      fill="none"
+      strokeWidth="2"
     />
-    <path d="M16 13V17" stroke="#06b6d4" strokeWidth="1.5" />
-    <path d="M14 15H18" stroke="#06b6d4" strokeWidth="1.5" />
+    <rect x="14" y="14" width="4" height="4" rx="1" fill="#a78bfa" />
+    <rect x="16" y="12" width="2" height="8" rx="1" fill="#fff" />
+    <rect x="12" y="16" width="8" height="2" rx="1" fill="#fff" />
+    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
   </svg>
 );
 

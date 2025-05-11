@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const ScienceIcon = ({
+const ProductDesignIcon = ({
   width = 32,
   height = 32,
   ...props
@@ -14,26 +14,25 @@ const ScienceIcon = ({
     aria-hidden="true"
     {...props}
   >
+    <rect x="8" y="12" width="16" height="12" rx="3" fill="#06b6d4" />
     <rect
-      x="8"
-      y="10"
-      width="16"
-      height="12"
-      rx="4"
+      x="12"
+      y="8"
+      width="8"
+      height="6"
+      rx="2"
       fill="#101624"
       stroke="#06b6d4"
-      strokeWidth="2"
+      strokeWidth="1.2"
     />
-    <ellipse cx="16" cy="18" rx="4" ry="2" fill="#a78bfa" />
-    <circle cx="16" cy="14" r="2" fill="#fff" />
     <path
-      d="M14 16h4"
-      stroke="#06b6d4"
+      d="M12 14l4 4 4-4"
+      stroke="#fff"
       strokeWidth="1.2"
       strokeLinecap="round"
     />
-    <rect x="14" y="12" width="4" height="2" rx="1" fill="#06b6d4" />
+    <circle cx="16" cy="22" r="2" fill="#a78bfa" />
   </svg>
 );
 
-export default ScienceIcon;
+export default ProductDesignIcon;
