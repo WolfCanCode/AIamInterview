@@ -142,7 +142,7 @@ export default function DomainSelector({
                       selectedDomain === d.name
                         ? 'ring-2 ring-gray-300/80 scale-105 border-gray-300 shadow-gray-300/40 bg-[#23272e]'
                         : ''
-                    } h-[200px] sm:h-auto flex flex-col justify-center items-center`}
+                    } h-[150px] sm:h-auto flex flex-col justify-center items-center`}
                     aria-pressed={selectedDomain === d.name}
                     tabIndex={0}
                     style={{ touchAction: 'manipulation' }}
