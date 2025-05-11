@@ -39,7 +39,7 @@ export default function Header({
                 width="24"
                 height="14"
                 rx="3"
-                className="fill-blue-800"
+                className="fill-cyan-300"
               />
               <rect
                 x="7"
@@ -47,7 +47,7 @@ export default function Header({
                 width="18"
                 height="8"
                 rx="2"
-                className="fill-gray-900"
+                className="fill-cyan-900"
               />
               <rect
                 x="2"
@@ -55,13 +55,13 @@ export default function Header({
                 width="28"
                 height="3"
                 rx="1.5"
-                className="fill-blue-900"
+                className="fill-cyan-300"
               />
               <circle
                 cx="16"
                 cy="15"
                 r="2"
-                className="fill-blue-400 animate-pulse"
+                className="fill-cyan-300 animate-pulse"
               />
             </svg>
           </span>
