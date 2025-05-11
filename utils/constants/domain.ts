@@ -40,7 +40,7 @@ import GraphicDesignIcon from '@/components/icons/GraphicDesignIcon';
 import ProductDesignIcon from '@/components/icons/ProductDesignIcon';
 import UIDesignIcon from '@/components/icons/UIDesignIcon';
 
-export const domainGroupsNoSorted: DomainGroup[] = [
+export const domainGroups: DomainGroup[] = [
   {
     key: 'technology',
     group: 'domain_group_technology',
@@ -1089,7 +1089,3 @@ export const domainGroupsNoSorted: DomainGroup[] = [
     ],
   },
 ];
-
-export const domainGroups: DomainGroup[] = [...domainGroupsNoSorted].sort(
-  (a, b) => a.key.localeCompare(b.key)
-);

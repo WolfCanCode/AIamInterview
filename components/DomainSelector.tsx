@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Domain, DomainGroup } from '@/utils/types/Domain';
 import BlinkingCursor from './BlinkingCursor';
@@ -14,8 +14,43 @@ export default function DomainSelector({
 }) {
   const t = useTranslations('');
 
+  // Refs for each group section
+  const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Ref for nav bar auto-scroll
+  const navRef = useRef<HTMLUListElement | null>(null);
+  const scrollSpeedRef = useRef(0.7);
+  const directionRef = useRef(1); // 1: right, -1: left
+  const frameRef = useRef<number | null>(null);
+
+  // Animation loop only set up once
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    function animate() {
+      if (!nav) return;
+      const maxScroll = nav.scrollWidth - nav.clientWidth;
+      if (nav.scrollLeft >= maxScroll) directionRef.current = -1;
+      if (nav.scrollLeft <= 0) directionRef.current = 1;
+      nav.scrollLeft += scrollSpeedRef.current * directionRef.current;
+      frameRef.current = requestAnimationFrame(animate);
+    }
+    frameRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+    };
+  }, []); // only run once
+
   const handleDomainClick = (domain: Domain) => {
     handleSelectDomain(domain.name || domain.key);
+  };
+
+  // Scroll to group section
+  const handleGroupNavClick = (idx: number) => {
+    const ref = groupRefs.current[idx];
+    if (ref) {
+      ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -27,9 +62,69 @@ export default function DomainSelector({
       <p className="text-gray-300 text-center mb-6 mt-1 text-xs sm:text-xl">
         {t('explore_domain')}
       </p>
+      {/* Domain Group Navigation Bar */}
+      <nav className="w-full max-w-none sm:max-w-5xl mb-4 overflow-x-auto -mx-4 sm:mx-0">
+        <ul
+          ref={navRef}
+          className="futuristic-nav flex gap-4 justify-center items-center px-2 py-2 rounded-xl shadow-lg relative overflow-x-auto scrollbar-hide"
+        >
+          {domainGroups.map((group, idx) => (
+            <li key={group.key}>
+              <button
+                type="button"
+                className="flex items-center gap-1 px-3 py-1 rounded-lg text-cyan-200 hover:bg-cyan-900/30 focus:bg-cyan-900/40 transition-colors text-sm sm:text-base font-semibold futuristic-nav-btn"
+                onClick={() => handleGroupNavClick(idx)}
+                aria-label={t(group.group || group.key)}
+              >
+                <group.icon
+                  width={28}
+                  height={28}
+                  className="text-cyan-300 drop-shadow-glow"
+                />
+                <span className="whitespace-nowrap">
+                  {t(group.group || group.key)}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <style jsx>{`
+          .futuristic-nav {
+            box-shadow: 0 0 16px 2px #22d3ee44, 0 0 32px 4px #0ff2;
+          }
+          .futuristic-nav-btn {
+            box-shadow: 0 0 8px #22d3ee88, 0 0 2px #818cf8;
+            transition: box-shadow 0.2s, background 0.2s;
+            position: relative;
+            z-index: 1;
+          }
+          .futuristic-nav-btn:hover,
+          .futuristic-nav-btn:focus {
+            box-shadow: 0 0 16px #22d3eecc, 0 0 8px #818cf8, 0 0 0 2px #818cf8;
+            background: linear-gradient(90deg, #0ff4 0%, #818cf8 100%);
+            color: #fff;
+          }
+          .drop-shadow-glow {
+            filter: drop-shadow(0 0 6px #22d3eecc);
+          }
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
+      </nav>
       <div className="flex flex-col gap-8 w-full">
-        {domainGroups.map((group) => (
-          <div key={group.key} className="w-full">
+        {domainGroups.map((group, idx) => (
+          <div
+            key={group.key}
+            className="w-full"
+            ref={(el) => {
+              groupRefs.current[idx] = el;
+            }}
+          >
             <div className="flex items-center gap-2 mb-3">
               <span className="text-2xl">
                 <group.icon width={56} height={56} className="text-gray-300" />
