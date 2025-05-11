@@ -54,7 +54,7 @@ const QuestionCardComponent = ({
       <div className="relative z-10 flex flex-col justify-start">
         {selectedDomain ? (
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1.5 bg-[#23272e] backdrop-blur-md border border-gray-300/30 text-gray-300 rounded-full text-sm font-medium tracking-wider shadow-lg">
+            <span className="px-4 py-1.5 bg-[#23272e] border border-gray-300/30 text-gray-300 rounded-full text-sm font-medium tracking-wider shadow-lg">
               {t(selectedDomain || '')}
             </span>
             <div className="h-[1px] flex-1 bg-cyan-400/30" />

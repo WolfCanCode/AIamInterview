@@ -59,7 +59,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
         disabled={submitted}
         value={answer}
         onChange={(e) => onAnswerChange(idx, e.target.value)}
-        className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 focus:border-blue-500/50`}
+        className={`relative w-full bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 focus:border-blue-500/50`}
         aria-label={t('enter_answer')}
         placeholder={t('type_your_answer')}
       />

@@ -43,7 +43,7 @@ export default function DomainSelector({
                 <div key={d.key} className="relative ">
                   <button
                     onClick={() => handleDomainClick(d)}
-                    className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300/70 bg-gradient-futuristic shadow-lg border-2 border-gray-900 relative overflow-hidden hover:shadow-2xl hover:border-gray-300 backdrop-blur-sm ${
+                    className={`group w-full px-4 py-6 sm:px-6 sm:py-8 rounded-2xl flex flex-col items-center space-y-2 sm:space-y-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300/70 bg-gradient-futuristic shadow-lg border-2 border-gray-900 relative overflow-hidden hover:shadow-2xl hover:border-gray-300 ${
                       selectedDomain === d.name
                         ? 'ring-2 ring-gray-300/80 scale-105 border-gray-300 shadow-gray-300/40 bg-[#23272e]'
                         : ''

@@ -74,7 +74,7 @@ export default function FuturisticButton({
   const c = colorMap[color];
   return (
     <button
-      className={`group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg mt-4 overflow-hidden transition-all duration-300 transform bg-futuristic-bg ${c.bg} border ${c.border} ${c.text} ${c.shadow} backdrop-blur-xl focus:outline-none ${c.ring} hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+      className={`group relative w-full px-8 py-4 rounded-xl font-bold text-lg shadow-lg mt-4 overflow-hidden transition-all duration-300 transform bg-futuristic-bg ${c.bg} border ${c.border} ${c.text} ${c.shadow} focus:outline-none ${c.ring} hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
       {...props}
     >
       <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.1]" />

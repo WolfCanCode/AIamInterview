@@ -24,7 +24,7 @@ export default function DomainBanner({
       {/* Domain Icon */}
       <div className="relative flex flex-col items-center gap-4 sm:gap-6 pt-0 pb-4">
         <div className="relative">
-          <div className="absolute inset-0 animate-pulse-slow blur-xl opacity-50">
+          <div className="absolute inset-0 animate-pulse-slow opacity-50">
             <domain.icon
               width={72}
               height={72}

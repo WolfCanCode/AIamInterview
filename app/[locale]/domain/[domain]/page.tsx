@@ -59,7 +59,7 @@ export default function DomainDetailPage({
                 key={child}
                 type="button"
                 onClick={() => setSelectedChild(child)}
-                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 backdrop-blur bg-gradient-futuristic shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
+                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 bg-gradient-futuristic shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
                   selectedChild === child
                     ? 'scale-105 border-cyan-400 ring-2 ring-cyan-400/60 shadow-cyan-400/20'
                     : ''
@@ -71,7 +71,7 @@ export default function DomainDetailPage({
                   {t(child)}
                 </span>
                 {selectedChild === child && (
-                  <span className="absolute inset-0 pointer-events-none animate-pulse blur-xl opacity-40 bg-gradient-futuristic" />
+                  <span className="absolute inset-0 pointer-events-none animate-pulse opacity-40 bg-gradient-futuristic" />
                 )}
               </button>
             ))}

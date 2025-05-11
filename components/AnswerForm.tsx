@@ -44,7 +44,7 @@ export default function AnswerForm({
           {t('enter_answer')}
         </label>
         <div className="relative group">
-          <div className="absolute inset-1 bg-gradient-futuristic rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
+          <div className="absolute inset-1 bg-gradient-futuristic rounded-2xl opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function AnswerForm({
               disabled={!!evaluation}
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              className={`relative w-full backdrop-blur-xl bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-gray-300/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-gray-300/20 ${
+              className={`relative w-full bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-gray-300/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-gray-300/20 ${
                 answer.length > 1000
                   ? 'border-red-500/50 focus:ring-red-500/50'
                   : 'focus:border-gray-300/50'

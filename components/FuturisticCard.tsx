@@ -83,7 +83,6 @@ export default function FuturisticCard({
     <div
       className={`
         relative rounded-3xl p-6 
-        backdrop-blur-xl 
         ${variants[variant]}
         ${!noBorder ? `border ${theme.border}` : ''} 
         ${!noGlow ? theme.glow : ''} 
@@ -98,7 +97,7 @@ export default function FuturisticCard({
       {...props}
     >
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-[#101624] pointer-events-none animate-pulse blur-2xl opacity-40" />
+      <div className="absolute inset-0 bg-[#101624] pointer-events-none animate-pulse opacity-40" />
 
       {/* Content with proper z-index */}
       <div className="relative z-10">{children}</div>
