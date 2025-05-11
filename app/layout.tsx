@@ -24,14 +24,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'AI am Interview',
+  title: 'Interview Trainer',
   description:
     'Ace your next interview with AI! Practice real-world interview questions, get instant feedback, and boost your skills across all domains—tech, business, healthcare, law, and more.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'AI am Interview',
+    title: 'Interview Trainer',
     startupImage: [
       {
         url: '/icons/splash-screen.png',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'msapplication-TileColor': '#0a0f1a',
     'msapplication-tap-highlight': 'no',
-    'apple-mobile-web-app-title': 'AI am Interview',
+    'apple-mobile-web-app-title': 'Interview Trainer',
   },
 };
 
@@ -62,7 +62,7 @@ export default async function RootLayout({ children, params }: Props) {
   const metaTitle = t('meta_title');
   const metaDescription = t('meta_description');
   const ogLocale = locale === 'vi' ? 'vi_VN' : 'en_US';
-  const baseUrl = 'https://aiminterview.vercel.app';
+  const baseUrl = 'https://interview-ai-trainer.vercel.app';
 
   return (
     <html lang={locale}>
@@ -90,17 +90,20 @@ export default async function RootLayout({ children, params }: Props) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://aiminterview.vercel.app/logo.jpg"
+          content="https://interview-ai-trainer.vercel.app/logo.jpg"
         />
-        <meta property="og:url" content="https://aiminterview.vercel.app" />
+        <meta
+          property="og:url"
+          content="https://interview-ai-trainer.vercel.app"
+        />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="AI am Interview" />
+        <meta name="twitter:title" content="Interview Trainer" />
         <meta
           name="twitter:description"
           content="Ace your next interview with AI! Practice real-world interview questions, get instant feedback, and boost your skills across all domains—tech, business, healthcare, law, and more."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <meta property="og:site_name" content="AI am Interview" />
+        <meta property="og:site_name" content="Interview Trainer" />
         <meta property="og:locale" content="en_US" />
         <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
         {/* iOS Safari notch and bottom bar translucency */}
