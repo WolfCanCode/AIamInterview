@@ -32,6 +32,11 @@ import BankingIcon from '@/components/icons/BankingIcon';
 import InvestmentIcon from '@/components/icons/InvestmentIcon';
 import InsuranceIcon from '@/components/icons/InsuranceIcon';
 import ManagementIcon from '@/components/icons/ManagementIcon';
+import ProductOwnerIcon from '@/components/icons/ProductOwnerIcon';
+import ScrumMasterIcon from '@/components/icons/ScrumMasterIcon';
+import ProjectManagerIcon from '@/components/icons/ProjectManagerIcon';
+import AgileCoachIcon from '@/components/icons/AgileCoachIcon';
+import EngineeringManagerIcon from '@/components/icons/EngineeringManagerIcon';
 
 export const domainGroups: DomainGroup[] = [
   {
@@ -220,7 +225,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'product_owner',
         name: 'domain_product_owner',
-        icon: ManagementIcon,
+        icon: ProductOwnerIcon,
         description: 'domain_product_owner_desc',
         children: [
           'domain_product_owner_child_responsibilities',
@@ -232,7 +237,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'scrum_master',
         name: 'domain_scrum_master',
-        icon: ManagementIcon,
+        icon: ScrumMasterIcon,
         description: 'domain_scrum_master_desc',
         children: [
           'domain_scrum_master_child_responsibilities',
@@ -244,7 +249,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'project_manager',
         name: 'domain_project_manager',
-        icon: ManagementIcon,
+        icon: ProjectManagerIcon,
         description: 'domain_project_manager_desc',
         children: [
           'domain_project_manager_child_planning',
@@ -256,7 +261,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'agile_coach',
         name: 'domain_agile_coach',
-        icon: ManagementIcon,
+        icon: AgileCoachIcon,
         description: 'domain_agile_coach_desc',
         children: [
           'domain_agile_coach_child_transformation',
@@ -268,7 +273,7 @@ export const domainGroups: DomainGroup[] = [
       {
         key: 'engineering_manager',
         name: 'domain_engineering_manager',
-        icon: ManagementIcon,
+        icon: EngineeringManagerIcon,
         description: 'domain_engineering_manager_desc',
         children: [
           'domain_engineering_manager_child_leadership',

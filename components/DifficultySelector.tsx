@@ -67,7 +67,7 @@ export default function DifficultySelector({
 
   return (
     <div className="w-full max-w-5xl mx-auto rounded-3xl p-2 sm:p-8 border border-gray-500/20 bg-[#101624] z-0 transition-opacity duration-500 shadow-md">
-      <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mb-4 text-center">
+      <div className="text-gray-300 text-sm font-medium mb-4 text-center">
         {t('choose_difficulty')}
       </div>
 

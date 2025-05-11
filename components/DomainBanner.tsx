@@ -43,7 +43,7 @@ export default function DomainBanner({
           <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 truncate max-w-[280px] sm:max-w-full mx-auto">
             {t(domain.name || domain.key)}
           </h2>
-          <p className="text-[oklch(85%_0.2_240)] font-medium max-w-lg">
+          <p className="text-gray-300 font-medium max-w-lg">
             {t(domain.description || '')}
           </p>
         </div>

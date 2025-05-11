@@ -50,7 +50,7 @@ export default function DomainDetailPage({
       {/* Child Domain Selector */}
       {hasChildren && (
         <div className="mb-4">
-          <div className="text-[oklch(85%_0.2_240)] text-sm font-medium mt-4 text-center animate-fade-in">
+          <div className="text-gray-300 text-sm font-medium mt-4 text-center animate-fade-in">
             {t('select_subtopic')}
           </div>
           <div className="domain-children-grid animate-fade-in">
