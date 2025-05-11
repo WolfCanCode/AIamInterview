@@ -26,7 +26,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         className="fixed inset-0 z-10 overflow-hidden pointer-events-none"
         style={{
           background:
-            'linear-gradient(135deg, rgba(34,211,238,0.10) 0%, rgba(139,92,246,0.10) 100%)',
+            'linear-gradient(135deg, rgba(34,211,238,0.15) 0%, rgba(139,92,246,0.15) 100%)',
         }}
       />
       {children}
