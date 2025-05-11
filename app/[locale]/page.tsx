@@ -21,7 +21,7 @@ export default function Page() {
       <div className="fixed inset-0 pointer-events-none" />
 
       {/* Main content wrapper */}
-      <div className="relative z-10 w-full flex flex-col items-center min-h-screen-safe overflow-x-hidden">
+      <main className="relative z-10 w-full flex-1 flex flex-col items-center min-h-screen-safe overflow-x-hidden">
         <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
           <div className="relative p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 text-white">
             <Header />
@@ -29,10 +29,10 @@ export default function Page() {
               domainGroups={domainGroups}
               handleSelectDomain={handleSelectDomain}
             />
-            <Footer />
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

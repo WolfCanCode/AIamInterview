@@ -49,7 +49,7 @@ export default function Footer() {
           <LinkedinIcon />
         </a>
       </div>
-      <span className="text-xs text-gray-400 cursor-pointer">
+      <span className="text-xs text-gray-400 cursor-pointer pb-4">
         {t.rich('copyright', {
           year: currentYear,
           fallback: `© ${currentYear} AI am Interview. All rights reserved.`,

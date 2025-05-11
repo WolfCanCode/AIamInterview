@@ -10,10 +10,12 @@ export default function DomainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="container mx-auto p-4 sm:p-6 max-w-3xl sm:max-w-5xl  space-y-6 sm:space-y-8">
-      <Header onClickLogo={() => (window.location.href = '/')} />
-      {children}
-      <Toaster />
+    <div className="min-h-screen-safe flex flex-col w-full">
+      <div className="container mx-auto p-4 sm:p-6 max-w-3xl sm:max-w-5xl  space-y-6 sm:space-y-8 flex-1 flex flex-col">
+        <Header onClickLogo={() => (window.location.href = '/')} />
+        {children}
+        <Toaster />
+      </div>
       <Footer />
     </div>
   );
