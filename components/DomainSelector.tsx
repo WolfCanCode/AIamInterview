@@ -67,6 +67,12 @@ export default function DomainSelector({
         <ul
           ref={navRef}
           className="futuristic-nav flex gap-4 justify-center items-center px-2 py-2 rounded-xl shadow-lg relative overflow-x-auto scrollbar-hide"
+          onMouseEnter={() => {
+            scrollSpeedRef.current = 0.2;
+          }}
+          onMouseLeave={() => {
+            scrollSpeedRef.current = 0.7;
+          }}
         >
           {domainGroups.map((group, idx) => (
             <li key={group.key}>
