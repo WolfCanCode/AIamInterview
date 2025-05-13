@@ -1,0 +1,33 @@
+/* --- Futuristic Selector Skeleton Animations --- */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes glowBorder {
+  0% { box-shadow: 0 0 24px 4px #22d3ee55, 0 0 0 2px #22d3ee33; }
+  100% { box-shadow: 0 0 32px 8px #a78bfa55, 0 0 0 2px #a78bfa33; }
+}
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 8px #22d3ee88); }
+  100% { filter: drop-shadow(0 0 16px #a78bfa88); }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+.animate-shimmer-float {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite, floatY 2s ease-in-out infinite;
+}
+.animate-glow-border {
+  box-shadow: 0 0 24px 4px #22d3ee55, 0 0 0 2px #22d3ee33;
+  animation: glowBorder 2s ease-in-out infinite alternate;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 1.2s infinite alternate;
+} 

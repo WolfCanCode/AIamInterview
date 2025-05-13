@@ -81,12 +81,12 @@ const MockInterviewHeader: React.FC<MockInterviewHeaderProps> = ({
         </div>
       </div>
       <div className="hidden sm:flex flex-col items-center w-full sm:w-auto mt-4 sm:mt-0">
-        <span className="text-base sm:text-lg font-medium text-gray-200 flex items-center gap-2">
+        <div className="flex flex-row *:text-base sm:text-lg font-medium text-gray-200  items-center gap-2">
           <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
-          <span className="whitespace-nowrap">
+          <div className="whitespace-nowrap">
             {t('time_left') || 'Time Left'}
-          </span>
-        </span>
+          </div>
+        </div>
         <span
           className={`font-mono text-2xl sm:text-3xl mt-1 ${
             timeLeft <= 60 ? 'text-red-400' : 'text-cyan-300'

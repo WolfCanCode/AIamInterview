@@ -33,7 +33,9 @@ export default function SplashScreen({ visible }: { visible: boolean }) {
           AI
         </span>
       </div>
-      <span className="text-base text-gray-400">Sharpen your skills</span>
+      <span className="text-base text-gray-400">
+        Sharpen your skills, and ace your next interview
+      </span>
     </div>
   );
 }

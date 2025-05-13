@@ -3,6 +3,7 @@ import QuestionCard from '../QuestionCard';
 import FuturisticCard from '../FuturisticCard';
 import TextareaAutosize from 'react-textarea-autosize';
 import { EvaluationResult } from '@/types/Evaluation';
+import CheckCircleFillIcon from '../icons/CheckCircleFillIcon';
 
 interface MockInterviewQuestionProps {
   question: { title: string; description: string; constraints: string[] };
@@ -26,19 +27,17 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
   t,
 }) => (
   <div className="mb-10">
-    {idx > 0 && (
-      <div className="flex items-center my-10">
-        <div className="flex-1 h-px bg-cyan-400/30" />
-        <span className="mx-4 px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30">
-          {t('question')} {idx + 1}
-        </span>
-        <div className="flex-1 h-px bg-cyan-400/30" />
-      </div>
-    )}
-    {idx === 0 && (
+    {(idx > 0 || idx === 0) && (
       <div className="flex items-center my-10 justify-center">
-        <span className="px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30">
+        <span className="px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30 flex items-center gap-2 transition-all duration-300">
           {t('question')} {idx + 1}
+          {answer?.trim().length > 0 && (
+            <CheckCircleFillIcon
+              className="ml-2 transition-all duration-300"
+              width={22}
+              height={22}
+            />
+          )}
         </span>
       </div>
     )}
@@ -50,6 +49,11 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
         output_format: '',
       }}
       selectedDomain={null}
+      className={
+        answer.trim().length > 0
+          ? 'border-2 border-cyan-400 shadow-[0_0_8px_1px_rgba(34,211,238,0.3)] transition-all duration-300'
+          : 'transition-all duration-300'
+      }
     />
     <div className="mt-6">
       <TextareaAutosize
@@ -59,7 +63,14 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
         disabled={submitted}
         value={answer}
         onChange={(e) => onAnswerChange(idx, e.target.value)}
-        className={`relative w-full bg-white/5 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 focus:ring-blue-500/50 resize-none transition-all duration-300 text-base sm:text-lg shadow-lg focus:shadow-blue-500/20 focus:border-blue-500/50`}
+        className={`relative w-full bg-white/5 dark:bg-gray-900/30 border transition-all duration-300
+          ${
+            answer.trim().length > 0
+              ? 'border-cyan-400 shadow-[0_0_8px_1px_rgba(34,211,238,0.3)] focus:ring-cyan-400/50 focus:border-cyan-400'
+              : 'border-white/20 dark:border-gray-700/30 focus:ring-blue-500/50 focus:border-blue-500/50'
+          }
+          text-gray-100 p-4 pb-16 rounded-xl focus:ring-2 resize-none text-base sm:text-lg shadow-lg focus:shadow-blue-500/20
+        `}
         aria-label={t('enter_answer')}
         placeholder={t('type_your_answer')}
       />

@@ -31,9 +31,11 @@ export const QuestionCardSkeleton = React.memo(function QuestionCardSkeleton() {
 const QuestionCardComponent = ({
   question,
   selectedDomain,
+  className = '',
 }: {
   question: Question;
   selectedDomain: string | null;
+  className?: string;
 }) => {
   const t = useTranslations('');
   // Check for prefers-reduced-motion
@@ -47,7 +49,7 @@ const QuestionCardComponent = ({
 
   return (
     <div
-      className="group relative bg-white/10 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 w-full max-w-5xl mx-auto overflow-hidden"
+      className={`group relative bg-white/10 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700/30 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6 w-full max-w-5xl mx-auto overflow-hidden ${className}`}
       style={reduceMotion ? { transition: 'none' } : {}}
     >
       <div className="absolute inset-0 bg-futuristic-bg bg-gradient-futuristic z-0 mb-0" />

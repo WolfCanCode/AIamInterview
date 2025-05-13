@@ -8,7 +8,6 @@ import MockInterviewConfirm from '@/components/mock-interview/MockInterviewConfi
 import MockInterviewEvaluation from '@/components/mock-interview/MockInterviewEvaluation';
 import MockInterviewFooter from '@/components/mock-interview/MockInterviewFooter';
 import MockInterviewHeader from '@/components/mock-interview/MockInterviewHeader';
-import MockInterviewLoading from '@/components/mock-interview/MockInterviewLoading';
 import MockInterviewQuestion from '@/components/mock-interview/MockInterviewQuestion';
 import { EvaluationResult } from '@/types/Evaluation';
 import { useMockInterviewQuestions } from '@/utils/hooks/useMockInterviewQuestions';
@@ -217,7 +216,7 @@ const MockInterviewPage = () => {
   return (
     <>
       <div className="animate-fade-in">
-        {!confirmed ? (
+        {questions.length === 0 ? (
           <MockInterviewConfirm
             t={t}
             onStart={handleStartInterview}
@@ -228,9 +227,10 @@ const MockInterviewPage = () => {
             numQuestions={numQuestions}
             setNumQuestions={setNumQuestions}
             onBack={handleBack}
+            loading={loading}
           />
         ) : (
-          <div className="w-full max-w-2xl sm:max-w-5xl mx-auto mb-6 relative">
+          <>
             <MockInterviewHeader
               t={t}
               domain={domain}
@@ -240,45 +240,41 @@ const MockInterviewPage = () => {
               showBackButton={true}
               onBack={handleBack}
             />
-          </div>
-        )}
-        {loading ? (
-          <MockInterviewLoading t={t} />
-        ) : (
-          <form onSubmit={handleFormSubmit}>
-            {questions.map((q, idx) => (
-              <MockInterviewQuestion
-                key={idx}
-                question={q}
-                idx={idx}
-                answer={answers[idx]}
-                onAnswerChange={handleAnswerChange}
-                submitted={submitted}
-                evaluation={evaluation}
-                evaluating={evaluating}
-                t={t}
-              />
-            ))}
-            {questions.length > 0 && (
-              <div className="hidden sm:block">
-                <FuturisticButton
-                  type="submit"
-                  color="cyan"
-                  icon={<SendIcon width={20} height={20} />}
-                  disabled={submitted}
-                  className="!mt-0 min-w-[120px]"
-                >
-                  {t('submit_answer')}
-                </FuturisticButton>
-              </div>
-            )}
-          </form>
+            <form onSubmit={handleFormSubmit}>
+              {questions.map((q, idx) => (
+                <MockInterviewQuestion
+                  key={idx}
+                  question={q}
+                  idx={idx}
+                  answer={answers[idx]}
+                  onAnswerChange={handleAnswerChange}
+                  submitted={submitted}
+                  evaluation={evaluation}
+                  evaluating={evaluating}
+                  t={t}
+                />
+              ))}
+              {questions.length > 0 && (
+                <div className="hidden sm:block">
+                  <FuturisticButton
+                    type="submit"
+                    color="cyan"
+                    icon={<SendIcon width={20} height={20} />}
+                    disabled={submitted}
+                    className="!mt-0 min-w-[120px]"
+                  >
+                    {t('submit_answer')}
+                  </FuturisticButton>
+                </div>
+              )}
+            </form>
+          </>
         )}
         {submitted && evaluating && (
           <div className="mt-16 flex flex-col items-center justify-center gap-8 animate-fade-in relative">
             {/* Aurora background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#18223a] opacity-60 animate-pulse-skeleton" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#18223a] blur-3xl opacity-60 animate-pulse-skeleton" />
             </div>
             {/* Glassy card */}
             <div className="relative z-10 w-[340px] sm:w-[400px] rounded-3xl bg-white/10 border border-cyan-400/20 shadow-2xl flex flex-col items-center py-10 px-6">
