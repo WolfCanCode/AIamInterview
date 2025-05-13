@@ -37,6 +37,7 @@ export function useMockInterviewQuestions({
 
   const retakeQuestions = useCallback(
     async (prevQuestions: { description: string }[]) => {
+      setQuestions([]);
       setLoading(true);
       let newQuestions = [];
       let attempts = 0;

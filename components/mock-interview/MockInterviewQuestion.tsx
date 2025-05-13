@@ -31,7 +31,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
       <div className="flex items-center my-10 justify-center">
         <span className="px-4 py-1 rounded-full bg-[#23272e] text-gray-300 font-bold text-lg shadow-lg border border-gray-300/30 flex items-center gap-2 transition-all duration-300">
           {t('question')} {idx + 1}
-          {answer?.trim().length > 0 && (
+          {(answer || '').trim().length > 0 && (
             <CheckCircleFillIcon
               className="ml-2 transition-all duration-300"
               width={22}
@@ -50,7 +50,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
       }}
       selectedDomain={null}
       className={
-        answer.trim().length > 0
+        (answer || '').trim().length > 0
           ? 'border-2 border-cyan-400 shadow-[0_0_8px_1px_rgba(34,211,238,0.3)] transition-all duration-300'
           : 'transition-all duration-300'
       }
@@ -65,7 +65,7 @@ const MockInterviewQuestion: React.FC<MockInterviewQuestionProps> = ({
         onChange={(e) => onAnswerChange(idx, e.target.value)}
         className={`relative w-full bg-white/5 dark:bg-gray-900/30 border transition-all duration-300
           ${
-            answer.trim().length > 0
+            (answer || '').trim().length > 0
               ? 'border-cyan-400 shadow-[0_0_8px_1px_rgba(34,211,238,0.3)] focus:ring-cyan-400/50 focus:border-cyan-400'
               : 'border-white/20 dark:border-gray-700/30 focus:ring-blue-500/50 focus:border-blue-500/50'
           }
