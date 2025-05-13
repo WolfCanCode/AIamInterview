@@ -692,5 +692,8 @@
   "title_level_text": "Result:",
   "new": "New",
   "start_interview": "Start Interview",
-  "retake_interview": "Retake Interview"
+  "retake_interview": "Retake Interview",
+  "number_of_questions": "Number of questions",
+  "5_questions": "5 questions",
+  "10_questions": "10 questions"
 }

@@ -6,11 +6,13 @@ export function useMockInterviewQuestions({
   child,
   difficulty,
   locale,
+  numQuestions = 5,
 }: {
   domain: string | null;
   child: string | null;
   difficulty: string | null;
   locale: string;
+  numQuestions?: number;
 }) {
   const [questions, setQuestions] = useState<
     { title: string; description: string; constraints: string[] }[]
@@ -24,14 +26,14 @@ export function useMockInterviewQuestions({
         domain,
         child,
         difficulty,
-        5,
+        numQuestions,
         locale
       );
       setQuestions(qs);
     } finally {
       setLoading(false);
     }
-  }, [domain, child, difficulty, locale]);
+  }, [domain, child, difficulty, locale, numQuestions]);
 
   const retakeQuestions = useCallback(
     async (prevQuestions: { description: string }[]) => {
@@ -43,7 +45,7 @@ export function useMockInterviewQuestions({
           domain,
           child,
           difficulty,
-          5,
+          numQuestions,
           locale
         );
         const prevDescriptions = prevQuestions
@@ -62,7 +64,7 @@ export function useMockInterviewQuestions({
       setLoading(false);
       return newQuestions;
     },
-    [domain, child, difficulty, locale]
+    [domain, child, difficulty, locale, numQuestions]
   );
 
   return {

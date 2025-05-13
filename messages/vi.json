@@ -631,5 +631,8 @@
   "domain_engineering_manager_child_leadership": "Lãnh đạo",
   "domain_engineering_manager_child_delivery": "Bàn giao dự án",
   "domain_engineering_manager_child_growth": "Phát triển đội ngũ",
-  "domain_engineering_manager_child_process": "Cải tiến quy trình"
+  "domain_engineering_manager_child_process": "Cải tiến quy trình",
+  "number_of_questions": "Số lượng câu hỏi",
+  "5_questions": "5 câu hỏi",
+  "10_questions": "10 câu hỏi"
 }

@@ -17,7 +17,6 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-const TOTAL_TIME = 10 * 60; // 10 minutes in seconds
 
 const AnimatedGradingMessage = React.memo(function AnimatedGradingMessage({
   t,
@@ -45,6 +44,22 @@ const AnimatedGradingMessage = React.memo(function AnimatedGradingMessage({
   );
 });
 
+const getTotalTime = (difficulty: string | null, numQuestions: number) => {
+  // Returns time in seconds
+  const d = (difficulty || '').toLowerCase();
+
+  if (d === 'easy') {
+    return numQuestions === 5 ? 10 * 60 : 20 * 60;
+  } else if (d === 'medium') {
+    return numQuestions === 5 ? 9 * 60 : 18 * 60;
+  } else if (d === 'hard') {
+    return numQuestions === 5 ? 8 * 60 : 15 * 60;
+  } else if (d === 'madness') {
+    return numQuestions === 5 ? 5 * 60 : 10 * 60;
+  }
+  return numQuestions === 5 ? 10 * 60 : 20 * 60;
+};
+
 const MockInterviewPage = () => {
   const t = useTranslations('');
   const router = useRouter();
@@ -55,12 +70,14 @@ const MockInterviewPage = () => {
   const difficulty = searchParams.get('difficulty');
   const locale = useLocale();
 
+  const [numQuestions, setNumQuestions] = useState(5);
   const { questions, loading, fetchQuestions, retakeQuestions } =
     useMockInterviewQuestions({
       domain,
       child,
       difficulty,
       locale,
+      numQuestions,
     });
   const [answers, setAnswers] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -138,8 +155,9 @@ const MockInterviewPage = () => {
 
   const handleAutoSubmit = handleSubmit;
 
+  const totalTime = getTotalTime(difficulty, numQuestions);
   const { timeLeft, setTimeLeft, startTimer } = useMockInterviewTimer({
-    initialTime: TOTAL_TIME,
+    initialTime: totalTime,
     submitted,
     loading,
     questionsLength: questions.length,
@@ -151,13 +169,13 @@ const MockInterviewPage = () => {
     if (!confirmed) return;
     (async () => {
       await fetchQuestions();
-      setAnswers(Array(questions.length).fill(''));
+      setAnswers(Array(numQuestions).fill(''));
       setShowFooter(true);
-      setTimeLeft(TOTAL_TIME);
+      setTimeLeft(totalTime);
       startTimer();
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [confirmed, domain, child, difficulty, locale]);
+  }, [confirmed, domain, child, difficulty, locale, numQuestions, totalTime]);
 
   // Timer logic is now handled by useMockInterviewTimer
 
@@ -170,18 +188,46 @@ const MockInterviewPage = () => {
     });
   };
 
+  // Handler for starting the interview
+  const handleStartInterview = () => setConfirmed(true);
+
+  // Handler for going back
+  const handleBack = () => router.push(`/${locale}/domain/${domain}`);
+
+  // Handler for form submit
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!submitted) handleSubmit();
+  };
+
+  // Handler for retake interview
+  const handleRetakeInterview = async () => {
+    setEvaluation(null);
+    setSubmitted(false);
+    setTimeLeft(totalTime);
+    setShowFooter(false);
+    setAnswers([]);
+    await retakeQuestions(questions);
+    setAnswers(Array(numQuestions).fill(''));
+    setShowFooter(true);
+    setTimeLeft(totalTime);
+    startTimer();
+  };
+
   return (
     <>
       <div className="animate-fade-in">
         {!confirmed ? (
           <MockInterviewConfirm
             t={t}
-            onStart={() => setConfirmed(true)}
+            onStart={handleStartInterview}
             domain={domain}
             child={child}
             difficulty={difficulty}
-            timeLeft={timeLeft}
-            onBack={() => router.push(`/${locale}/domain/${domain}`)}
+            timeLeft={totalTime}
+            numQuestions={numQuestions}
+            setNumQuestions={setNumQuestions}
+            onBack={handleBack}
           />
         ) : (
           <div className="w-full max-w-2xl sm:max-w-5xl mx-auto mb-6 relative">
@@ -192,19 +238,14 @@ const MockInterviewPage = () => {
               difficulty={difficulty}
               timeLeft={timeLeft}
               showBackButton={true}
-              onBack={() => router.push(`/${locale}/domain/${domain}`)}
+              onBack={handleBack}
             />
           </div>
         )}
         {loading ? (
           <MockInterviewLoading t={t} />
         ) : (
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!submitted) handleSubmit();
-            }}
-          >
+          <form onSubmit={handleFormSubmit}>
             {questions.map((q, idx) => (
               <MockInterviewQuestion
                 key={idx}
@@ -268,18 +309,7 @@ const MockInterviewPage = () => {
               color="pink"
               className="mt-4"
               icon={<RedoIcon width={32} height={32} />}
-              onClick={async () => {
-                setEvaluation(null);
-                setSubmitted(false);
-                setTimeLeft(TOTAL_TIME);
-                setShowFooter(false);
-                setAnswers([]);
-                const newQuestions = await retakeQuestions(questions);
-                setAnswers(Array(newQuestions.length).fill(''));
-                setShowFooter(true);
-                setTimeLeft(TOTAL_TIME);
-                startTimer();
-              }}
+              onClick={handleRetakeInterview}
             >
               {t('retake_interview')}
             </FuturisticButton>
@@ -290,12 +320,9 @@ const MockInterviewPage = () => {
         <MockInterviewFooter
           timeLeft={timeLeft}
           submitted={submitted}
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (!submitted) handleSubmit();
-          }}
+          onSubmit={handleFormSubmit}
           t={t}
-          TOTAL_TIME={TOTAL_TIME}
+          TOTAL_TIME={totalTime}
         />
       )}
     </>
