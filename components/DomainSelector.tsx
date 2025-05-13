@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
 import { Domain, DomainGroup } from '@/utils/types/Domain';
+import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
 import BlinkingCursor from './BlinkingCursor';
 
 export default function DomainSelector({
@@ -14,32 +14,7 @@ export default function DomainSelector({
 }) {
   const t = useTranslations('');
 
-  // Refs for each group section
   const groupRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // Ref for nav bar auto-scroll
-  const navRef = useRef<HTMLUListElement | null>(null);
-  const scrollSpeedRef = useRef(0.7);
-  const directionRef = useRef(1); // 1: right, -1: left
-  const frameRef = useRef<number | null>(null);
-
-  // Animation loop only set up once
-  useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
-    function animate() {
-      if (!nav) return;
-      const maxScroll = nav.scrollWidth - nav.clientWidth;
-      if (nav.scrollLeft >= maxScroll) directionRef.current = -1;
-      if (nav.scrollLeft <= 0) directionRef.current = 1;
-      nav.scrollLeft += scrollSpeedRef.current * directionRef.current;
-      frameRef.current = requestAnimationFrame(animate);
-    }
-    frameRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
-    };
-  }, []); // only run once
 
   const handleDomainClick = (domain: Domain) => {
     handleSelectDomain(domain.name || domain.key);
@@ -63,19 +38,10 @@ export default function DomainSelector({
         {t('explore_domain')}
       </p>
       {/* Domain Group Navigation Bar */}
-      <nav className="w-full max-w-none sm:max-w-5xl mb-4 overflow-x-auto -mx-4 sm:mx-0">
-        <ul
-          ref={navRef}
-          className="futuristic-nav flex gap-4 justify-center items-center px-2 py-2 rounded-xl shadow-lg relative overflow-x-auto scrollbar-hide"
-          onMouseEnter={() => {
-            scrollSpeedRef.current = 0.2;
-          }}
-          onMouseLeave={() => {
-            scrollSpeedRef.current = 0.7;
-          }}
-        >
+      <nav className="w-full overflow-x-auto ">
+        <ul className="futuristic-nav flex gap-4 justify-start items-center py-2 rounded-xl shadow-lg relative overflow-x-auto scrollbar-hide">
           {domainGroups.map((group, idx) => (
-            <li key={group.key}>
+            <li key={group.key} className="first:ml-4 last:mr-4">
               <button
                 type="button"
                 className="flex items-center gap-1 px-3 py-1 rounded-lg text-cyan-200 hover:bg-cyan-900/30 focus:bg-cyan-900/40 transition-colors text-sm sm:text-base font-semibold futuristic-nav-btn"
