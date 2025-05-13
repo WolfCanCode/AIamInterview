@@ -38,7 +38,7 @@ export default function DomainSelector({
         {t('explore_domain')}
       </p>
       {/* Domain Group Navigation Bar */}
-      <nav className="w-full overflow-x-auto ">
+      <nav className="w-full overflow-x-auto mt-2 mb-4">
         <ul className="futuristic-nav flex gap-4 justify-start items-center py-2 rounded-xl shadow-lg relative overflow-x-auto scrollbar-hide">
           {domainGroups.map((group, idx) => (
             <li key={group.key} className="first:ml-4 last:mr-4">

@@ -50,7 +50,7 @@ export default function DomainDetailPage({
       {/* Child Domain Selector */}
       {hasChildren && (
         <div className="mb-4">
-          <div className="text-gray-300 text-sm font-medium mt-4 text-center animate-fade-in">
+          <div className="text-gray-300 text-sm font-medium mt-4 text-center animate-fade-in mb-2">
             {t('select_subtopic')}
           </div>
           <div className="domain-children-grid animate-fade-in">
@@ -59,7 +59,7 @@ export default function DomainDetailPage({
                 key={child}
                 type="button"
                 onClick={() => setSelectedChild(child)}
-                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 bg-gradient-futuristic shadow border-cyan-900 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
+                className={`relative w-full rounded-xl font-black px-4 py-3 text-sm transition-all duration-200 overflow-hidden border-2 bg-gradient-futuristic shadow border-gray-700 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-400/80 ${
                   selectedChild === child
                     ? 'scale-105 border-cyan-400 ring-2 ring-cyan-400/60 shadow-cyan-400/20'
                     : ''
@@ -67,12 +67,13 @@ export default function DomainDetailPage({
                 aria-pressed={selectedChild === child}
                 tabIndex={0}
               >
-                <span className="relative text-sm font-inherit text-cyan-300 font-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
+                <span
+                  className={`relative text-sm font-inheritfont-bold drop-shadow-[0_0_6px_rgba(34,211,238,0.7)] ${
+                    selectedChild === child ? 'text-cyan-300' : 'text-gray-300'
+                  }`}
+                >
                   {t(child)}
                 </span>
-                {selectedChild === child && (
-                  <span className="absolute inset-0 pointer-events-none animate-pulse opacity-40 bg-gradient-futuristic" />
-                )}
               </button>
             ))}
           </div>

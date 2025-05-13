@@ -71,7 +71,7 @@ export default function DifficultySelector({
         {t('choose_difficulty')}
       </div>
 
-      <div className="mb-4 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full px-2">
+      <div className="mb-4 grid grid-cols-1 min-[390px]:grid-cols-2 md:grid-cols-4 gap-4 w-full px-2">
         {difficultyConfig.map(({ mode, icon, glowColor }) => (
           <FuturisticCard
             key={mode}
