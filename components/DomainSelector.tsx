@@ -62,7 +62,6 @@ export default function DomainSelector({
         </ul>
         <style jsx>{`
           .futuristic-nav {
-            box-shadow: 0 0 16px 2px #22d3ee44, 0 0 32px 4px #0ff2;
           }
           .futuristic-nav-btn {
             box-shadow: 0 0 8px #22d3ee88, 0 0 2px #818cf8;
